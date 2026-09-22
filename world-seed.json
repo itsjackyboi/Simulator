@@ -1,0 +1,3133 @@
+{
+  "meta": {
+    "title": "The Pintland Isles — Dynamics Simulator",
+    "version": 1,
+    "calendar": {
+      "startYear": 466,
+      "startCycle": 94,
+      "seasons": [
+        "Stormtide",
+        "Goldsun",
+        "Veilfrost"
+      ],
+      "yearsPerCycle": 5
+    },
+    "statNouns": {
+      "political": "political reach",
+      "economic": "economic strength",
+      "cultural": "cultural influence",
+      "religious": "religious authority",
+      "racial": "lineage standing"
+    },
+    "engine": {
+      "rippleDepth": 4,
+      "minEffect": 0.2,
+      "meanReversion": 0.03,
+      "noise": 0.7,
+      "hazardCooldown": 4
+    },
+    "sources": [
+      "THE PINTLAND ISLES — MASTER LORE COMPENDIUM",
+      "HOEGAARDEN HALL OF RECORDS",
+      "Pintland Economy Pitch (as summarized in the build brief)"
+    ]
+  },
+  "groups": [
+    {
+      "id": "liquorKings",
+      "name": "The Liquor Kings",
+      "domains": [
+        "political",
+        "cultural"
+      ],
+      "stats": {
+        "political": 62,
+        "economic": 55,
+        "cultural": 78
+      },
+      "description": "Seamus Bonehardy, Jack Anqoak, Jagerbauhm, Guinnie, Buke and Jameson Pilsner — the Parliament of the Liquor Kings. Heroes of the Cloister Beast, the MAA and Maximilian; also blamed for Thatcher's death, a massacre, an assassination and a mountain of Stewards-era debt. Legitimacy genuinely contested.",
+      "loreSource": "Compendium III (The Liquor Kings); Concepts I–VI",
+      "aliases": {
+        "cultural": "The Liquor Kings (Celebrity & Legend)"
+      },
+      "short": "the Liquor Kings",
+      "code": "KING"
+    },
+    {
+      "id": "aleforgeGov",
+      "name": "Aleforge Mayoral Government",
+      "domains": [
+        "political",
+        "economic"
+      ],
+      "stats": {
+        "political": 58,
+        "economic": 42
+      },
+      "description": "The Bonehardy Administration. Seamus won the mayoral election after Drake's banishment and \"has since done absolutely nothing in his tenure\" — a fact called out by the other Kings — yet the town is calm and mostly supportive. Inherited the crisis-era bond debt; still employs John Rump as treasurer.",
+      "loreSource": "Compendium II (Aleforge — Modern History); Hall of Records (Mayoral Election Speeches)",
+      "aliases": {
+        "economic": "Aleforge Treasury"
+      },
+      "short": "the Bonehardy administration",
+      "code": "ALE"
+    },
+    {
+      "id": "patmos",
+      "name": "Church of Patmos (Providence)",
+      "domains": [
+        "political",
+        "economic",
+        "cultural",
+        "religious"
+      ],
+      "stats": {
+        "political": 80,
+        "economic": 72,
+        "cultural": 70,
+        "religious": 82
+      },
+      "description": "One office, three powers: Cardinal Addy's spire is Providence's government, its market regulator (it decrees what may be crafted or sold) and its church. Tithes flow upward at half of all earnings. Scholars whisper that ClockHeart Tonic binds souls to the church's will.",
+      "loreSource": "Compendium II (Providence); VI (The Church of Patmos)",
+      "fused": true,
+      "aliases": {
+        "political": "Patmos Governance (Cardinal Addy)",
+        "economic": "Providence's Controlled Economy",
+        "cultural": "Patmos Social Order",
+        "religious": "Church of Patmos"
+      },
+      "short": "the Church of Patmos",
+      "code": "PAT"
+    },
+    {
+      "id": "rotoCouncil",
+      "name": "Roto Kaiishi Merchant-Philosophers",
+      "domains": [
+        "political",
+        "economic"
+      ],
+      "stats": {
+        "political": 60,
+        "economic": 80,
+        "cultural": 50
+      },
+      "description": "The floating city Xi Jin Ping founded as a fence for pirate plunder. No sales tax, a flat yearly merchant fee, taboos instead of laws, and a hand-picked chain of merchant-philosopher heirs (Kim Jong Un) meant to stop the biggest players writing the rules.",
+      "loreSource": "Compendium II (Roto Kaiishi)",
+      "aliases": {
+        "economic": "Roto Free-Market Hub"
+      },
+      "short": "Roto",
+      "code": "ROTO"
+    },
+    {
+      "id": "shantyTown",
+      "name": "Shanty Town & the Windsunk Council",
+      "domains": [
+        "political",
+        "cultural"
+      ],
+      "stats": {
+        "political": 46,
+        "economic": 38,
+        "cultural": 68
+      },
+      "description": "Lawless cliff settlement beside Sackbeard's Tavern. The Windsunk Council \"decide who eats, who raids, and who gets tossed off the cliffs.\" Tide Callers, Coral-eyed, the Ashen Oath, and every crew its own little nation. Skeptical of any centralized power — the Kings included.",
+      "loreSource": "Compendium II (Shanty Town; Political Factions; Foreign Relations)",
+      "aliases": {
+        "cultural": "Pirate-Freedom Ethos"
+      },
+      "short": "Shanty Town",
+      "code": "SHN"
+    },
+    {
+      "id": "mama",
+      "name": "MAMA (Prohibitionist Insurgency)",
+      "domains": [
+        "political",
+        "cultural",
+        "religious"
+      ],
+      "stats": {
+        "political": 16,
+        "cultural": 32,
+        "religious": 28
+      },
+      "description": "Heirs of the MAA (massacred by the Kings in a cave). Rose again as Mothers Against Maximilian's Assassination; secretly founded by Susan Plinket (\"JR\"). Plinket is sentenced to be Rollo's girlfriend and the cells are \"rendered inoperable\" — but the ideology that alcohol is moral corruption was never killed.",
+      "loreSource": "Compendium III (The MAA / MAMA; Susan Plinket); Concept V",
+      "fused": true,
+      "aliases": {
+        "cultural": "MAMA / Prohibitionist Current",
+        "religious": "Prohibitionist Moral Current (MAA/MAMA)"
+      },
+      "short": "MAMA",
+      "code": "MAMA"
+    },
+    {
+      "id": "gideon",
+      "name": "Gideon Drake (Exiled)",
+      "domains": [
+        "political"
+      ],
+      "stats": {
+        "political": 22,
+        "economic": 30
+      },
+      "description": "The Bastard Veil. Part-Veilwalker, Sackbeard's first mate and killer, former mayor who actually governed (Barley Road, subsidies, bonds, militia) — and John Cum's murderer, who framed MAMA for it. Banished to unexplored Vodkonia: long-lived, resourceful, desperate.",
+      "loreSource": "Compendium III (Gideon Drake); Concept V; XI (Open Mysteries)",
+      "short": "Gideon Drake",
+      "code": "DRK"
+    },
+    {
+      "id": "aleforgeBrewing",
+      "name": "Aleforge Brewing & Export",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 55,
+        "cultural": 70
+      },
+      "description": "The Gilded Tankard's magic spring, Brewers Lane and Trials tourism — Aleforge is a single-export state and knows it. The Tankard's entire stockpile currently sits under Goldcoral control, sold in secret at Jack's Grog Galley.",
+      "loreSource": "Compendium VI (The Gilded Tankard); II (Aleforge)",
+      "short": "Aleforge brewing",
+      "code": "BRW"
+    },
+    {
+      "id": "goldcoral",
+      "name": "Goldcoral Incorporated",
+      "domains": [
+        "economic",
+        "political"
+      ],
+      "stats": {
+        "economic": 64,
+        "political": 42
+      },
+      "description": "\"Aggressive mercantilism.\" Headquartered in Providence, but every real book is kept in Roto, where nobody asks. Privately owned by Jack Anqoak; seized the Gilded Tankard's stockpile after Wepple gambled the investment away.",
+      "loreSource": "Compendium VI (Goldcoral Incorporated)",
+      "short": "Goldcoral Inc.",
+      "code": "GLD"
+    },
+    {
+      "id": "ducket",
+      "name": "The Ducket (M2 Health)",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 62
+      },
+      "description": "The inter-town trade currency. Total supply is meant to stay flat — there is no legitimate way to mint more — so inflation is an active, named threat. Higher = healthier, stabler conversion rates between the towns' sub-economies.",
+      "loreSource": "Pintland Economy Pitch (per build brief)",
+      "short": "the Ducket",
+      "code": "DKT"
+    },
+    {
+      "id": "bonds",
+      "name": "Aleforge Bond Market",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 36
+      },
+      "description": "Instituted by Drake at low rates, expanded by the Kings during the Stewards crisis \"at increasingly unfavorable interest rates.\" Roto traders are the big holders. Stat = market confidence; low values mean the debt is winning.",
+      "loreSource": "Compendium VI (The Aleforge Bond Market)",
+      "short": "the Aleforge bond market",
+      "code": "BND"
+    },
+    {
+      "id": "cumstead",
+      "name": "The Cumstead Wheat Supply",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 40
+      },
+      "description": "Aleforge's key grain source. Its plenty was the Veilwalker blessing on John Cum; Cum is dead (by Drake's hand), the fields saw blight and green Factory sludge, and John Rump — addict, embezzler — now holds it without the blessing.",
+      "loreSource": "Compendium II (John Cum's Cumstead); Concept V",
+      "short": "the Cumstead",
+      "code": "CUM"
+    },
+    {
+      "id": "sbn",
+      "name": "Southern Bellows Nation (via StormVeil)",
+      "domains": [
+        "economic",
+        "political"
+      ],
+      "stats": {
+        "economic": 24,
+        "political": 20
+      },
+      "description": "The fog-wrapped, agnostic-by-law brewers of the worst IPAs in existence, only now cracking their isolation through illegal Ale Bean routes and a partnership with StormVeil Trading Co. Flagged by both the Aleforge Special Drinkers Unit and the Providence Guard. Nobody knows why they are reaching out.",
+      "loreSource": "Compendium II (The Southern Bellows Nation); VI (Stormveil Trading Co.)",
+      "short": "the Southern Bellows",
+      "code": "SBN"
+    },
+    {
+      "id": "drunkenTrials",
+      "name": "The Drunken Trials",
+      "domains": [
+        "cultural"
+      ],
+      "stats": {
+        "cultural": 80,
+        "economic": 60
+      },
+      "description": "The Isles' most important cultural event: magic ale from the Tankard's spring that never hangs you over but does strange things at volume. Crowns the Liquor Kings. Tourism engine, prestige engine, and — since the MAA raided the first one — a standing target.",
+      "loreSource": "Compendium VI (The Drunken Trials); Concept I",
+      "short": "the Drunken Trials",
+      "code": "TRL"
+    },
+    {
+      "id": "oweBlock",
+      "name": "Owe Block Underground",
+      "domains": [
+        "cultural",
+        "economic"
+      ],
+      "stats": {
+        "cultural": 55,
+        "economic": 36,
+        "political": 40
+      },
+      "description": "The district Providence's disparity built. Crimson Cutters, Seaside Circus, Wagwan's Stank Tank, underground markets, and quiet Veilwalker sympathizers (Sexton Gobbler's shrine). The obligatory tithe was cut to 25% after Gobbler's disgrace.",
+      "loreSource": "Compendium IV (Founding of Owe Block); Concept IV",
+      "aliases": {
+        "cultural": "Owe Block Gang & Underground Culture",
+        "economic": "Owe Block Informal Economy"
+      },
+      "short": "Owe Block",
+      "code": "OWE"
+    },
+    {
+      "id": "veilwalkers",
+      "name": "Veilwalkers of Fenwick",
+      "domains": [
+        "cultural",
+        "religious",
+        "racial"
+      ],
+      "stats": {
+        "cultural": 46,
+        "religious": 56,
+        "racial": 60,
+        "political": 30
+      },
+      "description": "The earth-born. Nature spirits made them from soil to resist the flesh-born; neither nature nor man should conquer the other. They trade in vows, not coin, curse the greedy with famine and disease, and play no politics — \"you can't predict what don't want anything.\"",
+      "loreSource": "Compendium II (Fenwick & the Veilwalkers); VI (Veilwalker Trade & Custom)",
+      "fused": true,
+      "aliases": {
+        "cultural": "Veilwalker Animist Custom",
+        "religious": "Veilwalker Animism",
+        "racial": "Veilwalkers (Earth-born)"
+      },
+      "short": "the Veilwalkers",
+      "code": "VEIL"
+    },
+    {
+      "id": "unknownism",
+      "name": "Unknownism (Baba Paku's Mission)",
+      "domains": [
+        "religious"
+      ],
+      "stats": {
+        "religious": 30,
+        "cultural": 26
+      },
+      "description": "The missionary strand of the unknown-gods faith that walked out of Owe Block with Baba Paku, \"explaining to anyone who will listen the secrets of Providence's main religion.\" Wants its first Owe Block Saint. Funds itself with arms dealing.",
+      "loreSource": "Compendium III (Baba Paku)",
+      "short": "Unknownism",
+      "code": "UNK"
+    },
+    {
+      "id": "faytedruids",
+      "name": "Fayte Druids (Cloister Takeover)",
+      "domains": [
+        "religious"
+      ],
+      "stats": {
+        "religious": 34,
+        "political": 14
+      },
+      "description": "OPEN THREAD. The monks commandeered the Cloister months ago — the Kings' own meeting hall, built over a hole to hell and a beast's prison dimension. Strange chants and lights. Purpose unknown; every link to them is speculative by design.",
+      "loreSource": "Compendium XI (Open Mysteries); II (The Cloister)",
+      "openThread": true,
+      "short": "the Fayte Druids",
+      "code": "FAY"
+    },
+    {
+      "id": "fleshborn",
+      "name": "The Flesh-born (Humans)",
+      "domains": [
+        "racial"
+      ],
+      "stats": {
+        "racial": 70
+      },
+      "description": "Humanity as a lineage bloc: the barbarians whose conquest the earth-born were made to resist, and every town since. The baseline against which every other lineage's standing is measured.",
+      "loreSource": "Compendium II (Fenwick & the Veilwalkers)",
+      "short": "the flesh-born",
+      "code": "FLSH"
+    },
+    {
+      "id": "lineOfJohns",
+      "name": "Halfbreeds — the Line of Johns",
+      "domains": [
+        "racial"
+      ],
+      "stats": {
+        "racial": 30,
+        "political": 36,
+        "economic": 44
+      },
+      "description": "The only known human-Veilwalker line: John Cum (dead), John Rump (treasurer, holds the Cumstead), and plausibly Gideon Drake as distant ancestor. The Lagendale treaty template — fields blessed \"so long as Walker blood remained in that family line\" — is running again, live.",
+      "loreSource": "Compendium III (John Cum; John Rump); IV (The Rotted Soul — The First Treaty)",
+      "aliases": {
+        "political": "Line of Johns (Rump's Treasury Grip)"
+      },
+      "short": "the Line of Johns",
+      "code": "JOHN"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r001",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "political",
+      "type": "support",
+      "strengthMultiplier": 0.45,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Kings now wear the mayor's chain",
+      "explanation": "Bonehardy is a sitting Liquor King and the elected mayor — the Kings are no longer external heroes, their standing is the administration's standing, for better or worse.",
+      "precedent": "Seamus Bonehardy elected mayor after the Stewards of Aleforge",
+      "canon": "canon"
+    },
+    {
+      "id": "r002",
+      "fromId": "aleforgeGov",
+      "fromStat": "political",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Bonehardy's record is every King's record",
+      "explanation": "The entanglement cuts both ways: the administration's do-nothing calm (or any future fiasco) is laid at the whole Parliament's door, as the other Kings found when they publicly called Seamus out.",
+      "precedent": "Bonehardy \"has since done absolutely nothing in his tenure\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r003",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "mama",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Kings crush what they can see",
+      "explanation": "When the Kings are strong they do what they have always done to prohibitionists: find the camp and clear it.",
+      "precedent": "The cave massacre of the MAA; the raid on the MAMA camp beneath the abandoned shrine",
+      "canon": "canon"
+    },
+    {
+      "id": "r004",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "mama",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "latent",
+      "strengthMultiplier": 0.45,
+      "lagTurns": 2,
+      "mode": "pulse",
+      "short": "overreach becomes martyrdom",
+      "explanation": "Past a point, Kingly power stops deterring and starts recruiting. Every massacre left a mourner behind a rock — the MAA's left Maximilian, Maximilian's left MAMA. This is the Wronged Walker template: a grievance nobody bothers to resolve, returning later and larger.",
+      "precedent": "MAA massacre → Maximilian; Maximilian's assassination → MAMA",
+      "canon": "canon",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 72
+      },
+      "sign": 1
+    },
+    {
+      "id": "r005",
+      "fromId": "mama",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "insurgency shakes the castle",
+      "explanation": "MAMA's method is organized revolt timed for low morale, then blaming the Kings — Plinket's standing plan was to rise \"if morale drops below 30% in any sector.\"",
+      "precedent": "Plinket's revolt during the Stewards of Aleforge",
+      "canon": "canon"
+    },
+    {
+      "id": "r006",
+      "fromId": "mama",
+      "fromStat": "political",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Trials become a target again",
+      "explanation": "Prohibitionists have always gone for the festival first; a stronger MAMA means guarded kegs, thinner crowds and nervous tourists.",
+      "precedent": "The MAA raid on Aleforge during the first Drunken Trials",
+      "canon": "canon"
+    },
+    {
+      "id": "r007",
+      "fromId": "mama",
+      "fromStat": "political",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "guerrilla war on the brewhouses",
+      "explanation": "After their raid failed, the MAA waged guerrilla warfare \"against the unsober people of Aleforge\" — brewing is the economy they want dead.",
+      "precedent": "MAA guerrilla campaign after the Drunken Trials",
+      "canon": "canon"
+    },
+    {
+      "id": "r008",
+      "fromId": "mama",
+      "fromStat": "political",
+      "toId": "lineOfJohns",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "\"JR\" suspicion resurfaces",
+      "explanation": "Plinket signed as \"JR\" precisely to shift suspicion onto the treasurer. Any MAMA resurgence drags John Rump's name back through the mud whether or not he did anything (he usually did something).",
+      "precedent": "Plinket's pseudonym \"Jathan Round (JR)\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r009",
+      "fromId": "aleforgeGov",
+      "fromStat": "political",
+      "toId": "mama",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "militia and amnesty hold the line",
+      "explanation": "A confident administration can do both halves of what kept MAMA down: Drake's volunteer militia and the Kings' amnesty deal.",
+      "precedent": "Gideon's Aleforge Militia; the MAMA amnesty deal (Jagerbauhm the lone vote against)",
+      "canon": "canon"
+    },
+    {
+      "id": "r010",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Shanty defines itself against crowns",
+      "explanation": "Pirate freedom is an oppositional identity. The more the Kings look like an empire, the louder the Windsunk Council's \"we end wars\" posture and the more Aleforge youth sneak off to be pirates.",
+      "precedent": "Old Salty on Aleforge: \"fun at parties, dangerous with power\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r011",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "gideon",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "a strong crown keeps an exile exiled",
+      "explanation": "Drake was banished by the Kings' tribunal; his road back runs through their weakness, exactly as his first rise did while they were off celebrating the Cloister Beast.",
+      "precedent": "Drake's election while the Kings \"were nowhere to be seen\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r012",
+      "fromId": "liquorKings",
+      "fromStat": "cultural",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Kings are the Trials' headliners",
+      "explanation": "The Trials crown Liquor Kings; famous Kings make the Trials famous. Their legend is the festival's marketing.",
+      "precedent": "The six-way tie that began the Age of the Six Kings",
+      "canon": "canon"
+    },
+    {
+      "id": "r013",
+      "fromId": "liquorKings",
+      "fromStat": "economic",
+      "toId": "goldcoral",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Jack's purse is a King's purse",
+      "explanation": "Goldcoral is privately owned by a sitting King; the Parliament's fortunes and Goldcoral's ships travel together (Cheeks fled to Providence on one).",
+      "precedent": "Jack founds Goldcoral after the Last Pour; Cheeks' escape on a Goldcoral ship",
+      "canon": "canon"
+    },
+    {
+      "id": "r014",
+      "fromId": "gideon",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.35,
+      "lagTurns": 2,
+      "mode": "pulse",
+      "short": "Drake's old loyalists stir",
+      "explanation": "Drake genuinely governed — the Barley Road, subsidies, the militia — and Aleforge once chose his \"order and stability over the Liquor Kings' chaotic legacy.\" News of him moving takes a season or two to curdle into nostalgia at the castle.",
+      "precedent": "Drake's mayoralty and the Stewards scandal",
+      "canon": "canon"
+    },
+    {
+      "id": "r015",
+      "fromId": "gideon",
+      "fromStat": "political",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "the exile makes the Kings look careless",
+      "explanation": "Every rumour of Drake's scheming reads as the Kings' failure: they let him rise, then let him walk away alive.",
+      "precedent": "Drake banished rather than executed after the Dread Harrow",
+      "canon": "canon"
+    },
+    {
+      "id": "r016",
+      "fromId": "gideon",
+      "fromStat": "political",
+      "toId": "mama",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Drake despises extremists",
+      "explanation": "\"Extremism alienates moderate and decent discourse.\" Drake put down an MAA-inspired riot personally in his first days — then used a fake MAMA note to cover his own murder.",
+      "precedent": "Drake on the front line of the inauguration riot; the staged MAMA note at Cum's body",
+      "canon": "canon"
+    },
+    {
+      "id": "r017",
+      "fromId": "gideon",
+      "fromStat": "political",
+      "toId": "lineOfJohns",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 2,
+      "mode": "pulse",
+      "short": "the Johns' killer (and ancestor?) returns",
+      "explanation": "Drake killed John Cum and is plausibly the Line of Johns' distant ancestor. A stronger Drake is an existential threat to Rump — or a claimant to whatever the blood is worth.",
+      "precedent": "Cum's murder; the Corrupted Ancestry compass",
+      "canon": "canon"
+    },
+    {
+      "id": "r018",
+      "fromId": "gideon",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "Factory-artifact trades through Roto",
+      "explanation": "The scandal that toppled Drake was letters to Roto's leadership about illegal trade in Factory artifacts. Drake with money means Roto's grey market with more stock.",
+      "precedent": "The courier's letters that opened the Stewards of Aleforge",
+      "canon": "canon"
+    },
+    {
+      "id": "r019",
+      "fromId": "aleforgeGov",
+      "fromStat": "political",
+      "toId": "gideon",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "a steady Aleforge leaves no vacuum",
+      "explanation": "Drake's pitch has always been \"the Kings aren't here.\" A functioning mayoralty takes the pitch away.",
+      "precedent": "Drake's original rise amid Thatcher's death and the Kings' absence",
+      "canon": "canon"
+    },
+    {
+      "id": "r020",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Cardinal's voice is the law",
+      "explanation": "In Providence religious authority *is* government: \"his will the law of the land.\" Devotion converts straight into political control with no parliament in between.",
+      "precedent": "Cardinal Addy commands from Patmos's spire",
+      "canon": "canon"
+    },
+    {
+      "id": "r021",
+      "fromId": "patmos",
+      "fromStat": "political",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the church decrees what may be sold",
+      "explanation": "The spire controls what may legally be crafted or sold; more control means more of the economy routed through Friars' market judgments and Sexton tithe-carts.",
+      "precedent": "Friars judging the markets on Beastwatch",
+      "canon": "canon"
+    },
+    {
+      "id": "r022",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "religious",
+      "domain": "economic→religious",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "tithe gold funds the cryptic agenda",
+      "explanation": "Half of all earnings flow into the church's coffers, \"fueling a cryptic agenda\" — tonic research, Kalifart towers, the red-earth bell. Money becomes ritual a season later.",
+      "precedent": "The 50% tithe; the Kalifarts' search for a tonic to raise the dead",
+      "canon": "canon"
+    },
+    {
+      "id": "r023",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "patmos",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "latent",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the tonic binds (hidden variable)",
+      "explanation": "Whispered, unconfirmed: ClockHeart Tonic binds souls to Patmos's will. Past a threshold of devotion, social order stops being chosen and starts being dosed — the night-time revelry is the mask slipping.",
+      "precedent": "Scholars' rumours that the tonic binds souls; Providence's dual day/night nature",
+      "canon": "rumour",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 76
+      },
+      "sign": 1
+    },
+    {
+      "id": "r024",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "oweBlock",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.45,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tithe pressure feeds the underground",
+      "explanation": "Owe Block was founded out of Providence's religious and economic disparity. Tighten the tithe and the underclass district's informal economy expands to compensate; loosen it and money comes back above ground.",
+      "precedent": "Founding of Owe Block; the tithe cut to 25% after Gobbler's disgrace",
+      "canon": "canon"
+    },
+    {
+      "id": "r025",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "oweBlock",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "the squeezed join the gangs",
+      "explanation": "Extraction takes a season to become recruitment — the Crimson Cutters and Seaside Circus fill their ranks from the tithe-broke.",
+      "precedent": "A Walk on Owe Block: the gang wars",
+      "canon": "canon"
+    },
+    {
+      "id": "r026",
+      "fromId": "patmos",
+      "fromStat": "political",
+      "toId": "oweBlock",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Friars clamp down on the district",
+      "explanation": "Where the spire can enforce, underground culture goes quiet; when its grip slips, the Stank Tank gets loud.",
+      "precedent": "Gobbler's purchased law enforcement hunting the Kings",
+      "canon": "canon"
+    },
+    {
+      "id": "r027",
+      "fromId": "patmos",
+      "fromStat": "cultural",
+      "toId": "oweBlock",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "order and the underground are zero-sum",
+      "explanation": "Patmos social order and Owe Block culture are defined against each other — the district exists because the order has no room for it.",
+      "precedent": "Founding of Owe Block",
+      "canon": "canon"
+    },
+    {
+      "id": "r028",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "brewing tools out, red-earth mineral in",
+      "explanation": "Roto is Providence's chief trade partner: brewing gear and rare tonic out, silks, spices and the red-earth mineral for the prayer bell in.",
+      "precedent": "Providence Foreign Relations: Roto Kaishi",
+      "canon": "canon"
+    },
+    {
+      "id": "r029",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "goldcoral",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Providence investors ask no questions",
+      "explanation": "Goldcoral is headquartered in Providence and sells its profits to Providence's wealthy, who \"only see what they want to see.\"",
+      "precedent": "Goldcoral Incorporated",
+      "canon": "canon"
+    },
+    {
+      "id": "r030",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Aleforge bristles at theocracy",
+      "explanation": "Aleforge tried a Patmos mayor once. Bronco Chestnut was \"deeply unpopular and quickly voted out of office.\" Patmos zeal abroad reads as a threat at home.",
+      "precedent": "Bronco Chestnut's mayoralty (the Long Thirst)",
+      "canon": "canon"
+    },
+    {
+      "id": "r031",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "veilwalkers",
+      "toStat": "religious",
+      "domain": "religious",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Hollow Tongues vigilance",
+      "explanation": "After Gobbler's hidden Veilwalker shrine, Addy \"turned the scandal into doctrine.\" Orthodox strength means hunted shrines and Veil sympathizers keeping their heads down.",
+      "precedent": "Sexton Gobbler's apostasy; the Day of Hollow Tongues",
+      "canon": "canon"
+    },
+    {
+      "id": "r032",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "unknownism",
+      "toStat": "religious",
+      "domain": "religious",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "orthodoxy squeezes the missionary",
+      "explanation": "Baba Paku preaches the church's \"secrets\" to anyone who will listen; a vigilant spire does not appreciate its secrets being street-preached by an arms dealer.",
+      "precedent": "Baba Paku; the Day of Hollow Tongues",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r033",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "mama",
+      "toStat": "religious",
+      "domain": "religious",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "sobriety sermons give prohibition cover",
+      "explanation": "Patmos publicly preaches \"order, sobriety, devotion.\" The prohibitionist current borrows that moral vocabulary — hypocrisy about the tonic notwithstanding.",
+      "precedent": "Patmos public doctrine; Bronco Chestnut's theocratic push in Aleforge",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r034",
+      "fromId": "patmos",
+      "fromStat": "cultural",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Providence sneers at \"pagan revelry\"",
+      "explanation": "Providence views the Trials as pagan excess and hosts its own solemn rites; a culturally ascendant Patmos draws pilgrims and prestige away from the festival.",
+      "precedent": "Providence Foreign Relations: Aleforge",
+      "canon": "canon"
+    },
+    {
+      "id": "r035",
+      "fromId": "patmos",
+      "fromStat": "political",
+      "toId": "lineOfJohns",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "bootleg tonic gets dearer",
+      "explanation": "Rump's addiction runs on bootleg ClockHeart, still illegal in Providence where it is made. A tighter spire squeezes supply, and a squeezed addict with the treasury keys does something desperate.",
+      "precedent": "Rump blackmails Bonehardy into legalizing bootleg tonic",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r036",
+      "fromId": "patmos",
+      "fromStat": "religious",
+      "toId": "shantyTown",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "latent",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "\"next on the list\"",
+      "explanation": "A Patmos past its usual zeal hardens the Windsunk Council — Shanty remembers Providence as \"a driftwood sermon by some tonic-made monk\" and talks openly about cracking its lake port.",
+      "precedent": "Jasper \"no Eyes, all-Hands\": \"We call them next on the list.\"",
+      "canon": "canon",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 85
+      },
+      "sign": 1
+    },
+    {
+      "id": "r037",
+      "fromId": "oweBlock",
+      "fromStat": "political",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "gang power hollows Church order",
+      "explanation": "Owe Block's gangs, bought police and hidden shrines are how Patmos control fails in practice.",
+      "precedent": "Gobbler's corruption; the Crimson Cutters and Seaside Circus",
+      "canon": "canon"
+    },
+    {
+      "id": "r038",
+      "fromId": "oweBlock",
+      "fromStat": "political",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "emigrants crowd Aleforge's thin wheat",
+      "explanation": "Unrest in Owe Block sends people to Aleforge looking for work outside Church control; they arrive as farmhands and mouths on a Cumstead already producing without its blessing.",
+      "precedent": "Emergency Providence wheat deals during the blight; Guinnie's \"blight blues\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r039",
+      "fromId": "oweBlock",
+      "fromStat": "cultural",
+      "toId": "veilwalkers",
+      "toStat": "religious",
+      "domain": "cultural→religious",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "secret shrines under the church",
+      "explanation": "Owe Block hides real Veilwalker sympathy — an obsidian-and-amethyst shrine behind a stone button in the Church of the Monk. When the district is culturally loud, the shrines get visitors.",
+      "precedent": "The Veilwalker shrine found in A Walk on Owe Block",
+      "canon": "canon"
+    },
+    {
+      "id": "r040",
+      "fromId": "oweBlock",
+      "fromStat": "cultural",
+      "toId": "unknownism",
+      "toStat": "religious",
+      "domain": "cultural→religious",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the district wants its first Saint",
+      "explanation": "Unknownism is Owe Block's export; Baba Paku's ambition to be the first Owe Block Saint rides on the district's pride.",
+      "precedent": "Baba Paku",
+      "canon": "canon"
+    },
+    {
+      "id": "r041",
+      "fromId": "unknownism",
+      "fromStat": "religious",
+      "toId": "oweBlock",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "missionary guns reach the gangs",
+      "explanation": "Baba Paku funds the mission with arms dealing. A booming mission is a booming gun trade.",
+      "precedent": "Baba Paku's \"shady businesses such as arms dealing\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r042",
+      "fromId": "unknownism",
+      "fromStat": "religious",
+      "toId": "patmos",
+      "toStat": "religious",
+      "domain": "religious",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "heterodoxy leaks the church's secrets",
+      "explanation": "Every convert Baba Paku makes on a street corner is one who heard the church's secrets from an Owe Block arms dealer instead of from the spire.",
+      "precedent": "Baba Paku",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r043",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "rotoCouncil",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the detente tilts",
+      "explanation": "\"They don't regulate us, we don't raid them.\" A stronger Windsunk Council leans on that balance.",
+      "precedent": "Shanty Town on Roto: \"a delicate, grizzled detente\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r044",
+      "fromId": "rotoCouncil",
+      "fromStat": "political",
+      "toId": "shantyTown",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto's elite want the reefs \"cleaned up\"",
+      "explanation": "Roto's merchant-lords have floated cleaning up the pirate factions on the outer reefs; a centralized Roto is the Council's nightmare.",
+      "precedent": "Shanty Town on Roto: Current Tensions",
+      "canon": "canon"
+    },
+    {
+      "id": "r045",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "shantyTown",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "pirates skip the cliffs for Roto",
+      "explanation": "Easy Roto profits pull Shanty-born pirates straight past the cliffs, thinning the Council's crews.",
+      "precedent": "Shanty Town on Roto: pirates \"chasing easier profits and softer landings\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r046",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the fence needs plunder",
+      "explanation": "Roto was built as the pirates' one reliable fence; a booming market pays better for what Shanty crews bring in.",
+      "precedent": "Xi Jin Ping's floating shop",
+      "canon": "canon"
+    },
+    {
+      "id": "r047",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "\"raid a shipment, to remind 'em\"",
+      "explanation": "The Windsunk Council has murmured about hitting an Aleforge keg shipment \"just to remind 'em who the sea belongs to.\"",
+      "precedent": "Old Salty on Aleforge: Current Tensions",
+      "canon": "canon"
+    },
+    {
+      "id": "r048",
+      "fromId": "shantyTown",
+      "fromStat": "cultural",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "pirates fill the stands",
+      "explanation": "Shanty's drinking culture is half the Trials' audience and a steady supply of competitors; Aleforge's young \"sneak off to become pirates\" and come back for the festival.",
+      "precedent": "Old Salty on Aleforge",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r049",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the treasury is ale",
+      "explanation": "Aleforge is a single-export state — the risk Drake tried to diversify away from with the Thatcher Scholarship. Brewing receipts are the tax base.",
+      "precedent": "Drake's Brewers Tax and Thatcher Memorial Scholarship",
+      "canon": "canon"
+    },
+    {
+      "id": "r050",
+      "fromId": "aleforgeGov",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "grants reach the brewhouses",
+      "explanation": "A flush treasury funds the brewers — the Gilded Tankard Grant, the Kings' guilds, local barrel manufacture.",
+      "precedent": "Gilded Tankard Grant; Stewards-era guilds and barrel localization",
+      "canon": "canon"
+    },
+    {
+      "id": "r051",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "economic",
+      "toId": "drunkenTrials",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "more ale, bigger Trials",
+      "explanation": "The festival runs on Tankard output; a strong brewing sector pays for bigger games.",
+      "precedent": "Drunken Trials Revival Fund",
+      "canon": "canon"
+    },
+    {
+      "id": "r052",
+      "fromId": "drunkenTrials",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tourist coin in the coffers",
+      "explanation": "Trials tourism is Aleforge's second export; festival crowds pay tolls, docking fees and luxury tax.",
+      "precedent": "Drake's Revival Fund goal: \"attract tourism during the games\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r053",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "prestige sells kegs",
+      "explanation": "Aleforge's kegs \"showin' up in towns far west\" is the Trials' fame converted into orders.",
+      "precedent": "Old Salty: \"their festival's drawn more visitors than a sea-witch's curse\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r054",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.35,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Trials are the Kings' mandate",
+      "explanation": "The Kings' only formal legitimacy is having won the Trials. A revered festival is a revered crown.",
+      "precedent": "Thatcher Sr. reinstating the annual Trials; the six-way tie",
+      "canon": "canon"
+    },
+    {
+      "id": "r055",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "mama",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "every Trials is a recruiting poster",
+      "explanation": "The prohibitionists were born opposing \"the culture of drinking that the Drunken Trials perpetuated\"; the bigger the party, the better the sermon against it.",
+      "precedent": "MAA founding; Maximilian's \"20th anniversary\" trap",
+      "canon": "canon"
+    },
+    {
+      "id": "r056",
+      "fromId": "goldcoral",
+      "fromStat": "political",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.45,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "real ale trade diverted to Roto books",
+      "explanation": "Goldcoral routes real profit through Roto specifically to dodge scrutiny. As Jack's leverage grows, more of Aleforge's actual ale trade flows through Goldcoral's books rather than the town's brewers and treasury.",
+      "precedent": "Jack seizes the Gilded Tankard's stockpile after Wepple's gambling losses",
+      "canon": "canon"
+    },
+    {
+      "id": "r057",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "profits that never touch the treasury",
+      "explanation": "Goldcoral \"brings a lot of profits in but not much transparency\" — the Wepple Ale sold at the Grog Galley pays no Aleforge brewers tax.",
+      "precedent": "Wepple Ale sold in secret at Jack's Grog Galley",
+      "canon": "canon"
+    },
+    {
+      "id": "r058",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.35,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the original books live in Roto",
+      "explanation": "All of Goldcoral's trade and its true ledgers run through Roto's low-regulation markets.",
+      "precedent": "Goldcoral Incorporated",
+      "canon": "canon"
+    },
+    {
+      "id": "r059",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "goldcoral",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the robber baron buys a voice",
+      "explanation": "Money becomes leverage: Bonehardy's campaign warned Jack would \"leverage his position… to get better deals for his trade company.\"",
+      "precedent": "Bonehardy's election remarks on Jack Anqoak",
+      "canon": "canon"
+    },
+    {
+      "id": "r060",
+      "fromId": "goldcoral",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Jack campaigns against the debt",
+      "explanation": "Jack ran for mayor on the Kings' \"ungodly amounts of debt\" and Rump's embezzlement; Goldcoral's political weight is opposition weight.",
+      "precedent": "Jack Anqoak's mayoral election speech",
+      "canon": "canon"
+    },
+    {
+      "id": "r061",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "veilwalkers",
+      "toStat": "racial",
+      "domain": "economic→racial",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 2,
+      "mode": "pulse",
+      "short": "taking too much from the earth",
+      "explanation": "Aggressive mercantilism strips herbs, game and spirit-marked stones; those who \"take too much from the earth\" are haunted by famine and disease. The Veil's standing erodes first, the curse follows.",
+      "precedent": "Young pirates plundering Fenwick lands; the Veilwalker curse",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r062",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.12,
+      "lagTurns": 2,
+      "mode": "pulse",
+      "short": "grey books bend the rates",
+      "explanation": "Opaque profits and secret stockpile sales mean trade no town can see or price; conversion rates drift.",
+      "precedent": "Goldcoral's Roto-kept books",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r063",
+      "fromId": "aleforgeGov",
+      "fromStat": "economic",
+      "toId": "bonds",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.35,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "a healthy treasury reassures holders",
+      "explanation": "Bond confidence tracks whether the treasury can service Stewards-era debt.",
+      "precedent": "The Aleforge Bond Market",
+      "canon": "canon"
+    },
+    {
+      "id": "r064",
+      "fromId": "aleforgeGov",
+      "fromStat": "political",
+      "toId": "bonds",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "stability lowers the rate",
+      "explanation": "The Kings issued later rounds \"at increasingly unfavorable interest rates\" precisely because the crisis looked unstable.",
+      "precedent": "Stewards of Aleforge bond rounds",
+      "canon": "canon"
+    },
+    {
+      "id": "r065",
+      "fromId": "bonds",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto holds the paper",
+      "explanation": "Roto traders were \"especially happy to buy these bonds.\" An Aleforge debt scare is a hole in Roto's books.",
+      "precedent": "Drake's bond issue; Roto's enthusiastic buying",
+      "canon": "canon"
+    },
+    {
+      "id": "r066",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "bonds",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto's appetite for paper",
+      "explanation": "When Roto is flush, it buys Aleforge debt; when it isn't, nobody else will.",
+      "precedent": "The Aleforge Bond Market",
+      "canon": "canon"
+    },
+    {
+      "id": "r067",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "stable Duckets, stable ledgers",
+      "explanation": "Every town converts its sub-economy to Duckets for inter-town trade; a shaky Ducket makes Aleforge's export receipts worth less.",
+      "precedent": "Economy Pitch: towns convert at story-driven rates",
+      "canon": "canon"
+    },
+    {
+      "id": "r068",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto clears in Duckets",
+      "explanation": "Roto is where Duckets change hands most; its margins live on stable rates.",
+      "precedent": "Economy Pitch; Roto Kaiishi",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r069",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tithes are counted in Duckets",
+      "explanation": "Half of all Providence earnings convert into church coffers; a debased Ducket is a debased tithe.",
+      "precedent": "The 50% tithe",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r070",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "liquidity anchors the rate",
+      "explanation": "Healthy Roto markets keep enough honest trade moving to hold the Ducket's value steady.",
+      "precedent": "Roto as the Isles' trading hub",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r071",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "cheap Roto grog floods in",
+      "explanation": "Roto traders once \"flooded the market with cheap and disgusting grog\"; Drake restricted grog imports to protect Aleforge's key export.",
+      "precedent": "Drake's Roto Free Trade Deal and grog restrictions",
+      "canon": "canon"
+    },
+    {
+      "id": "r072",
+      "fromId": "sbn",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "smuggled IPAs undercut Aleforge",
+      "explanation": "Ale Beans and finished IPAs are coming north on illegal routes; disgusting or not, they compete for tankards — the Roto grog flood all over again.",
+      "precedent": "SBN illegal trade routes; StormVeil partnership",
+      "canon": "canon"
+    },
+    {
+      "id": "r073",
+      "fromId": "sbn",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "unaccounted goods, unaccounted coin",
+      "explanation": "The Ducket supply is meant to be flat. Smuggled trade with a nation outside every town's ledgers moves value nobody can see, and the rates drift a season later.",
+      "precedent": "SBN smuggling; the Economy Pitch's flat-M2 rule",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r074",
+      "fromId": "sbn",
+      "fromStat": "political",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "an agnostic-by-law neighbour",
+      "explanation": "The Providence Guard has flagged the SBN — a state where \"agnosticism is law\" is doctrinal irritation for a theocracy.",
+      "precedent": "SBN flagged by the Providence Guard",
+      "canon": "canon"
+    },
+    {
+      "id": "r075",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "dependent",
+      "strengthMultiplier": 0.55,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "no wheat, no ale",
+      "explanation": "The Cumstead is Aleforge's key grain source; when it falters, brewing falls with it (and a good harvest helps less than a bad one hurts).",
+      "precedent": "Cum's grieving year: \"a poor year's harvest\" and ale production down",
+      "canon": "canon"
+    },
+    {
+      "id": "r076",
+      "fromId": "lineOfJohns",
+      "fromStat": "racial",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "racial→economic",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "the blessing follows the blood",
+      "explanation": "The Lagendale treaty template: the Veil blesses fields \"so long as a human with Walker blood remained in that family line.\" The Cumstead's yield tracks how honoured that blood is — with a season's lag, like any harvest.",
+      "precedent": "The First Treaty; John Cum's blessing",
+      "canon": "canon"
+    },
+    {
+      "id": "r077",
+      "fromId": "veilwalkers",
+      "fromStat": "racial",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "racial→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "the Veil tends the soil",
+      "explanation": "The blessing is the Veil's to give. Earth-born in good standing still tend the land that pleases them; diminished, they withdraw.",
+      "precedent": "John Cum \"spent years learning from the Veilwalkers\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r078",
+      "fromId": "aleforgeGov",
+      "fromStat": "economic",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "subsidies reach the fields",
+      "explanation": "Every mayor since Drake has promised the farmers money — Drake's wheat subsidies, Bonehardy's grain subsidies, Buke's A.L.E.",
+      "precedent": "Barley and Wheat Subsidies; election speeches",
+      "canon": "canon"
+    },
+    {
+      "id": "r079",
+      "fromId": "lineOfJohns",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the treasurer embezzles",
+      "explanation": "John Rump is still Aleforge's treasurer, still addicted, still embezzling. The more secure his position, the more the ledger bleeds.",
+      "precedent": "Mr. BBL's findings: Rump's confirmed embezzlement",
+      "canon": "canon"
+    },
+    {
+      "id": "r080",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "bread prices move the rate",
+      "explanation": "Wheat is the Isles' staple input; failed harvests mean emergency imports paid out in Duckets.",
+      "precedent": "Emergency Providence wheat deals during the blight",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r081",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Providence sells the emergency wheat",
+      "explanation": "When the blight struck, Aleforge bought wheat from Providence. The Cumstead's loss is the spire's sale.",
+      "precedent": "Stewards of Aleforge: emergency Providence wheat deals",
+      "canon": "canon"
+    },
+    {
+      "id": "r082",
+      "fromId": "fleshborn",
+      "fromStat": "racial",
+      "toId": "veilwalkers",
+      "toStat": "racial",
+      "domain": "racial",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "conquest presses the earth-born",
+      "explanation": "The Veil was made to resist flesh-born conquest; flesh-born ascendancy is, by definition, the earth-born losing ground. Guinnie's \"Veilwalker manifest destiny\" vote is this edge in miniature.",
+      "precedent": "The birth of the Veilwalkers; Guinnie's manifest-destiny vote",
+      "canon": "canon"
+    },
+    {
+      "id": "r083",
+      "fromId": "veilwalkers",
+      "fromStat": "racial",
+      "toId": "fleshborn",
+      "toStat": "racial",
+      "domain": "racial",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the earth takes back its due",
+      "explanation": "Offend the Veil and \"they'd just let the earth take us back\" — famine and disease on those who take too much.",
+      "precedent": "Shanty Town on Fenwick",
+      "canon": "canon"
+    },
+    {
+      "id": "r084",
+      "fromId": "fleshborn",
+      "fromStat": "racial",
+      "toId": "lineOfJohns",
+      "toStat": "racial",
+      "domain": "racial",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "halfbreeds have no precedent",
+      "explanation": "The Wronged Walker was dismissed because his case \"crossed racial lines\" and \"made everyone uncomfortable.\" A flesh-born order sure of itself has little room for the half-blood.",
+      "precedent": "The Wronged Walker's dismissal",
+      "canon": "canon"
+    },
+    {
+      "id": "r085",
+      "fromId": "veilwalkers",
+      "fromStat": "racial",
+      "toId": "lineOfJohns",
+      "toStat": "racial",
+      "domain": "racial",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Veil acknowledges the blood",
+      "explanation": "The treaty made the halfbreed line the Veil's concern; earth-born standing lends the Johns theirs.",
+      "precedent": "The First Treaty",
+      "canon": "canon"
+    },
+    {
+      "id": "r086",
+      "fromId": "veilwalkers",
+      "fromStat": "religious",
+      "toId": "veilwalkers",
+      "toStat": "racial",
+      "domain": "religious→racial",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "custom is what keeps the Walkers whole",
+      "explanation": "The Elders' law — the Vow of Mate, the refusal to spill Walker blood — is the Veil's cohesion. Strong custom, strong people.",
+      "precedent": "The Vow of Mate; Veilwalker law",
+      "canon": "canon"
+    },
+    {
+      "id": "r087",
+      "fromId": "veilwalkers",
+      "fromStat": "cultural",
+      "toId": "veilwalkers",
+      "toStat": "religious",
+      "domain": "cultural→religious",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "vows are the Veil's economy",
+      "explanation": "Veilwalker trade *is* religion: fishing gear for a promise to plant a flower. When the custom spreads, the faith deepens.",
+      "precedent": "Veilwalker Trade & Custom",
+      "canon": "canon"
+    },
+    {
+      "id": "r088",
+      "fromId": "veilwalkers",
+      "fromStat": "religious",
+      "toId": "patmos",
+      "toStat": "religious",
+      "domain": "religious",
+      "type": "oppose",
+      "strengthMultiplier": 0.12,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Veil sympathy inside the church",
+      "explanation": "Gobbler was a Sexton. Veil devotion recruits from inside the spire's own ranks.",
+      "precedent": "Sexton Gobbler's apostasy",
+      "canon": "canon"
+    },
+    {
+      "id": "r089",
+      "fromId": "veilwalkers",
+      "fromStat": "racial",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "racial→economic",
+      "type": "support",
+      "strengthMultiplier": 0.12,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the accord: wind when all winds fail",
+      "explanation": "Pirates who keep the unspoken accord get healed, guided, and \"sometimes gift[ed] with wind.\" A respected Veil is a luckier fleet.",
+      "precedent": "Shanty Town on Fenwick: Political Balance",
+      "canon": "canon"
+    },
+    {
+      "id": "r090",
+      "fromId": "faytedruids",
+      "fromStat": "religious",
+      "toId": "faytedruids",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "chants become occupation",
+      "explanation": "However the Druids' rites work, they are working from inside the Kings' seat. Devotion there is possession.",
+      "precedent": "Fayte Druids commandeer the Cloister",
+      "canon": "open-thread"
+    },
+    {
+      "id": "r091",
+      "fromId": "faytedruids",
+      "fromStat": "political",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Kings' hall is not theirs",
+      "explanation": "The Kings use the Cloister as their meeting hall and leave decisions to its magic lights. Someone else holding it is a humiliation and a lost instrument of power.",
+      "precedent": "The Cloister: the Kings' meeting hall",
+      "canon": "open-thread"
+    },
+    {
+      "id": "r092",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "faytedruids",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Kings could take it back",
+      "explanation": "A strong Parliament has the swords to reclaim the Cloister.",
+      "precedent": "The Cloister Beast storyline",
+      "canon": "open-thread"
+    },
+    {
+      "id": "r093",
+      "fromId": "faytedruids",
+      "fromStat": "religious",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "religious→economic",
+      "type": "latent",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "\"our cliffs catch the tide first\"",
+      "explanation": "Shanty's nightmare about the Cloister is specific: if its power wakes, the cliffs next door pay first. Past a point, Druid fervour starts emptying Shanty's taverns.",
+      "precedent": "Old Salty: \"If they unleash somethin'? It's our cliffs that'll catch the tide first.\"",
+      "canon": "open-thread",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 60
+      },
+      "sign": -1
+    },
+    {
+      "id": "r094",
+      "fromId": "bonds",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "debt service eats the treasury",
+      "explanation": "Each season below par, coupons on the Stewards-era bonds come due and the treasury pays them. \"The downside: they also accumulated significant national debt that they left for their successors.\"",
+      "precedent": "Stewards of Aleforge resolution",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r095",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the harvest sets the brewing season",
+      "explanation": "Every season, the Cumstead's real output — not the price, the grain — decides how much the brewers can mash.",
+      "precedent": "Cum's grief-year harvest",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r096",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "oweBlock",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the tithe keeps draining upward",
+      "explanation": "The tithe isn't a one-off; each season of heavy extraction pushes more of Owe Block's life into the informal economy.",
+      "precedent": "Founding of Owe Block",
+      "canon": "canon",
+      "pivot": 55
+    },
+    {
+      "id": "r097",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "mama",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the ideology regrows cells",
+      "explanation": "Leadership neutralized, base intact. Every season the belief persists above its floor, a few more people start meeting in caves.",
+      "precedent": "MAMA \"rendered inoperable\" — ideology not eliminated",
+      "canon": "canon",
+      "pivot": 36
+    },
+    {
+      "id": "r098",
+      "fromId": "aleforgeGov",
+      "fromStat": "economic",
+      "toId": "bonds",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the ledger reprices the paper",
+      "explanation": "Roto traders reprice Aleforge bonds every season against the treasury's real position.",
+      "precedent": "The Aleforge Bond Market",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r099",
+      "fromId": "lineOfJohns",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "Rump skims every season",
+      "explanation": "Embezzlement is a habit, not an event. As long as Rump keeps the treasury keys, the leak runs.",
+      "precedent": "Rump \"conveniently ignored in the chaos\"",
+      "canon": "canon",
+      "pivot": 20
+    },
+    {
+      "id": "r100",
+      "fromId": "lineOfJohns",
+      "fromStat": "racial",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "racial→economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the unblessed fields drift",
+      "explanation": "Without the blessing's bearer the Cumstead drifts toward whatever the blood's standing can sustain.",
+      "precedent": "The blessing is \"no longer applied\" under Rump",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r101",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the Grog Galley keeps selling Wepple Ale",
+      "explanation": "The seized stockpile is sold in secret season after season — Aleforge's best brew, earning for Goldcoral.",
+      "precedent": "Wepple Ale at Jack's Grog Galley",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r102",
+      "fromId": "gideon",
+      "fromStat": "economic",
+      "toId": "gideon",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "resources in exile become schemes",
+      "explanation": "Drake is long-lived and patient. Whatever he gathers in Vodkonia turns into plans.",
+      "precedent": "Drake \"plotting his next moves\" in Vodkonia",
+      "canon": "canon",
+      "pivot": 30
+    },
+    {
+      "id": "r103",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.6,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "Trials season: the tourist tide",
+      "explanation": "The annual feast falls in Stormtide. A well-loved festival fills the Tankard and the docks for a season; a diminished one leaves unsold kegs.",
+      "precedent": "Aleforge's annual feast, Stormtide Keg 5",
+      "canon": "canon",
+      "pivot": 50,
+      "season": "Stormtide"
+    },
+    {
+      "id": "r104",
+      "fromId": "shantyTown",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "Hoppy Holidays at Sackbeard's",
+      "explanation": "The last Keg of the year, every pirate gathers at the Tavern in peace. A strong ethos turns the feast into a show of Council strength.",
+      "precedent": "Hoppy Holidays; the annual pirate gathering",
+      "canon": "canon",
+      "pivot": 50,
+      "season": "Veilfrost"
+    }
+  ],
+  "events": [
+    {
+      "id": "lagendale",
+      "name": "The Fall of Lagendale",
+      "turnOrDate": "Deep past (33rd Council)",
+      "era": 0,
+      "affectedGroupIds": [
+        "veilwalkers",
+        "lineOfJohns",
+        "fleshborn"
+      ],
+      "description": "A farmer's forbidden union with a vow-bound Walker; the First Treaty blesses a bloodline's fields; the Wronged Walker's grievance is dismissed; Vodkonia is obliterated; the Rotted Soul rises as the first VeilRunner and is sealed by the River Coffin beneath what will become Hoegaarden."
+    },
+    {
+      "id": "sackbeard",
+      "name": "Sackbeard Slays the Tavern Beast",
+      "turnOrDate": "A few hundred years ago",
+      "era": 1,
+      "affectedGroupIds": [
+        "shantyTown",
+        "gideon",
+        "veilwalkers"
+      ],
+      "description": "Sackbeard's armada kills the great beast and builds the Tavern in its shell. Unrecorded: Sackbeard attacked a Veilwalker settlement for its nature-secrets, and first mate Gideon Drake killed him, cursed the crew with eternal life and banished them to the Nether."
+    },
+    {
+      "id": "providence",
+      "name": "Founding of Providence",
+      "turnOrDate": "Year ~236",
+      "era": 2,
+      "affectedGroupIds": [
+        "patmos"
+      ],
+      "description": "The Monk Who Ne'er Slumber'd is exiled from Aleforge for hoarding ClockHeart Tonic and founds a city of perfect order on the cliffs."
+    },
+    {
+      "id": "roto",
+      "name": "Xi Jin Ping Founds Roto Kaiishi",
+      "turnOrDate": "Before the Golden Taps",
+      "era": 2,
+      "affectedGroupIds": [
+        "rotoCouncil",
+        "shantyTown"
+      ],
+      "description": "The first ocean-bound shop, a fence for pirate plunder, grows into a seaborne nation-state run by hand-picked merchant-philosophers."
+    },
+    {
+      "id": "oweblock",
+      "name": "Founding of Owe Block",
+      "turnOrDate": "After Providence",
+      "era": 3,
+      "affectedGroupIds": [
+        "oweBlock",
+        "patmos"
+      ],
+      "description": "Providence's rigid hierarchy produces its own underclass district, with its own factions, economy and underground markets."
+    },
+    {
+      "id": "longthirst",
+      "name": "The Long Thirst",
+      "turnOrDate": "Years 412–464",
+      "era": 4,
+      "affectedGroupIds": [
+        "aleforgeGov",
+        "drunkenTrials",
+        "patmos"
+      ],
+      "description": "Aleforge governed by mayors without Kings. Bronco Chestnut's theocratic turn is voted out; Thatcher Sr. revives the annual Drunken Trials."
+    },
+    {
+      "id": "trials",
+      "name": "The Drunken Trials & the MAA Raid",
+      "turnOrDate": "Year 464 (Concept I)",
+      "era": 5,
+      "affectedGroupIds": [
+        "drunkenTrials",
+        "mama",
+        "liquorKings"
+      ],
+      "description": "The first-ever six-way tie begins the Age of the Six Kings. The MAA raid Aleforge to kill them and fail, falling back to guerrilla war."
+    },
+    {
+      "id": "cloisterbeast",
+      "name": "The Cloister Beast & Thatcher's Death",
+      "turnOrDate": "Concept II",
+      "era": 6,
+      "affectedGroupIds": [
+        "liquorKings",
+        "mama",
+        "aleforgeGov"
+      ],
+      "description": "The Kings kill the Cloister Beast, massacre the MAA in their cave (one child survives behind a rock), and forget to rescue Mayor Thomas Thatcher from Fentmaxxer's cage. He dies. The town's opinion of the Kings sours."
+    },
+    {
+      "id": "drake",
+      "name": "Gideon Drake Elected Mayor",
+      "turnOrDate": "Concept II aftermath",
+      "era": 7,
+      "affectedGroupIds": [
+        "gideon",
+        "aleforgeGov",
+        "bonds",
+        "cumstead"
+      ],
+      "description": "Drake wins on order over chaos: Barley Road, wheat subsidies, Roto free-trade deal, Veilwalker artifact tariff, militia — and the first Aleforge Bonds."
+    },
+    {
+      "id": "maximilian",
+      "name": "The Liquor King Trials & Maximilian's Death",
+      "turnOrDate": "Concept III",
+      "era": 8,
+      "affectedGroupIds": [
+        "liquorKings",
+        "mama"
+      ],
+      "description": "Maximilian Andrew Aldridge, the child who watched the MAA massacre, spends centuries in cryo-cycles building a hell for the Kings. Buke kills him. Not everyone calls it just — and MAMA is born."
+    },
+    {
+      "id": "gobbler",
+      "name": "A Walk on Owe Block: Gobbler Exposed",
+      "turnOrDate": "Concept IV",
+      "era": 9,
+      "affectedGroupIds": [
+        "oweBlock",
+        "patmos",
+        "veilwalkers"
+      ],
+      "description": "The Kings split into rival gangs, find a hidden Veilwalker shrine, and expose Sexton Gobbler's apostasy with the Veil Oath book and Chalice. The obligatory tithe falls to 25%. Addy turns the scandal into the Day of Hollow Tongues."
+    },
+    {
+      "id": "stewards",
+      "name": "Stewards of Aleforge",
+      "turnOrDate": "Concept V (ten turns)",
+      "era": 10,
+      "affectedGroupIds": [
+        "aleforgeGov",
+        "bonds",
+        "cumstead",
+        "goldcoral",
+        "mama",
+        "lineOfJohns",
+        "gideon"
+      ],
+      "description": "The Kings govern: bonds at worsening rates, guilds, local barrels, emergency Providence wheat, legalized bootleg tonic (Rump's blackmail). Jack seizes the Tankard's stockpile. Drake murders John Cum and frames MAMA. Plinket unmasked; MAMA destroyed. The Dread Harrow comes through the portal; Jagerbauhm closes it. Drake banished to Vodkonia; Bonehardy elected mayor; Rump ignored."
+    },
+    {
+      "id": "hoegaarden",
+      "name": "Horror in Hoegaarden",
+      "turnOrDate": "Concept VI",
+      "era": 11,
+      "affectedGroupIds": [
+        "lineOfJohns",
+        "veilwalkers",
+        "liquorKings"
+      ],
+      "description": "The Kings breach the Rotted Soul's labyrinth and defeat him — releasing his soul into the world. The Line of Johns is revealed as half-Veilwalker. The conditions that create a VeilRunner are now known and replicable."
+    },
+    {
+      "id": "druids",
+      "name": "The Fayte Druids Take the Cloister",
+      "turnOrDate": "Recent (open thread)",
+      "era": 12,
+      "affectedGroupIds": [
+        "faytedruids",
+        "liquorKings"
+      ],
+      "description": "Monks commandeer the Kings' meeting hall. Strange chants and lights. Purpose unknown."
+    },
+    {
+      "id": "sbncontact",
+      "name": "The Southern Bellows Make Contact",
+      "turnOrDate": "Recent",
+      "era": 12,
+      "affectedGroupIds": [
+        "sbn",
+        "ducket",
+        "patmos",
+        "aleforgeBrewing"
+      ],
+      "description": "Illegal Ale Bean routes and a StormVeil partnership crack the SBN's generational isolation. Both the ASDU and the Providence Guard are watching."
+    }
+  ],
+  "hazards": [
+    {
+      "id": "veilrunner",
+      "name": "VeilRunner Corruption Risk",
+      "domain": "racial",
+      "initial": 22,
+      "threshold": 72,
+      "inputs": [
+        {
+          "ref": "veilwalkers.religious",
+          "w": -0.35,
+          "note": "the Elders' custom and the Vow of Mate holding"
+        },
+        {
+          "ref": "veilwalkers.racial",
+          "w": -0.2,
+          "note": "earth-born standing intact"
+        },
+        {
+          "ref": "lineOfJohns.racial",
+          "w": -0.15,
+          "note": "the halfbreed line honoured, not despised"
+        },
+        {
+          "ref": "fleshborn.racial",
+          "w": 0.25,
+          "note": "flesh-born encroachment pressing on vows"
+        },
+        {
+          "ref": "gideon.political",
+          "w": 0.15,
+          "note": "an aggrieved part-Walker who has used Veil secrets to curse before"
+        },
+        {
+          "ref": "goldcoral.economic",
+          "w": 0.08,
+          "note": "plunder of spirit-marked land"
+        }
+      ],
+      "seasonMods": {
+        "Veilfrost": 0.7
+      },
+      "explanation": {
+        "suppressedBy": "Veilwalker law — the Vow of Mate, the refusal to spill Walker blood, the Elders' authority — and the Veil's general standing in the Isles.",
+        "erodedBy": "Anything that pushes a Walker toward a broken vow and a dismissed grievance: flesh-born encroachment, contempt for the halfbreed line, and the Rotted Soul's released spirit, which knows exactly how to \"disrupt the mating process.\"",
+        "ifCrossed": "The Lagendale pattern repeats: a Vow of Mate is broken, the wronged party is dismissed, and a Walker draws magic from the earth to destroy instead of nurture. The first sign is always the soil."
+      },
+      "omens": [
+        "In Fenwick, a Walker has been seen standing very still at the edge of a field that has stopped growing.",
+        "The Night of the Earthen Veil is observed with unusual quiet this year.",
+        "Gregor Ashford, drunk, sings a verse about the 33rd Council that nobody taught him."
+      ],
+      "event": {
+        "name": "A Vow of Mate Is Broken",
+        "narrative": "It began, as the Hoegaarden records say it always begins, with a grievance nobody wanted to hear. A Walker of Fenwick came before the Elders forsaken by a bonded mate — and the Elders, having apparently learned nothing from the 33rd Council, found the matter uncomfortable and sent him away. By the season's end three farms on the Brandywine edge had gone grey, the frogs had left the fen, and the Veilwalkers were seen in daylight, in number, looking for someone. The word \"VeilRunner\" is being spoken in Aleforge taverns by people who had to be told how to pronounce it.",
+        "effects": [
+          {
+            "ref": "veilwalkers.racial",
+            "delta": -12
+          },
+          {
+            "ref": "veilwalkers.religious",
+            "delta": -10
+          },
+          {
+            "ref": "veilwalkers.political",
+            "delta": 14
+          },
+          {
+            "ref": "cumstead.economic",
+            "delta": -12
+          },
+          {
+            "ref": "lineOfJohns.racial",
+            "delta": -8
+          },
+          {
+            "ref": "patmos.religious",
+            "delta": 6
+          },
+          {
+            "ref": "fleshborn.racial",
+            "delta": -5
+          }
+        ],
+        "chargeAfter": -1.5
+      },
+      "base": -1.348
+    },
+    {
+      "id": "inflation",
+      "name": "Ducket Inflation Risk",
+      "domain": "economic",
+      "initial": 20,
+      "threshold": 70,
+      "inputs": [
+        {
+          "ref": "ducket.economic",
+          "w": -0.5,
+          "note": "a healthy, flat Ducket supply"
+        },
+        {
+          "ref": "rotoCouncil.economic",
+          "w": -0.15,
+          "note": "Roto liquidity anchoring the rates"
+        },
+        {
+          "ref": "sbn.economic",
+          "w": 0.25,
+          "note": "smuggled SBN trade outside every ledger"
+        },
+        {
+          "ref": "goldcoral.economic",
+          "w": 0.1,
+          "note": "Goldcoral's grey books"
+        },
+        {
+          "ref": "cumstead.economic",
+          "w": -0.2,
+          "note": "wheat supply (a failed harvest means emergency imports)"
+        },
+        {
+          "ref": "bonds.economic",
+          "w": -0.2,
+          "note": "Aleforge debt confidence (a distressed issuer is tempted to print)"
+        }
+      ],
+      "seasonMods": {},
+      "explanation": {
+        "suppressedBy": "The flat-M2 rule — there is no legitimate way to mint Duckets — plus deep, honest Roto liquidity holding the conversion rates.",
+        "erodedBy": "Untracked value entering the system (SBN smuggling, Goldcoral's Roto books), and the temptation of a debt-strained Aleforge or a hungry town to find an illegitimate way to make more coin.",
+        "ifCrossed": "Somebody finds a way to mint. Rates between the towns' sub-economies come unstuck, and every treasury funded in Duckets discovers what its savings were really worth."
+      },
+      "omens": [
+        "Roto money-changers have started biting Duckets again.",
+        "A Shanty barkeep is refusing coin and asking for grog-weight.",
+        "Mr. BBL has been seen at the Post Office and Public Records, reading ledgers very slowly."
+      ],
+      "event": {
+        "name": "The Ducket Slips Its Moorings",
+        "narrative": "No one admits to minting. Everyone admits that there are more Duckets than there were last season, and that a suspicious number of them smell faintly of Ale Bean. Conversion rates between Aleforge, Providence and Roto swing by the day; Roto's merchant-philosophers convene an emergency council whose only unanimous finding is that it was somebody else's fault. In Shanty Town, which never trusted coin, a barter economy of grog, rope and favours carries on almost smugly.",
+        "effects": [
+          {
+            "ref": "ducket.economic",
+            "delta": -15
+          },
+          {
+            "ref": "aleforgeGov.economic",
+            "delta": -6
+          },
+          {
+            "ref": "rotoCouncil.economic",
+            "delta": -8
+          },
+          {
+            "ref": "patmos.economic",
+            "delta": -4
+          },
+          {
+            "ref": "shantyTown.economic",
+            "delta": 4
+          },
+          {
+            "ref": "oweBlock.economic",
+            "delta": 5
+          }
+        ],
+        "chargeAfter": -1.2
+      },
+      "base": -0.306
+    },
+    {
+      "id": "mamaRad",
+      "name": "MAMA Radicalization",
+      "domain": "political",
+      "initial": 26,
+      "threshold": 68,
+      "inputs": [
+        {
+          "ref": "mama.cultural",
+          "w": 0.35,
+          "note": "the prohibitionist ideology's reach"
+        },
+        {
+          "ref": "liquorKings.political",
+          "w": 0.2,
+          "note": "Kingly overreach (every massacre makes a mourner)"
+        },
+        {
+          "ref": "drunkenTrials.cultural",
+          "w": 0.1,
+          "note": "the Trials as a standing provocation"
+        },
+        {
+          "ref": "aleforgeGov.political",
+          "w": -0.3,
+          "note": "a confident administration: militia, amnesty"
+        },
+        {
+          "ref": "aleforgeGov.economic",
+          "w": -0.15,
+          "note": "full bellies (poverty is a recruiter)"
+        },
+        {
+          "ref": "cumstead.economic",
+          "w": -0.1,
+          "note": "the harvest"
+        }
+      ],
+      "seasonMods": {
+        "Goldsun": -0.4
+      },
+      "explanation": {
+        "suppressedBy": "Plinket's neutralization, the amnesty deal, the militia Drake built, and a calm, supported Bonehardy administration. In Goldsun, Providence's Day of Hollow Tongues also lets the Isles vent about the Kings harmlessly.",
+        "erodedBy": "Kingly shows of force (the MAA massacre bred Maximilian; Maximilian's killing bred MAMA), bad harvests, an empty treasury — and every Drunken Trials, which is the thing they were founded to oppose.",
+        "ifCrossed": "The Wronged Walker template in modern dress: the grievance the Kings never answered (was Maximilian's death an assassination?) returns with new leadership and a plan, not a riot."
+      },
+      "omens": [
+        "Pamphlets asking \"WHO KILLED MAXIMILIAN?\" have been nailed to the Hall of Ale.",
+        "Rollo reports that Susan has been writing a great many letters.",
+        "A child was seen in the cave under the abandoned shrine. Just watching."
+      ],
+      "event": {
+        "name": "MAMA Rises Again",
+        "narrative": "The cells were \"rendered inoperable,\" which, it turns out, is not the same as dead. A new voice — nobody knows whose; the letters are signed only \"JR II,\" which John Rump considers deeply unfair — has stitched the surviving caves back together. They hit a brewery on Brewers Lane at dawn, leave the kegs untouched and the walls painted with a single question about Maximilian, and vanish. It is the restraint that frightens the castle.",
+        "effects": [
+          {
+            "ref": "mama.political",
+            "delta": 20
+          },
+          {
+            "ref": "mama.cultural",
+            "delta": 6
+          },
+          {
+            "ref": "aleforgeGov.political",
+            "delta": -8
+          },
+          {
+            "ref": "drunkenTrials.cultural",
+            "delta": -6
+          },
+          {
+            "ref": "aleforgeBrewing.economic",
+            "delta": -5
+          },
+          {
+            "ref": "lineOfJohns.political",
+            "delta": -4
+          }
+        ],
+        "chargeAfter": -1.5
+      },
+      "base": -0.936
+    },
+    {
+      "id": "harvest",
+      "name": "Cumstead Collapse",
+      "domain": "economic",
+      "initial": 34,
+      "threshold": 72,
+      "inputs": [
+        {
+          "ref": "cumstead.economic",
+          "w": -0.45,
+          "note": "the Cumstead's current yield"
+        },
+        {
+          "ref": "lineOfJohns.racial",
+          "w": -0.2,
+          "note": "the blood the blessing follows"
+        },
+        {
+          "ref": "aleforgeGov.economic",
+          "w": -0.1,
+          "note": "subsidy money for farmhands and seed"
+        },
+        {
+          "ref": "lineOfJohns.political",
+          "w": 0.15,
+          "note": "Rump's grip (an addict running a farm)"
+        },
+        {
+          "ref": "veilwalkers.racial",
+          "w": -0.1,
+          "note": "a Veil still willing to tend the soil"
+        }
+      ],
+      "seasonMods": {
+        "Stormtide": 0.2
+      },
+      "explanation": {
+        "suppressedBy": "Whatever yield the unblessed Cumstead can still manage, subsidy money, and the Veil's residual goodwill toward the Line of Johns.",
+        "erodedBy": "John Rump's neglect, contempt for the halfbreed line, and the green Factory sludge nobody has cleaned out of Cum's fields.",
+        "ifCrossed": "The Cumstead fails outright, not a poor year but a dead one, and Aleforge learns how much of its economy was a Veilwalker blessing on one sad man."
+      },
+      "omens": [
+        "Farmhands say the green sludge has come back along the north furrows.",
+        "John Rump has sold two ploughs. Nobody knows to whom.",
+        "The scarecrow at the Cumstead has been found facing the house."
+      ],
+      "event": {
+        "name": "The Cumstead Fails",
+        "narrative": "The wheat came up grey and went down black. Farmhands found the green Factory sludge seeping from the same north furrows Mr. BBL noted during the Commission, and John Rump — reached for comment at a tonic den — asked whether the harvest \"had to be this season specifically.\" Aleforge signs another emergency grain deal with Providence at a price the Cardinal described as merciful. The brewers of Brewers Lane start measuring malt with spoons.",
+        "effects": [
+          {
+            "ref": "cumstead.economic",
+            "delta": -18
+          },
+          {
+            "ref": "aleforgeBrewing.economic",
+            "delta": -10
+          },
+          {
+            "ref": "ducket.economic",
+            "delta": -4
+          },
+          {
+            "ref": "patmos.economic",
+            "delta": 6
+          },
+          {
+            "ref": "drunkenTrials.cultural",
+            "delta": -5
+          },
+          {
+            "ref": "lineOfJohns.political",
+            "delta": -8
+          }
+        ],
+        "chargeAfter": -1.2
+      },
+      "base": -1.283
+    },
+    {
+      "id": "bondCrisis",
+      "name": "Aleforge Bond Crisis",
+      "domain": "economic",
+      "initial": 36,
+      "threshold": 70,
+      "inputs": [
+        {
+          "ref": "bonds.economic",
+          "w": -0.45,
+          "note": "bond-market confidence"
+        },
+        {
+          "ref": "aleforgeGov.economic",
+          "w": -0.25,
+          "note": "treasury health"
+        },
+        {
+          "ref": "aleforgeGov.political",
+          "w": -0.1,
+          "note": "administration stability"
+        },
+        {
+          "ref": "lineOfJohns.political",
+          "w": 0.12,
+          "note": "an embezzler as treasurer"
+        },
+        {
+          "ref": "mama.political",
+          "w": 0.1,
+          "note": "insurgency risk priced into the paper"
+        }
+      ],
+      "seasonMods": {},
+      "explanation": {
+        "suppressedBy": "Roto's continued willingness to hold Aleforge paper, and a treasury that can still make its coupons.",
+        "erodedBy": "Stewards-era debt at \"increasingly unfavorable\" rates, an embezzling treasurer, and a mayor whose signature achievement is inaction.",
+        "ifCrossed": "Aleforge misses a coupon. Roto, holding the paper, stops being a partner and starts being a creditor."
+      },
+      "omens": [
+        "Roto brokers are quoting Aleforge bonds by the barrel rather than the Ducket.",
+        "The treasury ledger has three pages glued together.",
+        "Mr. BBL's posture has become noticeably tense."
+      ],
+      "event": {
+        "name": "Aleforge Misses a Coupon",
+        "narrative": "The coupon came due on Mooringday and the treasury, after a thorough search of the castle, the Boner Bar and John Rump's coat, could not find it. Roto's merchant-philosophers — the largest holders — issue a statement of great philosophical depth that amounts to \"pay us.\" Goldcoral quietly buys distressed Aleforge paper at a tenth of its face. Bonehardy addresses the town and says, of the crisis, nothing at all, which for once is noticed.",
+        "effects": [
+          {
+            "ref": "bonds.economic",
+            "delta": -15
+          },
+          {
+            "ref": "rotoCouncil.economic",
+            "delta": -7
+          },
+          {
+            "ref": "aleforgeGov.political",
+            "delta": -9
+          },
+          {
+            "ref": "goldcoral.economic",
+            "delta": 6
+          },
+          {
+            "ref": "liquorKings.political",
+            "delta": -5
+          }
+        ],
+        "chargeAfter": -1.2
+      },
+      "base": -0.817
+    },
+    {
+      "id": "oweRising",
+      "name": "Owe Block Rising",
+      "domain": "cultural",
+      "initial": 30,
+      "threshold": 70,
+      "inputs": [
+        {
+          "ref": "oweBlock.political",
+          "w": 0.3,
+          "note": "gang strength"
+        },
+        {
+          "ref": "patmos.economic",
+          "w": 0.2,
+          "note": "tithe extraction"
+        },
+        {
+          "ref": "unknownism.religious",
+          "w": 0.1,
+          "note": "a mission that sells guns"
+        },
+        {
+          "ref": "patmos.political",
+          "w": -0.25,
+          "note": "the spire's enforcement"
+        },
+        {
+          "ref": "oweBlock.economic",
+          "w": -0.12,
+          "note": "an informal economy that still feeds people"
+        }
+      ],
+      "seasonMods": {},
+      "explanation": {
+        "suppressedBy": "The spire's enforcement and the 25% tithe concession the district won after Gobbler.",
+        "erodedBy": "Tithe pressure, gang recruitment, and Baba Paku's side business in arms.",
+        "ifCrossed": "Owe Block stops being Providence's problem district and becomes its rival city."
+      },
+      "omens": [
+        "Wagwan has closed the Stank Tank early three nights running.",
+        "Crimson Cutters and Seaside Circus colours were seen at the same table.",
+        "The Owe Block Chronicle has stopped printing the Cardinal's prayer times."
+      ],
+      "event": {
+        "name": "The Owe Block Rising",
+        "narrative": "It started with a Sexton's tithe cart overturned on the Stank Tank's corner and ended, three Kegs later, with Crimson Cutters and Seaside Circus standing on the same barricade — a sight Wagwan called \"worse than the Kings splitting my bar in half.\" The Friars withdraw above the lower terraces. Someone reopens the shrine behind the stone button in the Church of the Monk, and this time there is a queue.",
+        "effects": [
+          {
+            "ref": "patmos.political",
+            "delta": -10
+          },
+          {
+            "ref": "patmos.religious",
+            "delta": -5
+          },
+          {
+            "ref": "oweBlock.political",
+            "delta": 12
+          },
+          {
+            "ref": "oweBlock.cultural",
+            "delta": 6
+          },
+          {
+            "ref": "veilwalkers.religious",
+            "delta": 4
+          },
+          {
+            "ref": "unknownism.religious",
+            "delta": 6
+          },
+          {
+            "ref": "patmos.economic",
+            "delta": -5
+          }
+        ],
+        "chargeAfter": -1.2
+      },
+      "base": -0.205
+    },
+    {
+      "id": "cloister",
+      "name": "Cloister Stirring",
+      "domain": "religious",
+      "initial": 28,
+      "threshold": 74,
+      "openThread": true,
+      "inputs": [
+        {
+          "ref": "faytedruids.religious",
+          "w": 0.3,
+          "note": "the Druids' rites"
+        },
+        {
+          "ref": "faytedruids.political",
+          "w": 0.15,
+          "note": "their hold on the hall"
+        },
+        {
+          "ref": "liquorKings.political",
+          "w": -0.15,
+          "note": "Kings able to take their hall back"
+        },
+        {
+          "ref": "veilwalkers.religious",
+          "w": -0.1,
+          "note": "the Veil's old stewardship of the land"
+        }
+      ],
+      "seasonMods": {
+        "Veilfrost": 0.6
+      },
+      "explanation": {
+        "suppressedBy": "The Cloister Beast is dead and the Kings still have the strength to evict squatters from their own hall.",
+        "erodedBy": "The Fayte Druids' unexplained chanting, in a building over a hole to hell, over a prison dimension, next to the magic lights that decide fates. Veilfrost is when things best left alone tend to stir.",
+        "ifCrossed": "OPEN THREAD — the simulator only knows the shape: something under the Cloister answers, and Shanty Town's cliffs catch the tide first."
+      },
+      "omens": [
+        "The lights in the Cloister hillside have been seen from Shanty Town, in a colour nobody can name.",
+        "The Druids' chanting now carries to the Tavern on still nights.",
+        "A second invisible hallway is rumoured. The Kings have not checked."
+      ],
+      "event": {
+        "name": "The Cloister Lights Answer",
+        "narrative": "On the longest night of Veilfrost, the magic lights in the Cloister hillside — the ones the Kings consult when they cannot be bothered to decide — all lit at once and stayed lit. The Druids' chant stopped. Whatever they were asking, they have been answered, and they are not saying what the answer was. Shanty Town reports a warm tide, the smell of sulphur, and three ships that sailed out to look and came back with their crews insisting it was a lovely evening.",
+        "effects": [
+          {
+            "ref": "faytedruids.religious",
+            "delta": 15
+          },
+          {
+            "ref": "faytedruids.political",
+            "delta": 12
+          },
+          {
+            "ref": "liquorKings.political",
+            "delta": -6
+          },
+          {
+            "ref": "shantyTown.economic",
+            "delta": -6
+          },
+          {
+            "ref": "patmos.religious",
+            "delta": 4
+          },
+          {
+            "ref": "veilwalkers.religious",
+            "delta": 3
+          }
+        ],
+        "chargeAfter": -1.5
+      },
+      "base": 0.316
+    }
+  ],
+  "injectables": [
+    {
+      "id": "gideonMove",
+      "name": "Gideon Drake makes a move from Vodkonia",
+      "effects": [
+        {
+          "ref": "gideon.political",
+          "delta": 20
+        },
+        {
+          "ref": "gideon.economic",
+          "delta": 12
+        }
+      ],
+      "hazardCharge": {
+        "veilrunner": 0.5
+      },
+      "narrative": "A Vodkonian skiff reaches Shanty Town carrying exotic rum, no crew, and a letter in Drake's hand addressed to \"the people of Aleforge, who deserved better.\""
+    },
+    {
+      "id": "rottedSoul",
+      "name": "The Rotted Soul's released spirit resurfaces",
+      "effects": [
+        {
+          "ref": "veilwalkers.religious",
+          "delta": -8
+        },
+        {
+          "ref": "lineOfJohns.racial",
+          "delta": -6
+        },
+        {
+          "ref": "patmos.religious",
+          "delta": 4
+        }
+      ],
+      "hazardCharge": {
+        "veilrunner": 1.6
+      },
+      "narrative": "Hoegaarden's night archivist reports the Corrupted Ancestry compass spinning, then stopping — pointing, very steadily, toward Aleforge."
+    },
+    {
+      "id": "newVeilRunner",
+      "name": "A new VeilRunner emerges",
+      "effects": [],
+      "forceHazard": "veilrunner",
+      "narrative": "The thing the Hoegaarden records warned was replicable is replicated."
+    },
+    {
+      "id": "mamaCell",
+      "name": "A MAMA cell reactivates",
+      "effects": [
+        {
+          "ref": "mama.political",
+          "delta": 14
+        },
+        {
+          "ref": "mama.cultural",
+          "delta": 8
+        }
+      ],
+      "hazardCharge": {
+        "mamaRad": 1
+      },
+      "narrative": "Someone has been restocking the cave under the abandoned shrine. The Kings raided it once already; nobody filled it in."
+    },
+    {
+      "id": "druidsReveal",
+      "name": "The Fayte Druids reveal their purpose",
+      "effects": [
+        {
+          "ref": "faytedruids.religious",
+          "delta": 14
+        },
+        {
+          "ref": "faytedruids.political",
+          "delta": 10
+        }
+      ],
+      "hazardCharge": {
+        "cloister": 1
+      },
+      "narrative": "The Druids open the Cloister doors for the first time in months and invite the Kings to \"witness.\" The Kings, hungover, send Rollo."
+    },
+    {
+      "id": "tome",
+      "name": "A second Tome Monument is found",
+      "effects": [
+        {
+          "ref": "liquorKings.cultural",
+          "delta": 6
+        },
+        {
+          "ref": "rotoCouncil.economic",
+          "delta": 4
+        },
+        {
+          "ref": "veilwalkers.religious",
+          "delta": 4
+        }
+      ],
+      "narrative": "A second of the six Tome Monuments surfaces; Hoegaarden, Roto relic-brokers and at least one Liquor King all claim to have found it first."
+    },
+    {
+      "id": "rumpExposed",
+      "name": "John Rump's embezzlement is finally prosecuted",
+      "effects": [
+        {
+          "ref": "lineOfJohns.political",
+          "delta": -22
+        },
+        {
+          "ref": "aleforgeGov.political",
+          "delta": 6
+        },
+        {
+          "ref": "aleforgeGov.economic",
+          "delta": 5
+        },
+        {
+          "ref": "cumstead.economic",
+          "delta": -6
+        }
+      ],
+      "narrative": "Mr. BBL's old Commission files are dusted off. Rump is arrested at a tonic den; the question of who runs the Cumstead now has no good answer."
+    },
+    {
+      "id": "titheHike",
+      "name": "Cardinal Addy restores the full tithe in Owe Block",
+      "effects": [
+        {
+          "ref": "patmos.economic",
+          "delta": 15
+        }
+      ],
+      "narrative": "From the spire, the Cardinal announces that the Gobbler-era concession has served its purpose. The tithe returns to half of all earnings."
+    },
+    {
+      "id": "bondIssue",
+      "name": "Bonehardy issues a new round of Aleforge Bonds",
+      "effects": [
+        {
+          "ref": "aleforgeGov.economic",
+          "delta": 10
+        },
+        {
+          "ref": "bonds.economic",
+          "delta": -10
+        }
+      ],
+      "narrative": "In his first recorded act as mayor, Bonehardy signs a new bond issue. Roto buys, at a rate described by Mr. BBL as \"brave.\""
+    },
+    {
+      "id": "sbnOpens",
+      "name": "The Southern Bellows open formal trade",
+      "effects": [
+        {
+          "ref": "sbn.economic",
+          "delta": 18
+        },
+        {
+          "ref": "sbn.political",
+          "delta": 10
+        }
+      ],
+      "narrative": "A steam glider lands at Aleforge customs carrying the Pale's seal and a crate of IPAs so bitter the harbourmaster weeps."
+    },
+    {
+      "id": "greatTrials",
+      "name": "A legendary Drunken Trials",
+      "effects": [
+        {
+          "ref": "drunkenTrials.cultural",
+          "delta": 14
+        },
+        {
+          "ref": "liquorKings.cultural",
+          "delta": 5
+        }
+      ],
+      "narrative": "The Trials run three days over; the spring's ale produces visions in two competitors and a marriage proposal to a goat."
+    },
+    {
+      "id": "dreadHarrow",
+      "name": "The Dread Harrow's portal flickers",
+      "effects": [
+        {
+          "ref": "aleforgeGov.political",
+          "delta": -8
+        },
+        {
+          "ref": "gideon.political",
+          "delta": 6
+        },
+        {
+          "ref": "liquorKings.political",
+          "delta": 5
+        }
+      ],
+      "narrative": "For one night, the harbour water where the Dread Harrow materialized glows green. Drake, it is remembered, spent twenty years afraid of exactly this."
+    },
+    {
+      "id": "kingsFeud",
+      "name": "The Kings publicly feud over Bonehardy's inaction",
+      "effects": [
+        {
+          "ref": "liquorKings.political",
+          "delta": -12
+        },
+        {
+          "ref": "aleforgeGov.political",
+          "delta": -4
+        }
+      ],
+      "narrative": "Jack, Guinnie and Buke denounce the mayor at the Hall of Ale. Bonehardy does not respond, which his supporters call \"statesmanlike.\""
+    }
+  ],
+  "narration": {
+    "seasons": {
+      "Stormtide": [
+        "Stormtide batters the coasts; captains who can read the sky stay in port, and the ones who can't become Shanty Town's newest residents.",
+        "The wet season rolls in, the Gae Strait turns ugly, and Aleforge readies the Trials grounds while Providence readies its disapproval.",
+        "Stormtide: dangerous seas, overflowing gutters, and the annual feast in Aleforge, where the spring's ale does its strange work."
+      ],
+      "Goldsun": [
+        "Goldsun brings calm seas and full sails, and every merchant in Roto suddenly remembers who owes them money.",
+        "The dry season: Beer Day in Shanty Town, Liquor Day everywhere, and the Day of Hollow Tongues in Providence, where rumours about the Kings are written down and blessed.",
+        "Goldsun opens on Brewmasters Day, the ale fountain in Aleforge's square running as it has since the Deity's blessing."
+      ],
+      "Veilfrost": [
+        "Veilfrost: a hundred and seventeen days of night. The Veilwalkers walk, and things best left alone begin to stir.",
+        "The long dark falls. Fenwick keeps the Night of the Earthen Veil; the Ashen Oath keeps the Night of the False Sun, and Aleforge lights its pipes across the bay.",
+        "Veilfrost settles over the Isles; mystical anomalies spike, the Unholy Pilgrimage staggers bar to bar, and the year ends with the Hoppy Holidays at Sackbeard's."
+      ]
+    },
+    "closers": [
+      {
+        "if": "aleforgeGov.political>50",
+        "text": "Mayor Bonehardy, asked to comment on the season, did absolutely nothing, to broad public approval."
+      },
+      {
+        "if": "aleforgeGov.political<40",
+        "text": "Mayor Bonehardy's approval is now being discussed in the same tone as the Long Thirst."
+      },
+      {
+        "if": "bonds.economic<30",
+        "text": "Somewhere in Roto, a merchant-philosopher reprices Aleforge paper and does not bother telling anyone."
+      },
+      {
+        "if": "mama.political<25",
+        "text": "MAMA remains, officially, \"rendered inoperable.\" Rollo reports Susan still writes a lot of letters."
+      },
+      {
+        "if": "cumstead.economic<35",
+        "text": "John Rump was seen at the Cumstead exactly once this season, briefly, looking for something he had hidden in the barn."
+      },
+      {
+        "if": "goldcoral.economic>70",
+        "text": "Jack Anqoak's Grog Galley posts its best season yet; the Gilded Tankard's former owner pours every drink."
+      },
+      {
+        "if": "patmos.religious>85",
+        "text": "In Providence the Apostles have stopped blinking, which the Cardinal describes as devotion."
+      },
+      {
+        "if": "veilwalkers.racial<40",
+        "text": "Fenwick is quieter than usual. The pirates have started leaving bigger offerings at the treeline."
+      },
+      {
+        "if": "gideon.political>45",
+        "text": "Letters postmarked from nowhere are circulating in Aleforge, all in the same fine hand."
+      },
+      {
+        "text": "Rollo changed boyfriends twice this season, which analysts agree had no macroeconomic effect."
+      },
+      {
+        "text": "Wepple is, allegedly, still working on a new brew in secret."
+      },
+      {
+        "text": "Cumsock the goat remains a fixture of the administration."
+      },
+      {
+        "text": "Gregor Ashford was too drunk to play again, but somehow knew the words to a song from before Lagendale fell."
+      },
+      {
+        "text": "The Aleforge Chronicle ran eleven stories on Mr. BBL's posterior and one on the economy."
+      }
+    ]
+  }
+}
