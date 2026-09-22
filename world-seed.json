@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "The Pintland Isles — Dynamics Simulator",
-    "version": 1,
+    "version": 2,
+    "changes": "the Concept Economy: velocity, banks, insurers, the Roto black market, the player economy, policy levers and a credit-crunch hazard",
     "calendar": {
       "startYear": 466,
       "startCycle": 94,
@@ -29,7 +30,7 @@
     "sources": [
       "THE PINTLAND ISLES — MASTER LORE COMPENDIUM",
       "HOEGAARDEN HALL OF RECORDS",
-      "Pintland Economy Pitch (as summarized in the build brief)"
+      "A Macroeconomic Analysis of the Pintland Isles (Concept Economy)"
     ]
   },
   "groups": [
@@ -210,17 +211,87 @@
     },
     {
       "id": "ducket",
-      "name": "The Ducket (M2 Health)",
+      "name": "The Ducket (M2 Stability)",
       "domains": [
         "economic"
       ],
       "stats": {
         "economic": 62
       },
-      "description": "The inter-town trade currency. Total supply is meant to stay flat — there is no legitimate way to mint more — so inflation is an active, named threat. Higher = healthier, stabler conversion rates between the towns' sub-economies.",
-      "loreSource": "Pintland Economy Pitch (per build brief)",
+      "description": "The global inter-town trade currency; every town runs its own sub-economy and converts at exchange rates that move with story events. Total supply (M2) is meant to stay flat — almost nothing may create new Duckets, and the one feasible exception is an influx from an outside economy. Higher = a flatter, more trusted M2 and stabler conversion rates.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Global Currency; The Concept Economy)",
       "short": "the Ducket",
       "code": "DKT"
+    },
+    {
+      "id": "velocity",
+      "name": "Ducket Velocity",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 52
+      },
+      "description": "How fast Duckets change hands — the second number the Analysis tracks. \"If M2 is flat and velocity is consistent after six months we're on the right track.\" Low velocity is coin buried in chests and a stalled economy; very high velocity on a flat M2 is inflation's other door.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Global Currency; To Those Drunk in the Back of the Room)",
+      "short": "Ducket velocity",
+      "code": "VEL"
+    },
+    {
+      "id": "playerEconomy",
+      "name": "Player Economy (Shops, Wages & Contracts)",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 50
+      },
+      "description": "What the people of the Isles actually feel: shop stock and prices, restock rates, NPC wages, rotating town contracts. Driven top-down by the Concept Economy — players have little to no power over it. \"As items get scarcer and more expensive, they feel that their town is struggling even if they don't know it's due to embargos.\" Shops restock with town prosperity, never below a floor.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Player Economy vs. Concept Economy)",
+      "short": "the player economy",
+      "code": "PLYR"
+    },
+    {
+      "id": "banks",
+      "name": "Banks & Credit",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 34
+      },
+      "description": "The key intermediary between the player and concept economies: loans for land, ships and shops; holdings accounts paying small interest. The catch — that interest must come from loan income, never from minted coin. The credit market is young.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Banks and Insurance)",
+      "short": "the banks",
+      "code": "BANK"
+    },
+    {
+      "id": "insurers",
+      "name": "Voyage Insurers",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 30
+      },
+      "description": "Insurance began as a few people gambling on whether or not ships would return from voyages. \"As unsexy as insurance is, gambling is smoking hot.\" Every Stormtide is claims season; every pirate raid is a payout.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Banks and Insurance)",
+      "short": "the voyage insurers",
+      "code": "INS"
+    },
+    {
+      "id": "rotoBlackMarket",
+      "name": "Roto Currency Black Market",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 40
+      },
+      "description": "Where the posted exchange rates stop meaning anything. \"A strong black market for currencies would be fun, obviously based in Roto\" — and it fits Roto's taboo system exactly: not illegal, just sold after dark. Insider trading and arbitrage are features, not bugs.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Player Economy; Taxes and Treasuries); Compendium II (Roto Kaiishi)",
+      "short": "the Roto black market",
+      "code": "BLK"
     },
     {
       "id": "bonds",
@@ -390,6 +461,96 @@
       },
       "short": "the Line of Johns",
       "code": "JOHN"
+    },
+    {
+      "id": "aleforgeTaxes",
+      "name": "Aleforge Tax Take",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 50
+      },
+      "description": "Tolls, docking fees, property and luxury tax — the Analysis's preferred revenue (income tax is unenforceable when anyone can bury coin in a chest in the woods). Taxes force money out of circulation, steer behaviour, and fund the treasury. Drake zeroed sea tolls and raised road tolls 50%. 50 = today's mix.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Taxes and Treasuries); Compendium III (Drake's policies)",
+      "lever": true,
+      "short": "the Aleforge tax take",
+      "code": "TAX"
+    },
+    {
+      "id": "aleforgeTariffs",
+      "name": "Aleforge Tariffs & Embargoes",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 50
+      },
+      "description": "Mercantilism's first lever: aim for a positive balance of trade. Drake's cheap-grog import restriction, the 20% / 150% Veilwalker artifact tariff, and the tariff war with Providence where \"each side [seeks] to choke the other's wealth.\" 50 = today.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy); Compendium II (Providence Foreign Relations)",
+      "lever": true,
+      "short": "Aleforge tariffs",
+      "code": "TRF"
+    },
+    {
+      "id": "titheRate",
+      "name": "Patmos Tithe Rate",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 50
+      },
+      "description": "The spire's cut. 50 = today: half of all earnings in Providence, a quarter in Owe Block since Gobbler's disgrace. The purest example of a treasury pulling coin out of pockets.",
+      "loreSource": "Compendium VI (The Church of Patmos); Concept IV",
+      "lever": true,
+      "short": "the tithe rate",
+      "code": "TTH"
+    },
+    {
+      "id": "monopolyCharters",
+      "name": "Monopoly Charters",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 45
+      },
+      "description": "Exclusive trade grants — a mercantilist government's favourite gift to its friends. Goldcoral is the obvious beneficiary; Roto was founded on the opposite principle.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy)",
+      "lever": true,
+      "short": "monopoly charters",
+      "code": "MON"
+    },
+    {
+      "id": "subsidies",
+      "name": "Subsidized Industries",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 55
+      },
+      "description": "Paying industries to outcompete rivals: Drake's wheat & barley subsidies and Gilded Tankard Grant, the Stewards-era guilds, Bonehardy's promised grain money, Buke's A.L.E. Financed, mostly, on Aleforge bond paper.",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy); Concept V",
+      "lever": true,
+      "short": "Aleforge subsidies",
+      "code": "SUB"
+    },
+    {
+      "id": "conceptRewards",
+      "name": "Concept Performance Rewards",
+      "domains": [
+        "economic"
+      ],
+      "stats": {
+        "economic": 30
+      },
+      "description": "Stock options or currency granted by the gamemaster to top performers after each concept — paid from the town treasury, never minted. \"Consistent top performers will gain immense wealth, however this may come at political costs.\"",
+      "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy)",
+      "lever": true,
+      "short": "the Kings' performance rewards",
+      "code": "RWD"
     }
   ],
   "relationships": [
@@ -2093,6 +2254,815 @@
       "canon": "canon",
       "pivot": 50,
       "season": "Veilfrost"
+    },
+    {
+      "id": "r105",
+      "fromId": "velocity",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.35,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "coin that moves pays wages",
+      "explanation": "Shop income comes only from existing Duckets moving through player-to-shop and NPC-to-shop trade. When circulation slows, tills empty and restocks slip.",
+      "precedent": "Analysis: velocity tracking; the closed-loop Player Economy",
+      "canon": "canon"
+    },
+    {
+      "id": "r106",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "stable rates, stable prices",
+      "explanation": "Town currency exchanges run at set rates that update with story events; a shaky Ducket reprices every shelf in the Isles.",
+      "precedent": "Analysis: currency exchanges in each town",
+      "canon": "canon"
+    },
+    {
+      "id": "r107",
+      "fromId": "aleforgeGov",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "treasuries fund contracts and wages",
+      "explanation": "Taxes and wages flow into the treasury, which resets how much NPCs can spend each day and sizes the rotating town contracts. A rich Aleforge posts better work.",
+      "precedent": "Analysis: \"Contracts… with fluctuating rewards based on the size of the town treasury\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r108",
+      "fromId": "patmos",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.12,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Providence shops restock with the spire",
+      "explanation": "Ambient town shops pay straight into the treasury and restock with town prosperity; Providence's cheap, high-quality armour and weapons depend on the spire staying rich.",
+      "precedent": "Analysis: Providence's better access to armour and weapons",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r109",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto keeps the shelves full",
+      "explanation": "Roto is where scarce goods come from when a town's own manufacturing falls short.",
+      "precedent": "Analysis: shop availability depends on trade relations",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r110",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.12,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "players' trades are circulation",
+      "explanation": "The one way players push back up the chain: their buying and selling is velocity. Otherwise, players \"have little to no impact on the Concept Economy.\"",
+      "precedent": "Analysis: Player Economy vs. Concept Economy",
+      "canon": "canon"
+    },
+    {
+      "id": "r111",
+      "fromId": "velocity",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "latent",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "too-fast money is inflation's other door",
+      "explanation": "M2 times velocity is what chases the goods. Past a point, money changing hands faster than goods are made bids prices up even with a flat supply.",
+      "precedent": "Analysis: \"Duckets chase a limited supply of goods\"",
+      "canon": "canon",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 72
+      },
+      "sign": -1
+    },
+    {
+      "id": "r112",
+      "fromId": "aleforgeTaxes",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.45,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tolls and fees fill the treasury",
+      "explanation": "Docking fees, road tolls, property and luxury tax are how money leaves player pockets and lands in the treasury — the loop that funds everything else.",
+      "precedent": "Analysis: Taxes and Treasuries; Drake's road-toll increase",
+      "canon": "canon"
+    },
+    {
+      "id": "r113",
+      "fromId": "aleforgeTaxes",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "taxes pull coin out of circulation",
+      "explanation": "The first reason the Analysis gives for taxes: forcing money out of the system to fight inflation. The price is slower circulation.",
+      "precedent": "Analysis: \"it can help stop the inflation problem by forcing money out of the system\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r114",
+      "fromId": "aleforgeTaxes",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "nobody loves a toll",
+      "explanation": "Every new toll booth on the Barley Road is a grievance at the castle gate.",
+      "precedent": "Drake's 50% road-toll increase",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r115",
+      "fromId": "aleforgeTaxes",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the brewers' tax",
+      "explanation": "Thatcher taxed breweries by production; Drake cut to a lower flat rate \"to increase profit and local private investment.\" Raise the take and the brewers feel it first.",
+      "precedent": "Drake's Changes on Brewers Tax",
+      "canon": "canon"
+    },
+    {
+      "id": "r116",
+      "fromId": "aleforgeTaxes",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "docking fees deter Roto ships",
+      "explanation": "Drake eliminated sea tolls precisely to draw trade from Roto and Providence. Put them back and the ships go elsewhere.",
+      "precedent": "Drake's Eliminating Sea Trade Tolls",
+      "canon": "canon"
+    },
+    {
+      "id": "r117",
+      "fromId": "aleforgeTariffs",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "protection for the key export",
+      "explanation": "Drake restricted cheap grog imports \"to protect Aleforge's key export until other industries have grown.\"",
+      "precedent": "Drake's Roto Free Trade Deal (grog restrictions)",
+      "canon": "canon"
+    },
+    {
+      "id": "r118",
+      "fromId": "aleforgeTariffs",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto's cheap grog shut out",
+      "explanation": "Roto's traders are the ones a high Aleforge tariff wall is built to keep out.",
+      "precedent": "The Roto grog flood before Drake's mayoralty",
+      "canon": "canon"
+    },
+    {
+      "id": "r119",
+      "fromId": "aleforgeTariffs",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the tariff war with Providence",
+      "explanation": "Tariffs between Aleforge and Providence \"rise like storm tides, each side seeking to choke the other's wealth.\"",
+      "precedent": "Providence Foreign Relations: Current Tensions",
+      "canon": "canon"
+    },
+    {
+      "id": "r120",
+      "fromId": "aleforgeTariffs",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "embargoes make the shelves thin",
+      "explanation": "The Analysis's own example: items get scarcer and pricier, and people feel their town struggling without knowing it's an embargo.",
+      "precedent": "Analysis: The Concept Economy (embargo example)",
+      "canon": "canon"
+    },
+    {
+      "id": "r121",
+      "fromId": "aleforgeTariffs",
+      "fromStat": "economic",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "what can't clear customs clears after dark",
+      "explanation": "Every tariff wall creates an arbitrage, and arbitrage lives in Roto's night market.",
+      "precedent": "Analysis: insider trading and arbitrage \"a feature of the economy\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r122",
+      "fromId": "aleforgeTariffs",
+      "fromStat": "economic",
+      "toId": "veilwalkers",
+      "toStat": "cultural",
+      "domain": "economic→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.12,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Veilwalker artifact tariff",
+      "explanation": "Drake taxed every Veilwalker gift 20% (150% if smuggled). Tariffs on vow-trade make the custom costlier to practise.",
+      "precedent": "Drake's Veilwalker Artifact Tariff",
+      "canon": "canon"
+    },
+    {
+      "id": "r123",
+      "fromId": "titheRate",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.6,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "half of all earnings",
+      "explanation": "The tithe is the spire's treasury; the rate is the lever the Cardinal actually pulls.",
+      "precedent": "The 50% tithe; the Owe Block cut to 25%",
+      "canon": "canon"
+    },
+    {
+      "id": "r124",
+      "fromId": "titheRate",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "coin climbs the spire and stops moving",
+      "explanation": "Tithed Duckets flow into coffers funding a \"cryptic agenda,\" not back into the market.",
+      "precedent": "Providence: tithes \"fueling a cryptic agenda\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r125",
+      "fromId": "monopolyCharters",
+      "fromStat": "economic",
+      "toId": "goldcoral",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "charters for friends",
+      "explanation": "A monopoly charter is the cleanest mercantilist gift there is, and Goldcoral — owned by a sitting King — is first in line.",
+      "precedent": "Analysis: \"monopoly charters\" as a main economic lever",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r126",
+      "fromId": "monopolyCharters",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Xi's nightmare",
+      "explanation": "Xi believed that if the biggest players controlled the market they would write rules that \"gut Roto from the bottom up.\" Charters elsewhere pull the big players out of Roto's open market.",
+      "precedent": "Roto Kaiishi: Xi's succession system",
+      "canon": "canon"
+    },
+    {
+      "id": "r127",
+      "fromId": "monopolyCharters",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "fewer sellers, higher prices",
+      "explanation": "Charters narrow who may sell; shoppers pay the difference.",
+      "precedent": "Analysis: dynamic supply and demand",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r128",
+      "fromId": "subsidies",
+      "fromStat": "economic",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "subsidy money reaches the fields",
+      "explanation": "Drake's wheat subsidies went mostly to John Cum; Bonehardy and Buke both ran on more. It takes a season for money to become seed and farmhands.",
+      "precedent": "Barley and Wheat Subsidies; A.L.E.",
+      "canon": "canon"
+    },
+    {
+      "id": "r129",
+      "fromId": "subsidies",
+      "fromStat": "economic",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "grants reach the brewhouses",
+      "explanation": "The Gilded Tankard Grant: the town paying directly to upgrade brewing and exports.",
+      "precedent": "Gilded Tankard Grant",
+      "canon": "canon"
+    },
+    {
+      "id": "r130",
+      "fromId": "subsidies",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "someone pays for the subsidies",
+      "explanation": "Every subsidy is a treasury outflow; Aleforge has historically covered them with bonds.",
+      "precedent": "Stewards of Aleforge: debt left for successors",
+      "canon": "canon"
+    },
+    {
+      "id": "r131",
+      "fromId": "conceptRewards",
+      "fromStat": "economic",
+      "toId": "liquorKings",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the heroes get paid",
+      "explanation": "Performance rewards tie player achievement back into the economy — and the Kings are the players.",
+      "precedent": "Analysis: performance-based rewards after concepts",
+      "canon": "canon"
+    },
+    {
+      "id": "r132",
+      "fromId": "conceptRewards",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "out of the treasury, not the mint",
+      "explanation": "Rewards are paid from the town treasury \"to avoid infinite money grants after concepts.\"",
+      "precedent": "Analysis: performance-based rewards",
+      "canon": "canon"
+    },
+    {
+      "id": "r133",
+      "fromId": "conceptRewards",
+      "fromStat": "economic",
+      "toId": "mama",
+      "toStat": "cultural",
+      "domain": "economic→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "the political cost of immense wealth",
+      "explanation": "\"Consistent top performers will gain immense wealth, however this may come at political costs.\" Kings paid from the treasury is a gift to anyone arguing they rule for themselves.",
+      "precedent": "Analysis: performance-based rewards; MAMA's grievance",
+      "canon": "canon"
+    },
+    {
+      "id": "r134",
+      "fromId": "conceptRewards",
+      "fromStat": "economic",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "robber barons",
+      "explanation": "Bonehardy called Jack a robber baron on the debate stage; paying all six from the treasury invites the label for the rest.",
+      "precedent": "Bonehardy's election remarks",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r135",
+      "fromId": "bonds",
+      "fromStat": "economic",
+      "toId": "banks",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "banks hold Aleforge paper",
+      "explanation": "A young credit market holds what paper there is — and Aleforge bonds are most of it.",
+      "precedent": "The Aleforge Bond Market",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r136",
+      "fromId": "banks",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "loans for land, ships and shops",
+      "explanation": "Players will need loans to buy land, ships and shops; healthy banks open those doors a season later.",
+      "precedent": "Analysis: Banks and Insurance",
+      "canon": "canon"
+    },
+    {
+      "id": "r137",
+      "fromId": "banks",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "credit makes money move",
+      "explanation": "Lending puts idle holdings back into circulation.",
+      "precedent": "Analysis: Banks and Insurance",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r138",
+      "fromId": "banks",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "latent",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "interest from nowhere is minting",
+      "explanation": "\"The tricky part here is paying out interest on holdings without creating new Duckets.\" An overextended bank paying interest it hasn't earned from loans is minting by another name.",
+      "precedent": "Analysis: Banks and Insurance",
+      "canon": "canon",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 70
+      },
+      "sign": -1
+    },
+    {
+      "id": "r139",
+      "fromId": "insurers",
+      "fromStat": "economic",
+      "toId": "banks",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "a failed underwriter drags its lender",
+      "explanation": "Voyage wagers are written on credit; when the ships don't return, the banks find out who was gambling with their money.",
+      "precedent": "Analysis: Banks and Insurance",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r140",
+      "fromId": "insurers",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "insured voyages sail",
+      "explanation": "Merchants sail when someone will cover the hull.",
+      "precedent": "Analysis: insurance origins",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r141",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "insurers",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto underwrites the voyages",
+      "explanation": "Roto's gamblers and merchants are the natural underwriters of the Isles' shipping.",
+      "precedent": "Analysis: \"gambling is smoking hot\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r142",
+      "fromId": "rotoBlackMarket",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the posted rate stops meaning anything",
+      "explanation": "A strong currency black market prices Duckets against everything at whatever the lantern-holder says; official rates lose their grip.",
+      "precedent": "Analysis: \"a strong black market for currencies… based in Roto\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r143",
+      "fromId": "rotoBlackMarket",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "taboo trade is still trade",
+      "explanation": "In Roto nothing is illegal, only taboo — the night market pays the same flat merchant fee.",
+      "precedent": "Roto Kaiishi: the taboo system",
+      "canon": "canon"
+    },
+    {
+      "id": "r144",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "real books need a real fence",
+      "explanation": "Goldcoral's original books live in Roto; its opaque profits need changing somewhere nobody records.",
+      "precedent": "Goldcoral Incorporated",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r145",
+      "fromId": "sbn",
+      "fromStat": "economic",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Ale Bean coin needs changing",
+      "explanation": "Illegal SBN trade arrives in currencies no town exchange quotes.",
+      "precedent": "SBN illegal trade routes",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r146",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "a trusted Ducket starves the night market",
+      "explanation": "When the posted rate is honest, nobody pays the lantern premium.",
+      "precedent": "Analysis: currency exchanges at set rates",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r147",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "ducket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "latent",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "one crop for endless coin",
+      "explanation": "The Analysis's first worry: \"large farms exchanging one type of item for infinite currency.\" A Cumstead booming past its needs becomes exactly that farm.",
+      "precedent": "Analysis: Global Currency (inflation concern)",
+      "canon": "canon",
+      "condition": {
+        "stat": "from",
+        "op": ">",
+        "value": 75
+      },
+      "sign": -1
+    },
+    {
+      "id": "r148",
+      "fromId": "shantyTown",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.1,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "barter loops around the Ducket",
+      "explanation": "Shanty Town trades by barter; \"a simple barter system will loop around\" any Ducket tax, and a Shanty boom moves less coin than it moves grog.",
+      "precedent": "Analysis: barter in Shanty Town",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r149",
+      "fromId": "subsidies",
+      "fromStat": "economic",
+      "toId": "bonds",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "subsidies financed on paper",
+      "explanation": "Above today's level, every season of subsidy is another bond round at a worse rate.",
+      "precedent": "Stewards of Aleforge bond rounds",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r150",
+      "fromId": "aleforgeTaxes",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the tax take, season after season",
+      "explanation": "Taxes are a standing inflow: above today's level they refill the treasury each season; below it they don't.",
+      "precedent": "Analysis: Taxes and Treasuries",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r151",
+      "fromId": "titheRate",
+      "fromStat": "economic",
+      "toId": "oweBlock",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "the tithe drives the underground",
+      "explanation": "Each season above today's rate pushes more of Owe Block's life off the books.",
+      "precedent": "Founding of Owe Block",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r152",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "insurers",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.35,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "Stormtide claims season",
+      "explanation": "Dangerous seas and Shanty raiders make Stormtide the season underwriters pay out. Pivot sits low: even a quiet Shanty sinks ships in Stormtide.",
+      "precedent": "Pintland Calendar: Stormtide; Shanty Town's raiding threats",
+      "canon": "canon",
+      "pivot": 30,
+      "season": "Stormtide"
+    },
+    {
+      "id": "r153",
+      "fromId": "rotoCouncil",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "Goldsun trade season",
+      "explanation": "Calm seas and full sails: Goldsun is when coin moves.",
+      "precedent": "Pintland Calendar: Goldsun",
+      "canon": "canon",
+      "pivot": 50,
+      "season": "Goldsun"
     }
   ],
   "events": [
@@ -2402,12 +3372,32 @@
           "ref": "bonds.economic",
           "w": -0.2,
           "note": "Aleforge debt confidence (a distressed issuer is tempted to print)"
+        },
+        {
+          "ref": "rotoBlackMarket.economic",
+          "w": 0.2,
+          "note": "the Roto currency black market"
+        },
+        {
+          "ref": "velocity.economic",
+          "w": 0.12,
+          "note": "money changing hands faster than goods are made"
+        },
+        {
+          "ref": "aleforgeTaxes.economic",
+          "w": -0.1,
+          "note": "taxes pulling coin out of circulation"
+        },
+        {
+          "ref": "banks.economic",
+          "w": 0.08,
+          "note": "banks paying interest they haven't earned from loans"
         }
       ],
       "seasonMods": {},
       "explanation": {
-        "suppressedBy": "The flat-M2 rule — there is no legitimate way to mint Duckets — plus deep, honest Roto liquidity holding the conversion rates.",
-        "erodedBy": "Untracked value entering the system (SBN smuggling, Goldcoral's Roto books), and the temptation of a debt-strained Aleforge or a hungry town to find an illegitimate way to make more coin.",
+        "suppressedBy": "The closed loop: almost nothing may create Duckets, taxes pull coin back out of circulation into treasuries, and deep, honest Roto liquidity holds the conversion rates. The goal is M2 flat and velocity consistent.",
+        "erodedBy": "Everything the Analysis warns about: big farms trading one item for endless coin, banks paying interest they never earned, a Roto currency black market, untracked outside money (SBN smuggling, Goldcoral's books), and a debt-strained town tempted to print.",
         "ifCrossed": "Somebody finds a way to mint. Rates between the towns' sub-economies come unstuck, and every treasury funded in Duckets discovers what its savings were really worth."
       },
       "omens": [
@@ -2446,7 +3436,7 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.306
+      "base": -0.002
     },
     {
       "id": "mamaRad",
@@ -2766,6 +3756,85 @@
       "base": -0.205
     },
     {
+      "id": "creditCrunch",
+      "name": "Credit Crunch",
+      "domain": "economic",
+      "initial": 24,
+      "threshold": 70,
+      "inputs": [
+        {
+          "ref": "banks.economic",
+          "w": -0.35,
+          "note": "bank health"
+        },
+        {
+          "ref": "insurers.economic",
+          "w": -0.25,
+          "note": "underwriters able to pay claims"
+        },
+        {
+          "ref": "bonds.economic",
+          "w": -0.2,
+          "note": "the Aleforge paper banks hold"
+        },
+        {
+          "ref": "velocity.economic",
+          "w": -0.15,
+          "note": "money still moving"
+        },
+        {
+          "ref": "rotoBlackMarket.economic",
+          "w": 0.1,
+          "note": "deposits fleeing to the night market"
+        }
+      ],
+      "seasonMods": {
+        "Stormtide": 0.3
+      },
+      "explanation": {
+        "suppressedBy": "Banks with real loan income, underwriters with reserves, and Aleforge paper that still trades near par.",
+        "erodedBy": "Wreck seasons, Aleforge bond stress, and interest paid out of thin air. The credit market is young, and so are its reserves.",
+        "ifCrossed": "The underwriters fold, the banks call in their loans, and the people who were promised ships and shops on credit find out the credit was a wager."
+      },
+      "omens": [
+        "Roto bookmakers are offering odds on whether the insurers themselves will return.",
+        "A holdings account in Aleforge paid its interest in IOUs this Keg.",
+        "Three ship loans were called in the same week."
+      ],
+      "event": {
+        "name": "The Underwriters Fold",
+        "narrative": "It took one bad Stormtide and three missing hulls. The Roto gamblers who had been writing voyage policies discovered, in rapid succession, that they were insurers, that they were insolvent, and that they had borrowed the reserves from the banks. The banks call in every ship and shop loan on the books; half-built storefronts in Aleforge stand empty with the scaffolding still up. Goldcoral buys the distressed policies for a song and is, somehow, the only party that comes out ahead.",
+        "effects": [
+          {
+            "ref": "insurers.economic",
+            "delta": -16
+          },
+          {
+            "ref": "banks.economic",
+            "delta": -12
+          },
+          {
+            "ref": "velocity.economic",
+            "delta": -8
+          },
+          {
+            "ref": "playerEconomy.economic",
+            "delta": -8
+          },
+          {
+            "ref": "rotoCouncil.economic",
+            "delta": -4
+          },
+          {
+            "ref": "goldcoral.economic",
+            "delta": 5
+          }
+        ],
+        "chargeAfter": -1.2
+      },
+      "base": -2.363
+    },
+    {
       "id": "cloister",
       "name": "Cloister Stirring",
       "domain": "religious",
@@ -2972,8 +4041,8 @@
       "name": "Cardinal Addy restores the full tithe in Owe Block",
       "effects": [
         {
-          "ref": "patmos.economic",
-          "delta": 15
+          "ref": "titheRate.economic",
+          "delta": 25
         }
       ],
       "narrative": "From the spire, the Cardinal announces that the Gobbler-era concession has served its purpose. The tithe returns to half of all earnings."
@@ -3056,6 +4125,121 @@
         }
       ],
       "narrative": "Jack, Guinnie and Buke denounce the mayor at the Hall of Ale. Bonehardy does not respond, which his supporters call \"statesmanlike.\""
+    },
+    {
+      "id": "megaFarm",
+      "name": "A mega-farm floods the exchange",
+      "effects": [
+        {
+          "ref": "ducket.economic",
+          "delta": -8
+        },
+        {
+          "ref": "velocity.economic",
+          "delta": 8
+        },
+        {
+          "ref": "playerEconomy.economic",
+          "delta": 4
+        }
+      ],
+      "hazardCharge": {
+        "inflation": 1
+      },
+      "narrative": "Someone has built a wheat farm the size of a parish and is selling its entire output to the Aleforge exchange every day at the posted rate — the exact thing the Analysis said must never be allowed."
+    },
+    {
+      "id": "blackMarketBoom",
+      "name": "Roto's currency black market booms",
+      "effects": [
+        {
+          "ref": "rotoBlackMarket.economic",
+          "delta": 18
+        }
+      ],
+      "narrative": "After dark on the lower stilts of Roto, a Ducket is now worth whatever the man with the lantern says, and more people are asking him than asking the exchange."
+    },
+    {
+      "id": "embargo",
+      "name": "Aleforge embargoes Providence goods",
+      "effects": [
+        {
+          "ref": "aleforgeTariffs.economic",
+          "delta": 28
+        }
+      ],
+      "narrative": "Bonehardy signs an embargo on Providence brewing tools, reportedly without reading it. Shoppers notice the prices before they notice the policy."
+    },
+    {
+      "id": "kingsRewards",
+      "name": "The Kings are paid their concept performance rewards",
+      "effects": [
+        {
+          "ref": "conceptRewards.economic",
+          "delta": 30
+        }
+      ],
+      "narrative": "The gamemaster's ledger closes on another concept and the treasury pays out the Kings' performance rewards in coin and Goldcoral stock. Jack's share is the largest; nobody is surprised."
+    },
+    {
+      "id": "foreignCoin",
+      "name": "Foreign coin arrives from outside the Isles",
+      "effects": [
+        {
+          "ref": "velocity.economic",
+          "delta": 6
+        },
+        {
+          "ref": "rotoCouncil.economic",
+          "delta": 6
+        },
+        {
+          "ref": "playerEconomy.economic",
+          "delta": 5
+        },
+        {
+          "ref": "sbn.economic",
+          "delta": 6
+        },
+        {
+          "ref": "ducket.economic",
+          "delta": -3
+        }
+      ],
+      "hazardCharge": {
+        "inflation": 0.6
+      },
+      "narrative": "A StormVeil Albatross unloads a hold of Bellows coin at Roto — the one legitimate way new money can enter the Isles, and a test of whether anyone is counting."
+    },
+    {
+      "id": "wreckSeason",
+      "name": "A season of wrecks",
+      "effects": [
+        {
+          "ref": "insurers.economic",
+          "delta": -14
+        },
+        {
+          "ref": "rotoCouncil.economic",
+          "delta": -4
+        },
+        {
+          "ref": "shantyTown.economic",
+          "delta": 5
+        }
+      ],
+      "narrative": "Four merchantmen go down off the Shoals in a single Keg. The underwriters pay; Shanty Town's salvagers, who were somehow already out there, do very well."
+    },
+    {
+      "id": "bankCharter",
+      "name": "The first Bank of Aleforge opens its lending window",
+      "effects": [
+        {
+          "ref": "banks.economic",
+          "delta": 18
+        }
+      ],
+      "narrative": "A bank opens beside the Hall of Ale offering loans for ships, shops and land, and holdings accounts that pay interest from somewhere, allegedly loan income."
     }
   ],
   "narration": {
@@ -3112,6 +4296,30 @@
       {
         "if": "gideon.political>45",
         "text": "Letters postmarked from nowhere are circulating in Aleforge, all in the same fine hand."
+      },
+      {
+        "if": "velocity.economic<38",
+        "text": "Aleforge shopkeepers report customers who are \"just looking,\" which the Chronicle has declared a recession."
+      },
+      {
+        "if": "playerEconomy.economic<35",
+        "text": "Town shops restock a little slower every Keg; nobody can say why, only that everything costs more."
+      },
+      {
+        "if": "rotoBlackMarket.economic>60",
+        "text": "After dark in Roto, a Ducket is worth whatever the man with the lantern says it is."
+      },
+      {
+        "if": "insurers.economic<22",
+        "text": "Roto bookmakers are offering odds on whether the insurers themselves will return."
+      },
+      {
+        "if": "conceptRewards.economic>60",
+        "text": "The Kings' performance bonuses were paid on time, which is more than can be said for the bond coupons."
+      },
+      {
+        "if": "ducket.economic>70",
+        "text": "The Duckets in circulation are, for once, exactly as many as there were last season. Somewhere, an economist weeps with joy."
       },
       {
         "text": "Rollo changed boyfriends twice this season, which analysts agree had no macroeconomic effect."
