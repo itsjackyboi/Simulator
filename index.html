@@ -307,6 +307,129 @@ footer{padding:14px 22px 30px;font-size:12.5px;color:var(--ink-3);border-top:3px
 .golink:hover,.golink:focus-visible{text-decoration:underline}
 .threads li{margin:6px 0}
 @media (max-width:900px){ .brief-hero,.grid-brief{grid-template-columns:minmax(0,1fr)} .tabline{grid-template-columns:minmax(0,1fr)} }
+
+/* ── Shell: main + persistent forecast rail ─────────────────────────── */
+.shell{display:grid;grid-template-columns:minmax(0,1fr) 400px;align-items:start}
+.shell.norail{grid-template-columns:minmax(0,1fr)}
+.shell > main{min-width:0}
+#rail{position:sticky;top:0;max-height:100vh;overflow-y:auto;border-left:3px double var(--rule);background:linear-gradient(to bottom,rgba(246,236,210,.92),rgba(233,216,174,.6));padding:14px 16px 40px;transition:opacity .2s}
+#rail.busy{opacity:.55}
+#rail[hidden]{display:none}
+.rail-h h2{font-size:22px;font-weight:900;margin:2px 0 0}
+.rail-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+.rail-ctl select{width:auto;padding:3px 5px}
+.seg{display:inline-flex;border:1px solid var(--rule)}
+.seg button{font-family:var(--f-head);font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:5px 8px;background:var(--parch-card);border:none;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--parch)}
+.rs{border-top:1px solid var(--rule);padding-top:10px;margin-top:12px}
+.rs > h3{font-family:var(--f-head);font-size:13px;color:var(--wax);text-transform:uppercase;letter-spacing:.09em;margin:0 0 4px}
+.rs p{margin:2px 0 6px}
+.chg{font-family:var(--f-fell);font-size:16px;margin:2px 0 6px}
+.shifts{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 8px}
+.shift{font-size:12px;padding:1px 6px;border:1px solid var(--rule);background:var(--parch-card)}
+.shift.worse{border-color:var(--wax-2);color:var(--wax)}
+.shift.better{border-color:var(--verd);color:var(--verd)}
+details.imp{border-top:1px dotted var(--rule)}
+details.imp > summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;padding:6px 0 5px;align-items:center}
+details.imp > summary::before{content:none}
+.imp-n{font-size:14.5px;line-height:1.2}
+.imp-v{font-size:13px;white-space:nowrap;text-align:right}
+details.imp .spark{grid-column:2;justify-self:end}
+.imp-b{padding:0 0 8px 6px;border-left:2px solid var(--gold);margin-bottom:6px}
+.chainline{font-family:var(--f-head);font-size:11.5px;color:var(--sea);letter-spacing:.02em;margin:4px 0}
+ol.steps{margin:2px 0 4px;padding-left:18px;font-size:13.5px}
+ol.steps li{margin-bottom:3px}
+.hid,.hidden-key{color:var(--gold);font-family:var(--f-head);font-size:10px;font-weight:700;letter-spacing:.05em;white-space:nowrap}
+.spark{width:80px;height:22px;display:inline-block;vertical-align:middle}
+.spark .with,.fan .with{fill:none;stroke:var(--wax);stroke-width:1.8}
+.spark .without,.fan .without{fill:none;stroke:var(--ink-3);stroke-width:1.3;stroke-dasharray:3 3}
+.fan{width:100%;height:auto;display:block;margin-top:4px}
+.fan .band{fill:var(--gold);opacity:.22}
+.fan .ax{stroke:var(--rule);stroke-width:1}
+.fan .tk{font-size:10px;fill:var(--ink-3);font-family:var(--f-body)}
+.fan .enddot{fill:var(--wax)}
+.fan .endlbl{font-family:var(--f-head);font-weight:900;font-size:12px;fill:var(--ink)}
+details.crisis{border-top:1px dotted var(--rule);padding:2px 0}
+details.crisis > summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:5px 0;align-items:center}
+details.crisis > summary::before{content:none}
+.cr-n{font-size:14px}
+.cr-p{font-size:13px;text-align:right;white-space:nowrap}
+.cr-bar{grid-column:1 / -1;position:relative;height:6px;background:#e2d3ac;border:1px solid #c7ae7a}
+.cr-bar i{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,#b5883a,#a2402c 70%,#7b1515)}
+.cr-bar em{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+details.crisis .be{padding:4px 0 0 6px;border-left:2px solid var(--wax-2);margin:4px 0}
+ul.fx{columns:2;column-gap:14px}
+ul.fx li{break-inside:avoid;font-size:13.5px}
+.wi{display:flex;gap:6px;align-items:center;font-size:13.5px;padding:3px 6px;border:1px solid var(--rule);background:var(--parch-card);margin-bottom:4px}
+.wi .tn{font-family:var(--f-head);font-weight:900;color:var(--wax)}
+.wi button{margin-left:auto}
+.wi-add{flex-wrap:wrap}
+.wi-add select:first-child{flex:1;min-width:160px}
+.golink.plain{text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:15px;font-weight:600;color:var(--ink);padding:0}
+
+/* ── The Web (map) ─────────────────────────── */
+.map-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.fchip{font-family:var(--f-head);font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:4px 8px;border:1px solid var(--rule);background:var(--parch-card);cursor:pointer;color:var(--ink-2)}
+.fchip.on{background:var(--ink);color:var(--parch);border-color:var(--ink)}
+.tog{font-size:13px;display:inline-flex;gap:4px;align-items:center}
+#findNode{width:auto;min-width:150px}
+.map-hint{font-family:var(--f-fell);font-size:15px;color:var(--ink-2);min-height:22px;margin-bottom:4px}
+.map-wrap{background:rgba(246,236,210,.75);border:1px solid var(--rule);box-shadow:var(--shadow);overflow-x:auto}
+#mapSvg{display:block;width:100%;height:auto;min-width:720px}
+#mapSvg .cl-label{font-family:var(--f-head);font-weight:700;font-size:13px;letter-spacing:.14em;fill:var(--ink-3);opacity:.55}
+#mapSvg .lk{fill:none;transition:opacity .2s}
+#mapSvg .lk.off{opacity:0}
+#mapSvg .lk.mid{opacity:.22}
+#mapSvg .lk.on{opacity:.9}
+#mapSvg .lk.trace{stroke-dasharray:7 5;animation:flow 1.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-24}}
+#mapSvg .nd{cursor:pointer;transition:opacity .2s}
+#mapSvg .nd.dim{opacity:.2}
+#mapSvg .nd .body{fill:var(--parch-card);stroke:var(--ink-2);stroke-width:1.2}
+#mapSvg .nd .ring{fill:none;stroke:var(--wax);stroke-width:3.5}
+#mapSvg .nd.lever .body{fill:#efe0b6;stroke:var(--gold);stroke-width:1.6}
+#mapSvg .nd .nv{font-family:var(--f-head);font-weight:900;font-size:12.5px;fill:var(--ink)}
+#mapSvg .nd .nl{font-family:var(--f-body);font-size:12px;fill:var(--ink);paint-order:stroke;stroke:var(--parch);stroke-width:3px}
+#mapSvg .nd .ntr{font-size:10px}
+#mapSvg .nd .ntr.up{fill:var(--up)} #mapSvg .nd .ntr.down{fill:var(--down)}
+#mapSvg .nd .nchip{font-family:var(--f-head);font-weight:900;font-size:12px;paint-order:stroke;stroke:var(--parch);stroke-width:3px}
+#mapSvg .nd .nchip.up{fill:var(--up)} #mapSvg .nd .nchip.down{fill:var(--down)}
+#mapSvg .nd .nchip.hidden{text-decoration:underline;text-decoration-color:var(--gold)}
+#mapSvg .nd.hit .body{stroke:var(--gold);stroke-width:2.6}
+#mapSvg .nd.src .body{stroke:var(--ink);stroke-width:3.2}
+#mapSvg .nd.sel .body{stroke:var(--wax);stroke-width:3.2}
+#mapSvg .nd:focus,#mapSvg .nd:focus-visible{outline:none}
+#mapSvg .nd:focus-visible .body,#mapSvg .nd:focus-visible .hz-body{stroke:var(--gold);stroke-width:3}
+#mapSvg .hz-nd .hz-body{fill:var(--parch-card);stroke:var(--wax);stroke-width:1.4}
+#mapSvg .hz-nd .hz-fill{fill:var(--wax);stroke:none}
+#mapSvg .hz-nd .nv{font-size:11px;paint-order:stroke;stroke:var(--parch);stroke-width:3px}
+#mapSvg .hz-nd .nl{font-style:italic;fill:var(--wax)}
+#mapSvg .hz-nd.likely .hz-body{stroke-width:3;animation:throb 1.8s ease-in-out infinite}
+#mapSvg .hz-nd.past .hz-body{stroke:#5d0f0f;stroke-width:3.5}
+@keyframes throb{50%{stroke-width:5}}
+.map-legend{margin-top:6px}
+.drawer{margin-top:14px}
+.dr-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.dr-h h3{font-family:var(--f-head);font-size:19px;color:var(--ink);text-transform:none;letter-spacing:.02em;margin:0}
+.flag.lever{background:var(--gold)}
+.dr-desc{font-size:15px;color:var(--ink-2);margin:6px 0 10px;max-width:90ch}
+.src-i{font-size:12.5px;color:var(--ink-3);font-style:italic}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:8px;margin-bottom:12px}
+.srow{border:1px solid var(--rule);background:var(--parch-card);padding:7px 10px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center}
+.srow .s-name{grid-column:1 / -1;font-family:var(--f-head);font-size:12px;font-weight:700}
+.srow .s-val{display:flex;align-items:center;gap:6px}
+.srow .s-val .num{font-family:var(--f-head);font-size:19px}
+.srow .s-sub{grid-column:1 / -1;font-size:12.5px;color:var(--ink-2)}
+.lcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.lcols h4,.drawer h4{font-family:var(--f-head);font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--wax);margin:6px 0 4px}
+details.lrow{border-top:1px dotted var(--rule)}
+details.lrow > summary{display:grid;grid-template-columns:10px minmax(0,1fr);gap:0 8px;padding:4px 0;font-size:14px;align-items:baseline}
+details.lrow > summary::before{content:none}
+details.lrow .sw{width:10px;height:4px;display:inline-block;align-self:center}
+details.lrow .lr-s{grid-column:2;font-size:12.5px;color:var(--ink-2);font-style:italic}
+details.lrow > p{margin:2px 0 4px 18px}
+@media (max-width:1180px){ .shell{grid-template-columns:minmax(0,1fr)} #rail{position:static;max-height:none;border-left:none;border-top:3px double var(--rule)} }
 @media (max-width:1180px){ .grid-proj{grid-template-columns:260px minmax(0,1fr)} .grid-proj > .side{grid-column:1 / -1} }
 @media (max-width:900px){
   .grid-domain,.grid-2,.grid-proj{grid-template-columns:minmax(0,1fr)}
@@ -322,23 +445,25 @@ footer{padding:14px 22px 30px;font-size:12.5px;color:var(--ink-3);border-top:3px
   <div class="seal" aria-hidden="true">P</div>
   <div class="titles">
     <h1>The Pintland Isles — Dynamics Simulator</h1>
-    <div class="sub">Move one faction's power and watch the whole of the Isles answer, with the reason for every effect.</div>
+    <div class="sub">Change one thing and see where it travels: what it does now, and what it likely does over the seasons ahead.</div>
   </div>
   <div class="clock">
     <span class="date" id="clockDate"></span>
-    <button class="btn wax" id="btnAdvance" title="Resolve due lagged effects, standing pressures and hazard rolls for one season">Advance a Season ▸</button>
-    <button class="btn" id="btnUndo" title="Undo your last slider change or season">Undo</button>
+    <button class="btn" id="btnUndo" title="Undo your last change">Undo</button>
     <button class="btn ghost" id="btnReset" title="Restore every value to canon (keeps your world data edits)">Reset Values</button>
   </div>
 </header>
 <nav class="tabs" role="tablist" id="tabs"></nav>
+<div class="shell">
 <main>
   <section class="view" id="view-briefing"></section>
-  <section class="view" id="view-domain" hidden></section>
+  <section class="view" id="view-map" hidden></section>
   <section class="view" id="view-projection" hidden></section>
   <section class="view" id="view-chronicle" hidden></section>
   <section class="view" id="view-data" hidden></section>
 </main>
+<aside id="rail" aria-label="Forecast"></aside>
+</div>
 <footer>
   Seeded from the <i>Master Lore Compendium</i>, the <i>Hoegaarden Hall of Records</i> and <i>A Macroeconomic Analysis of the Pintland Isles</i> (Cycle 94, Year 466). Your state saves in this browser; use World Data → Export to keep it anywhere else. Every relationship names its canon precedent; links marked <span class="canon extrapolated">extrapolated</span> are argued from the setting's logic, <span class="canon rumour">rumour</span> and <span class="canon open-thread">open-thread</span> links are speculative on purpose.
 </footer>
@@ -4994,7 +5119,7 @@ function fireHazard(E, h, out, t) {
   return { kind: 'hazard', hazardId: h.id, name: h.event.name, narrative: h.event.narrative };
 }
 
-function stepTurn(E, { rng, injections = [], quiet = false }) {
+function stepTurn(E, { rng, injections = [], quiet = false, suppress = null }) {
   const before = { ...E.values };
   const t = ++E.sim.turn, season = seasonOf(t), out = [], events = [];
   // 1. Lagged effects now due
@@ -5033,7 +5158,7 @@ function stepTurn(E, { rng, injections = [], quiet = false }) {
     if (hz.cooldown > 0) hz.cooldown--;
     v = hazardV(E, h, season);
     const roll = rng.hazard();
-    if (v >= h.threshold && hz.cooldown <= 0 && roll < 0.3 + (v - h.threshold) / 50) {
+    if (v >= h.threshold && hz.cooldown <= 0 && roll < 0.3 + (v - h.threshold) / 50 && !suppress?.has(h.id)) {
       events.push(fireHazard(E, h, out, t)); v = hazardV(E, h, season);
     }
     hv[h.id] = v;
@@ -5152,11 +5277,11 @@ function narrateTurn(rec, E, rng) {
    ════════════════════════════════════════════════════════════════════ */
 const STORE = 'pintland-sim/v1';
 let E, LOG = [], CHRON = [], UNDO = [];
-const UI = { tab: 'briefing', sel: {}, hzOpen: null, edgeSel: null };
+const UI = { tab: 'briefing' };
 
 function saveNow() {
   clearTimeout(save.t); save.t = null;
-  try { localStorage.setItem(STORE, JSON.stringify({ world: W, engine: E, log: LOG.slice(0, 30), chron: CHRON.slice(0, 80), ui: { tab: UI.tab, sel: UI.sel } })); } catch (e) { /* storage unavailable — state still lives in memory */ }
+  try { localStorage.setItem(STORE, JSON.stringify({ world: W, engine: E, log: LOG.slice(0, 30), chron: CHRON.slice(0, 80), ui: { tab: UI.tab }, rail: { whatif: RAIL.whatif, mode: RAIL.mode, H: FC.H, base: RAIL.base, change: RAIL.change }, map: { sel: MAP.sel } })); } catch (e) { /* storage unavailable — state still lives in memory */ }
 }
 function save() { clearTimeout(save.t); save.t = setTimeout(saveNow, 300); }
 addEventListener('pagehide', () => { if (save.t) saveNow(); });
@@ -5169,16 +5294,21 @@ function boot() {
     E = reconcileEngine(saved.engine || freshEngine());
     LOG = (saved.log || []).filter(d => (d.records || []).every(r => r.ref in E.values && r.chain.every(c => IDX.byId[c.edgeId])));
     CHRON = saved.chron || [];
-    Object.assign(UI, saved.ui || {});
     UI.tab = 'briefing'; // the Briefing is always the landing page
+    const r = saved.rail || {};
+    RAIL.whatif = (r.whatif || []).filter(w => injDef(w));
+    RAIL.mode = r.mode === 'canon' ? 'canon' : 'last';
+    if ([3, 6, 9, 12].includes(r.H)) FC.H = r.H;
+    if (r.base?.E) { RAIL.base = { E: reconcileEngine(r.base.E), whatif: (r.base.whatif || []).filter(w => injDef(w)) }; RAIL.change = r.change || null; }
+    MAP.sel = saved.map?.sel && (G(saved.map.sel) || W.hazards.some(h => 'hz:' + h.id === saved.map.sel)) ? saved.map.sel : null;
   } else { loadWorld(SEED); E = freshEngine(); }
 }
 
 /* ════════════════════════════════════════════════════════════════════
    Shell: tabs, clock
    ════════════════════════════════════════════════════════════════════ */
-const VIEWS = [{ id: 'briefing', label: 'Briefing', view: 'briefing' }, { sep: true }, ...STATS.map(s => ({ id: s, label: TAB[s], view: 'domain' })), { sep: true },
-  { id: 'projection', label: 'Projection', view: 'projection' }, { id: 'chronicle', label: 'Chronicle', view: 'chronicle' }, { id: 'data', label: 'World Data', view: 'data' }];
+const VIEWS = [{ id: 'briefing', label: 'Briefing', view: 'briefing', rail: true }, { id: 'map', label: 'The Web', view: 'map', rail: true }, { sep: true },
+  { id: 'projection', label: 'Projection', view: 'projection' }, { id: 'chronicle', label: 'Chronicle', view: 'chronicle', rail: true }, { id: 'data', label: 'World Data', view: 'data' }];
 function renderTabs() {
   const nav = $('#tabs'); nav.innerHTML = '';
   for (const v of VIEWS) {
@@ -5196,29 +5326,31 @@ function renderSeedNotice() {
   el.innerHTML = `<h3><span class="orn">✦</span> The canon world has been updated <span class="muted">(v${SEED.meta.version}: ${esc(SEED.meta.changes || 'new content')}). This browser still holds your saved v${W.meta.version || 1} world.</span></h3>
     <div class="btns"><button class="btn sm wax" id="seedUpgrade">Load the new world (keeps your current values)</button><button class="btn sm ghost" id="seedKeep">Keep my saved world</button></div>
     <p class="small muted" style="margin:0">Loading replaces the world data with the new canon, so any edits you made in World Data are lost. Export first if you want to keep them. Values, turn and pending effects carry over wherever the groups still exist.</p>`;
-  $('#seedUpgrade').onclick = () => { loadWorld(SEED); E = reconcileEngine(E); LOG = []; UNDO.length = 0; PJ.run = null; UI.seedNotice = false; renderAll(); saveNow(); };
+  $('#seedUpgrade').onclick = () => { loadWorld(SEED); E = reconcileEngine(E); LOG = []; UNDO.length = 0; PJ.run = null; UI.seedNotice = false; RAIL.base = null; RAIL.change = null; RAIL.whatif = RAIL.whatif.filter(w => injDef(w)); computeForecast(); renderAll(); saveNow(); };
   $('#seedKeep').onclick = () => { W.meta.version = SEED.meta.version; UI.seedNotice = false; renderAll(); saveNow(); };
 }
 function renderClock() {
-  const d = dateOf(E.sim.turn), next = dateOf(E.sim.turn + 1);
-  $('#clockDate').innerHTML = `Turn <b>${E.sim.turn}</b> · ${esc(d.label)} <span class="muted small">· ${E.sim.pending.length} pending</span>`;
-  $('#btnAdvance').title = `Advance to ${next.label}: resolve due lagged effects, standing pressures and hazard rolls.`;
+  const d = dateOf(E.sim.turn);
+  $('#clockDate').innerHTML = `<b>The present</b> · ${esc(d.label.replace(' · the present', ''))}`;
   $('#btnUndo').disabled = !UNDO.length;
 }
 function renderAll() {
   renderTabs(); renderClock();
   const v = VIEWS.find(x => x.id === UI.tab) || VIEWS[0];
   renderSeedNotice();
-  for (const id of ['briefing', 'domain', 'projection', 'chronicle', 'data']) $('#view-' + id).hidden = v.view !== id;
+  for (const id of ['briefing', 'map', 'projection', 'chronicle', 'data']) $('#view-' + id).hidden = v.view !== id;
+  const rail = $('#rail'); rail.hidden = !v.rail; $('.shell').classList.toggle('norail', !v.rail);
+  if (!RAIL.with) computeForecast();
   if (v.view === 'briefing') renderBriefing();
-  if (v.view === 'domain') renderDomain(v.id);
+  if (v.view === 'map') renderMap();
   if (v.view === 'projection') renderProjection();
   if (v.view === 'chronicle') renderChronicle();
   if (v.view === 'data') renderData();
+  renderRail();
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   Domain tabs
+   Shared display helpers
    ════════════════════════════════════════════════════════════════════ */
 function badgeFor(v) {
   if (v >= 80) return ['Ascendant', 'b5']; if (v >= 62) return ['Commanding', 'b4'];
@@ -5236,53 +5368,7 @@ function leverBadge(v) {
 const badgeOf = (g, v) => g.lever ? leverBadge(v) : badgeFor(v);
 function domainGroups(stat) { return W.groups.filter(g => g.domains.includes(stat)); }
 
-function renderDomain(stat) {
-  const root = $('#view-domain');
-  const groups = domainGroups(stat);
-  if (!UI.sel[stat] || !groups.some(g => g.id === UI.sel[stat])) UI.sel[stat] = groups[0]?.id;
-  root.innerHTML = `
-    <p class="intro">${esc(TAB_INTRO[stat] || '')}</p>
-    <div class="grid-domain">
-      <div>
-        <div class="panel"><h3><span class="orn">✦</span> Hazard Meters <span class="muted">These don't move in step with the sliders. When one passes its threshold, a new event happens. Click a meter for its causes.</span></h3>
-          <div class="hz-strip" id="hzStrip"></div><div id="hzDetail"></div></div>
-        <div class="panel"><h3><span class="orn">✦</span> ${esc(TAB[stat])} Powers <span class="muted">Drag a slider to move that group's ${esc(W.meta.statNouns[stat])}; click a card to see its links.</span></h3>
-          <div class="cards" id="cards"></div></div>
-        ${domainGroups(stat).some(g => g.lever) ? `<div class="panel"><h3><span class="orn">✦</span> Policy Levers <span class="muted">The dials that story events and governments turn: taxes, tariffs, tithes, charters, subsidies, rewards. 50 is today's setting. Above 50 they also push every season.</span></h3>
-          <div class="cards" id="levers"></div></div>` : ''}
-        <details class="panel"><summary><h3 style="display:inline">Influence Matrix</h3> <span class="muted small">How strongly each ${esc(TAB[stat].toLowerCase())} group pushes on every other group (all links combined; green = pushes the same way, red = pushes the opposite way).</span></summary>
-          <div class="matrix" id="matrix"></div></details>
-      </div>
-      <div>
-        <div class="panel web"><h3><span class="orn">✦</span> Causal Web <span class="muted" id="webTitle"></span></h3>
-          <div class="legend">
-            <span><i style="border-color:var(--verd)"></i>support</span><span><i style="border-color:var(--wax)"></i>oppose</span>
-            <span><i style="border-color:var(--gold)"></i>dependent</span><span><i style="border-color:var(--latent);border-top-style:dotted"></i>latent</span>
-            <span><i style="border-color:var(--ink-2);border-top-style:dashed"></i>lagged</span><span>≋ standing pressure</span>
-          </div>
-          <div id="web"></div><div class="edge-detail" id="edgeDetail"><span class="muted small">Hover or tap a link to read why it exists.</span></div></div>
-        <details class="panel" id="pendPanel" ${E.sim.pending.length ? 'open' : ''}><summary><h3 style="display:inline">⏳ Pending Effects</h3> <span class="muted small">(${E.sim.pending.length}) — consequences already set in motion that land in later seasons. Use “Advance a Season” to let them arrive.</span></summary><div id="pending"></div></details>
-        <div class="panel"><h3><span class="orn">✦</span> Causal Dispatches <span class="muted">Newest first.</span></h3><div class="log" id="log"></div></div>
-      </div>
-    </div>`;
-  renderHazardStrip(stat); renderCards(stat); renderWeb(stat); renderPending(); renderLog(); renderMatrix(stat);
-}
 
-function renderHazardStrip(stat) {
-  const strip = $('#hzStrip'); if (!strip) return;
-  const hs = [...W.hazards].sort((a, b) => (b.domain === stat) - (a.domain === stat));
-  strip.innerHTML = hs.map(h => {
-    const v = hazardV(E, h), ch = E.sim.hz[h.id].charge;
-    return `<button class="hz ${h.domain === stat ? 'rel' : ''} ${v >= h.threshold - 8 ? 'hot' : ''}" data-hz="${esc(h.id)}" aria-expanded="${UI.hzOpen === h.id}">
-      <div class="hz-name"><span>${esc(h.name)}</span><span>${r0(v)}%</span></div>
-      <div class="bar"><div class="fill" style="width:${v.toFixed(1)}%"></div><div class="thr" style="left:${h.threshold}%" title="Threshold ${h.threshold}%"></div></div>
-      <div class="small muted" style="margin-top:3px">${h.openThread ? 'open thread · ' : ''}threshold ${h.threshold}% ${Math.abs(ch) > 0.05 ? `· buildup ${ch > 0 ? '+' : ''}${ch.toFixed(2)}` : ''}</div>
-    </button>`;
-  }).join('');
-  strip.onclick = e => { const b = e.target.closest('[data-hz]'); if (!b) return; UI.hzOpen = UI.hzOpen === b.dataset.hz ? null : b.dataset.hz; renderHazardStrip(stat); };
-  const det = $('#hzDetail'); const h = W.hazards.find(x => x.id === UI.hzOpen);
-  det.innerHTML = h ? hazardDetailHTML(h) : '';
-}
 function hazardDetailHTML(h) {
   const v = hazardV(E, h), season = seasonOf(E.sim.turn);
   const cs = h.inputs.map(i => ({ i, c: i.w * (E.values[i.ref] - 50) / 10 }));
@@ -5310,133 +5396,6 @@ function hazardDetailHTML(h) {
   </div>`;
 }
 
-function renderCards(stat) {
-  const powers = $('#cards'); if (!powers) return;
-  const levers = $('#levers');
-  powers.innerHTML = ''; if (levers) levers.innerHTML = '';
-  for (const g of domainGroups(stat)) {
-    const wrap = g.lever && levers ? levers : powers;
-    const ref = refOf(g.id, stat), v = E.values[ref], [bl, bc] = badgeOf(g, v);
-    const others = statsOf(g).filter(s => s !== stat);
-    const card = document.createElement('div');
-    card.className = 'card' + (UI.sel[stat] === g.id ? ' sel' : '');
-    card.dataset.ref = ref; card.dataset.gid = g.id;
-    card.innerHTML = `
-      <div class="card-h"><span class="nm">${esc(nameRef(ref))}</span><span class="badge ${bc}">${bl}</span></div>
-      <div class="slrow"><input type="range" min="0" max="100" step="1" value="${r0(v)}" aria-label="${esc(nameRef(ref))} ${esc(stat)}"><span class="num">${r0(v)}</span><span class="trend">${trendHTML(ref)}</span></div>
-      <div class="axes">${others.map(s => `<span class="ax" data-ax="${esc(refOf(g.id, s))}" title="${esc(W.meta.statNouns[s])}">${esc(s.slice(0, 4))} <b>${r0(E.values[refOf(g.id, s)])}</b></span>`).join('')}</div>
-      <div class="flags">${g.fused ? '<span class="flag" title="One institution with power on several axes at once">FUSED OFFICE</span>' : ''}${g.openThread ? '<span class="flag open">OPEN THREAD</span>' : ''}${g.lever ? '<span class="flag" style="background:var(--gold)">POLICY LEVER</span>' : ''}</div>
-      <div class="desc">${esc(g.description || '')}</div>
-      <div class="src">⚜ ${esc(g.loreSource || '')}</div>`;
-    const slider = $('input', card), num = $('.num', card);
-    let timer = null;
-    slider.addEventListener('input', () => {
-      num.textContent = slider.value;
-      const [l, c] = badgeOf(g, +slider.value); const b = $('.badge', card); b.textContent = l; b.className = 'badge ' + c;
-      clearTimeout(timer); timer = setTimeout(() => commitSlider(ref, +slider.value), 220);
-    });
-    slider.addEventListener('change', () => { clearTimeout(timer); commitSlider(ref, +slider.value); });
-    slider.addEventListener('click', e => e.stopPropagation());
-    card.addEventListener('click', () => { if (UI.sel[stat] === g.id) return; UI.sel[stat] = g.id; UI.edgeSel = null; $$('#view-domain .card').forEach(c => c.classList.toggle('sel', c.dataset.gid === g.id)); renderWeb(stat); save(); });
-    wrap.append(card);
-  }
-}
-
-// Refresh card numbers after a commit without rebuilding (keeps the dragged slider alive).
-function refreshCards(stat, changed, skipRef) {
-  for (const card of $$('#view-domain .cards .card')) {
-    const ref = card.dataset.ref, v = E.values[ref];
-    if (ref !== skipRef) {
-      $('input', card).value = r0(v); $('.num', card).textContent = r0(v);
-      const [l, c] = badgeOf(G(card.dataset.gid), v); const b = $('.badge', card); b.textContent = l; b.className = 'badge ' + c;
-    }
-    $('.trend', card).innerHTML = trendHTML(ref);
-    $$('.ax', card).forEach(ax => { $('b', ax).textContent = r0(E.values[ax.dataset.ax]); });
-    const gid = card.dataset.gid;
-    const hits = [...changed.entries()].filter(([r]) => splitRef(r)[0] === gid && r !== skipRef);
-    if (hits.length) {
-      const own = changed.get(ref) ?? hits.reduce((s, [, d]) => s + d, 0);
-      if (Math.abs(own) >= 0.3) {
-        card.classList.remove('flash'); void card.offsetWidth; card.classList.add('flash');
-        $('.chip-d', card)?.remove();
-        const chip = document.createElement('span'); chip.className = 'chip-d ' + (own > 0 ? 'up' : 'down');
-        chip.textContent = fmt(own) + (changed.has(ref) ? '' : ' ·' + hits.map(([r]) => splitRef(r)[1].slice(0, 4)).join('/'));
-        card.append(chip);
-      }
-    }
-  }
-}
-
-function commitSlider(ref, newVal) {
-  const v0 = E.values[ref];
-  if (Math.abs(newVal - v0) < 0.05) return;
-  const now = Date.now();
-  let disp = LOG[0];
-  const merge = disp && disp.kind === 'user' && disp.ref === ref && disp.turn === E.sim.turn && now - disp.time < 5000;
-  if (!merge) {
-    UNDO.push({ E: clone(E), logLen: LOG.length }); if (UNDO.length > 30) UNDO.shift();
-    disp = { id: now, kind: 'user', ref, from: v0, turn: E.sim.turn, time: now, records: [], hzBefore: hazardSnap(E) };
-    LOG.unshift(disp); if (LOG.length > 40) LOG.pop();
-  }
-  const out = [];
-  const origin = { kind: 'user', label: nameRef(ref), ref, turn: E.sim.turn };
-  setDirect(E, ref, newVal, origin, out);
-  disp.records.push(...out); disp.to = newVal; disp.time = now; disp.hzAfter = hazardSnap(E);
-  const changed = new Map();
-  out.filter(r => !r.pending).forEach(r => changed.set(r.ref, (changed.get(r.ref) || 0) + r.delta));
-  const stat = UI.tab;
-  refreshCards(stat, changed, ref);
-  renderHazardStrip(stat); renderPending(); renderLog(); renderClock(); renderWebDetailOnly();
-  save();
-}
-
-function advanceSeason() {
-  UNDO.push({ E: clone(E), logLen: LOG.length }); if (UNDO.length > 30) UNDO.shift();
-  const hzBefore = hazardSnap(E);
-  const rec = stepTurn(E, { rng: dice((Date.now() ^ E.sim.turn * 7919) >>> 0, E.sim.turn) });
-  LOG.unshift({ id: Date.now(), kind: 'season', title: rec.date, turn: rec.turn, time: Date.now(), records: rec.out, events: rec.events, narrative: rec.narrative, hzBefore, hzAfter: hazardSnap(E) });
-  if (LOG.length > 40) LOG.pop();
-  CHRON.unshift({ turn: rec.turn, date: rec.date, narrative: rec.narrative, events: rec.events });
-  renderAll(); save();
-}
-function undo() {
-  const u = UNDO.pop(); if (!u) return;
-  E = u.E; LOG = LOG.slice(LOG.length - u.logLen);
-  if (CHRON.length && CHRON[0].turn > E.sim.turn) CHRON = CHRON.filter(c => c.turn <= E.sim.turn);
-  renderAll(); save();
-}
-
-function renderLog() {
-  const el = $('#log'); if (!el) return;
-  if (!LOG.length) { el.innerHTML = '<p class="empty">Nothing has happened yet. Drag a slider and this panel will explain what it caused, and why, in the Isles\' own terms.</p>'; return; }
-  el.innerHTML = LOG.map((d, i) => {
-    let head, body = '';
-    if (d.kind === 'user') {
-      const delta = d.to - d.from;
-      head = `⚜ You ${delta > 0 ? 'raised' : 'lowered'} ${esc(nameRef(d.ref))} · ${esc(splitRef(d.ref)[1])} ${r0(d.from)} → ${r0(d.to)} (${fmt(delta)})`;
-    } else {
-      head = `☾ A season passes: ${esc(d.title)}`;
-      body += `<p class="narr">${esc(d.narrative)}</p>`;
-      for (const ev of d.events || []) if (ev.kind === 'hazard') body += `<div class="hzevent"><div class="seal">!</div><h5>${esc(ev.name)}</h5><p>${esc(ev.narrative)}</p></div>`;
-    }
-    const shifts = W.hazards.map(h => ({ h, a: d.hzBefore?.[h.id], b: d.hzAfter?.[h.id] })).filter(x => x.a != null && x.b != null && Math.abs(x.b - x.a) >= 0.5);
-    if (shifts.length) body += `<p class="hzshift"><b>Hazards:</b> ${shifts.map(x => `${esc(x.h.name)} ${r0(x.a)}% → <b class="${x.b > x.a ? 'down' : 'up'}">${r0(x.b)}%</b>`).join(' · ')}</p>`;
-    body += recordsHTML(d.records, d.kind === 'user' ? 10 : 8);
-    return `<details class="disp" ${i === 0 ? 'open' : ''}><summary>${head}<span class="t">Turn ${d.turn}</span></summary><div class="body">${body}</div></details>`;
-  }).join('');
-}
-
-function renderPending() {
-  const el = $('#pending'); if (!el) return;
-  const pp = [...E.sim.pending].sort((a, b) => a.due - b.due);
-  const sum = $('#pendPanel summary .muted'); if (sum) sum.textContent = `(${pp.length}) — consequences already set in motion that land in later seasons. Use “Advance a Season” to let them arrive.`;
-  if (!pp.length) { el.innerHTML = '<p class="empty">Nothing is waiting to happen.</p>'; return; }
-  el.innerHTML = pp.map(p => {
-    const e = IDX.byId[p.chain[p.chain.length - 1].edgeId];
-    return `<div class="ex pend"><p class="ex-head">Turn ${p.due} (${dateOf(p.due).season}, in ${p.due - E.sim.turn} season${p.due - E.sim.turn === 1 ? '' : 's'}): ${esc(cap(subj(p.ref)))} ${fmt(p.delta)}</p>
-      <p class="ex-prec">${esc(e?.short || '')}, set in motion at Turn ${p.created} by ${esc(originText(p.origin))}</p></div>`;
-  }).join('');
-}
 function originText(o) {
   if (!o) return 'unknown';
   if (o.kind === 'user') return `your change to ${nameRef(o.ref)}`;
@@ -5445,94 +5404,631 @@ function originText(o) {
   return `the standing pressure “${o.label}”`;
 }
 
-/* ── Causal web: ego graph for the selected group ── */
-function renderWeb(stat) {
-  const el = $('#web'); if (!el) return;
-  const gid = UI.sel[stat]; if (!gid) { el.innerHTML = ''; return; }
-  const g = G(gid);
-  $('#webTitle').textContent = `— ${g.name}`;
-  const all = IDX.touching[gid] || [];
-  const inc = all.filter(r => r.toId === gid && r.fromId !== gid);
-  const outg = all.filter(r => r.fromId === gid && r.toId !== gid);
-  const self = all.filter(r => r.fromId === gid && r.toId === gid);
-  const rowH = 21, W0 = 520, colW = 170, top = 26;
-  const rows = Math.max(inc.length, outg.length, 1);
-  const H = top + rows * rowH + 16 + (self.length ? 16 + self.length * rowH : 0);
-  const cy = top + (rows * rowH) / 2 - 2;
-  const col = r => ({ support: 'var(--verd)', oppose: 'var(--wax)', dependent: 'var(--gold)', latent: 'var(--latent)' }[r.type]);
-  const dash = r => r.type === 'latent' ? '2 3' : r.lagTurns > 0 ? '6 4' : '';
-  const label = (r, side) => {
-    const ref = side === 'in' ? fromRef(r) : toRef(r);
-    const [id, s] = splitRef(ref);
-    const nm = side === 'in' ? `${G(id).code || id} ${s.slice(0, 4)} → ${r.toStat.slice(0, 4)}` : `${r.fromStat.slice(0, 4)} → ${G(id).code || id} ${s.slice(0, 4)}`;
-    return `${r.mode === 'pressure' ? '≋ ' : ''}${nm}${r.lagTurns ? ' ⏳' + r.lagTurns : ''}`;
-  };
-  const dimmed = r => (r.fromId === gid ? r.fromStat : r.toStat) !== stat;
-  let svg = `<svg viewBox="0 0 ${W0} ${H}" role="img" aria-label="Causal links for ${esc(g.name)}">
-    <text x="4" y="14" style="font-family:var(--f-head);font-size:10px;fill:var(--ink-3)">INFLUENCES ON IT</text>
-    <text x="${W0 - 4}" y="14" text-anchor="end" style="font-family:var(--f-head);font-size:10px;fill:var(--ink-3)">IT INFLUENCES</text>`;
-  const cx0 = W0 / 2 - 66, cx1 = W0 / 2 + 66;
-  inc.forEach((r, i) => {
-    const y = top + i * rowH;
-    svg += `<g class="row ${dimmed(r) ? 'dim' : ''} ${UI.edgeSel === r.id ? 'on' : ''}" data-e="${r.id}">
-      <path d="M${colW} ${y + 9} C ${colW + 40} ${y + 9}, ${cx0 - 40} ${cy + 10}, ${cx0} ${cy + 10}" fill="none" stroke="${col(r)}" stroke-width="${1 + r.strengthMultiplier * 3}" stroke-dasharray="${dash(r)}" opacity=".85"/>
-      <rect x="2" y="${y}" width="${colW - 2}" height="18" rx="2"/><text x="8" y="${y + 13}">${esc(label(r, 'in'))}</text></g>`;
-  });
-  outg.forEach((r, i) => {
-    const y = top + i * rowH;
-    svg += `<g class="row ${dimmed(r) ? 'dim' : ''} ${UI.edgeSel === r.id ? 'on' : ''}" data-e="${r.id}">
-      <path d="M${cx1} ${cy + 10} C ${cx1 + 40} ${cy + 10}, ${W0 - colW - 40} ${y + 9}, ${W0 - colW} ${y + 9}" fill="none" stroke="${col(r)}" stroke-width="${1 + r.strengthMultiplier * 3}" stroke-dasharray="${dash(r)}" opacity=".85"/>
-      <rect x="${W0 - colW}" y="${y}" width="${colW - 2}" height="18" rx="2"/><text x="${W0 - colW + 6}" y="${y + 13}">${esc(label(r, 'out'))}</text></g>`;
-  });
-  svg += `<g class="center"><rect x="${cx0}" y="${cy}" width="${cx1 - cx0}" height="22" rx="3"/><text x="${W0 / 2}" y="${cy + 15}" text-anchor="middle">${esc((g.code || g.id) + ' · ' + (g.short || g.name).replace(/^the /, '').slice(0, 16))}</text></g>`;
-  if (self.length) {
-    const y0 = top + rows * rowH + 18;
-    svg += `<text x="${W0 / 2}" y="${y0 + 2}" text-anchor="middle" style="font-family:var(--f-head);font-size:10px;fill:var(--ink-3)">INTERNAL LINKS (between its own stats)</text>`;
-    self.forEach((r, i) => {
-      const y = y0 + 8 + i * rowH;
-      svg += `<g class="row ${UI.edgeSel === r.id ? 'on' : ''}" data-e="${r.id}"><rect x="${W0 / 2 - 150}" y="${y}" width="300" height="18" rx="2" style="stroke:${col(r)}"/><text x="${W0 / 2}" y="${y + 13}" text-anchor="middle">${r.mode === 'pressure' ? '≋ ' : ''}${esc(r.fromStat)} → ${esc(r.toStat)}: ${esc(r.short)}</text></g>`;
-    });
+
+/* ════════════════════════════════════════════════════════════════════
+   Forecast engine — many futures, paired before/after comparisons
+   ════════════════════════════════════════════════════════════════════ */
+const FC = { H: 6, N: 40, seedBase: 4660 };
+const RAIL = { mode: 'last', whatif: [], base: null, change: null, with: null, without: null, breaks: {} };
+
+// Run N futures of H seasons from E0. Run i always uses the same dice, so two forecasts
+// from different starting states can be compared run-by-run (the difference is the change, not luck).
+function simulate(E0, whatif, { H = FC.H, N = FC.N, suppress = null } = {}) {
+  const refs = IDX.refs, vals = {}, hz = {}, fired = {};
+  refs.forEach(r => vals[r] = new Array(N));
+  W.hazards.forEach(h => { hz[h.id] = new Array(N); fired[h.id] = new Array(N).fill(null); });
+  const hz0 = hazardSnap(E0);
+  for (let i = 0; i < N; i++) {
+    const S = clone(E0);
+    for (const r of refs) vals[r][i] = [S.values[r]];
+    for (const h of W.hazards) hz[h.id][i] = [hz0[h.id]];
+    for (let t = 1; t <= H; t++) {
+      const rec = stepTurn(S, { rng: dice(FC.seedBase + i, S.sim.turn), injections: whatif.filter(w => w.turn === t), quiet: true, suppress });
+      for (const r of refs) vals[r][i].push(rec.after[r]);
+      for (const h of W.hazards) hz[h.id][i].push(rec.hazards[h.id]);
+      for (const e of rec.events) if (e.kind === 'hazard' && fired[e.hazardId] && fired[e.hazardId][i] == null) fired[e.hazardId][i] = t;
+    }
   }
-  svg += '</svg>';
-  el.innerHTML = (inc.length || outg.length || self.length) ? svg : '<p class="empty">No known causal links. Add some in World Data.</p>';
-  const show = id => { UI.edgeSel = id; $$('.row', el).forEach(n => n.classList.toggle('on', n.dataset.e === id)); renderWebDetailOnly(); };
-  $$('.row', el).forEach(n => { n.addEventListener('mouseenter', () => show(n.dataset.e)); n.addEventListener('click', () => show(n.dataset.e)); });
-  renderWebDetailOnly();
+  return { H, N, vals, hz, fired, t0: E0.sim.turn };
 }
-function renderWebDetailOnly() {
-  const el = $('#edgeDetail'); if (!el) return;
-  const r = IDX.byId[UI.edgeSel];
-  if (!r) { el.innerHTML = '<span class="muted small">Hover or tap a link to read why it exists. Faded links act on this group\'s other stats.</span>'; return; }
-  const src = E.values[fromRef(r)];
-  const state = r.type === 'latent' ? (condMet(r, src) ? '<b class="down">ACTIVE</b>' : 'dormant') + ` until ${esc(tagRef(fromRef(r)))} ${r.condition.op} ${r.condition.value} (now ${r0(src)})` : '';
-  const k = r.strengthMultiplier;
-  el.innerHTML = `<div class="h">${esc(tagRef(fromRef(r)))} → ${esc(tagRef(toRef(r)))} · “${esc(r.short)}”</div>
-    <div class="kv"><span>type <b>${esc(r.type)}</b></span><span>strength <b>×${k}</b></span><span>lag <b>${r.lagTurns ? r.lagTurns + ' season' + (r.lagTurns > 1 ? 's' : '') : 'same turn'}</b></span>
-      <span>mode <b>${r.mode === 'pressure' ? `standing pressure (pivot ${r.pivot ?? 50}${r.season ? ', ' + esc(r.season) + ' only' : ''})` : 'reacts to changes'}</b></span>${state ? `<span>${state}</span>` : ''}
-      <span class="canon ${esc(r.canon)}">${esc(r.canon)}</span></div>
-    <p class="ex-why" style="margin:4px 0">${esc(r.explanation)}</p>
-    <p class="ex-prec">Precedent: ${esc(r.precedent || '—')}</p>
-    <p class="small muted" style="margin:3px 0 0">${r.mode === 'pressure'
-      ? `Each season: target moves ${r.type === 'oppose' ? '−' : '+'}${k} × (source − ${r.pivot ?? 50}) / 10.`
-      : `A +10 move in the source gives the target ${fmt(effectOf(r, 10))}${r.type === 'dependent' ? `, and a −10 move gives ${fmt(effectOf(r, -10))}` : ''}.`}</p>`;
+const quant = (arr, q) => { const s = [...arr].sort((a, b) => a - b), i = (s.length - 1) * q, lo = Math.floor(i), hi = Math.ceil(i); return s[lo] + (s[hi] - s[lo]) * (i - lo); };
+const colAt = (sim, ref, t) => sim.vals[ref].map(run => run[t]);
+const medAt = (sim, ref, t = sim.H) => quant(colAt(sim, ref, t), 0.5);
+const bandOf = (sim, ref) => Array.from({ length: sim.H + 1 }, (_, t) => { const c = colAt(sim, ref, t); return { lo: quant(c, 0.1), mid: quant(c, 0.5), hi: quant(c, 0.9) }; });
+const pFire = (sim, hid, t = sim.H) => sim.fired[hid].filter(x => x != null && x <= t).length / sim.N;
+const pairedDiff = (A, B, ref, t = A.H) => { let s = 0; for (let i = 0; i < A.N; i++) s += A.vals[ref][i][t] - B.vals[ref][i][t]; return s / A.N; };
+const pct = p => Math.round(p * 100);
+
+function compareBase() { return RAIL.mode === 'canon' ? { E: freshEngine(), whatif: [] } : RAIL.base; }
+function computeForecast() {
+  RAIL.with = simulate(E, RAIL.whatif);
+  const base = compareBase();
+  RAIL.without = base ? simulate(base.E, base.whatif) : null;
+  RAIL.breaks = {};
+}
+function scheduleForecast(delay = 180) {
+  clearTimeout(scheduleForecast.t);
+  $('#rail')?.classList.add('busy');
+  scheduleForecast.t = setTimeout(() => { computeForecast(); afterForecast(); }, delay);
+}
+function afterForecast() {
+  $('#rail')?.classList.remove('busy');
+  renderRail();
+  if (UI.tab === 'map') { buildTrace(); paintMap(); renderDrawer(); }
+  if (UI.tab === 'briefing') renderBriefing();
 }
 
-function renderMatrix(stat) {
-  const el = $('#matrix'); if (!el) return;
-  const rows = domainGroups(stat), cols = W.groups;
-  const net = (a, b) => IDX.touching[a].filter(r => r.fromId === a && r.toId === b).reduce((s, r) => s + (r.type === 'oppose' || (r.type === 'latent' && (r.sign ?? 1) < 0) ? -1 : 1) * r.strengthMultiplier, 0);
-  const cell = (a, b) => {
-    if (a === b) return '<td style="background:rgba(42,28,16,.12)"></td>';
-    const v = net(a, b); if (!v) return '<td></td>';
-    const edges = IDX.touching[a].filter(r => r.fromId === a && r.toId === b);
-    const t = edges.map(r => `${r.fromStat}→${r.toStat} ${r.type} ×${r.strengthMultiplier}: ${r.short}`).join('\n');
-    const alpha = Math.min(1, Math.abs(v) / 0.8);
-    const bg = v > 0 ? `rgba(47,106,60,${alpha * .75})` : `rgba(142,27,27,${alpha * .75})`;
-    return `<td title="${esc(G(a).name)} → ${esc(G(b).name)}\n${esc(t)}" style="background:${bg};color:${alpha > .5 ? '#fff' : 'inherit'}">${edges.length > 1 ? edges.length : ''}</td>`;
+// What breaking a hazard would actually do over the horizon.
+// Likely hazards: the same futures with the hazard held shut, compared run-by-run.
+// Unlikely ones: force it to break next season and compare against the current forecast.
+function breakEffects(h) {
+  if (RAIL.breaks[h.id]) return RAIL.breaks[h.id];
+  let A = RAIL.with, B, mode;
+  const p = pFire(A, h.id);
+  if (p >= 0.3) { B = simulate(E, RAIL.whatif, { suppress: new Set([h.id]) }); mode = 'natural'; }
+  else {
+    B = A; mode = 'forced';
+    A = simulate(E, [...RAIL.whatif, { turn: 1, custom: { name: h.event.name, narrative: '', effects: [], forceHazard: h.id } }]);
+  }
+  const runs = []; for (let i = 0; i < A.N; i++) if (A.fired[h.id][i] != null) runs.push(i);
+  if (!runs.length) return (RAIL.breaks[h.id] = null);
+  const eff = IDX.refs.map(ref => ({ ref, d: runs.reduce((s, i) => s + A.vals[ref][i][A.H] - B.vals[ref][i][A.H], 0) / runs.length }))
+    .filter(x => Math.abs(x.d) >= 1).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+  const turn = runs.reduce((s, i) => s + A.fired[h.id][i], 0) / runs.length;
+  const knock = W.hazards.filter(o => o.id !== h.id).map(o => ({ h: o, pa: runs.filter(i => A.fired[o.id][i] != null).length / runs.length, pb: runs.filter(i => B.fired[o.id][i] != null).length / runs.length }))
+    .filter(x => x.pa - x.pb >= 0.15);
+  return (RAIL.breaks[h.id] = { mode, p, turn, eff, knock });
+}
+
+// Where the change entered the web: [{ref, dir}]
+function changeSources() {
+  if (RAIL.mode === 'canon') {
+    const out = [];
+    for (const [ref, v] of Object.entries(E.sim.anchors)) if (ref in E.values && Math.abs(v - seedVal(ref)) >= 1) out.push({ ref, dir: Math.sign(v - seedVal(ref)) });
+    RAIL.whatif.forEach(w => whatifSources(w).forEach(s => out.push(s)));
+    return out;
+  }
+  return RAIL.change?.sources || [];
+}
+function whatifSources(w, flip = 1) {
+  const d = injDef(w); if (!d) return [];
+  const eff = [...(d.effects || [])];
+  const h = d.forceHazard && W.hazards.find(x => x.id === d.forceHazard);
+  if (h) eff.push(...h.event.effects);
+  return eff.map(e => ({ ref: e.ref, dir: Math.sign(e.delta) * flip || 1 }));
+}
+
+// Every group stat whose forecast differs between "with" and "without", ranked.
+function impacts() {
+  const A = RAIL.with, B = RAIL.without;
+  if (!A || !B) return [];
+  const src = changeSources(), srcRefs = new Set(src.map(s => s.ref)), srcGroups = new Set(src.map(s => splitRef(s.ref)[0]));
+  const out = [];
+  for (const ref of IDX.refs) {
+    if (srcRefs.has(ref)) continue;
+    const now = A.vals[ref][0][0] - B.vals[ref][0][0];
+    const later = pairedDiff(A, B, ref);
+    if (Math.abs(now) < 0.5 && Math.abs(later) < 1) continue;
+    const g = splitRef(ref)[0];
+    const direct = [...srcGroups].some(sg => sg === g || (IDX.touching[sg] || []).some(r => r.fromId === sg && r.toId === g));
+    out.push({ ref, now, later, hidden: !direct });
+  }
+  return out.sort((a, b) => Math.max(Math.abs(b.now), Math.abs(b.later)) - Math.max(Math.abs(a.now), Math.abs(a.later)));
+}
+function hazardShifts() {
+  const A = RAIL.with, B = RAIL.without;
+  return W.hazards.map(h => ({ h, pa: pFire(A, h.id), pb: B ? pFire(B, h.id) : pFire(A, h.id) }));
+}
+
+// Strongest sign-consistent route through the web from any source to the target.
+function strongestPath(sources, target, wantSign, maxD = 5) {
+  const edgesFrom = ref => [...(IDX.out[ref] || []), ...IDX.pressure.filter(p => fromRef(p) === ref)];
+  const dist = new Map(), prev = new Map(), pq = [];
+  for (const s of sources) { const k = s.ref + '|' + s.dir; dist.set(k, 0); pq.push([0, s.ref, s.dir, 0]); }
+  while (pq.length) {
+    pq.sort((a, b) => a[0] - b[0]);
+    const [c, ref, sg, depth] = pq.shift(), key = ref + '|' + sg;
+    if (c > (dist.get(key) ?? Infinity)) continue;
+    if (ref === target && sg === wantSign && depth > 0) {
+      const path = []; let k = key;
+      while (prev.has(k)) { const [pk, e] = prev.get(k); path.unshift(e); k = pk; }
+      return path;
+    }
+    if (depth >= maxD) continue;
+    for (const e of edgesFrom(ref)) {
+      const to = toRef(e), s2 = sg * (e.type === 'oppose' ? -1 : 1) * (e.type === 'latent' ? (e.sign ?? 1) : 1);
+      const k = Math.max(0.05, e.strengthMultiplier * (e.mode === 'pressure' ? 0.8 : 1)), nc = c - Math.log(k), nk = to + '|' + s2;
+      if (nc < (dist.get(nk) ?? Infinity)) { dist.set(nk, nc); prev.set(nk, [key, e]); pq.push([nc, to, s2, depth + 1]); }
+    }
+  }
+  return null;
+}
+function routeFor(imp) {
+  const src = changeSources();
+  const val = Math.abs(imp.later) >= Math.abs(imp.now) ? imp.later : imp.now;
+  const path = strongestPath(src, imp.ref, Math.sign(val) || 1);
+  const g = splitRef(imp.ref)[0];
+  const viaHz = hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.1 && x.h.event.effects.some(e => splitRef(e.ref)[0] === g));
+  return { path, dir: path ? src.find(s => s.ref === fromRef(path[0]))?.dir || 1 : 1, viaHz };
+}
+function chainSteps(path, dir) {
+  let sg = dir;
+  const nodes = [`${tagRef(fromRef(path[0]))} ${arrow(sg)}`];
+  for (const e of path) { sg *= (e.type === 'oppose' ? -1 : 1) * (e.type === 'latent' ? (e.sign ?? 1) : 1); nodes.push(`${tagRef(toRef(e))} ${arrow(sg)}`); }
+  return nodes;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   The Map — every group and hazard as one web
+   ════════════════════════════════════════════════════════════════════ */
+const MAP = { layout: null, sig: '', hover: null, sel: null, filter: null, showAll: false, trace: null, nowFx: null };
+const CLUSTERS = {
+  political: { label: 'Political', at: [230, 170] }, cultural: { label: 'Cultural', at: [560, 95] },
+  religious: { label: 'Religious', at: [900, 150] }, racial: { label: 'Racial & Lineage', at: [960, 470] },
+  economic: { label: 'Economic', at: [590, 590] }, levers: { label: 'Policy Levers', at: [170, 560] },
+  hazards: { label: 'Hazards', at: [580, 330] },
+};
+const VW = 1160, VH = 760;
+const primaryStat = g => g.lever ? 'economic' : (g.domains[0] || statsOf(g)[0]);
+function mapNodes() {
+  const nodes = W.groups.map(g => ({ id: g.id, kind: g.lever ? 'lever' : 'group', cluster: g.lever ? 'levers' : (g.domains[0] in CLUSTERS ? g.domains[0] : 'economic'), g }));
+  W.hazards.forEach(h => nodes.push({ id: 'hz:' + h.id, kind: 'hazard', cluster: 'hazards', h }));
+  return nodes;
+}
+function mapLinks() {
+  const m = new Map();
+  const add = (a, b, item, kind, sign, k) => {
+    const key = a + '>' + b; let L = m.get(key);
+    if (!L) m.set(key, L = { key, a, b, items: [], kind, net: 0, k: 0, lag: false, latent: false });
+    L.items.push(item); L.net += sign * k; L.k += k;
   };
-  el.innerHTML = `<table><tr><th></th>${cols.map(c => `<th title="${esc(c.name)}">${esc(c.code || c.id)}</th>`).join('')}</tr>
-    ${rows.map(rw => `<tr><th class="rowh">${esc(rw.short || rw.name)}</th>${cols.map(c => cell(rw.id, c.id)).join('')}</tr>`).join('')}</table>
-    <p class="small muted">Rows push on columns. Hover a cell for the links behind it; a number means several links combined.</p>`;
+  for (const r of W.relationships) {
+    if (r.fromId === r.toId || !IDX.groups[r.fromId] || !IDX.groups[r.toId]) continue;
+    const sign = (r.type === 'oppose' ? -1 : 1) * (r.type === 'latent' ? (r.sign ?? 1) : 1);
+    add(r.fromId, r.toId, r, 'rel', sign, r.strengthMultiplier);
+    const L = m.get(r.fromId + '>' + r.toId); if (r.lagTurns) L.lag = true; if (r.type === 'latent') L.latent = true;
+  }
+  for (const h of W.hazards) {
+    h.inputs.forEach(i => add(splitRef(i.ref)[0], 'hz:' + h.id, i, 'input', Math.sign(i.w), Math.abs(i.w)));
+    h.event.effects.forEach(e => add('hz:' + h.id, splitRef(e.ref)[0], e, 'effect', Math.sign(e.delta), Math.abs(e.delta) / 20));
+  }
+  return [...m.values()];
+}
+// Deterministic force layout: groups gather around their domain, linked groups pull together.
+function computeLayout() {
+  const nodes = mapNodes(), links = mapLinks(), pos = {};
+  nodes.forEach((n, i) => { const [ax, ay] = CLUSTERS[n.cluster].at, a = i * 2.39996; pos[n.id] = { x: ax + Math.cos(a) * 55, y: ay + Math.sin(a) * 40, vx: 0, vy: 0 }; });
+  const ids = nodes.map(n => n.id);
+  for (let it = 0; it < 420; it++) {
+    const cool = 1 - it / 420;
+    for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
+      const p = pos[ids[i]], q = pos[ids[j]], dx = q.x - p.x, dy = q.y - p.y, d2 = Math.max(dx * dx * 0.45 + dy * dy, 64), f = 7200 / d2, d = Math.sqrt(d2);
+      p.vx -= f * dx / d; p.vy -= f * dy / d; q.vx += f * dx / d; q.vy += f * dy / d;
+    }
+    for (const L of links) {
+      const p = pos[L.a], q = pos[L.b]; if (!p || !q) continue;
+      const dx = q.x - p.x, dy = q.y - p.y, d = Math.max(Math.hypot(dx, dy), 1), f = (d - 190) * 0.0018 * Math.min(L.k * 2, 1.5);
+      p.vx += f * dx / d; p.vy += f * dy / d; q.vx -= f * dx / d; q.vy -= f * dy / d;
+    }
+    for (const n of nodes) {
+      const p = pos[n.id], [ax, ay] = CLUSTERS[n.cluster].at;
+      p.vx += (ax - p.x) * 0.03; p.vy += (ay - p.y) * 0.03;
+      p.x = clamp(p.x + p.vx * 0.5 * (0.3 + cool), 50, VW - 50); p.y = clamp(p.y + p.vy * 0.5 * (0.3 + cool), 40, VH - 44);
+      p.vx *= 0.6; p.vy *= 0.6;
+    }
+  }
+  // Nudge apart any nodes whose labels would collide (labels are ~110px wide, ~50px tall with the node).
+  for (let it = 0; it < 120; it++) for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
+    const p = pos[ids[i]], q = pos[ids[j]], ox = 112 - Math.abs(q.x - p.x), oy = 62 - Math.abs(q.y - p.y);
+    if (ox > 0 && oy > 0) {
+      if (ox / 112 < oy / 62) { const m = ox / 2 * Math.sign(q.x - p.x || 1); p.x = clamp(p.x - m, 60, VW - 60); q.x = clamp(q.x + m, 60, VW - 60); }
+      else { const m = oy / 2 * Math.sign(q.y - p.y || 1); p.y = clamp(p.y - m, 40, VH - 44); q.y = clamp(q.y + m, 40, VH - 44); }
+    }
+  }
+  return { nodes, links, pos };
+}
+function ensureLayout() {
+  const sig = W.groups.map(g => g.id + (g.lever ? 'L' : '') + g.domains[0]).join() + '|' + W.hazards.map(h => h.id).join() + '|' + W.relationships.length;
+  if (MAP.sig !== sig) { MAP.layout = computeLayout(); MAP.sig = sig; }
+  return MAP.layout;
+}
+const linkColor = L => L.latent ? 'var(--latent)' : L.net >= 0 ? 'var(--verd)' : 'var(--wax)';
+function linkPath(L, pos) {
+  const p = pos[L.a], q = pos[L.b], dx = q.x - p.x, dy = q.y - p.y, d = Math.hypot(dx, dy) || 1;
+  const ux = dx / d, uy = dy / d, r1 = 24, r2 = 28;
+  const x1 = p.x + ux * r1, y1 = p.y + uy * r1, x2 = q.x - ux * r2, y2 = q.y - uy * r2;
+  const mx = (x1 + x2) / 2 - uy * d * 0.12, my = (y1 + y2) / 2 + ux * d * 0.12;
+  return `M${x1.toFixed(1)} ${y1.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+}
+
+function renderMap() {
+  const root = $('#view-map');
+  const { nodes, links, pos } = ensureLayout();
+  const clusterLabels = Object.entries(CLUSTERS).map(([k, c]) => {
+    const ns = nodes.filter(n => n.cluster === k); if (!ns.length) return '';
+    const x = ns.reduce((s, n) => s + pos[n.id].x, 0) / ns.length, y = Math.min(...ns.map(n => pos[n.id].y)) - 34;
+    return `<text class="cl-label" x="${x.toFixed(0)}" y="${Math.max(16, y).toFixed(0)}" text-anchor="middle">${esc(c.label.toUpperCase())}</text>`;
+  }).join('');
+  root.innerHTML = `
+    <div class="map-tools">
+      <div class="chips" role="group" aria-label="Show one domain">${Object.entries(CLUSTERS).map(([k, c]) => `<button class="fchip${MAP.filter === k ? ' on' : ''}" data-f="${k}">${esc(c.label)}</button>`).join('')}</div>
+      <label class="tog"><input type="checkbox" id="showAll" ${MAP.showAll ? 'checked' : ''}> All links</label>
+      <select class="inp" id="findNode" aria-label="Find a group"><option value="">Find…</option>${nodes.map(n => `<option value="${esc(n.id)}">${esc(n.kind === 'hazard' ? '⚠ ' + n.h.name : n.g.name)}</option>`).join('')}</select>
+    </div>
+    <div class="map-hint" id="mapHint"></div>
+    <div class="map-wrap">
+      <svg id="mapSvg" viewBox="0 0 ${VW} ${VH}" role="img" aria-label="The web of the Isles: every group and hazard, with the links between them">
+        <defs>${['verd', 'wax', 'latent', 'ink-2'].map(c => `<marker id="mk-${c}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--${c})"/></marker>`).join('')}</defs>
+        ${clusterLabels}
+        <g id="mLinks">${links.map(L => `<path class="lk" data-k="${esc(L.key)}" d="${linkPath(L, pos)}" style="stroke:${linkColor(L)};stroke-width:${(0.8 + Math.min(L.k, 1.2) * 2.2).toFixed(2)}" ${L.lag ? 'stroke-dasharray="6 4"' : L.latent ? 'stroke-dasharray="2 4"' : ''} marker-end="url(#mk-${L.latent ? 'latent' : L.net >= 0 ? 'verd' : 'wax'})"/>`).join('')}</g>
+        <g id="mNodes">${nodes.map(n => nodeSVG(n, pos[n.id])).join('')}</g>
+      </svg>
+    </div>
+    <div class="legend map-legend">
+      <span><i style="border-color:var(--verd)"></i>pushes the same way</span><span><i style="border-color:var(--wax)"></i>pushes the opposite way</span>
+      <span><i style="border-color:var(--latent);border-top-style:dotted"></i>dormant until a threshold</span><span><i style="border-color:var(--ink-2);border-top-style:dashed"></i>lagged</span>
+      <span>● group · ▢ policy lever · ◆ hazard (fill = odds of breaking) · ring = current value</span>
+    </div>
+    <div id="drawer"></div>`;
+  $$('.fchip', root).forEach(b => b.onclick = () => { MAP.filter = MAP.filter === b.dataset.f ? null : b.dataset.f; $$('.fchip', root).forEach(x => x.classList.toggle('on', x.dataset.f === MAP.filter)); paintMap(); });
+  $('#showAll').onchange = e => { MAP.showAll = e.target.checked; paintMap(); };
+  $('#findNode').onchange = e => { if (e.target.value) selectNode(e.target.value); e.target.value = ''; };
+  const svg = $('#mapSvg');
+  $$('.nd', svg).forEach(g => {
+    g.addEventListener('mouseenter', () => { MAP.hover = g.dataset.id; paintMap(); });
+    g.addEventListener('mouseleave', () => { MAP.hover = null; paintMap(); });
+    g.addEventListener('click', () => selectNode(g.dataset.id));
+    g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectNode(g.dataset.id); } });
+  });
+  svg.addEventListener('click', e => { if (e.target === svg) { MAP.sel = null; paintMap(); renderDrawer(); renderRail(); } });
+  buildTrace(); paintMap(); renderDrawer();
+}
+function nodeSVG(n, p) {
+  const t = `transform="translate(${p.x.toFixed(1)},${p.y.toFixed(1)})"`;
+  if (n.kind === 'hazard') {
+    const nm = n.h.name.replace(/ Risk$/, '');
+    return `<g class="nd hz-nd" data-id="${esc(n.id)}" ${t} tabindex="0" role="button" aria-label="${esc(n.h.name)}">
+      <rect class="hz-body" x="-17" y="-17" width="34" height="34" transform="rotate(45)"/><rect class="hz-fill" x="-17" y="-17" width="34" height="34" transform="rotate(45)"/>
+      <text class="nv" y="4" text-anchor="middle"></text><text class="nl" y="36" text-anchor="middle">${esc(nm.length > 22 ? nm.slice(0, 21) + '…' : nm)}</text><text class="nchip" y="-28" text-anchor="middle"></text></g>`;
+  }
+  const g = n.g, nm = (g.short || g.name).replace(/^the /, '');
+  const label = cap(nm.length > 20 ? nm.slice(0, 19) + '…' : nm);
+  const body = n.kind === 'lever' ? `<rect class="body" x="-19" y="-15" width="38" height="30" rx="3"/>` : `<circle class="body" r="20"/><circle class="ring" r="20" pathLength="100" transform="rotate(-90)"/>`;
+  return `<g class="nd ${n.kind}" data-id="${esc(n.id)}" ${t} tabindex="0" role="button" aria-label="${esc(g.name)}">
+    ${body}<text class="nv" y="5" text-anchor="middle"></text><text class="ntr" x="21" y="-12"></text>
+    <text class="nl" y="${n.kind === 'lever' ? 29 : 34}" text-anchor="middle">${esc(label)}</text><text class="nchip" y="-27" text-anchor="middle"></text></g>`;
+}
+function selectNode(id) {
+  MAP.sel = MAP.sel === id ? null : id;
+  paintMap(); renderDrawer(); renderRail(); save();
+  if (MAP.sel) $('#drawer')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// The trace: which groups your last change reaches now and within the horizon, and the links it travels.
+function buildTrace() {
+  const imps = impacts();
+  if (!imps.length && !MAP.nowFx) { MAP.trace = null; return; }
+  const deltas = new Map(), links = new Set(), src = new Set(changeSources().map(s => splitRef(s.ref)[0]));
+  for (const x of imps.slice(0, 14)) {
+    const g = splitRef(x.ref)[0], v = Math.abs(x.later) >= Math.abs(x.now) ? x.later : x.now;
+    const cur = deltas.get(g); if (!cur || Math.abs(v) > Math.abs(cur.v)) deltas.set(g, { v, now: x.now, later: x.later, hidden: x.hidden });
+    const r = routeFor(x); if (r.path) r.path.forEach(e => { if (e.fromId !== e.toId) links.add(e.fromId + '>' + e.toId); });
+  }
+  const hz = new Map();
+  if (RAIL.without) hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.05).forEach(x => hz.set('hz:' + x.h.id, x.pa - x.pb));
+  MAP.trace = { deltas, links, src, hz };
+}
+
+function paintMap() {
+  const svg = $('#mapSvg'); if (!svg) return;
+  const { nodes, links } = MAP.layout, A = RAIL.with;
+  const focus = MAP.hover || MAP.sel;
+  const nb = new Set(); if (focus) { nb.add(focus); links.forEach(L => { if (L.a === focus) nb.add(L.b); if (L.b === focus) nb.add(L.a); }); }
+  const tr = !focus && MAP.trace;
+  for (const el of $$('.nd', svg)) {
+    const id = el.dataset.id, n = nodes.find(x => x.id === id); if (!n) continue;
+    const inFilter = !MAP.filter || n.cluster === MAP.filter;
+    let chip = '', chipCls = '';
+    if (n.kind === 'hazard') {
+      const h = n.h, v = hazardV(E, h), p = A ? pFire(A, h.id) : 0;
+      $('.hz-fill', el).style.opacity = (0.08 + p * 0.92).toFixed(2);
+      $('.nv', el).textContent = pct(p) + '%';
+      el.classList.toggle('past', v >= h.threshold);
+      el.classList.toggle('likely', p >= 0.5);
+      if (tr && tr.hz.has(id)) { const d = tr.hz.get(id); chip = `${d > 0 ? '+' : '−'}${Math.abs(pct(d))} pts`; chipCls = d > 0 ? 'down' : 'up'; }
+      el.setAttribute('aria-label', `${h.name}: ${pct(p)}% chance of breaking within ${FC.H} seasons`);
+    } else {
+      const ref = refOf(n.id, primaryStat(n.g)), v = E.values[ref];
+      $('.nv', el).textContent = r0(v);
+      const ring = $('.ring', el); if (ring) ring.setAttribute('stroke-dasharray', `${v.toFixed(1)} 100`);
+      const drift = A ? medAt(A, ref) - v : 0;
+      const trEl = $('.ntr', el); trEl.textContent = Math.abs(drift) >= 1.5 ? (drift > 0 ? '▲' : '▼') : ''; trEl.setAttribute('class', 'ntr ' + (drift > 0 ? 'up' : 'down'));
+      if (tr && tr.deltas.has(id)) { const d = tr.deltas.get(id); chip = fmt(d.v); chipCls = (d.v > 0 ? 'up' : 'down') + (d.hidden ? ' hidden' : ''); }
+    }
+    $('.nchip', el).textContent = chip; $('.nchip', el).setAttribute('class', 'nchip ' + chipCls);
+    el.classList.toggle('sel', id === MAP.sel);
+    el.classList.toggle('src', !!(tr && tr.src.has(id)));
+    el.classList.toggle('hit', !!(tr && (tr.deltas.has(id) || tr.hz.has(id))));
+    el.classList.toggle('dim', !inFilter || (focus ? !nb.has(id) : tr ? !(tr.deltas.has(id) || tr.hz.has(id) || tr.src.has(id)) : false));
+  }
+  for (const el of $$('.lk', svg)) {
+    const k = el.dataset.k, [a, b] = k.split('>');
+    let cls = 'lk';
+    if (focus) cls += (a === focus || b === focus) ? ' on' : ' off';
+    else if (tr && tr.links.has(k)) cls += ' on trace';
+    else if (MAP.showAll) cls += ' mid';
+    else cls += ' off';
+    if (MAP.filter) { const na = nodes.find(x => x.id === a), nb2 = nodes.find(x => x.id === b); if (na?.cluster !== MAP.filter && nb2?.cluster !== MAP.filter) cls = 'lk off'; }
+    el.setAttribute('class', cls);
+  }
+  const hint = $('#mapHint');
+  if (hint) hint.innerHTML = focus
+    ? `Showing everything linked to <b>${esc(nodeName(focus))}</b>. Arrows point from cause to effect.`
+    : tr ? `Tracing <b>${esc(RAIL.mode === 'canon' ? 'everything changed since canon' : RAIL.change?.label || 'your change')}</b>: numbers show the difference it makes within ${FC.H} seasons. <span class="hidden-key">Gold</span> marks groups it reaches only indirectly. <button class="golink" id="clearTrace">Clear</button>`
+    : 'Hover a group to see its links. Click it to open its sliders below. Change anything and the map traces where the change travels.';
+  const ct = $('#clearTrace'); if (ct) ct.onclick = () => { MAP.trace = null; MAP.nowFx = null; paintMap(); };
+}
+const nodeName = id => id.startsWith('hz:') ? (W.hazards.find(h => 'hz:' + h.id === id)?.name || id) : (G(id)?.name || id);
+
+/* ── Drawer: the selected group's sliders, forecast and links ── */
+function linkRowHTML(r, dir) {
+  const other = dir === 'out' ? toRef(r) : fromRef(r);
+  const c = r.type === 'oppose' ? 'var(--wax)' : r.type === 'latent' ? 'var(--latent)' : r.type === 'dependent' ? 'var(--gold)' : 'var(--verd)';
+  const cond = r.type === 'latent' ? ` · wakes at ${r.condition.op} ${r.condition.value}` : '';
+  return `<details class="lrow"><summary><i class="sw" style="background:${c}"></i><span class="lr-t">${dir === 'out' ? `${esc(r.fromStat.slice(0, 4))} → ` : ''}<b>${esc(tagRef(other))}</b>${dir === 'in' ? ` → ${esc(r.toStat.slice(0, 4))}` : ''}</span><span class="lr-s">${esc(r.short)}${r.lagTurns ? ` · ⏳${r.lagTurns}` : ''}${r.mode === 'pressure' ? ' · every season' : ''}${cond}</span></summary>
+    <p class="ex-why">${esc(r.explanation)}</p><p class="ex-prec">${esc(r.type)} ×${r.strengthMultiplier} · Precedent: ${esc(r.precedent || '—')} · <span class="canon ${esc(r.canon)}">${esc(r.canon)}</span></p></details>`;
+}
+function renderDrawer() {
+  const el = $('#drawer'); if (!el) return;
+  const id = MAP.sel;
+  if (!id) { el.innerHTML = ''; el.className = ''; return; }
+  el.className = 'panel drawer';
+  if (id.startsWith('hz:')) { el.innerHTML = hazardDrawerHTML(W.hazards.find(h => 'hz:' + h.id === id)); wireDrawer(el); return; }
+  const g = G(id), A = RAIL.with;
+  const sliders = statsOf(g).map(s => {
+    const ref = refOf(id, s), v = E.values[ref], [bl, bc] = badgeOf(g, v), b = A ? bandOf(A, ref)[A.H] : null;
+    return `<div class="srow" data-ref="${esc(ref)}"><div class="s-name">${esc(nameRef(ref))} <span class="muted">· ${esc(s)}</span></div>
+      <input type="range" min="0" max="100" step="1" value="${r0(v)}" aria-label="${esc(nameRef(ref))} ${esc(s)}">
+      <div class="s-val"><b class="num">${r0(v)}</b> <span class="badge ${bc}">${bl}</span></div>
+      <div class="s-sub">${trendHTML(ref)}${b ? ` · in ${FC.H} seasons <b>${r0(b.mid)}</b> <span class="muted">(${r0(b.lo)}–${r0(b.hi)})</span>` : ''}</div></div>`;
+  }).join('');
+  const all = IDX.touching[id] || [];
+  const outs = all.filter(r => r.fromId === id && r.toId !== id), ins = all.filter(r => r.toId === id && r.fromId !== id), self = all.filter(r => r.fromId === id && r.toId === id);
+  const feeds = W.hazards.filter(h => h.inputs.some(i => splitRef(i.ref)[0] === id));
+  el.innerHTML = `
+    <div class="dr-h"><div><h3>${esc(g.name)}</h3><div class="flags">${g.fused ? '<span class="flag">FUSED OFFICE</span>' : ''}${g.openThread ? '<span class="flag open">OPEN THREAD</span>' : ''}${g.lever ? '<span class="flag lever">POLICY LEVER · 50 = TODAY</span>' : ''}</div></div><button class="btn sm ghost" data-close>Close</button></div>
+    <p class="dr-desc">${esc(g.description || '')} <span class="src-i">⚜ ${esc(g.loreSource || '')}</span></p>
+    <div class="sgrid">${sliders}</div>
+    <div class="lcols">
+      <div><h4>It pushes on (${outs.length})</h4>${outs.map(r => linkRowHTML(r, 'out')).join('') || '<p class="empty">Nothing.</p>'}</div>
+      <div><h4>Pushed by (${ins.length})</h4>${ins.map(r => linkRowHTML(r, 'in')).join('') || '<p class="empty">Nothing.</p>'}</div>
+    </div>
+    ${self.length ? `<h4>Inside the group</h4>${self.map(r => linkRowHTML(r, 'out')).join('')}` : ''}
+    ${feeds.length ? `<h4>Feeds these hazards</h4><ul class="blist">${feeds.map(h => { const i = h.inputs.find(x => splitRef(x.ref)[0] === id); return `<li><button class="golink" data-node="hz:${esc(h.id)}">${esc(h.name)}</button>: ${i.w > 0 ? 'raises it' : 'holds it down'} (${esc(i.note || '')})</li>`; }).join('')}</ul>` : ''}`;
+  wireDrawer(el);
+  $$('.srow', el).forEach(row => {
+    const ref = row.dataset.ref, sl = $('input', row), num = $('.num', row); let t = null;
+    sl.addEventListener('input', () => {
+      num.textContent = sl.value;
+      const [l, c] = badgeOf(g, +sl.value); const b = $('.badge', row); b.textContent = l; b.className = 'badge ' + c;
+      clearTimeout(t); t = setTimeout(() => commitSlider(ref, +sl.value), 220);
+    });
+    sl.addEventListener('change', () => { clearTimeout(t); commitSlider(ref, +sl.value); });
+  });
+}
+function wireDrawer(el) {
+  $('[data-close]', el)?.addEventListener('click', () => { MAP.sel = null; paintMap(); renderDrawer(); renderRail(); });
+  $$('[data-node]', el).forEach(b => b.onclick = () => selectNode(b.dataset.node));
+}
+function breakEffectsHTML(h, max = 6) {
+  const be = breakEffects(h);
+  if (!be) return '<p class="empty">No measurable effect within the horizon.</p>';
+  const end = dateOf(E.sim.turn + FC.H);
+  return `<p class="small">${be.mode === 'natural' ? `Breaks in ${pct(be.p)}% of futures, on average around <b>${esc(dateOf(E.sim.turn + Math.round(be.turn)).label.split(' · ')[0])}</b>.` : `Unlikely on its own (${pct(be.p)}%). If it broke next season anyway:`} By ${esc(end.label.split(' · ')[0])}, compared with it not breaking:</p>
+    <ul class="blist fx">${be.eff.slice(0, max).map(x => `<li><b>${esc(cap(subj(x.ref)))}</b> <span class="${x.d > 0 ? 'up' : 'down'}">${fmt(x.d)}</span></li>`).join('')}</ul>
+    ${be.knock.length ? `<p class="small"><b>Knock-on crises:</b> ${be.knock.map(k => `${esc(k.h.name)} ${pct(k.pb)}% → <b class="down">${pct(k.pa)}%</b>`).join(', ')}.</p>` : ''}`;
+}
+function hazardDrawerHTML(h) {
+  const v = hazardV(E, h), A = RAIL.with, p = pFire(A, h.id), pb = RAIL.without ? pFire(RAIL.without, h.id) : null;
+  return `<div class="dr-h"><div><h3>⚠ ${esc(h.name)}</h3><div class="small muted">Meter ${r0(v)}% · breaks at ${h.threshold}% · <b>${pct(p)}%</b> chance of breaking within ${FC.H} seasons${pb != null && Math.abs(p - pb) >= 0.03 ? ` (was ${pct(pb)}%)` : ''}</div></div><button class="btn sm ghost" data-close>Close</button></div>
+    <div class="lcols">
+      <div>${hazardDetailHTML(h)}</div>
+      <div><h4>If it breaks: “${esc(h.event.name)}”</h4><p class="ex-why">${esc(h.event.narrative.split(/(?<=[a-z]{2}[.!?])\s/).slice(0, 2).join(' '))}</p>${breakEffectsHTML(h, 8)}</div>
+    </div>`;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   The forecast rail — always visible, always about what comes next
+   ════════════════════════════════════════════════════════════════════ */
+function fanSVG(ref, { w = 340, h = 118 } = {}) {
+  const A = RAIL.with, B = RAIL.without, H = A.H;
+  const ba = bandOf(A, ref), bm = B ? bandOf(B, ref).map(x => x.mid) : null;
+  const all = [...ba.flatMap(x => [x.lo, x.hi]), ...(bm || [])];
+  let lo = Math.min(...all), hi = Math.max(...all);
+  const pad = Math.max(4, (hi - lo) * 0.15); lo = Math.max(0, lo - pad); hi = Math.min(100, hi + pad);
+  const L = 30, R = 44, T = 8, Bt = 22;
+  const x = t => L + t / H * (w - L - R), y = v => T + (1 - (v - lo) / (hi - lo || 1)) * (h - T - Bt);
+  const band = ba.map((b, t) => `${x(t).toFixed(1)},${y(b.hi).toFixed(1)}`).join(' ') + ' ' + [...ba].reverse().map((b, i) => `${x(H - i).toFixed(1)},${y(b.lo).toFixed(1)}`).join(' ');
+  const line = pts => pts.map((v, t) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  const end = ba[H].mid;
+  const ticks = Array.from({ length: H + 1 }, (_, t) => t).filter(t => H <= 6 || t % Math.ceil(H / 6) === 0 || t === H);
+  return `<svg class="fan" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(nameRef(ref))}: now ${r0(ba[0].mid)}, likely ${r0(end)} in ${H} seasons, range ${r0(ba[H].lo)} to ${r0(ba[H].hi)}">
+    <line x1="${L}" x2="${w - R}" y1="${y(lo)}" y2="${y(lo)}" class="ax"/>
+    <text x="${L - 4}" y="${y(hi) + 4}" text-anchor="end" class="tk">${r0(hi)}</text><text x="${L - 4}" y="${y(lo) + 1}" text-anchor="end" class="tk">${r0(lo)}</text>
+    ${ticks.map(t => `<text x="${x(t)}" y="${h - 6}" text-anchor="middle" class="tk">${t === 0 ? 'now' : '+' + t}</text>`).join('')}
+    <polygon points="${band}" class="band"/>
+    ${bm ? `<polyline points="${line(bm)}" class="without"/>` : ''}
+    <polyline points="${line(ba.map(b => b.mid))}" class="with"/>
+    <circle cx="${x(H)}" cy="${y(end)}" r="3.5" class="enddot"/>
+    <text x="${x(H) + 7}" y="${y(end) + 4}" class="endlbl">${r0(end)}</text>
+  </svg>`;
+}
+function sparkSVG(ref) {
+  const A = RAIL.with, B = RAIL.without, H = A.H, a = bandOf(A, ref).map(b => b.mid), b = B ? bandOf(B, ref).map(x => x.mid) : null;
+  const all = [...a, ...(b || [])], lo = Math.min(...all) - 1, hi = Math.max(...all) + 1;
+  const x = t => 2 + t / H * 76, y = v => 2 + (1 - (v - lo) / (hi - lo)) * 18;
+  const pl = arr => arr.map((v, t) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
+  return `<svg class="spark" viewBox="0 0 80 22" aria-hidden="true">${b ? `<polyline points="${pl(b)}" class="without"/>` : ''}<polyline points="${pl(a)}" class="with"/></svg>`;
+}
+function probSVG(h) {
+  const A = RAIL.with, B = RAIL.without, H = A.H, w = 340, hh = 90, L = 30, R = 40, T = 8, Bt = 20;
+  const x = t => L + t / H * (w - L - R), y = p => T + (1 - p) * (hh - T - Bt);
+  const pa = Array.from({ length: H + 1 }, (_, t) => pFire(A, h.id, t)), pb = B ? Array.from({ length: H + 1 }, (_, t) => pFire(B, h.id, t)) : null;
+  const pl = arr => arr.map((p, t) => `${x(t).toFixed(1)},${y(p).toFixed(1)}`).join(' ');
+  return `<svg class="fan" viewBox="0 0 ${w} ${hh}" role="img" aria-label="Chance ${esc(h.name)} has broken, by season: ${pct(pa[H])}% by the end of the horizon">
+    <line x1="${L}" x2="${w - R}" y1="${y(0)}" y2="${y(0)}" class="ax"/><line x1="${L}" x2="${w - R}" y1="${y(0.5)}" y2="${y(0.5)}" class="ax" stroke-dasharray="3 3"/>
+    <text x="${L - 4}" y="${y(1) + 4}" text-anchor="end" class="tk">100%</text><text x="${L - 4}" y="${y(0.5) + 4}" text-anchor="end" class="tk">50%</text><text x="${L - 4}" y="${y(0) + 1}" text-anchor="end" class="tk">0</text>
+    ${Array.from({ length: H + 1 }, (_, t) => `<text x="${x(t)}" y="${hh - 5}" text-anchor="middle" class="tk">${t === 0 ? 'now' : '+' + t}</text>`).join('')}
+    ${pb ? `<polyline points="${pl(pb)}" class="without"/>` : ''}<polyline points="${pl(pa)}" class="with"/>
+    <circle cx="${x(H)}" cy="${y(pa[H])}" r="3.5" class="enddot"/><text x="${x(H) + 7}" y="${y(pa[H]) + 4}" class="endlbl">${pct(pa[H])}%</text>
+  </svg>`;
+}
+
+function renderRail() {
+  const el = $('#rail'); if (!el || el.hidden || !RAIL.with) return;
+  const A = RAIL.with, from = dateOf(E.sim.turn + 1), to = dateOf(E.sim.turn + FC.H);
+  el.innerHTML = `
+    <div class="rail-h">
+      <div class="eyebrow">Forecast · ${FC.N} simulated futures</div>
+      <h2>The Next ${FC.H} Seasons</h2>
+      <div class="small muted">${esc(from.label.split(' · ')[0])} to ${esc(to.label.split(' · ')[0])}</div>
+      <div class="rail-ctl">
+        <label class="small">Horizon <select class="inp" id="fcH">${[3, 6, 9, 12].map(n => `<option value="${n}" ${n === FC.H ? 'selected' : ''}>${n} seasons</option>`).join('')}</select></label>
+        <div class="seg" role="group" aria-label="Compare against"><button data-mode="last" aria-pressed="${RAIL.mode === 'last'}">vs last change</button><button data-mode="canon" aria-pressed="${RAIL.mode === 'canon'}">vs canon</button></div>
+      </div>
+    </div>
+    ${railChangeHTML()}
+    ${railFocusHTML()}
+    ${railCrisisHTML()}
+    ${railWhatIfHTML()}
+    ${railHeadingHTML()}`;
+  $('#fcH', el).onchange = e => { FC.H = +e.target.value; RAIL.whatif.forEach(w => w.turn = Math.min(w.turn, 12)); computeForecast(); afterForecast(); save(); };
+  $$('.seg button', el).forEach(b => b.onclick = () => { RAIL.mode = b.dataset.mode; computeForecast(); afterForecast(); save(); });
+  $$('[data-node]', el).forEach(b => b.onclick = () => { if (UI.tab !== 'map') { UI.tab = 'map'; renderAll(); } selectNode(b.dataset.node); });
+  $$('details[data-hz]', el).forEach(d => d.addEventListener('toggle', () => {
+    if (d.open && !d.dataset.done) { d.dataset.done = 1; $('.be', d).innerHTML = breakEffectsHTML(W.hazards.find(h => h.id === d.dataset.hz)); }
+  }));
+  const add = $('#wiAdd', el);
+  if (add) add.onclick = () => { const id = $('#wiSel', el).value, turn = +$('#wiTurn', el).value; if (id) addWhatIf({ id, turn }); };
+  $$('[data-wi-del]', el).forEach(b => b.onclick = () => removeWhatIf(+b.dataset.wiDel));
+}
+
+function railChangeHTML() {
+  const A = RAIL.with, B = RAIL.without;
+  if (!B) return `<section class="rs"><h3>What your change does</h3><p class="empty">Change anything on the map, or add a What-if below. This section then shows what the change does right now and over the next ${FC.H} seasons, including groups you never touched.</p></section>`;
+  const imps = impacts(), shifts = hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.05).sort((a, b) => Math.abs(b.pa - b.pb) - Math.abs(a.pa - a.pb));
+  const label = RAIL.mode === 'canon' ? ((n, w) => `Everything changed since canon (${n} setting${n === 1 ? '' : 's'}, ${w} what-if${w === 1 ? '' : 's'})`)(Object.keys(E.sim.anchors).filter(r => Math.abs(E.sim.anchors[r] - seedVal(r)) >= 1).length, RAIL.whatif.length) : RAIL.change?.label || 'Your change';
+  const hidden = imps.filter(x => x.hidden).length;
+  const row = x => {
+    const r = routeFor(x);
+    const steps = r.path ? chainSteps(r.path, r.dir) : null;
+    return `<details class="imp"><summary>
+        <span class="imp-n"><b>${esc(nameRef(x.ref).replace(/ \(.*\)$/, ''))}</b> <span class="muted">· ${esc(splitRef(x.ref)[1])}</span>${x.hidden ? ' <span class="hid" title="Not directly linked to what you changed">✦ hidden link</span>' : ''}</span>
+        <span class="imp-v">${Math.abs(x.now) >= 0.5 ? `<span class="${x.now > 0 ? 'up' : 'down'}">${fmt(x.now)}</span> now · ` : ''}<b class="${x.later > 0 ? 'up' : 'down'}">${fmt(x.later)}</b> by +${FC.H}</span>
+        ${sparkSVG(x.ref)}</summary>
+      <div class="imp-b">
+        ${steps ? `<p class="chainline">${steps.map(esc).join(' → ')}</p><ol class="steps">${r.path.map(e => `<li><b>${esc(e.short)}</b>${e.lagTurns ? ` · ⏳${e.lagTurns}` : ''}${e.mode === 'pressure' ? ' · every season' : ''}. <span class="why">${esc(e.explanation)}</span> <span class="canon ${esc(e.canon)}">${esc(e.canon)}</span></li>`).join('')}</ol>` : '<p class="small muted">No single route explains it. It is the sum of many weak links.</p>'}
+        ${r.viaHz.length ? `<p class="small">Also through crisis odds: ${r.viaHz.map(v => `${esc(v.h.name)} ${pct(v.pb)}% → <b>${pct(v.pa)}%</b>`).join(', ')}.</p>` : ''}
+        <button class="golink" data-node="${esc(splitRef(x.ref)[0])}">Show on map</button>
+      </div></details>`;
+  };
+  return `<section class="rs"><h3>What your change does</h3>
+    <p class="chg">${esc(label)}</p>
+    ${shifts.length ? `<div class="shifts">${shifts.slice(0, 4).map(x => `<span class="shift ${x.pa > x.pb ? 'worse' : 'better'}">${esc(x.h.name.replace(/ Risk$/, ''))} ${pct(x.pb)}% → <b>${pct(x.pa)}%</b></span>`).join('')}</div>` : ''}
+    ${imps.length ? `<p class="small muted">${imps.length} group stat${imps.length > 1 ? 's' : ''} affected${hidden ? `, ${hidden} through <span class="hid">✦ hidden links</span>` : ''}. Faded line: without the change. Open a row to see the route.</p>
+      ${imps.slice(0, 7).map(row).join('')}${imps.length > 7 ? `<details class="more"><summary class="small">${imps.length - 7} smaller effects</summary>${imps.slice(7, 25).map(row).join('')}</details>` : ''}`
+      : '<p class="empty">No measurable effect beyond the thing you changed.</p>'}
+  </section>`;
+}
+function railFocusHTML() {
+  const imps = impacts();
+  const id = MAP.sel || (imps[0] && splitRef(imps[0].ref)[0]);
+  if (!id) return '';
+  if (id.startsWith('hz:')) {
+    const h = W.hazards.find(x => 'hz:' + x.id === id); if (!h) return '';
+    return `<section class="rs"><h3>Focus: ${esc(h.name)}</h3><p class="small muted">Chance it has broken, season by season.</p>${probSVG(h)}</section>`;
+  }
+  const g = G(id); if (!g) return '';
+  const hit = imps.filter(x => splitRef(x.ref)[0] === id).sort((a, b) => Math.abs(b.later) - Math.abs(a.later))[0];
+  const ref = hit ? hit.ref : refOf(id, primaryStat(g)), b = bandOf(RAIL.with, ref)[FC.H];
+  return `<section class="rs"><h3>Focus: ${esc(nameRef(ref))}</h3>
+    <p class="small muted">${esc(cap(W.meta.statNouns[splitRef(ref)[1]] || ''))}: likely <b>${r0(b.mid)}</b> in ${FC.H} seasons (8 in 10 futures between ${r0(b.lo)} and ${r0(b.hi)}).${RAIL.without ? ' Dashed: without your change.' : ''}</p>
+    ${fanSVG(ref)}</section>`;
+}
+function railCrisisHTML() {
+  const rows = hazardShifts().map(x => ({ ...x, v: hazardV(E, x.h) })).sort((a, b) => b.pa - a.pa || b.v / b.h.threshold - a.v / a.h.threshold);
+  return `<section class="rs"><h3>Crisis odds</h3><p class="small muted">Chance each hazard breaks within ${FC.H} seasons. Open one to see what breaking would actually do.</p>
+    ${rows.map((x, i) => {
+      const d = x.pa - x.pb, auto = x.pa >= 0.3 && i < 2;
+      return `<details class="crisis" data-hz="${esc(x.h.id)}" ${auto ? 'open data-done="1"' : ''}><summary>
+        <span class="cr-n">${esc(x.h.name.replace(/ Risk$/, ''))}${x.v >= x.h.threshold ? ' <span class="chip breaking">past threshold</span>' : ''}</span>
+        <span class="cr-p"><b>${pct(x.pa)}%</b>${RAIL.without && Math.abs(d) >= 0.03 ? ` <span class="${d > 0 ? 'down' : 'up'}">${d > 0 ? '▲' : '▼'}${Math.abs(pct(d))}</span>` : ''}</span>
+        <span class="cr-bar"><i style="width:${pct(x.pa)}%"></i>${RAIL.without ? `<em style="left:${pct(x.pb)}%"></em>` : ''}</span></summary>
+        <div class="be">${auto ? breakEffectsHTML(x.h) : '<p class="small muted">Working it out…</p>'}</div>
+        <button class="golink" data-node="hz:${esc(x.h.id)}">Open on map</button></details>`;
+    }).join('')}</section>`;
+}
+function railWhatIfHTML() {
+  return `<section class="rs"><h3>What if…</h3><p class="small muted">Add an event to the forecast. It counts as a change, so the section above shows what it does.</p>
+    ${RAIL.whatif.map((w, i) => { const d = injDef(w); return `<div class="wi"><span class="tn">+${w.turn}</span><span>${esc(d?.name || w.id)}${w.turn > FC.H ? ' <i class="muted">(beyond horizon)</i>' : ''}</span><button class="btn sm ghost" data-wi-del="${i}" aria-label="Remove">×</button></div>`; }).join('')}
+    <div class="row2 wi-add"><select class="inp" id="wiSel" aria-label="Event"><option value="">Choose an event…</option>${W.injectables.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('')}</select>
+      <select class="inp" id="wiTurn" aria-label="When" style="width:auto">${Array.from({ length: FC.H }, (_, i) => `<option value="${i + 1}">+${i + 1}</option>`).join('')}</select><button class="btn sm" id="wiAdd">Add</button></div>
+  </section>`;
+}
+function railHeadingHTML() {
+  const A = RAIL.with;
+  const drift = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: medAt(A, ref) - E.values[ref] })).filter(x => Math.abs(x.d) >= 1.5).sort((a, b) => Math.abs(b.d) - Math.abs(a.d)).slice(0, 5);
+  return `<section class="rs"><h3>Where the Isles are heading</h3><p class="small muted">Biggest expected moves from today, whatever caused them.</p>
+    ${drift.length ? `<ul class="blist">${drift.map(x => { const p = pressuresOn(x.ref).find(q => Math.sign(q.amt) === Math.sign(x.d)); return `<li><button class="golink plain" data-node="${esc(splitRef(x.ref)[0])}">${esc(cap(subj(x.ref)))}</button> <b class="${x.d > 0 ? 'up' : 'down'}">${fmt(x.d)}</b> ${sparkSVG(x.ref)}<br><span class="why">${p ? esc(cap(p.r.short)) + ' (every season)' : 'Knock-on effects and crisis odds'}.</span></li>`; }).join('')}</ul>` : '<p class="empty">Nothing is expected to move much.</p>'}
+  </section>`;
+}
+
+/* ── Changes: sliders, what-ifs, undo ── */
+function pushUndo() {
+  UNDO.push({ E: clone(E), logLen: LOG.length, rail: clone({ whatif: RAIL.whatif, base: RAIL.base, change: RAIL.change }) });
+  if (UNDO.length > 30) UNDO.shift();
+}
+function commitSlider(ref, newVal) {
+  const v0 = E.values[ref];
+  if (Math.abs(newVal - v0) < 0.05) return;
+  const now = Date.now();
+  let disp = LOG[0];
+  const merge = disp && disp.kind === 'user' && disp.ref === ref && now - disp.time < 5000;
+  if (!merge) {
+    pushUndo();
+    RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
+    disp = { id: now, kind: 'user', ref, from: v0, turn: E.sim.turn, time: now, records: [] };
+    LOG.unshift(disp); if (LOG.length > 40) LOG.pop();
+  }
+  const out = [];
+  setDirect(E, ref, newVal, { kind: 'user', label: nameRef(ref), ref, turn: E.sim.turn }, out);
+  disp.records.push(...out); disp.to = newVal; disp.time = now;
+  RAIL.change = { label: `You ${newVal > disp.from ? 'raised' : 'lowered'} ${nameRef(ref)} · ${splitRef(ref)[1]}, ${r0(disp.from)} → ${r0(newVal)}`, sources: [{ ref, dir: Math.sign(newVal - disp.from) || 1 }] };
+  paintMap(); renderClock(); scheduleForecast(); save();
+}
+function addWhatIf(item) {
+  const d = injDef(item); if (!d) return;
+  pushUndo();
+  RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
+  RAIL.whatif.push(item);
+  RAIL.change = { label: `What if: ${d.name} (in ${item.turn} season${item.turn > 1 ? 's' : ''})`, sources: whatifSources(item) };
+  LOG.unshift({ id: Date.now(), kind: 'whatif', title: RAIL.change.label, turn: E.sim.turn, time: Date.now(), records: [] });
+  scheduleForecast(0); save();
+}
+function removeWhatIf(i) {
+  const item = RAIL.whatif[i], d = injDef(item);
+  pushUndo();
+  RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
+  RAIL.whatif.splice(i, 1);
+  RAIL.change = { label: `Removed what-if: ${d?.name || item.id}`, sources: whatifSources(item, -1) };
+  scheduleForecast(0); save();
+}
+function undo() {
+  const u = UNDO.pop(); if (!u) return;
+  E = u.E; LOG = LOG.slice(LOG.length - u.logLen);
+  if (u.rail) Object.assign(RAIL, u.rail);
+  MAP.trace = null;
+  computeForecast(); renderAll(); save();
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -5852,10 +6348,12 @@ function renderTimeline() {
     $('.bGo', card).onclick = () => { branchRun(rel, { ref: bRef.value, value: +bVal.value }, false); renderProjection(); };
     $('.bRoll', card).onclick = () => { branchRun(rel, null, true); renderProjection(); };
     $('.bLoad', card).onclick = () => {
-      UNDO.push({ E: clone(E), logLen: LOG.length });
+      pushUndo();
+      RAIL.base = null; RAIL.change = null; RAIL.whatif = [];
       E = clone(run.snaps[rel]);
-      LOG.unshift({ id: Date.now(), kind: 'season', title: `Loaded from projection: ${t.date}`, turn: t.turn, time: Date.now(), records: [], events: [], narrative: `The dashboard now shows the Isles as they stood after Turn ${t.turn} of your projection: ${t.narrative}`, hzBefore: null, hzAfter: null });
-      UI.tab = 'political'; renderAll(); save();
+      LOG.unshift({ id: Date.now(), kind: 'load', title: `Loaded from projection: ${t.date}`, turn: t.turn, time: Date.now(), records: [] });
+      CHRON.unshift({ turn: t.turn, date: t.date, narrative: t.narrative, events: t.events });
+      computeForecast(); UI.tab = 'map'; renderAll(); save();
     };
     el.append(card);
   });
@@ -5867,17 +6365,6 @@ function renderTimeline() {
 /* ════════════════════════════════════════════════════════════════════
    Briefing — the Game Master's landing page, written live from the state
    ════════════════════════════════════════════════════════════════════ */
-const FORECAST_SEASONS = 4;
-// A silent, reproducible 4-season run from the current state with no intervention.
-function forecast() {
-  const S = clone(E), seed = 466 + E.sim.turn * 31, fired = [], hzMax = {};
-  for (let i = 0; i < FORECAST_SEASONS; i++) {
-    const rec = stepTurn(S, { rng: dice(seed, S.sim.turn), quiet: true });
-    rec.events.filter(e => e.kind === 'hazard').forEach(e => fired.push({ turn: rec.turn, name: e.name, hazardId: e.hazardId }));
-    for (const h of W.hazards) hzMax[h.id] = Math.max(hzMax[h.id] ?? 0, rec.hazards[h.id]);
-  }
-  return { S, fired, hzMax, hz: hazardSnap(S), endTurn: S.sim.turn };
-}
 // Standing pressures acting on a stat next season, strongest first.
 function pressuresOn(ref) {
   const season = seasonOf(E.sim.turn + 1);
@@ -5888,9 +6375,9 @@ function pressuresOn(ref) {
     return { r, src, amt };
   }).filter(x => Math.abs(x.amt) >= 0.25).sort((a, b) => Math.abs(b.amt) - Math.abs(a.amt));
 }
-// The main reason a stat has moved away from canon, from the dispatch log first, then standing pressures.
+// The main reason a stat has moved away from canon: the change log first, then standing pressures.
 function whyMoved(ref, d) {
-  if (E.sim.anchors[ref] != null && Math.abs(E.sim.anchors[ref] - seedVal(ref)) >= 1) return 'set by hand on the dashboard';
+  if (E.sim.anchors[ref] != null && Math.abs(E.sim.anchors[ref] - seedVal(ref)) >= 1) return 'set by hand';
   const tally = new Map();
   for (const disp of LOG) for (const r of disp.records || []) {
     if (r.ref !== ref || r.pending || Math.sign(r.delta) !== Math.sign(d)) continue;
@@ -5903,177 +6390,153 @@ function whyMoved(ref, d) {
   if (top) {
     if (top[0].startsWith('o:')) return top[0].length > 2 ? `“${top[0].slice(2)}”` : 'a direct change';
     const e = IDX.byId[top[0].slice(2)];
-    if (e) return `${e.short} (${tagRef(fromRef(e))} ${arrow(d * (e.type === 'oppose' ? -1 : 1))})`;
+    if (e) return `${e.short} (${tagRef(fromRef(e))})`;
   }
   const p = pressuresOn(ref)[0];
   if (p && Math.sign(p.amt) === Math.sign(d)) return `${p.r.short} (every season)`;
-  return 'small ripples and seasonal drift';
+  return 'small ripples';
 }
-function hazardState(h, v, fc) {
-  const recent = CHRON.find(c => c.turn >= E.sim.turn - 2 && (c.events || []).some(e => e.hazardId === h.id));
-  if (recent) return ['broke', `broke at Turn ${recent.turn}`];
-  if (v >= h.threshold) return ['breaking', 'past its threshold'];
-  const f = fc.fired.find(x => x.hazardId === h.id);
-  if (f) return ['breaking', `forecast to break, Turn ${f.turn}`];
-  if (h.threshold - v <= 10) return ['near', 'near breaking'];
+function hazardState(h) {
+  const v = hazardV(E, h), p = pFire(RAIL.with, h.id);
+  if (v >= h.threshold) return ['breaking', `past threshold · ${pct(p)}%`];
+  if (p >= 0.5) return ['breaking', `likely to break · ${pct(p)}%`];
+  if (p >= 0.15) return ['near', `may break · ${pct(p)}%`];
+  if (h.threshold - v <= 10) return ['near', 'near threshold'];
   if (v - (h.initial ?? v) >= 5) return ['rising', 'rising'];
-  return ['quiet', 'quiet'];
+  return ['quiet', `quiet · ${pct(p)}%`];
 }
 const moversSinceCanon = () => IDX.refs.filter(r => !G(splitRef(r)[0]).lever)
   .map(ref => ({ ref, d: E.values[ref] - seedVal(ref) })).filter(x => Math.abs(x.d) >= 2).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
-const goBtn = (tab, label) => `<button class="golink" data-go="${esc(tab)}">${esc(label)} →</button>`;
+const goBtn = (filter, label, node) => `<button class="golink" data-go="${esc(filter || '')}" ${node ? `data-gonode="${esc(node)}"` : ''}>${esc(label)} →</button>`;
 const chip = (cls, text) => `<span class="chip ${cls}">${esc(text)}</span>`;
 
 function renderBriefing() {
   const root = $('#view-briefing');
-  const fc = forecast();
-  const d = dateOf(E.sim.turn);
-  const hs = W.hazards.map(h => ({ h, v: hazardV(E, h), f: fc.hz[h.id] })).sort((a, b) => (b.v - b.h.threshold) - (a.v - a.h.threshold));
-  const near = hs.filter(x => x.h.threshold - x.v <= 10);
-  const broken = hs.filter(x => x.v >= x.h.threshold);
-  const top = hs[0];
-  const verdict = broken.length ? ['In Crisis', 'crisis'] : (near.length >= 2 || fc.fired.length) ? ['Strained', 'strained']
-    : near.length ? ['Uneasy', 'uneasy'] : (top.h.threshold - top.v <= 20) ? ['Watchful', 'watchful'] : ['Calm Seas', 'calm'];
-  const adj = { calm: 'calm', watchful: 'watchful', uneasy: 'uneasy', strained: 'strained', crisis: 'in crisis' }[verdict[1]];
+  if (!RAIL.with) computeForecast();
+  const A = RAIL.with, H = FC.H, d = dateOf(E.sim.turn);
+  const hs = W.hazards.map(h => ({ h, v: hazardV(E, h), p: pFire(A, h.id) })).sort((a, b) => b.p - a.p || (b.v - b.h.threshold) - (a.v - a.h.threshold));
+  const top = hs[0], broken = hs.filter(x => x.v >= x.h.threshold), likely = hs.filter(x => x.p >= 0.5), possible = hs.filter(x => x.p >= 0.2);
+  const verdict = broken.length ? ['In Crisis', 'crisis', 'in crisis'] : likely.length ? ['Strained', 'strained', 'strained'] : possible.length ? ['Uneasy', 'uneasy', 'uneasy']
+    : (top.h.threshold - top.v <= 20) ? ['Watchful', 'watchful', 'watchful'] : ['Calm Seas', 'calm', 'calm'];
   const movers = moversSinceCanon();
-  const fMovers = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: fc.S.values[ref] - E.values[ref] })).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+  const drift = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: medAt(A, ref) - E.values[ref] })).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
 
-  // Bottom line
   const bl = [];
-  bl.push(near.length
-    ? `The Isles are <b>${adj}</b>. ${near.length} of ${W.hazards.length} hazards are within 10 points of breaking, led by <b>${esc(top.h.name)}</b> at ${r0(top.v)}% (breaks at ${top.h.threshold}%).`
-    : `The Isles are <b>${adj}</b>. No hazard is within 10 points of breaking; the closest is ${esc(top.h.name)} at ${r0(top.v)}% of ${top.h.threshold}%.`);
+  bl.push(top.p >= 0.05
+    ? `The Isles are <b>${verdict[2]}</b>. The likeliest crisis is <b>${esc(top.h.name)}</b>: ${pct(top.p)}% chance within ${H} seasons (meter at ${r0(top.v)}%, breaks at ${top.h.threshold}%).`
+    : `The Isles are <b>${verdict[2]}</b>. No crisis looks likely within ${H} seasons; the closest is ${esc(top.h.name)} at ${r0(top.v)}% of ${top.h.threshold}%.`);
   bl.push(movers.length
-    ? `Biggest shift since Year 466: ${esc(subj(movers[0].ref))} is ${movers[0].d > 0 ? 'up' : 'down'} ${Math.round(Math.abs(movers[0].d))} (now ${r0(E.values[movers[0].ref])}), driven by ${esc(whyMoved(movers[0].ref, movers[0].d))}.`
+    ? `Biggest shift since Year 466: ${esc(subj(movers[0].ref))} is ${movers[0].d > 0 ? 'up' : 'down'} ${Math.round(Math.abs(movers[0].d))} (now ${r0(E.values[movers[0].ref])}). Cause: ${esc(whyMoved(movers[0].ref, movers[0].d))}.`
     : 'Nothing has moved far from canon yet.');
-  bl.push(fc.fired.length
-    ? `Left alone, the forecast has ${fc.fired.map(f => `<b>${esc(f.name)}</b> by Turn ${f.turn}`).join(' and ')}.`
-    : `Left alone for ${FORECAST_SEASONS} seasons, no crisis breaks. The biggest drift is ${esc(subj(fMovers[0].ref))} (${fmt(fMovers[0].d)}).`);
-  if (E.sim.pending.length) bl.push(`${E.sim.pending.length} consequence${E.sim.pending.length > 1 ? 's are' : ' is'} already in motion.`);
+  bl.push(Math.abs(drift[0].d) >= 1.5
+    ? `Over the next ${H} seasons the biggest expected move is ${esc(subj(drift[0].ref))} (${fmt(drift[0].d)}).`
+    : `Little is expected to move over the next ${H} seasons.`);
+  if (RAIL.whatif.length) bl.push(`The forecast includes ${RAIL.whatif.length} what-if event${RAIL.whatif.length > 1 ? 's' : ''}.`);
 
-  // KPI tiles
   const tile = (label, value, sub, cls = '') => `<div class="tile ${cls}"><div class="k">${esc(label)}</div><div class="v">${value}</div><div class="s">${sub}</div></div>`;
   const vs = ref => { const dd = E.values[ref] - seedVal(ref); return Math.abs(dd) < 0.5 ? 'at canon' : `<span class="${dd > 0 ? 'up' : 'down'}">${fmt(dd)}</span> vs canon`; };
-  const fcTo = ref => `→ ${r0(fc.S.values[ref])} in ${FORECAST_SEASONS} seasons`;
-  const nextDue = E.sim.pending.length ? Math.min(...E.sim.pending.map(p => p.due)) : null;
+  const fcTo = ref => `→ ${r0(medAt(A, ref))} in ${H} seasons`;
   const tiles = [
-    tile('Hottest hazard', `${r0(top.v)}<small>%</small>`, `${esc(top.h.name)} · breaks at ${top.h.threshold}%<br>→ ${r0(top.f)}% in ${FORECAST_SEASONS} seasons`, top.h.threshold - top.v <= 10 ? 'alert' : ''),
-    tile('Liquor Kings · political', r0(E.values['liquorKings.political']), `${vs('liquorKings.political')}<br>${fcTo('liquorKings.political')}`),
-    tile('Aleforge Treasury', r0(E.values['aleforgeGov.economic']), `${vs('aleforgeGov.economic')}<br>${fcTo('aleforgeGov.economic')}`),
-    tile('Ducket (M2 stability)', r0(E.values['ducket.economic']), `${vs('ducket.economic')}<br>${fcTo('ducket.economic')}`),
-    tile('Player Economy', r0(E.values['playerEconomy.economic']), `${vs('playerEconomy.economic')}<br>${fcTo('playerEconomy.economic')}`),
-    tile('In motion', E.sim.pending.length, nextDue ? `next lands Turn ${nextDue} (${dateOf(nextDue).season})` : 'nothing queued'),
-  ].filter(t => !/undefined|NaN/.test(t));
+    tile('Likeliest crisis', `${pct(top.p)}<small>%</small>`, `${esc(top.h.name)}<br>within ${H} seasons`, top.p >= 0.3 ? 'alert' : ''),
+    ...['liquorKings.political', 'aleforgeGov.economic', 'ducket.economic', 'playerEconomy.economic'].filter(r => r in E.values)
+      .map(r => tile(nameRef(r).replace(/ \(.*\)$/, '') + (r === 'liquorKings.political' ? ' · political' : ''), r0(E.values[r]), `${vs(r)}<br>${fcTo(r)}`)),
+    tile('What-ifs in the forecast', RAIL.whatif.length, RAIL.whatif.length ? esc(RAIL.whatif.map(w => injDef(w)?.name).filter(Boolean).slice(0, 2).join('; ')) : 'none; add them in the forecast panel'),
+  ];
 
-  // Every tab in one line
   const tabLines = STATS.map(stat => {
-    const gs = domainGroups(stat).filter(g => !g.lever);
-    if (!gs.length) return '';
+    const gs = domainGroups(stat).filter(g => !g.lever); if (!gs.length) return '';
     const leader = [...gs].sort((a, b) => E.values[refOf(b.id, stat)] - E.values[refOf(a.id, stat)])[0];
-    const mv = gs.map(g => ({ ref: refOf(g.id, stat), d: E.values[refOf(g.id, stat)] - seedVal(refOf(g.id, stat)) })).filter(x => Math.abs(x.d) >= 2).sort((a, b) => Math.abs(b.d) - Math.abs(a.d))[0];
-    const hz = hs.filter(x => x.h.domain === stat).sort((a, b) => b.v / b.h.threshold - a.v / a.h.threshold)[0];
+    const mv = gs.map(g => ({ ref: refOf(g.id, stat), d: medAt(A, refOf(g.id, stat)) - E.values[refOf(g.id, stat)] })).filter(x => Math.abs(x.d) >= 1.5).sort((a, b) => Math.abs(b.d) - Math.abs(a.d))[0];
+    const hz = hs.filter(x => x.h.domain === stat)[0];
     return `<div class="tabline"><div class="tl-name">${esc(TAB[stat])}</div><div>
       <b>${esc(nameRef(refOf(leader.id, stat)))}</b> leads at ${r0(E.values[refOf(leader.id, stat)])}.
-      ${mv ? `Biggest shift: ${esc(nameRef(mv.ref))} <span class="${mv.d > 0 ? 'up' : 'down'}">${fmt(mv.d)}</span>.` : 'No big shifts since canon.'}
-      ${hz ? `Watch: ${esc(hz.h.name)} <b>${r0(hz.v)}%</b>.` : ''}</div>${goBtn(stat, 'Open')}</div>`;
+      ${mv ? `Heading: ${esc(nameRef(mv.ref))} <span class="${mv.d > 0 ? 'up' : 'down'}">${fmt(mv.d)}</span>.` : 'Steady.'}
+      ${hz ? `Watch: ${esc(hz.h.name)} <b>${pct(hz.p)}%</b>.` : ''}</div>${goBtn(stat, 'Map')}</div>`;
   }).join('');
 
-  // Threats
   const threats = hs.slice(0, 3).map(x => {
     const cs = x.h.inputs.map(i => ({ i, c: i.w * (E.values[i.ref] - 50) / 10 }));
     const hold = [...cs].sort((a, b) => a.c - b.c)[0], push = [...cs].sort((a, b) => b.c - a.c)[0];
-    const [st, stText] = hazardState(x.h, x.v, fc);
+    const [st, stText] = hazardState(x.h);
+    const be = breakEffects(x.h);
     return `<div class="threat"><div class="th-h"><b>${esc(x.h.name)}</b>${chip(st, stText)}</div>
       <div class="bar"><div class="fill" style="width:${x.v.toFixed(1)}%"></div><div class="thr" style="left:${x.h.threshold}%"></div></div>
       <ul class="blist">
-        <li>${r0(x.v)}% now, ${r0(x.f)}% in ${FORECAST_SEASONS} seasons. Breaks at ${x.h.threshold}%.</li>
-        <li>Held down by <b>${esc(tagRef(hold.i.ref))}</b>${hold.i.w > 0 ? ' being low' : ''} (${r0(E.values[hold.i.ref])}): ${esc(hold.i.note || '')}.</li>
-        <li>Pushed up by <b>${esc(tagRef(push.i.ref))}</b>${push.i.w < 0 ? ' being low' : ''} (${r0(E.values[push.i.ref])}): ${esc(push.i.note || '')}.</li>
-        <li>If it breaks: <i>${esc(x.h.event.name)}</i>.</li>
+        <li>Held down by <b>${esc(tagRef(hold.i.ref))}</b>${hold.i.w > 0 ? ' being low' : ''} (${r0(E.values[hold.i.ref])}).</li>
+        <li>Pushed up by <b>${esc(tagRef(push.i.ref))}</b>${push.i.w < 0 ? ' being low' : ''} (${r0(E.values[push.i.ref])}).</li>
+        <li>If it breaks (<i>${esc(x.h.event.name)}</i>): ${be && be.eff.length ? be.eff.slice(0, 3).map(e => `${esc(nameRef(e.ref).replace(/ \(.*\)$/, ''))} <span class="${e.d > 0 ? 'up' : 'down'}">${fmt(e.d)}</span>`).join(', ') : 'little measurable effect'}${be?.knock.length ? `; raises ${esc(be.knock[0].h.name)} to ${pct(be.knock[0].pa)}%` : ''}.</li>
       </ul></div>`;
   }).join('');
 
-  // Power standings
   const moverLi = m => `<li><b>${esc(nameRef(m.ref))}</b> <span class="muted">· ${esc(splitRef(m.ref)[1])}</span> <span class="${m.d > 0 ? 'up' : 'down'}">${fmt(m.d)}</span> → ${r0(E.values[m.ref])}. <span class="why">${esc(cap(whyMoved(m.ref, m.d)))}.</span></li>`;
   const rising = movers.filter(m => m.d > 0).slice(0, 3), falling = movers.filter(m => m.d < 0).slice(0, 3);
   const strongest = domainGroups('political').filter(g => !g.lever).map(g => ({ g, v: E.values[refOf(g.id, 'political')] })).sort((a, b) => b.v - a.v).slice(0, 3);
   const power = `
     <div class="lbl">Who holds power</div>
     <p class="plain">${strongest.map(s => `${esc(s.g.short ? cap(s.g.short) : s.g.name)} <b>${r0(s.v)}</b>`).join(' · ')}</p>
-    <div class="lbl">Rising since canon</div>
-    <ul class="blist">${rising.length ? rising.map(moverLi).join('') : '<li class="muted">No one has gained more than 2 points.</li>'}</ul>
-    <div class="lbl">Falling since canon</div>
-    <ul class="blist">${falling.length ? falling.map(moverLi).join('') : '<li class="muted">No one has lost more than 2 points.</li>'}</ul>`;
+    <div class="lbl">Rising since canon</div><ul class="blist">${rising.length ? rising.map(moverLi).join('') : '<li class="muted">No one has gained more than 2 points.</li>'}</ul>
+    <div class="lbl">Falling since canon</div><ul class="blist">${falling.length ? falling.map(moverLi).join('') : '<li class="muted">No one has lost more than 2 points.</li>'}</ul>`;
 
-  // Economy
   const econRefs = ['ducket.economic', 'velocity.economic', 'aleforgeGov.economic', 'bonds.economic', 'playerEconomy.economic'].filter(r => r in E.values);
-  const econTiles = econRefs.map(ref => {
-    const v = E.values[ref], [bl2, bc] = badgeFor(v);
-    return `<div class="etile"><div class="k">${esc(nameRef(ref).replace(/ \(.*\)$/, ''))}</div><div class="v">${r0(v)} <span class="badge ${bc}">${bl2}</span></div><div class="s">${vs(ref)}</div></div>`;
-  }).join('');
-  const econWhy = econRefs.map(ref => ({ ref, p: pressuresOn(ref)[0] })).filter(x => x.p && Math.abs(x.p.amt) >= 0.3)
-    .sort((a, b) => Math.abs(b.p.amt) - Math.abs(a.p.amt)).slice(0, 3)
+  const econTiles = econRefs.map(ref => { const v = E.values[ref], [b2, bc] = badgeFor(v); return `<div class="etile"><div class="k">${esc(nameRef(ref).replace(/ \(.*\)$/, ''))}</div><div class="v">${r0(v)} <span class="badge ${bc}">${b2}</span></div><div class="s">${fcTo(ref)}</div></div>`; }).join('');
+  const econWhy = econRefs.map(ref => ({ ref, p: pressuresOn(ref)[0] })).filter(x => x.p && Math.abs(x.p.amt) >= 0.3).sort((a, b) => Math.abs(b.p.amt) - Math.abs(a.p.amt)).slice(0, 3)
     .map(x => `<li><b>${esc(nameRef(x.ref).replace(/ \(.*\)$/, ''))}</b> ${x.p.amt > 0 ? 'lifted' : 'drained'} every season: ${esc(x.p.r.short)} <span class="muted">(${esc(tagRef(fromRef(x.p.r)))} at ${r0(x.p.src)})</span>.</li>`).join('');
   const levers = W.groups.filter(g => g.lever).map(g => ({ g, ref: refOf(g.id, 'economic') })).filter(x => x.ref in E.values);
   const offLevers = levers.filter(x => E.values[x.ref] <= 38 || E.values[x.ref] >= 62);
-  const econHz = hs.filter(x => x.h.domain === 'economic').sort((a, b) => b.v / b.h.threshold - a.v / a.h.threshold);
-  const econ = `<div class="etiles">${econTiles}</div>
-    <ul class="blist">
+  const econ = `<div class="etiles">${econTiles}</div><ul class="blist">
       ${econWhy || '<li class="muted">No strong standing pressure on the headline numbers.</li>'}
       <li>${offLevers.length ? `Levers off status quo: ${offLevers.map(x => `<b>${esc(x.g.name)}</b> ${r0(E.values[x.ref])} (${leverBadge(E.values[x.ref])[0].toLowerCase()})`).join(', ')}.` : `All ${levers.length} policy levers sit at status quo.`}</li>
-      <li>Economic hazards: ${econHz.map(x => `${esc(x.h.name)} ${r0(x.v)}%`).join(' · ')}.</li>
-    </ul>`;
+      <li>Economic crisis odds: ${hs.filter(x => x.h.domain === 'economic').map(x => `${esc(x.h.name.replace(/ Risk$/, ''))} ${pct(x.p)}%`).join(' · ')}.</li></ul>`;
 
-  // Open threads & coming events
   const threads = (W.openThreads || []).map(t => {
     let c = chip('static', 'no live signal');
-    if (t.watch?.hazard) { const h = W.hazards.find(z => z.id === t.watch.hazard); if (h) { const v = hazardV(E, h); const [st, txt] = hazardState(h, v, fc); c = chip(st, `${txt} · ${r0(v)}%`); } }
+    if (t.watch?.hazard) { const h = W.hazards.find(z => z.id === t.watch.hazard); if (h) { const [st, txt] = hazardState(h); c = chip(st, txt); } }
     else if (t.watch?.ref && t.watch.ref in E.values) {
-      const v = E.values[t.watch.ref], dd = v - seedVal(t.watch.ref);
-      c = dd >= 5 ? chip('rising', `rising · ${r0(v)}`) : dd <= -5 ? chip('rising', `falling · ${r0(v)}`) : chip('quiet', `quiet · ${r0(v)}`);
+      const v = E.values[t.watch.ref], dd = medAt(A, t.watch.ref) - v;
+      c = dd >= 3 ? chip('rising', `rising · ${r0(v)}`) : dd <= -3 ? chip('rising', `falling · ${r0(v)}`) : chip('quiet', `quiet · ${r0(v)}`);
     }
     return `<li><b>${esc(t.name)}</b> ${c}<br><span class="why">${esc(t.summary || '')}</span></li>`;
   }).join('');
   const soon = [...E.sim.pending].filter(p => p.due <= E.sim.turn + 3).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 3);
-  const last = CHRON[0];
   const coming = `
     <div class="lbl">Canon open threads</div><ul class="blist threads">${threads || '<li class="muted">None recorded.</li>'}</ul>
-    <div class="lbl">Landing in the next three seasons</div>
-    <ul class="blist">${soon.length ? soon.map(p => { const e = IDX.byId[p.chain[p.chain.length - 1].edgeId]; return `<li>Turn ${p.due} (${dateOf(p.due).season}): ${esc(cap(subj(p.ref)))} <span class="${p.delta > 0 ? 'up' : 'down'}">${fmt(p.delta)}</span>. <span class="why">${esc(e?.short || '')}.</span></li>`; }).join('') : '<li class="muted">Nothing queued. Move a slider or advance a season to set things in motion.</li>'}
-    ${fc.fired.map(f => `<li>Forecast: <b>${esc(f.name)}</b> around Turn ${f.turn} if nothing is done.</li>`).join('')}</ul>
-    ${last ? `<div class="lbl">Last season · Turn ${last.turn}</div><p class="plain fell">${esc((ss => (ss.length > 1 ? ss.slice(1, 3) : ss).join(' '))(last.narrative.split(/(?<=\.)\s/)))}</p>` : ''}`;
+    <div class="lbl">Already in motion</div>
+    <ul class="blist">${soon.length ? soon.map(p => { const e = IDX.byId[p.chain[p.chain.length - 1].edgeId]; return `<li>Within ${p.due - E.sim.turn} season${p.due - E.sim.turn > 1 ? 's' : ''}: ${esc(cap(subj(p.ref)))} <span class="${p.delta > 0 ? 'up' : 'down'}">${fmt(p.delta)}</span>. <span class="why">${esc(e?.short || '')}.</span></li>`; }).join('') : '<li class="muted">Nothing queued.</li>'}
+    ${likely.map(x => `<li>Likely: <b>${esc(x.h.event.name)}</b> (${pct(x.p)}% within ${H} seasons).</li>`).join('')}</ul>
+    ${RAIL.change ? `<div class="lbl">Latest change</div><p class="plain">${esc(RAIL.change.label)}</p>` : ''}`;
 
   root.innerHTML = `
     <div class="brief-hero panel">
       <div>
-        <div class="eyebrow">Intelligence briefing · for the Game Master · Turn ${E.sim.turn} · ${esc(d.label)}</div>
+        <div class="eyebrow">Intelligence briefing · for the Game Master · ${esc(d.label)}</div>
         <div class="verdict v-${verdict[1]}"><div class="seal big" aria-hidden="true">${verdict[1] === 'calm' ? '✓' : '!'}</div><div><div class="lbl">State of the Isles</div><h2>${verdict[0]}</h2></div></div>
         <div class="bottomline">${bl.map(s => `<p>${s}</p>`).join('')}</div>
-        <p class="small muted" style="margin:6px 0 0">The forecast is one likely path over ${FORECAST_SEASONS} seasons with no intervention. Use Projection to explore others.</p>
       </div>
       <div class="tiles">${tiles.join('')}</div>
     </div>
-    <div class="panel"><h3><span class="orn">✦</span> Every Tab in One Line</h3>${tabLines}</div>
+    <div class="panel"><h3><span class="orn">✦</span> Every Domain in One Line</h3>${tabLines}</div>
     <div class="grid-brief">
-      <div class="panel"><h3><span class="orn">✦</span> Threats &amp; Crises <span class="muted">The three hazards closest to breaking.</span></h3><div class="threats">${threats}</div>${goBtn('political', 'All hazard meters')}</div>
+      <div class="panel"><h3><span class="orn">✦</span> Threats &amp; Crises <span class="muted">The three likeliest to break.</span></h3><div class="threats">${threats}</div></div>
       <div class="panel"><h3><span class="orn">✦</span> Power Standings</h3>${power}</div>
-      <div class="panel"><h3><span class="orn">✦</span> Economy at a Glance</h3>${econ}${goBtn('economic', 'Economic tab')}</div>
-      <div class="panel"><h3><span class="orn">✦</span> Open Threads &amp; Coming Events</h3>${coming}${goBtn('projection', 'Run a projection')}</div>
+      <div class="panel"><h3><span class="orn">✦</span> Economy at a Glance</h3>${econ}${goBtn('economic', 'Economy on the map')}</div>
+      <div class="panel"><h3><span class="orn">✦</span> Open Threads &amp; Coming Events</h3>${coming}</div>
     </div>`;
-  $$('[data-go]', root).forEach(b => b.onclick = () => { UI.tab = b.dataset.go; renderAll(); save(); window.scrollTo(0, 0); });
+  $$('[data-go]', root).forEach(b => b.onclick = () => { UI.tab = 'map'; MAP.filter = b.dataset.go || null; MAP.sel = b.dataset.gonode || null; renderAll(); save(); window.scrollTo(0, 0); });
 }
 
 function renderChronicle() {
   const root = $('#view-chronicle');
   const hist = [...W.events].sort((a, b) => (a.era ?? 0) - (b.era ?? 0));
-  root.innerHTML = `<p class="intro">Canon events are the precedents the simulator reasons from. Seasons you advance on the dashboard are recorded here too.</p>
+  const changeTitle = d => d.kind === 'user' ? `You set ${nameRef(d.ref)} · ${splitRef(d.ref)[1]}: ${r0(d.from)} → ${r0(d.to)}` : d.title || 'Change';
+  root.innerHTML = `<p class="intro">Canon events are the precedents the simulator reasons from. Your changes to the present are listed beside them.</p>
   <div class="grid-2">
     <div class="panel"><h3><span class="orn">✦</span> The Canon Record</h3><div class="hist">${hist.map(e => `
       <div class="hist-item"><div class="when">${esc(e.turnOrDate)}</div><h4>${esc(e.name)}</h4><p>${esc(e.description)}</p>
       <div class="gchips">${(e.affectedGroupIds || []).filter(id => IDX.groups[id]).map(id => `<span class="gchip">${esc(G(id).name)}</span>`).join('')}</div></div>`).join('')}</div></div>
-    <div class="panel"><h3><span class="orn">✦</span> Your Isles Since Year 466</h3>${CHRON.length ? CHRON.map(c => `
+    <div class="panel"><h3><span class="orn">✦</span> Your Changes</h3>${LOG.length ? `<ul class="blist">${LOG.map(d => `<li>${esc(changeTitle(d))} <span class="muted small">· ${new Date(d.time).toLocaleString()}</span></li>`).join('')}</ul>` : '<p class="empty">No changes yet. Everything stands as canon records it.</p>'}
+      ${CHRON.length ? '<h3 style="margin-top:14px"><span class="orn">✦</span> Seasons Loaded From Projections</h3>' : ''}${CHRON.map(c => `
       <div class="hist-item"><div class="when">Turn ${c.turn} · ${esc(c.date)}</div><p class="narr">${esc(c.narrative)}</p>
-      ${(c.events || []).filter(e => e.kind === 'hazard').map(e => `<div class="hzevent"><div class="seal">!</div><h5>${esc(e.name)}</h5><p>${esc(e.narrative)}</p></div>`).join('')}</div>`).join('') : '<p class="empty">No seasons advanced yet. Press “Advance a Season” to start writing this record.</p>'}</div>
+      ${(c.events || []).filter(e => e.kind === 'hazard').map(e => `<div class="hzevent"><div class="seal">!</div><h5>${esc(e.name)}</h5><p>${esc(e.narrative)}</p></div>`).join('')}</div>`).join('')}</div>
   </div>`;
 }
 
@@ -6115,7 +6578,7 @@ function renderData() {
   $('#dApply').onclick = () => {
     const p = parse(); if (p.err) return show([p.err]);
     const errs = validateWorld(p.w); if (errs.length) return show(errs);
-    UNDO.length = 0; loadWorld(p.w); E = reconcileEngine(E); LOG = []; PJ.run = null; PJ.inj = PJ.inj.filter(x => injDef(x));
+    UNDO.length = 0; loadWorld(p.w); E = reconcileEngine(E); LOG = []; PJ.run = null; PJ.inj = PJ.inj.filter(x => injDef(x)); RAIL.base = null; RAIL.change = null; RAIL.whatif = RAIL.whatif.filter(w => injDef(w)); MAP.sel = null; MAP.trace = null; computeForecast();
     save(); renderClock(); renderTabs();
     show([], `Applied. ${W.groups.length} groups and ${W.relationships.length} relationships are live. Values for groups that already existed were kept.`);
   };
@@ -6129,12 +6592,12 @@ function renderData() {
     const w = data.world || data, errs = validateWorld(w); if (errs.length) return show(errs);
     UNDO.length = 0; loadWorld(w);
     E = data.engine ? reconcileEngine(data.engine) : freshEngine();
-    CHRON = data.chronicle || []; LOG = []; PJ.run = null; PJ.inj = [];
+    CHRON = data.chronicle || []; LOG = []; PJ.run = null; PJ.inj = []; RAIL.base = null; RAIL.change = null; RAIL.whatif = RAIL.whatif.filter(w => injDef(w)); MAP.sel = null; MAP.trace = null; computeForecast();
     save(); renderAll(); $('#dMsgs').innerHTML = `<div class="ok">✓ Imported ${esc(f.name)}${data.engine ? ` at Turn ${E.sim.turn}` : ''}.</div>`;
   };
   $('#dCanon').onclick = () => {
     if (!confirm('Discard all world-data edits and values and restore the canon seed?')) return;
-    loadWorld(SEED); E = freshEngine(); LOG = []; CHRON = []; UNDO.length = 0; PJ.run = null; PJ.inj = [];
+    loadWorld(SEED); E = freshEngine(); LOG = []; CHRON = []; UNDO.length = 0; PJ.run = null; PJ.inj = []; RAIL.base = null; RAIL.change = null; RAIL.whatif = RAIL.whatif.filter(w => injDef(w)); MAP.sel = null; MAP.trace = null; computeForecast();
     save(); renderAll();
   };
 }
@@ -6143,13 +6606,16 @@ function renderData() {
    Boot
    ════════════════════════════════════════════════════════════════════ */
 boot();
-$('#btnAdvance').onclick = advanceSeason;
 $('#btnUndo').onclick = undo;
 $('#btnReset').onclick = () => {
-  UNDO.push({ E: clone(E), logLen: LOG.length });
-  E = freshEngine(); LOG.unshift({ id: Date.now(), kind: 'season', title: 'Values reset to canon', turn: 0, time: Date.now(), records: [], events: [], narrative: 'The Isles return to Cycle 94, Year 466, as the Compendium records them.', hzBefore: null, hzAfter: null });
-  CHRON = []; renderAll(); save();
+  pushUndo();
+  RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
+  E = freshEngine(); RAIL.whatif = [];
+  RAIL.change = { label: 'Reset everything to canon', sources: [] };
+  LOG.unshift({ id: Date.now(), kind: 'reset', title: 'Values reset to canon', turn: 0, time: Date.now(), records: [] });
+  CHRON = []; MAP.trace = null; computeForecast(); renderAll(); save();
 };
+computeForecast();
 renderAll();
 </script>
 </body>
