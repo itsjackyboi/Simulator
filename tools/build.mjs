@@ -35,13 +35,14 @@ for (const h of seed.hazards) {
   h.base = +(logit(h.initial / 100) - contrib).toFixed(3);
 }
 for (const inj of seed.injectables) for (const e of inj.effects) if (!hasRef(e.ref)) errors.push(`${inj.id}: bad effect ${e.ref}`);
+for (const t of seed.openThreads) { if (t.watch?.ref && !hasRef(t.watch.ref)) errors.push(`${t.id}: bad watch ref`); if (t.watch?.hazard && !seed.hazards.some(h => h.id === t.watch.hazard)) errors.push(`${t.id}: bad watch hazard`); }
 for (const ev of seed.events) for (const id of ev.affectedGroupIds) if (!groups[id]) errors.push(`${ev.id}: bad group ${id}`);
 
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 
 const world = {
   meta: seed.meta, groups: seed.groups, relationships: seed.relationships,
-  events: seed.events, hazards: seed.hazards, injectables: seed.injectables, narration: seed.narration,
+  events: seed.events, hazards: seed.hazards, injectables: seed.injectables, narration: seed.narration, openThreads: seed.openThreads,
 };
 const json = JSON.stringify(world, null, 2);
 writeFileSync(join(root, 'world-seed.json'), json + '\n');

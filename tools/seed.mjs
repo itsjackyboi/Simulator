@@ -1126,6 +1126,18 @@ export const injectables = [
     narrative: 'A bank opens beside the Hall of Ale offering loans for ships, shops and land, and holdings accounts that pay interest from somewhere, allegedly loan income.' },
 ];
 
+// Canon open threads (Compendium XI) with the live signal the Briefing watches for each.
+export const openThreads = [
+  { id: 'rottedSoul', name: 'The Rotted Soul\'s released spirit', summary: 'Defeated in Hoegaarden, but his soul is loose, and the recipe for a VeilRunner is now known and repeatable.', watch: { hazard: 'veilrunner' } },
+  { id: 'gideon', name: 'Gideon Drake in Vodkonia', summary: 'Banished, long-lived, aggrieved, and plotting from unexplored shores.', watch: { ref: 'gideon.political' } },
+  { id: 'rump', name: 'John Rump holds the Cumstead', summary: 'No Veilwalker blessing, an addict in charge, and Factory sludge in the furrows.', watch: { hazard: 'harvest' } },
+  { id: 'mama', name: 'MAMA\'s surviving cells', summary: 'Plinket is neutralized; the ideology and some cells are not.', watch: { hazard: 'mamaRad' } },
+  { id: 'druids', name: 'The Fayte Druids in the Cloister', summary: 'Chants and lights in the Kings\' own meeting hall. Purpose unknown.', watch: { hazard: 'cloister' } },
+  { id: 'descendant', name: 'The Rotted Soul\'s living descendant', summary: 'The Corrupted Ancestry compass points at someone alive. The half-blood Line of Johns is the obvious suspect.', watch: { ref: 'lineOfJohns.racial' } },
+  { id: 'sbn', name: 'The Southern Bellows reach out', summary: 'Generations of isolation cracking through smuggling and StormVeil. Nobody knows why now.', watch: { ref: 'sbn.economic' } },
+  { id: 'tomes', name: 'The Tome Monuments', summary: 'One of six found. What the other five hold is unknown.' },
+];
+
 export const narration = {
   seasons: {
     Stormtide: [
@@ -1170,8 +1182,8 @@ export const narration = {
 
 export const meta = {
   title: 'The Pintland Isles — Dynamics Simulator',
-  version: 2,
-  changes: 'the Concept Economy: velocity, banks, insurers, the Roto black market, the player economy, policy levers and a credit-crunch hazard',
+  version: 3,
+  changes: 'the Briefing tab: canon open threads with live signals',
   calendar: { startYear: 466, startCycle: 94, seasons: ['Stormtide', 'Goldsun', 'Veilfrost'], yearsPerCycle: 5 },
   statNouns: { political: 'political reach', economic: 'economic strength', cultural: 'cultural influence', religious: 'religious authority', racial: 'lineage standing' },
   engine: { rippleDepth: 4, minEffect: 0.2, meanReversion: 0.03, noise: 0.7, hazardCooldown: 4 },
