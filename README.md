@@ -16,9 +16,19 @@ One screen: a **dock** on the left, **the Web** in the middle, and a **forecast 
 
 - **Status strip** above the map: the state of the Isles, the likeliest crisis, and the biggest risers and fallers over the horizon.
 - **The map.** Node size is current power, and fill tint is where it's heading. After a change, a **dashed outline shows each node's size before it**, so before and after sit on the map together. A **Region** lens (Aleforge, Providence, Shanty Town, Roto Kaiishi, Fenwick, Isles-wide) highlights one town, its crises, and everything linked into it. The season slider and ▶ play the forecast out. Hover a node for its likely path.
-- **The dock.** Click a node to get its sliders beside the map, plus a quick list of the 3 biggest things **growing** it and the 3 biggest **shrinking** it over the horizon (click a stat's name to switch stats). Crises show what raises and lowers their odds, and what breaking would do. With nothing selected, the dock holds the tools:
+- **The map's clusters:** Political (including Fenwick and the Veil Elders), **The Six** (each Liquor King as his own node beside the Parliament, one story line each), Cultural, Religious (Patmos, the Brewmasters' faith, the tonic clergy, the Whiskey Runners, the Owe Block Veil sympathizers, Unknownism, the Tide Callers, the Ashen Oath, the vanished monk order, the Warden heresy, and the Fayte Druids as a minor movement), Racial & Lineage (the flesh-born, the Veilwalkers, the Line of Johns, the Coral-eyed), Economic, and the crises.
+- **The dock** has three tabs:
+  - **Lead**: pick the town you lead (Aleforge, Providence, Shanty Town, Roto Kaiishi or Fenwick). You get:
+    - a **scorecard**: legitimacy, treasury, standing abroad, stability and exposure, each where it lands at the horizon, with what your last change did to it;
+    - **Rivals likely to react**: the other towns' moves in the forecast;
+    - four sets of levers: **Economic**; **Diplomatic** (your stance toward each town, with the relationship it produces and their stance toward you); **Civic Order**; and **Backroom Deals**.
+    - Backroom deals are illegal or ruinous if known. Each one pays out every season it runs and may be found each season: chance = severity × 0.025 × (1 + 0.15 × people in on it) × (0.6 + press/100) × its watcher. When a deal is found, its scandal hits.
+    - With nobody chosen, Lead shows every town's numbers side by side.
+    - The towns you don't lead act on their own each season. They answer stances in kind, raise revenue when the treasury runs low, and tighten order when a local crisis nears.
+  - **Inspect**: click a node to get its sliders, plus a quick list of the 3 biggest things **growing** it and the 3 biggest **shrinking** it over the horizon (click a stat's name to switch stats). Crises show what raises and lowers their odds, and what breaking would do.
+  - **Tools**:
   - **Weak points**: the stats where a ±10 nudge travels furthest (marked ⚡ on the map).
-  - **Find the lever**: pick an outcome; every slider (±15) and every What-if is tried and ranked.
+  - **Find the lever**: pick an outcome (any group, crisis or relationship between towns); every slider and town lever (±15), every What-if and every backroom deal is tried and ranked.
   - **Scenarios**: save the present under a name, load it later, or compare the present against it.
 - **Forecast panel** (40 simulated futures over 3–12 seasons): *Your change* bar chart with click-through routes; *Crisis odds* as dials, split into **global** crises (far-reaching) and **regional** crises (one town; their direct effects stay inside it, and only the web's links carry them further); *What if…*; *Heading, left alone*.
 - **Why?** markers hold every in-world explanation. Sizes are pips (▲▮▮); exact numbers are on hover.
@@ -72,8 +82,12 @@ Every relationship carries an `explanation` and a `precedent`, plus a `canon` fl
 - `rumour`: e.g. the ClockHeart Tonic soul-binding
 - `open-thread`: e.g. the Fayte Druids; deliberately speculative
 
-The seed's 31 groups (including 6 policy levers), 196 relationships, 11 hazards (4 global, 7 regional),
-15 canon events and 20 injectable events are all editable in the app.
+The seed is all editable in the app. It holds:
+- 103 groups: 53 on the map, 40 town levers (20 of them diplomatic stances), and 10 hidden relationships between the towns;
+- 429 relationships;
+- 13 hazards: 6 global and 7 regional;
+- 16 backroom deals;
+- 15 canon events and 25 injectable events.
 
 When the canon seed's `meta.version` goes up, a browser holding an older saved world
 shows a notice offering to load the new world and keep the current values.
