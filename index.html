@@ -430,6 +430,95 @@ details.lrow .sw{width:10px;height:4px;display:inline-block;align-self:center}
 details.lrow .lr-s{grid-column:2;font-size:12.5px;color:var(--ink-2);font-style:italic}
 details.lrow > p{margin:2px 0 4px 18px}
 @media (max-width:1180px){ .shell{grid-template-columns:minmax(0,1fr)} #rail{position:static;max-height:none;border-left:none;border-top:3px double var(--rule)} }
+
+/* ── v4: quieter screen ─────────────────────────── */
+nav.tabs[hidden]{display:none}
+.help{display:none!important}
+body.show-help .help{display:block!important}
+body.show-help span.help{display:inline!important}
+#btnHelp[aria-pressed="true"]{background:var(--ink);color:var(--parch)}
+.menu{position:relative}
+.menu-pop{position:absolute;right:0;top:calc(100% + 4px);z-index:20;background:var(--parch-card);border:1px solid var(--rule);box-shadow:0 6px 18px rgba(60,35,10,.25);display:flex;flex-direction:column;min-width:170px}
+.menu-pop[hidden]{display:none}
+.menu-pop button{font-family:var(--f-head);font-size:12px;font-weight:700;letter-spacing:.05em;text-align:left;padding:9px 14px;border:none;background:none;cursor:pointer;color:var(--ink)}
+.menu-pop button:hover,.menu-pop button:focus-visible{background:var(--parch-3)}
+.menu-pop button[aria-current]{color:var(--wax)}
+#backBar{margin-bottom:8px}
+.lbl{font-family:var(--f-head);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.seal.sm{width:34px;height:34px;font-size:16px}
+.strip{display:grid;grid-template-columns:auto minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:center;padding:8px 12px;margin-bottom:8px;background:var(--parch-card);border:1px solid var(--rule);box-shadow:var(--shadow)}
+.st-v{display:flex;gap:8px;align-items:center}
+.st-w{font-family:var(--f-head);font-weight:900;font-size:18px}
+.v-strained .st-w,.v-crisis .st-w{color:var(--wax)}
+.v-calm .seal{background:radial-gradient(circle at 35% 30%,#4f8a5b,var(--verd) 55%,#173a20);border-color:#1f4a28}
+.v-watchful .seal{background:radial-gradient(circle at 35% 30%,#d8b567,var(--gold) 55%,#5e4412);border-color:#6b4b22}
+.st-line{font-family:var(--f-fell);font-size:15.5px}
+.st-bars{display:flex;flex-direction:column;gap:2px}
+.sbar{display:grid;grid-template-columns:128px minmax(0,1fr);gap:6px;align-items:center;background:none;border:none;padding:0;cursor:pointer;text-align:left;font:inherit}
+.sb-n{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-b{height:7px;background:rgba(185,154,102,.25);position:relative}
+.sb-b i{position:absolute;left:0;top:0;bottom:0}
+.sb-b i.up,.br-b i.up{background:var(--verd)} .sb-b i.down,.br-b i.down{background:var(--wax)}
+.pips{font-size:11px;letter-spacing:-1px;white-space:nowrap}
+.pips.up{color:var(--up)} .pips.down{color:var(--down)}
+details.why{display:inline-block;margin:2px 0}
+details.why > summary{display:inline;font-family:var(--f-head);font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--gold);text-transform:uppercase}
+details.why > summary::before{content:"ⓘ "}
+details.why[open]{display:block}
+details.why > div{font-size:14px;color:var(--ink-2);padding:4px 0 4px 8px;border-left:2px solid var(--gold);margin-top:2px}
+.why-t{color:var(--ink-2);font-family:var(--f-fell)}
+/* map nodes: size + tint, labels on demand */
+#mapSvg .nd .body{stroke:var(--ink-2);stroke-width:1.1;transition:r .5s,fill .5s,width .5s,height .5s,x .5s,y .5s}
+#mapSvg .nd .nl{opacity:0;transition:opacity .2s}
+#mapSvg .nd.lbl-on .nl,#mapSvg .nd:hover .nl,#mapSvg .nd:focus .nl{opacity:1}
+#mapSvg .nd.hidden-link .body{stroke:var(--gold);stroke-width:3.4}
+#mapSvg .nd.hit:not(.hidden-link) .body{stroke:var(--ink-2);stroke-width:2.2}
+#mapSvg .nd .nchip{font-size:12px;letter-spacing:-1px}
+#mapSvg .lk.faint{opacity:.05}
+#mapSvg .lk.mid{opacity:.14}
+.map-wrap{position:relative}
+.tip{position:absolute;z-index:5;width:256px;background:var(--parch-card);border:1px solid var(--rule);box-shadow:0 6px 18px rgba(60,35,10,.25);padding:7px 9px;pointer-events:none;font-size:13.5px}
+.tip[hidden]{display:none}
+.scrub{display:flex;align-items:center;gap:10px;margin:8px 0 2px}
+.scrub input{flex:1;max-width:520px}
+.t-lbl{font-size:14px;color:var(--ink-2)}
+/* rail v4 */
+.rail-h h2{font-size:21px}
+.bars{display:flex;flex-direction:column;gap:1px;margin:4px 0}
+.brow{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:8px;align-items:center;background:none;border:none;padding:3px 2px;cursor:pointer;text-align:left;font:inherit;width:100%}
+.brow:hover,.brow:focus-visible{background:rgba(185,154,102,.18)}
+.br-n{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brow.hidden .br-n{color:var(--gold)}
+.br-b{position:relative;height:12px;background:linear-gradient(90deg,transparent calc(50% - .5px),var(--ink-3) calc(50% - .5px),var(--ink-3) calc(50% + .5px),transparent calc(50% + .5px))}
+.br-b i{position:absolute;top:2px;bottom:2px;opacity:.85}
+.br-b em{position:absolute;top:4px;bottom:4px;background:var(--ink);opacity:.55}
+.brow.hidden .br-b i{outline:1.5px solid var(--gold)}
+.routebox{margin:6px 0;padding:7px 8px;border-left:3px solid var(--gold);background:rgba(233,216,174,.45)}
+.route{display:flex;flex-wrap:wrap;gap:3px;align-items:center;margin:4px 0}
+.pill{font-size:12px;padding:1px 6px;border:1px solid;white-space:nowrap}
+.pill.up{color:var(--verd);border-color:var(--verd)} .pill.down{color:var(--wax);border-color:var(--wax)}
+.arr{color:var(--ink-3);font-size:12px}
+.dials{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.dialbtn{display:flex;flex-direction:column;align-items:center;background:none;border:1px solid transparent;padding:3px 2px;cursor:pointer;font:inherit}
+.dialbtn span{font-size:11px;line-height:1.15;text-align:center;color:var(--ink-2)}
+.dialbtn.on{border-color:var(--wax);background:rgba(178,58,46,.06)}
+.dialbtn.past span{color:var(--wax);font-weight:700}
+.dial-bg{fill:none;stroke:#e2d3ac;stroke-width:6}
+.dial-fg{fill:none;stroke:var(--gold);stroke-width:6;stroke-linecap:butt}
+.dial-fg.hot{stroke:var(--wax)}
+.dial-tick{stroke:var(--ink);stroke-width:2}
+.dial-t{font-family:var(--f-head);font-weight:900;font-size:11px;fill:var(--ink)}
+.knock{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.fchip.warn{border-color:var(--wax);color:var(--wax)}
+.shift{font:inherit;font-size:12px;cursor:pointer}
+.hz-top{display:flex;gap:12px;align-items:center}
+.feeds{display:flex;flex-wrap:wrap;gap:4px}
+details.lrow .lr-k{grid-column:2;font-size:11px;letter-spacing:-1px}
+details.lrow > summary{grid-template-columns:10px minmax(0,1fr) auto}
+details.lrow .lr-k{grid-column:3}
+details.lrow .lr-s{font-style:normal;font-size:13.5px;margin:2px 0 2px 18px}
+.srow .s-name{text-transform:uppercase;letter-spacing:.06em;font-size:11px}
+@media (max-width:900px){ .strip{grid-template-columns:1fr} }
 @media (max-width:1180px){ .grid-proj{grid-template-columns:260px minmax(0,1fr)} .grid-proj > .side{grid-column:1 / -1} }
 @media (max-width:900px){
   .grid-domain,.grid-2,.grid-proj{grid-template-columns:minmax(0,1fr)}
@@ -450,14 +539,16 @@ details.lrow > p{margin:2px 0 4px 18px}
   <div class="clock">
     <span class="date" id="clockDate"></span>
     <button class="btn" id="btnUndo" title="Undo your last change">Undo</button>
+    <button class="btn ghost" id="btnHelp" aria-pressed="false" title="Show or hide explanations">?</button>
+    <div class="menu"><button class="btn ghost" id="btnMenu" aria-haspopup="true" aria-expanded="false" title="More">⋯</button><div class="menu-pop" id="menuPop" hidden></div></div>
     <button class="btn ghost" id="btnReset" title="Restore every value to canon (keeps your world data edits)">Reset Values</button>
   </div>
 </header>
 <nav class="tabs" role="tablist" id="tabs"></nav>
 <div class="shell">
 <main>
-  <section class="view" id="view-briefing"></section>
-  <section class="view" id="view-map" hidden></section>
+  <div id="backBar" hidden><button class="golink" id="backWeb">← Back to the Web</button></div>
+  <section class="view" id="view-map"></section>
   <section class="view" id="view-projection" hidden></section>
   <section class="view" id="view-chronicle" hidden></section>
   <section class="view" id="view-data" hidden></section>
@@ -472,8 +563,8 @@ details.lrow > p{margin:2px 0 4px 18px}
 {
   "meta": {
     "title": "The Pintland Isles — Dynamics Simulator",
-    "version": 3,
-    "changes": "the Briefing tab: canon open threads with live signals",
+    "version": 4,
+    "changes": "40 new political and cultural links; MAMA, Owe Block and the Cloister now simmer instead of sleeping",
     "calendar": {
       "startYear": 466,
       "startCycle": 94,
@@ -3534,6 +3625,694 @@ details.lrow > p{margin:2px 0 4px 18px}
       "canon": "canon",
       "pivot": 50,
       "season": "Goldsun"
+    },
+    {
+      "id": "r154",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "cultural",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Brewers Lane pride feeds the festival",
+      "explanation": "The Trials are Aleforge's brewing culture on show. When the young brewers of Brewers Lane are proud of their craft, the festival has something to celebrate.",
+      "precedent": "Beckoning the New Brews (Aleforge coming-of-age holiday)",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r155",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the festival makes brewers",
+      "explanation": "Every Trials sends a few more youths into the brewhouses hoping to be named in the Gilded Tankard's walls.",
+      "precedent": "Winners' names etched in the Gilded Tankard",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r156",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "a brewing culture sells",
+      "explanation": "A town that honours its brewers gets better beer a season later, and better beer exports.",
+      "precedent": "Beckoning the New Brews",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r157",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "brewing becomes shameful",
+      "explanation": "The prohibitionist current frames alcohol itself as corruption; where it spreads, brewing stops being an honour.",
+      "precedent": "MAA founding creed",
+      "canon": "canon"
+    },
+    {
+      "id": "r158",
+      "fromId": "rotoCouncil",
+      "fromStat": "cultural",
+      "toId": "rotoCouncil",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Xi's principles keep the heirs honest",
+      "explanation": "Roto's government is a chain of hand-picked heirs trained in Xi's principles. The culture of those principles is what keeps the chain from breaking.",
+      "precedent": "Xi's succession system; Kim Jong Un",
+      "canon": "canon"
+    },
+    {
+      "id": "r159",
+      "fromId": "rotoCouncil",
+      "fromStat": "cultural",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "taboos keep dark trade after dark",
+      "explanation": "Nothing in Roto is illegal, only taboo. A strong taboo culture keeps slave, drug and dark-magic markets confined to the night.",
+      "precedent": "Roto Kaiishi: the taboo system",
+      "canon": "canon"
+    },
+    {
+      "id": "r160",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "cultural",
+      "domain": "economic→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "big players erode Xi's principles",
+      "explanation": "Xi feared the biggest players would write rules that gut Roto from the bottom up. A booming Goldcoral is exactly that player.",
+      "precedent": "Roto Kaiishi: Xi on market domination",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r161",
+      "fromId": "rotoCouncil",
+      "fromStat": "political",
+      "toId": "goldcoral",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the heirs check the robber barons",
+      "explanation": "Xi built the succession system as \"an important counterweight to the often corrupting effects of market domination.\"",
+      "precedent": "Roto Kaiishi: Xi's succession system",
+      "canon": "canon"
+    },
+    {
+      "id": "r162",
+      "fromId": "rotoCouncil",
+      "fromStat": "political",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto's security forces",
+      "explanation": "After Xi's death the elite asked for dedicated security. A strong council polices the lower stilts.",
+      "precedent": "Roto Kaiishi: dedicated security forces",
+      "canon": "canon"
+    },
+    {
+      "id": "r163",
+      "fromId": "fleshborn",
+      "fromStat": "racial",
+      "toId": "veilwalkers",
+      "toStat": "political",
+      "domain": "racial→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "encroachment rouses Fenwick",
+      "explanation": "The Veil plays no politics until the flesh-born take too much. Then \"you can't predict what don't want anything\" becomes a warning.",
+      "precedent": "Shanty Town on Fenwick; Guinnie's manifest-destiny vote",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r164",
+      "fromId": "veilwalkers",
+      "fromStat": "political",
+      "toId": "goldcoral",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "cursed ventures",
+      "explanation": "Those who take too much from the earth are \"haunted by this tribe and cursed by famine and disease.\" A roused Veil makes plunder expensive.",
+      "precedent": "Fenwick & the Veilwalkers; pirates returning cursed",
+      "canon": "canon"
+    },
+    {
+      "id": "r165",
+      "fromId": "veilwalkers",
+      "fromStat": "political",
+      "toId": "fleshborn",
+      "toStat": "racial",
+      "domain": "political→racial",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the earth takes the flesh-born back",
+      "explanation": "A mobilized Veil does not burn anyone; \"they'd just let the earth take us back.\"",
+      "precedent": "Shanty Town on Fenwick",
+      "canon": "canon"
+    },
+    {
+      "id": "r166",
+      "fromId": "veilwalkers",
+      "fromStat": "cultural",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "vows kept, abundance given",
+      "explanation": "Those who keep their promises to the Veil \"have abundance from whatever item they traded for.\" The custom itself is agricultural insurance.",
+      "precedent": "Veilwalker Trade & Custom",
+      "canon": "canon"
+    },
+    {
+      "id": "r167",
+      "fromId": "veilwalkers",
+      "fromStat": "religious",
+      "toId": "veilwalkers",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "faith keeps the custom alive",
+      "explanation": "The vow-trade only works while the Veil's faith gives vows their weight.",
+      "precedent": "Veilwalker Trade & Custom",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r168",
+      "fromId": "unknownism",
+      "fromStat": "religious",
+      "toId": "unknownism",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the mission builds a following",
+      "explanation": "Baba Paku's preaching becomes a culture wherever it takes root.",
+      "precedent": "Baba Paku",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r169",
+      "fromId": "unknownism",
+      "fromStat": "cultural",
+      "toId": "oweBlock",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Owe Block's own faith",
+      "explanation": "Unknownism is the district's export and its pride; its spread strengthens Owe Block's sense of itself apart from the spire.",
+      "precedent": "Baba Paku's quest for the first Owe Block Saint",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r170",
+      "fromId": "patmos",
+      "fromStat": "cultural",
+      "toId": "unknownism",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "order leaves no room for heresy",
+      "explanation": "Patmos social order and a street-preached heterodoxy compete for the same faithful.",
+      "precedent": "Day of Hollow Tongues",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r171",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "lineOfJohns",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Cumstead is the family fortune",
+      "explanation": "The Line of Johns' wealth is the farm. When it fails, so does the family's purse.",
+      "precedent": "John Rump inherits the Cumstead",
+      "canon": "canon"
+    },
+    {
+      "id": "r172",
+      "fromId": "lineOfJohns",
+      "fromStat": "economic",
+      "toId": "lineOfJohns",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "money buys Rump his grip",
+      "explanation": "Rump coasts on his family's wealth and reputation to keep the treasurer's office.",
+      "precedent": "John Rump: \"coasting off the positive reputation of his family\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r173",
+      "fromId": "mama",
+      "fromStat": "religious",
+      "toId": "mama",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "zeal becomes action",
+      "explanation": "The moral certainty that alcohol is corruption turns, a season later, into people willing to raid a brewery.",
+      "precedent": "MAA to MAMA",
+      "canon": "canon"
+    },
+    {
+      "id": "r174",
+      "fromId": "mama",
+      "fromStat": "religious",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "sermons against the Trials",
+      "explanation": "The prohibitionist current preaches against the festival first; it is the most visible sin in the Isles.",
+      "precedent": "MAA raid on the first Trials",
+      "canon": "canon"
+    },
+    {
+      "id": "r175",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Ashen Oath stirs",
+      "explanation": "Shanty Town has its own purifiers: the Ashen Oath believe grog has tainted the world. A rising prohibitionist current emboldens them and splits the pirate ethos.",
+      "precedent": "Shanty Town's Political Factions: the Ashen Oath",
+      "canon": "canon"
+    },
+    {
+      "id": "r176",
+      "fromId": "oweBlock",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "every Ducket underground is a Ducket untithed",
+      "explanation": "Owe Block's informal economy is precisely the money the tithe cannot reach.",
+      "precedent": "Founding of Owe Block",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r177",
+      "fromId": "oweBlock",
+      "fromStat": "economic",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the underground trades with the night market",
+      "explanation": "Owe Block's underground markets and Roto's after-dark stalls deal in the same goods.",
+      "precedent": "A Walk on Owe Block: underground markets",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r178",
+      "fromId": "oweBlock",
+      "fromStat": "cultural",
+      "toId": "oweBlock",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "gang culture builds gang power",
+      "explanation": "The Stank Tank, the Crimson Cutters and the Seaside Circus are culture first; recruits follow the colours.",
+      "precedent": "A Walk on Owe Block",
+      "canon": "canon"
+    },
+    {
+      "id": "r179",
+      "fromId": "oweBlock",
+      "fromStat": "political",
+      "toId": "oweBlock",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "protection and the underground",
+      "explanation": "Stronger gangs run bigger underground markets.",
+      "precedent": "A Walk on Owe Block",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r180",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Trials make legends",
+      "explanation": "Every retelling of the six-way tie keeps the Kings famous.",
+      "precedent": "The six-way tie",
+      "canon": "canon"
+    },
+    {
+      "id": "r181",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "\"WHO KILLED MAXIMILIAN?\"",
+      "explanation": "The prohibitionist current tells the Kings' story differently: a massacre in a cave, a mayor left in a cage, an assassination.",
+      "precedent": "MAMA's founding grievance",
+      "canon": "canon"
+    },
+    {
+      "id": "r182",
+      "fromId": "liquorKings",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "legend is legitimacy",
+      "explanation": "The Kings' only formal claim to rule is that they are famous for winning. A tarnished legend is a weaker crown.",
+      "precedent": "The Age of the Six Kings",
+      "canon": "canon"
+    },
+    {
+      "id": "r183",
+      "fromId": "liquorKings",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "celebrity sells ale",
+      "explanation": "Visitors come to drink where the Kings drink.",
+      "precedent": "Drunken Trials tourism",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r184",
+      "fromId": "aleforgeGov",
+      "fromStat": "political",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the mayor runs the Trials",
+      "explanation": "Aleforge's mayors have always handled the festival's logistics; a steady administration puts on a better show.",
+      "precedent": "Thomas Thatcher, \"in charge of the festival's logistics\"; Drake's Revival Fund",
+      "canon": "canon"
+    },
+    {
+      "id": "r185",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Council decides who eats",
+      "explanation": "The Windsunk Council decides \"who eats, who raids.\" A strong Council runs a fatter Shanty.",
+      "precedent": "Shanty Town: the Windsunk Council",
+      "canon": "canon"
+    },
+    {
+      "id": "r186",
+      "fromId": "shantyTown",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "grog and reputation",
+      "explanation": "Shanty runs on reputation, not law. A proud pirate culture draws crews and their plunder.",
+      "precedent": "Shanty Town: \"we raise legends\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r187",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "pirates fence through Roto's nights",
+      "explanation": "Roto was built as the pirates' fence; a strong Shanty sends more plunder to the after-dark stalls.",
+      "precedent": "Xi Jin Ping's floating shop",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r188",
+      "fromId": "patmos",
+      "fromStat": "political",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Shanty defines itself against the spire",
+      "explanation": "\"They call us sinners. We call ourselves free.\" A stronger Providence hardens the pirate ethos.",
+      "precedent": "Jasper \"no Eyes, all-Hands\" on Providence",
+      "canon": "canon"
+    },
+    {
+      "id": "r189",
+      "fromId": "patmos",
+      "fromStat": "cultural",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "order breeds obedience",
+      "explanation": "A city that prays every three hours does what the spire says.",
+      "precedent": "Providence: prayer bells every three hours",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r190",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the young run off to sea",
+      "explanation": "Aleforge's youth \"sometimes sneak off to become pirates.\" A great Trials is also a recruiting fair.",
+      "precedent": "Old Salty on Aleforge",
+      "canon": "canon"
+    },
+    {
+      "id": "r191",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "festival work and festival coin",
+      "explanation": "The Trials hire builders and game-makers and fill every shop in town.",
+      "precedent": "Drunken Trials Revival Fund",
+      "canon": "canon"
+    },
+    {
+      "id": "r192",
+      "fromId": "mama",
+      "fromStat": "political",
+      "toId": "drunkenTrials",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tourists stay home",
+      "explanation": "Nobody books a room for a festival that was raided last year.",
+      "precedent": "The MAA raid on the Trials",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r193",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "goldcoral",
+      "toStat": "political",
+      "domain": "political",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Jack's crown opens doors",
+      "explanation": "Goldcoral's owner is a sitting King. A strong Parliament is a strong seat for Jack.",
+      "precedent": "Goldcoral Incorporated",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r194",
+      "fromId": "goldcoral",
+      "fromStat": "political",
+      "toId": "rotoCouncil",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the big player leans on Roto",
+      "explanation": "Goldcoral keeps its real books in Roto; as Jack's leverage grows, so does his interest in who Roto's next heir is.",
+      "precedent": "Goldcoral's Roto-kept books",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r195",
+      "fromId": "sbn",
+      "fromStat": "political",
+      "toId": "sbn",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "formal ties open trade",
+      "explanation": "Every step out of isolation widens the Bellows' trade routes.",
+      "precedent": "SBN and StormVeil",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r196",
+      "fromId": "sbn",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.1,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Drinkers Unit is watching",
+      "explanation": "The Aleforge Special Drinkers Unit has flagged the Bellows; their rise is one more thing the castle is blamed for missing.",
+      "precedent": "SBN flagged by the ASDU",
+      "canon": "extrapolated"
     }
   ],
   "events": [
@@ -3755,6 +4534,16 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "goldcoral.economic",
           "w": 0.08,
           "note": "plunder of spirit-marked land"
+        },
+        {
+          "ref": "veilwalkers.cultural",
+          "w": -0.15,
+          "note": "vows still traded and kept"
+        },
+        {
+          "ref": "veilwalkers.political",
+          "w": 0.1,
+          "note": "a mobilized, angry Veil"
         }
       ],
       "seasonMods": {
@@ -3805,7 +4594,7 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.5
       },
-      "base": -1.348
+      "base": -1.208
     },
     {
       "id": "inflation",
@@ -3863,6 +4652,11 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "banks.economic",
           "w": 0.08,
           "note": "banks paying interest they haven't earned from loans"
+        },
+        {
+          "ref": "oweBlock.economic",
+          "w": 0.1,
+          "note": "money off the books"
         }
       ],
       "seasonMods": {},
@@ -3907,13 +4701,13 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.002
+      "base": 0.138
     },
     {
       "id": "mamaRad",
       "name": "MAMA Radicalization",
       "domain": "political",
-      "initial": 26,
+      "initial": 52,
       "threshold": 68,
       "inputs": [
         {
@@ -3945,6 +4739,16 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "cumstead.economic",
           "w": -0.1,
           "note": "the harvest"
+        },
+        {
+          "ref": "mama.religious",
+          "w": 0.15,
+          "note": "moral zeal"
+        },
+        {
+          "ref": "conceptRewards.economic",
+          "w": 0.1,
+          "note": "the Kings paying themselves"
         }
       ],
       "seasonMods": {
@@ -3991,7 +4795,7 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.5
       },
-      "base": -0.936
+      "base": 0.72
     },
     {
       "id": "harvest",
@@ -4024,6 +4828,11 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "veilwalkers.racial",
           "w": -0.1,
           "note": "a Veil still willing to tend the soil"
+        },
+        {
+          "ref": "oweBlock.political",
+          "w": 0.08,
+          "note": "emigrants on thin wheat"
         }
       ],
       "seasonMods": {
@@ -4070,7 +4879,7 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.2
       },
-      "base": -1.283
+      "base": -1.203
     },
     {
       "id": "bondCrisis",
@@ -4103,6 +4912,11 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "mama.political",
           "w": 0.1,
           "note": "insurgency risk priced into the paper"
+        },
+        {
+          "ref": "liquorKings.political",
+          "w": -0.1,
+          "note": "a steady crown"
         }
       ],
       "seasonMods": {},
@@ -4143,13 +4957,13 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.817
+      "base": -0.697
     },
     {
       "id": "oweRising",
       "name": "Owe Block Rising",
       "domain": "cultural",
-      "initial": 30,
+      "initial": 50,
       "threshold": 70,
       "inputs": [
         {
@@ -4176,6 +4990,16 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "oweBlock.economic",
           "w": -0.12,
           "note": "an informal economy that still feeds people"
+        },
+        {
+          "ref": "oweBlock.cultural",
+          "w": 0.15,
+          "note": "gang culture"
+        },
+        {
+          "ref": "titheRate.economic",
+          "w": 0.15,
+          "note": "the tithe rate"
         }
       ],
       "seasonMods": {},
@@ -4224,7 +5048,7 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.205
+      "base": 0.567
     },
     {
       "id": "creditCrunch",
@@ -4257,6 +5081,11 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "rotoBlackMarket.economic",
           "w": 0.1,
           "note": "deposits fleeing to the night market"
+        },
+        {
+          "ref": "mama.political",
+          "w": 0.08,
+          "note": "insurgency scaring lenders"
         }
       ],
       "seasonMods": {
@@ -4303,13 +5132,13 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.2
       },
-      "base": -2.363
+      "base": -2.091
     },
     {
       "id": "cloister",
       "name": "Cloister Stirring",
       "domain": "religious",
-      "initial": 28,
+      "initial": 46,
       "threshold": 74,
       "openThread": true,
       "inputs": [
@@ -4332,6 +5161,11 @@ details.lrow > p{margin:2px 0 4px 18px}
           "ref": "veilwalkers.religious",
           "w": -0.1,
           "note": "the Veil's old stewardship of the land"
+        },
+        {
+          "ref": "veilwalkers.political",
+          "w": 0.1,
+          "note": "a roused Veil"
         }
       ],
       "seasonMods": {
@@ -4378,7 +5212,7 @@ details.lrow > p{margin:2px 0 4px 18px}
         ],
         "chargeAfter": -1.5
       },
-      "base": 0.316
+      "base": 1.3
     }
   ],
   "injectables": [
@@ -5277,7 +6111,7 @@ function narrateTurn(rec, E, rng) {
    ════════════════════════════════════════════════════════════════════ */
 const STORE = 'pintland-sim/v1';
 let E, LOG = [], CHRON = [], UNDO = [];
-const UI = { tab: 'briefing' };
+const UI = { tab: 'map' };
 
 function saveNow() {
   clearTimeout(save.t); save.t = null;
@@ -5294,7 +6128,7 @@ function boot() {
     E = reconcileEngine(saved.engine || freshEngine());
     LOG = (saved.log || []).filter(d => (d.records || []).every(r => r.ref in E.values && r.chain.every(c => IDX.byId[c.edgeId])));
     CHRON = saved.chron || [];
-    UI.tab = 'briefing'; // the Briefing is always the landing page
+    UI.tab = 'map'; // the Web is always the landing page
     const r = saved.rail || {};
     RAIL.whatif = (r.whatif || []).filter(w => injDef(w));
     RAIL.mode = r.mode === 'canon' ? 'canon' : 'last';
@@ -5307,10 +6141,14 @@ function boot() {
 /* ════════════════════════════════════════════════════════════════════
    Shell: tabs, clock
    ════════════════════════════════════════════════════════════════════ */
-const VIEWS = [{ id: 'briefing', label: 'Briefing', view: 'briefing', rail: true }, { id: 'map', label: 'The Web', view: 'map', rail: true }, { sep: true },
+const VIEWS = [{ id: 'map', label: 'The Web', view: 'map', rail: true },
   { id: 'projection', label: 'Projection', view: 'projection' }, { id: 'chronicle', label: 'Chronicle', view: 'chronicle', rail: true }, { id: 'data', label: 'World Data', view: 'data' }];
 function renderTabs() {
-  const nav = $('#tabs'); nav.innerHTML = '';
+  const pop = $('#menuPop');
+  pop.innerHTML = VIEWS.map(v => `<button role="menuitem" data-v="${v.id}" ${UI.tab === v.id ? 'aria-current="page"' : ''}>${esc(v.label)}</button>`).join('');
+  $$('button', pop).forEach(b => b.onclick = () => { UI.tab = b.dataset.v; pop.hidden = true; $('#btnMenu').setAttribute('aria-expanded', 'false'); renderAll(); save(); window.scrollTo(0, 0); });
+  $('#backBar').hidden = UI.tab === 'map';
+  const nav = $('#tabs'); nav.innerHTML = ''; nav.hidden = true; return;
   for (const v of VIEWS) {
     if (v.sep) { nav.append(Object.assign(document.createElement('span'), { className: 'sep' })); continue; }
     const b = document.createElement('button');
@@ -5338,10 +6176,9 @@ function renderAll() {
   renderTabs(); renderClock();
   const v = VIEWS.find(x => x.id === UI.tab) || VIEWS[0];
   renderSeedNotice();
-  for (const id of ['briefing', 'map', 'projection', 'chronicle', 'data']) $('#view-' + id).hidden = v.view !== id;
+  for (const id of ['map', 'projection', 'chronicle', 'data']) $('#view-' + id).hidden = v.view !== id;
   const rail = $('#rail'); rail.hidden = !v.rail; $('.shell').classList.toggle('norail', !v.rail);
   if (!RAIL.with) computeForecast();
-  if (v.view === 'briefing') renderBriefing();
   if (v.view === 'map') renderMap();
   if (v.view === 'projection') renderProjection();
   if (v.view === 'chronicle') renderChronicle();
@@ -5454,8 +6291,7 @@ function scheduleForecast(delay = 180) {
 function afterForecast() {
   $('#rail')?.classList.remove('busy');
   renderRail();
-  if (UI.tab === 'map') { buildTrace(); paintMap(); renderDrawer(); }
-  if (UI.tab === 'briefing') renderBriefing();
+  if (UI.tab === 'map') { buildTrace(); const st = $('#strip'); if (st) { st.innerHTML = stripHTML(); wireStrip(document); } paintMap(); renderDrawer(); }
 }
 
 // What breaking a hazard would actually do over the horizon.
@@ -5559,9 +6395,10 @@ function chainSteps(path, dir) {
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   The Map — every group and hazard as one web
+   The Web — every group and hazard as one map
+   Size = power, tint = where it is heading, labels on demand, a time scrubber.
    ════════════════════════════════════════════════════════════════════ */
-const MAP = { layout: null, sig: '', hover: null, sel: null, filter: null, showAll: false, trace: null, nowFx: null };
+const MAP = { layout: null, sig: '', hover: null, sel: null, filter: null, showAll: true, trace: null, t: 0, playing: null };
 const CLUSTERS = {
   political: { label: 'Political', at: [230, 170] }, cultural: { label: 'Cultural', at: [560, 95] },
   religious: { label: 'Religious', at: [900, 150] }, racial: { label: 'Racial & Lineage', at: [960, 470] },
@@ -5570,6 +6407,15 @@ const CLUSTERS = {
 };
 const VW = 1160, VH = 760;
 const primaryStat = g => g.lever ? 'economic' : (g.domains[0] || statsOf(g)[0]);
+// Magnitude pips: the size of a change without the decimals (exact value on hover).
+function pips(d, small = false) {
+  const a = Math.abs(d); if (a < 0.5) return '';
+  const n = a < 3 ? 1 : a < 7 ? 2 : 3;
+  return `<span class="pips ${d > 0 ? 'up' : 'down'}${small ? ' sm' : ''}" title="${fmt(d)}">${d > 0 ? '▲' : '▼'}${'▮'.repeat(n)}</span>`;
+}
+const pipText = d => { const a = Math.abs(d); return a < 0.5 ? '' : (d > 0 ? '▲' : '▼') + '▮'.repeat(a < 3 ? 1 : a < 7 ? 2 : 3); };
+const whyBox = (html) => `<details class="why"><summary>why?</summary><div>${html}</div></details>`;
+
 function mapNodes() {
   const nodes = W.groups.map(g => ({ id: g.id, kind: g.lever ? 'lever' : 'group', cluster: g.lever ? 'levers' : (g.domains[0] in CLUSTERS ? g.domains[0] : 'economic'), g }));
   W.hazards.forEach(h => nodes.push({ id: 'hz:' + h.id, kind: 'hazard', cluster: 'hazards', h }));
@@ -5594,7 +6440,6 @@ function mapLinks() {
   }
   return [...m.values()];
 }
-// Deterministic force layout: groups gather around their domain, linked groups pull together.
 function computeLayout() {
   const nodes = mapNodes(), links = mapLinks(), pos = {};
   nodes.forEach((n, i) => { const [ax, ay] = CLUSTERS[n.cluster].at, a = i * 2.39996; pos[n.id] = { x: ax + Math.cos(a) * 55, y: ay + Math.sin(a) * 40, vx: 0, vy: 0 }; });
@@ -5617,12 +6462,11 @@ function computeLayout() {
       p.vx *= 0.6; p.vy *= 0.6;
     }
   }
-  // Nudge apart any nodes whose labels would collide (labels are ~110px wide, ~50px tall with the node).
   for (let it = 0; it < 120; it++) for (let i = 0; i < ids.length; i++) for (let j = i + 1; j < ids.length; j++) {
-    const p = pos[ids[i]], q = pos[ids[j]], ox = 112 - Math.abs(q.x - p.x), oy = 62 - Math.abs(q.y - p.y);
+    const p = pos[ids[i]], q = pos[ids[j]], ox = 96 - Math.abs(q.x - p.x), oy = 70 - Math.abs(q.y - p.y);
     if (ox > 0 && oy > 0) {
-      if (ox / 112 < oy / 62) { const m = ox / 2 * Math.sign(q.x - p.x || 1); p.x = clamp(p.x - m, 60, VW - 60); q.x = clamp(q.x + m, 60, VW - 60); }
-      else { const m = oy / 2 * Math.sign(q.y - p.y || 1); p.y = clamp(p.y - m, 40, VH - 44); q.y = clamp(q.y + m, 40, VH - 44); }
+      if (ox / 96 < oy / 70) { const m = ox / 2 * Math.sign(q.x - p.x || 1); p.x = clamp(p.x - m, 60, VW - 60); q.x = clamp(q.x + m, 60, VW - 60); }
+      else { const m = oy / 2 * Math.sign(q.y - p.y || 1); p.y = clamp(p.y - m, 44, VH - 44); q.y = clamp(q.y + m, 44, VH - 44); }
     }
   }
   return { nodes, links, pos };
@@ -5635,10 +6479,35 @@ function ensureLayout() {
 const linkColor = L => L.latent ? 'var(--latent)' : L.net >= 0 ? 'var(--verd)' : 'var(--wax)';
 function linkPath(L, pos) {
   const p = pos[L.a], q = pos[L.b], dx = q.x - p.x, dy = q.y - p.y, d = Math.hypot(dx, dy) || 1;
-  const ux = dx / d, uy = dy / d, r1 = 24, r2 = 28;
+  const ux = dx / d, uy = dy / d, r1 = 16, r2 = 22;
   const x1 = p.x + ux * r1, y1 = p.y + uy * r1, x2 = q.x - ux * r2, y2 = q.y - uy * r2;
   const mx = (x1 + x2) / 2 - uy * d * 0.12, my = (y1 + y2) / 2 + ux * d * 0.12;
   return `M${x1.toFixed(1)} ${y1.toFixed(1)} Q${mx.toFixed(1)} ${my.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+}
+
+/* ── Status strip: the Briefing, folded into one line above the map ── */
+function verdictOf() {
+  const A = RAIL.with;
+  const hs = W.hazards.map(h => ({ h, v: hazardV(E, h), p: pFire(A, h.id) })).sort((a, b) => b.p - a.p || (b.v - b.h.threshold) - (a.v - a.h.threshold));
+  const top = hs[0];
+  const v = hs.some(x => x.v >= x.h.threshold) ? ['In Crisis', 'crisis'] : hs.some(x => x.p >= 0.5) ? ['Strained', 'strained'] : hs.some(x => x.p >= 0.2) ? ['Uneasy', 'uneasy']
+    : (top.h.threshold - top.v <= 20) ? ['Watchful', 'watchful'] : ['Calm Seas', 'calm'];
+  return { v, top, hs };
+}
+function stripHTML() {
+  const A = RAIL.with; if (!A) return '';
+  const { v, top } = verdictOf();
+  const drift = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: medAt(A, ref) - E.values[ref] }));
+  const up = drift.filter(x => x.d >= 1.5).sort((a, b) => b.d - a.d).slice(0, 3), dn = drift.filter(x => x.d <= -1.5).sort((a, b) => a.d - b.d).slice(0, 3);
+  const max = Math.max(4, ...[...up, ...dn].map(x => Math.abs(x.d)));
+  const bar = x => `<button class="sbar" data-node="${esc(splitRef(x.ref)[0])}" title="${esc(nameRef(x.ref))}: ${fmt(x.d)} in ${FC.H} seasons"><span class="sb-n">${esc(cap(shortOf(splitRef(x.ref)[0]).replace(/^the /, '')))}</span><span class="sb-b"><i class="${x.d > 0 ? 'up' : 'down'}" style="width:${(Math.abs(x.d) / max * 100).toFixed(0)}%"></i></span></button>`;
+  const line = top.p >= 0.05 ? `Likeliest crisis: <b>${esc(top.h.name.replace(/ Risk$/, ''))}</b> ${pct(top.p)}% within ${FC.H} seasons.` : `No crisis likely within ${FC.H} seasons.`;
+  return `<div class="strip v-${v[1]}">
+    <div class="st-v"><div class="seal sm" aria-hidden="true">${v[1] === 'calm' ? '✓' : '!'}</div><div><div class="lbl">State of the Isles</div><b class="st-w">${v[0]}</b></div></div>
+    <div class="st-line">${line}</div>
+    <div class="st-bars"><div class="lbl">Rising</div>${up.map(bar).join('') || '<span class="muted small">—</span>'}</div>
+    <div class="st-bars"><div class="lbl">Falling</div>${dn.map(bar).join('') || '<span class="muted small">—</span>'}</div>
+  </div>`;
 }
 
 function renderMap() {
@@ -5646,72 +6515,93 @@ function renderMap() {
   const { nodes, links, pos } = ensureLayout();
   const clusterLabels = Object.entries(CLUSTERS).map(([k, c]) => {
     const ns = nodes.filter(n => n.cluster === k); if (!ns.length) return '';
-    const x = ns.reduce((s, n) => s + pos[n.id].x, 0) / ns.length, y = Math.min(...ns.map(n => pos[n.id].y)) - 34;
+    const x = ns.reduce((s, n) => s + pos[n.id].x, 0) / ns.length, y = Math.min(...ns.map(n => pos[n.id].y)) - 38;
     return `<text class="cl-label" x="${x.toFixed(0)}" y="${Math.max(16, y).toFixed(0)}" text-anchor="middle">${esc(c.label.toUpperCase())}</text>`;
   }).join('');
   root.innerHTML = `
+    <div id="strip">${stripHTML()}</div>
     <div class="map-tools">
       <div class="chips" role="group" aria-label="Show one domain">${Object.entries(CLUSTERS).map(([k, c]) => `<button class="fchip${MAP.filter === k ? ' on' : ''}" data-f="${k}">${esc(c.label)}</button>`).join('')}</div>
-      <label class="tog"><input type="checkbox" id="showAll" ${MAP.showAll ? 'checked' : ''}> All links</label>
+      <label class="tog"><input type="checkbox" id="showAll" ${MAP.showAll ? 'checked' : ''}> Links</label>
       <select class="inp" id="findNode" aria-label="Find a group"><option value="">Find…</option>${nodes.map(n => `<option value="${esc(n.id)}">${esc(n.kind === 'hazard' ? '⚠ ' + n.h.name : n.g.name)}</option>`).join('')}</select>
     </div>
-    <div class="map-hint" id="mapHint"></div>
-    <div class="map-wrap">
+    <div class="map-hint help" id="mapHint"></div>
+    <div class="map-wrap" id="mapWrap">
       <svg id="mapSvg" viewBox="0 0 ${VW} ${VH}" role="img" aria-label="The web of the Isles: every group and hazard, with the links between them">
-        <defs>${['verd', 'wax', 'latent', 'ink-2'].map(c => `<marker id="mk-${c}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--${c})"/></marker>`).join('')}</defs>
+        <defs>${['verd', 'wax', 'latent'].map(c => `<marker id="mk-${c}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--${c})"/></marker>`).join('')}</defs>
         ${clusterLabels}
-        <g id="mLinks">${links.map(L => `<path class="lk" data-k="${esc(L.key)}" d="${linkPath(L, pos)}" style="stroke:${linkColor(L)};stroke-width:${(0.8 + Math.min(L.k, 1.2) * 2.2).toFixed(2)}" ${L.lag ? 'stroke-dasharray="6 4"' : L.latent ? 'stroke-dasharray="2 4"' : ''} marker-end="url(#mk-${L.latent ? 'latent' : L.net >= 0 ? 'verd' : 'wax'})"/>`).join('')}</g>
+        <g id="mLinks">${links.map(L => `<path class="lk" data-k="${esc(L.key)}" data-w="${Math.min(L.k, 1.2).toFixed(2)}" d="${linkPath(L, pos)}" style="stroke:${linkColor(L)};stroke-width:${(0.7 + Math.min(L.k, 1.2) * 2).toFixed(2)}" ${L.lag ? 'stroke-dasharray="6 4"' : L.latent ? 'stroke-dasharray="2 4"' : ''} marker-end="url(#mk-${L.latent ? 'latent' : L.net >= 0 ? 'verd' : 'wax'})"/>`).join('')}</g>
         <g id="mNodes">${nodes.map(n => nodeSVG(n, pos[n.id])).join('')}</g>
       </svg>
+      <div id="tip" class="tip" hidden></div>
     </div>
-    <div class="legend map-legend">
+    <div class="scrub">
+      <button class="btn sm" id="play" aria-label="Play the forecast">▶</button>
+      <input type="range" id="tScrub" min="0" max="${FC.H}" step="1" value="${MAP.t}" aria-label="Season shown on the map">
+      <span id="tLbl" class="t-lbl"></span>
+    </div>
+    <div class="legend map-legend help">
       <span><i style="border-color:var(--verd)"></i>pushes the same way</span><span><i style="border-color:var(--wax)"></i>pushes the opposite way</span>
       <span><i style="border-color:var(--latent);border-top-style:dotted"></i>dormant until a threshold</span><span><i style="border-color:var(--ink-2);border-top-style:dashed"></i>lagged</span>
-      <span>● group · ▢ policy lever · ◆ hazard (fill = odds of breaking) · ring = current value</span>
+      <span>size = power · tint = where it is heading (green up, red down) · ▢ policy lever · ◆ hazard, fill = odds of breaking · gold ring = reached only indirectly</span>
     </div>
     <div id="drawer"></div>`;
   $$('.fchip', root).forEach(b => b.onclick = () => { MAP.filter = MAP.filter === b.dataset.f ? null : b.dataset.f; $$('.fchip', root).forEach(x => x.classList.toggle('on', x.dataset.f === MAP.filter)); paintMap(); });
   $('#showAll').onchange = e => { MAP.showAll = e.target.checked; paintMap(); };
   $('#findNode').onchange = e => { if (e.target.value) selectNode(e.target.value); e.target.value = ''; };
+  $('#tScrub').oninput = e => { MAP.t = +e.target.value; paintMap(); };
+  $('#play').onclick = togglePlay;
   const svg = $('#mapSvg');
   $$('.nd', svg).forEach(g => {
-    g.addEventListener('mouseenter', () => { MAP.hover = g.dataset.id; paintMap(); });
-    g.addEventListener('mouseleave', () => { MAP.hover = null; paintMap(); });
+    g.addEventListener('mouseenter', () => { MAP.hover = g.dataset.id; paintMap(); showTip(g); });
+    g.addEventListener('mouseleave', () => { MAP.hover = null; paintMap(); hideTip(); });
     g.addEventListener('click', () => selectNode(g.dataset.id));
     g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectNode(g.dataset.id); } });
+    g.addEventListener('focus', () => { MAP.hover = g.dataset.id; paintMap(); showTip(g); });
+    g.addEventListener('blur', () => { MAP.hover = null; paintMap(); hideTip(); });
   });
-  svg.addEventListener('click', e => { if (e.target === svg) { MAP.sel = null; paintMap(); renderDrawer(); renderRail(); } });
+  svg.addEventListener('click', e => { if (e.target === svg) { MAP.sel = null; paintMap(); renderDrawer(); } });
+  wireStrip(root);
   buildTrace(); paintMap(); renderDrawer();
 }
+function wireStrip(root) { $$('#strip [data-node]', root).forEach(b => b.onclick = () => selectNode(b.dataset.node)); }
 function nodeSVG(n, p) {
   const t = `transform="translate(${p.x.toFixed(1)},${p.y.toFixed(1)})"`;
   if (n.kind === 'hazard') {
     const nm = n.h.name.replace(/ Risk$/, '');
     return `<g class="nd hz-nd" data-id="${esc(n.id)}" ${t} tabindex="0" role="button" aria-label="${esc(n.h.name)}">
-      <rect class="hz-body" x="-17" y="-17" width="34" height="34" transform="rotate(45)"/><rect class="hz-fill" x="-17" y="-17" width="34" height="34" transform="rotate(45)"/>
-      <text class="nv" y="4" text-anchor="middle"></text><text class="nl" y="36" text-anchor="middle">${esc(nm.length > 22 ? nm.slice(0, 21) + '…' : nm)}</text><text class="nchip" y="-28" text-anchor="middle"></text></g>`;
+      <rect class="hz-body" x="-15" y="-15" width="30" height="30" transform="rotate(45)"/><rect class="hz-fill" x="-15" y="-15" width="30" height="30" transform="rotate(45)"/>
+      <text class="nv" y="4" text-anchor="middle"></text><text class="nl" y="34" text-anchor="middle">${esc(nm)}</text><text class="nchip" y="-26" text-anchor="middle"></text></g>`;
   }
-  const g = n.g, nm = (g.short || g.name).replace(/^the /, '');
-  const label = cap(nm.length > 20 ? nm.slice(0, 19) + '…' : nm);
-  const body = n.kind === 'lever' ? `<rect class="body" x="-19" y="-15" width="38" height="30" rx="3"/>` : `<circle class="body" r="20"/><circle class="ring" r="20" pathLength="100" transform="rotate(-90)"/>`;
+  const g = n.g, nm = cap((g.short || g.name).replace(/^the /, ''));
+  const body = n.kind === 'lever' ? `<rect class="body" rx="3"/>` : `<circle class="body"/>`;
   return `<g class="nd ${n.kind}" data-id="${esc(n.id)}" ${t} tabindex="0" role="button" aria-label="${esc(g.name)}">
-    ${body}<text class="nv" y="5" text-anchor="middle"></text><text class="ntr" x="21" y="-12"></text>
-    <text class="nl" y="${n.kind === 'lever' ? 29 : 34}" text-anchor="middle">${esc(label)}</text><text class="nchip" y="-27" text-anchor="middle"></text></g>`;
+    ${body}<text class="nl" text-anchor="middle">${esc(nm)}</text><text class="nchip" text-anchor="middle"></text></g>`;
 }
 function selectNode(id) {
+  if (UI.tab !== 'map') { UI.tab = 'map'; renderAll(); }
   MAP.sel = MAP.sel === id ? null : id;
-  paintMap(); renderDrawer(); renderRail(); save();
+  paintMap(); renderDrawer(); save();
   if (MAP.sel) $('#drawer')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+function togglePlay() {
+  if (MAP.playing) { clearInterval(MAP.playing); MAP.playing = null; $('#play').textContent = '▶'; return; }
+  if (MAP.t >= FC.H) MAP.t = 0;
+  $('#play').textContent = '❚❚';
+  MAP.playing = setInterval(() => {
+    MAP.t++; const s = $('#tScrub'); if (s) s.value = MAP.t; paintMap();
+    if (MAP.t >= FC.H) { clearInterval(MAP.playing); MAP.playing = null; const b = $('#play'); if (b) b.textContent = '▶'; }
+  }, 750);
+}
 
-// The trace: which groups your last change reaches now and within the horizon, and the links it travels.
+// Which groups your change reaches, and the links it travels.
 function buildTrace() {
   const imps = impacts();
-  if (!imps.length && !MAP.nowFx) { MAP.trace = null; return; }
+  if (!imps.length) { MAP.trace = null; return; }
   const deltas = new Map(), links = new Set(), src = new Set(changeSources().map(s => splitRef(s.ref)[0]));
   for (const x of imps.slice(0, 14)) {
     const g = splitRef(x.ref)[0], v = Math.abs(x.later) >= Math.abs(x.now) ? x.later : x.now;
-    const cur = deltas.get(g); if (!cur || Math.abs(v) > Math.abs(cur.v)) deltas.set(g, { v, now: x.now, later: x.later, hidden: x.hidden });
+    const cur = deltas.get(g); if (!cur || Math.abs(v) > Math.abs(cur.v)) deltas.set(g, { v, ref: x.ref, hidden: x.hidden });
     const r = routeFor(x); if (r.path) r.path.forEach(e => { if (e.fromId !== e.toId) links.add(e.fromId + '>' + e.toId); });
   }
   const hz = new Map();
@@ -5720,63 +6610,90 @@ function buildTrace() {
 }
 
 function paintMap() {
-  const svg = $('#mapSvg'); if (!svg) return;
-  const { nodes, links } = MAP.layout, A = RAIL.with;
+  const svg = $('#mapSvg'); if (!svg || !RAIL.with) return;
+  const { nodes, links } = MAP.layout, A = RAIL.with, B = RAIL.without;
+  const t = Math.min(MAP.t, A.H), tt = t || A.H; // tint compares now with t (or the horizon when showing now)
+  const lbl = $('#tLbl'); if (lbl) lbl.innerHTML = t === 0 ? `<b>Now</b><span class="help"> · tint shows where each group is heading by +${A.H}</span>` : `<b>+${t}</b> · ${esc(dateOf(E.sim.turn + t).label.split(' · ')[0])}`;
   const focus = MAP.hover || MAP.sel;
   const nb = new Set(); if (focus) { nb.add(focus); links.forEach(L => { if (L.a === focus) nb.add(L.b); if (L.b === focus) nb.add(L.a); }); }
-  const tr = !focus && MAP.trace;
+  const tr = MAP.trace;
   for (const el of $$('.nd', svg)) {
     const id = el.dataset.id, n = nodes.find(x => x.id === id); if (!n) continue;
     const inFilter = !MAP.filter || n.cluster === MAP.filter;
-    let chip = '', chipCls = '';
+    let chip = '', chipCls = '', hidden = false;
     if (n.kind === 'hazard') {
-      const h = n.h, v = hazardV(E, h), p = A ? pFire(A, h.id) : 0;
-      $('.hz-fill', el).style.opacity = (0.08 + p * 0.92).toFixed(2);
-      $('.nv', el).textContent = pct(p) + '%';
-      el.classList.toggle('past', v >= h.threshold);
-      el.classList.toggle('likely', p >= 0.5);
-      if (tr && tr.hz.has(id)) { const d = tr.hz.get(id); chip = `${d > 0 ? '+' : '−'}${Math.abs(pct(d))} pts`; chipCls = d > 0 ? 'down' : 'up'; }
-      el.setAttribute('aria-label', `${h.name}: ${pct(p)}% chance of breaking within ${FC.H} seasons`);
+      const h = n.h, p = pFire(A, h.id, tt), v = hazardV(E, h);
+      $('.hz-fill', el).style.opacity = (0.06 + p * 0.94).toFixed(2);
+      $('.nv', el).textContent = p >= 0.1 ? pct(p) + '%' : '';
+      el.classList.toggle('past', v >= h.threshold); el.classList.toggle('likely', p >= 0.5);
+      if (tr && tr.hz.has(id)) { const d = tr.hz.get(id); chip = (d > 0 ? '▲' : '▼') + Math.abs(pct(d)) + '%'; chipCls = d > 0 ? 'down' : 'up'; }
+      el.querySelector('.nl').setAttribute('y', 34);
     } else {
-      const ref = refOf(n.id, primaryStat(n.g)), v = E.values[ref];
-      $('.nv', el).textContent = r0(v);
-      const ring = $('.ring', el); if (ring) ring.setAttribute('stroke-dasharray', `${v.toFixed(1)} 100`);
-      const drift = A ? medAt(A, ref) - v : 0;
-      const trEl = $('.ntr', el); trEl.textContent = Math.abs(drift) >= 1.5 ? (drift > 0 ? '▲' : '▼') : ''; trEl.setAttribute('class', 'ntr ' + (drift > 0 ? 'up' : 'down'));
-      if (tr && tr.deltas.has(id)) { const d = tr.deltas.get(id); chip = fmt(d.v); chipCls = (d.v > 0 ? 'up' : 'down') + (d.hidden ? ' hidden' : ''); }
+      const ref = refOf(n.id, primaryStat(n.g)), v = t ? medAt(A, ref, t) : E.values[ref], drift = medAt(A, ref, tt) - E.values[ref];
+      const body = $('.body', el);
+      const r = 9 + v * 0.19;
+      if (n.kind === 'lever') { const w = 12 + v * 0.34, h = w * 0.78; body.setAttribute('x', -w / 2); body.setAttribute('y', -h / 2); body.setAttribute('width', w); body.setAttribute('height', h); }
+      else body.setAttribute('r', r.toFixed(1));
+      const a = Math.min(1, Math.abs(drift) / 8);
+      body.style.fill = Math.abs(drift) < 0.8 ? 'var(--parch-card)' : `color-mix(in srgb, var(--${drift > 0 ? 'verd' : 'wax'}) ${(12 + a * 58).toFixed(0)}%, var(--parch-card))`;
+      el.querySelector('.nl').setAttribute('y', (n.kind === 'lever' ? (6 + v * 0.13) : r) + 13);
+      el.querySelector('.nchip').setAttribute('y', -(n.kind === 'lever' ? (6 + v * 0.13) : r) - 6);
+      if (tr && tr.deltas.has(id)) {
+        const d = tr.deltas.get(id), val = B && t ? pairedDiff(A, B, d.ref, t) : d.v;
+        chip = pipText(val); chipCls = val > 0 ? 'up' : 'down'; hidden = d.hidden;
+      }
     }
-    $('.nchip', el).textContent = chip; $('.nchip', el).setAttribute('class', 'nchip ' + chipCls);
+    const chipEl = $('.nchip', el); chipEl.textContent = chip; chipEl.setAttribute('class', 'nchip ' + chipCls);
     el.classList.toggle('sel', id === MAP.sel);
     el.classList.toggle('src', !!(tr && tr.src.has(id)));
     el.classList.toggle('hit', !!(tr && (tr.deltas.has(id) || tr.hz.has(id))));
-    el.classList.toggle('dim', !inFilter || (focus ? !nb.has(id) : tr ? !(tr.deltas.has(id) || tr.hz.has(id) || tr.src.has(id)) : false));
+    el.classList.toggle('hidden-link', hidden);
+    const active = id === focus || (focus && nb.has(id)) || (tr && (tr.deltas.has(id) || tr.src.has(id) || tr.hz.has(id)));
+    el.classList.toggle('lbl-on', !!active || n.kind === 'hazard' && pFire(A, n.h.id, tt) >= 0.1);
+    el.classList.toggle('dim', !inFilter || (focus ? !nb.has(id) : false));
   }
   for (const el of $$('.lk', svg)) {
     const k = el.dataset.k, [a, b] = k.split('>');
     let cls = 'lk';
     if (focus) cls += (a === focus || b === focus) ? ' on' : ' off';
     else if (tr && tr.links.has(k)) cls += ' on trace';
-    else if (MAP.showAll) cls += ' mid';
+    else if (MAP.showAll) cls += +el.dataset.w >= 0.3 ? ' mid' : ' faint';
     else cls += ' off';
     if (MAP.filter) { const na = nodes.find(x => x.id === a), nb2 = nodes.find(x => x.id === b); if (na?.cluster !== MAP.filter && nb2?.cluster !== MAP.filter) cls = 'lk off'; }
     el.setAttribute('class', cls);
   }
   const hint = $('#mapHint');
-  if (hint) hint.innerHTML = focus
-    ? `Showing everything linked to <b>${esc(nodeName(focus))}</b>. Arrows point from cause to effect.`
-    : tr ? `Tracing <b>${esc(RAIL.mode === 'canon' ? 'everything changed since canon' : RAIL.change?.label || 'your change')}</b>: numbers show the difference it makes within ${FC.H} seasons. <span class="hidden-key">Gold</span> marks groups it reaches only indirectly. <button class="golink" id="clearTrace">Clear</button>`
-    : 'Hover a group to see its links. Click it to open its sliders below. Change anything and the map traces where the change travels.';
-  const ct = $('#clearTrace'); if (ct) ct.onclick = () => { MAP.trace = null; MAP.nowFx = null; paintMap(); };
+  if (hint) hint.innerHTML = focus ? `Links of <b>${esc(nodeName(focus))}</b>. Arrows point from cause to effect.`
+    : tr ? `Tracing <b>${esc(RAIL.mode === 'canon' ? 'everything changed since canon' : RAIL.change?.label || 'your change')}</b>. Pips show how much each group moves. A gold ring means the group is reached only indirectly.`
+    : 'Hover a group for its links and likely path. Click it to change it. Drag the season slider to watch the forecast play out.';
 }
 const nodeName = id => id.startsWith('hz:') ? (W.hazards.find(h => 'hz:' + h.id === id)?.name || id) : (G(id)?.name || id);
 
-/* ── Drawer: the selected group's sliders, forecast and links ── */
+/* ── Hover preview: name, value, likely path ── */
+function showTip(g) {
+  const tip = $('#tip'), wrap = $('#mapWrap'); if (!tip || !RAIL.with) return;
+  const id = g.dataset.id;
+  if (id.startsWith('hz:')) {
+    const h = W.hazards.find(x => 'hz:' + x.id === id), p = pFire(RAIL.with, h.id);
+    tip.innerHTML = `<b>${esc(h.name)}</b><div class="small">${pct(p)}% chance of breaking within ${FC.H} seasons</div>${probSVG(h, { w: 240, h: 70 })}`;
+  } else {
+    const gg = G(id), ref = refOf(id, primaryStat(gg)), b = bandOf(RAIL.with, ref)[FC.H];
+    tip.innerHTML = `<b>${esc(gg.name)}</b><div class="small">${esc(splitRef(ref)[1])} ${r0(E.values[ref])} → <b>${r0(b.mid)}</b> by +${FC.H} <span class="muted">(${r0(b.lo)}–${r0(b.hi)})</span></div>${fanSVG(ref, { w: 240, h: 76 })}`;
+  }
+  const gr = g.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+  let x = gr.right - wr.left + 10 + wrap.scrollLeft, y = gr.top - wr.top - 10;
+  if (x + 260 > wrap.clientWidth + wrap.scrollLeft) x = gr.left - wr.left - 270 + wrap.scrollLeft;
+  tip.style.left = Math.max(4, x) + 'px'; tip.style.top = Math.max(4, y) + 'px'; tip.hidden = false;
+}
+function hideTip() { const t = $('#tip'); if (t) t.hidden = true; }
+
+/* ── Drawer: the selected group's sliders and links ── */
 function linkRowHTML(r, dir) {
   const other = dir === 'out' ? toRef(r) : fromRef(r);
   const c = r.type === 'oppose' ? 'var(--wax)' : r.type === 'latent' ? 'var(--latent)' : r.type === 'dependent' ? 'var(--gold)' : 'var(--verd)';
-  const cond = r.type === 'latent' ? ` · wakes at ${r.condition.op} ${r.condition.value}` : '';
-  return `<details class="lrow"><summary><i class="sw" style="background:${c}"></i><span class="lr-t">${dir === 'out' ? `${esc(r.fromStat.slice(0, 4))} → ` : ''}<b>${esc(tagRef(other))}</b>${dir === 'in' ? ` → ${esc(r.toStat.slice(0, 4))}` : ''}</span><span class="lr-s">${esc(r.short)}${r.lagTurns ? ` · ⏳${r.lagTurns}` : ''}${r.mode === 'pressure' ? ' · every season' : ''}${cond}</span></summary>
-    <p class="ex-why">${esc(r.explanation)}</p><p class="ex-prec">${esc(r.type)} ×${r.strengthMultiplier} · Precedent: ${esc(r.precedent || '—')} · <span class="canon ${esc(r.canon)}">${esc(r.canon)}</span></p></details>`;
+  const strength = '▮'.repeat(r.strengthMultiplier >= 0.4 ? 3 : r.strengthMultiplier >= 0.2 ? 2 : 1);
+  return `<details class="lrow"><summary><i class="sw" style="background:${c}"></i><span class="lr-t">${dir === 'out' ? `${esc(r.fromStat.slice(0, 4))} → ` : ''}<b>${esc(tagRef(other))}</b>${dir === 'in' ? ` → ${esc(r.toStat.slice(0, 4))}` : ''}</span><span class="lr-k" style="color:${c}" title="strength ×${r.strengthMultiplier}">${strength}${r.lagTurns ? ` ⏳${r.lagTurns}` : ''}${r.mode === 'pressure' ? ' ≋' : ''}${r.type === 'latent' ? ' ◌' : ''}</span></summary>
+    <p class="lr-s"><b>${esc(cap(r.short))}.</b> ${esc(r.explanation)}</p><p class="ex-prec">${esc(r.type)} ×${r.strengthMultiplier}${r.type === 'latent' ? ` · wakes at ${r.condition.op} ${r.condition.value}` : ''} · ${esc(r.precedent || '—')} · <span class="canon ${esc(r.canon)}">${esc(r.canon)}</span></p></details>`;
 }
 function renderDrawer() {
   const el = $('#drawer'); if (!el) return;
@@ -5786,200 +6703,182 @@ function renderDrawer() {
   if (id.startsWith('hz:')) { el.innerHTML = hazardDrawerHTML(W.hazards.find(h => 'hz:' + h.id === id)); wireDrawer(el); return; }
   const g = G(id), A = RAIL.with;
   const sliders = statsOf(g).map(s => {
-    const ref = refOf(id, s), v = E.values[ref], [bl, bc] = badgeOf(g, v), b = A ? bandOf(A, ref)[A.H] : null;
-    return `<div class="srow" data-ref="${esc(ref)}"><div class="s-name">${esc(nameRef(ref))} <span class="muted">· ${esc(s)}</span></div>
+    const ref = refOf(id, s), v = E.values[ref], b = A ? bandOf(A, ref)[A.H] : null;
+    return `<div class="srow" data-ref="${esc(ref)}"><div class="s-name">${esc(s)}</div>
       <input type="range" min="0" max="100" step="1" value="${r0(v)}" aria-label="${esc(nameRef(ref))} ${esc(s)}">
-      <div class="s-val"><b class="num">${r0(v)}</b> <span class="badge ${bc}">${bl}</span></div>
-      <div class="s-sub">${trendHTML(ref)}${b ? ` · in ${FC.H} seasons <b>${r0(b.mid)}</b> <span class="muted">(${r0(b.lo)}–${r0(b.hi)})</span>` : ''}</div></div>`;
+      <div class="s-val"><b class="num">${r0(v)}</b></div>
+      <div class="s-sub">${b ? `→ <b>${r0(b.mid)}</b> by +${A.H} ${pips(b.mid - v, true)}` : ''} <span class="muted">${Math.abs(v - seedVal(ref)) >= 0.5 ? `· canon ${r0(seedVal(ref))}` : ''}</span></div></div>`;
   }).join('');
   const all = IDX.touching[id] || [];
-  const outs = all.filter(r => r.fromId === id && r.toId !== id), ins = all.filter(r => r.toId === id && r.fromId !== id), self = all.filter(r => r.fromId === id && r.toId === id);
+  const outs = all.filter(r => r.fromId === id && r.toId !== id), ins = all.filter(r => r.toId === id && r.fromId !== id);
   const feeds = W.hazards.filter(h => h.inputs.some(i => splitRef(i.ref)[0] === id));
   el.innerHTML = `
-    <div class="dr-h"><div><h3>${esc(g.name)}</h3><div class="flags">${g.fused ? '<span class="flag">FUSED OFFICE</span>' : ''}${g.openThread ? '<span class="flag open">OPEN THREAD</span>' : ''}${g.lever ? '<span class="flag lever">POLICY LEVER · 50 = TODAY</span>' : ''}</div></div><button class="btn sm ghost" data-close>Close</button></div>
-    <p class="dr-desc">${esc(g.description || '')} <span class="src-i">⚜ ${esc(g.loreSource || '')}</span></p>
+    <div class="dr-h"><div><h3>${esc(g.name)}</h3><div class="flags">${g.fused ? '<span class="flag">FUSED OFFICE</span>' : ''}${g.openThread ? '<span class="flag open">OPEN THREAD</span>' : ''}${g.lever ? '<span class="flag lever">POLICY LEVER · 50 = TODAY</span>' : ''}</div></div><button class="btn sm ghost" data-close aria-label="Close">✕</button></div>
     <div class="sgrid">${sliders}</div>
+    ${whyBox(`<p class="dr-desc">${esc(g.description || '')}</p><p class="src-i">⚜ ${esc(g.loreSource || '')}</p>`)}
     <div class="lcols">
-      <div><h4>It pushes on (${outs.length})</h4>${outs.map(r => linkRowHTML(r, 'out')).join('') || '<p class="empty">Nothing.</p>'}</div>
-      <div><h4>Pushed by (${ins.length})</h4>${ins.map(r => linkRowHTML(r, 'in')).join('') || '<p class="empty">Nothing.</p>'}</div>
+      <div><h4>Pushes on · ${outs.length}</h4>${outs.map(r => linkRowHTML(r, 'out')).join('') || '<p class="empty">Nothing.</p>'}</div>
+      <div><h4>Pushed by · ${ins.length}</h4>${ins.map(r => linkRowHTML(r, 'in')).join('') || '<p class="empty">Nothing.</p>'}</div>
     </div>
-    ${self.length ? `<h4>Inside the group</h4>${self.map(r => linkRowHTML(r, 'out')).join('')}` : ''}
-    ${feeds.length ? `<h4>Feeds these hazards</h4><ul class="blist">${feeds.map(h => { const i = h.inputs.find(x => splitRef(x.ref)[0] === id); return `<li><button class="golink" data-node="hz:${esc(h.id)}">${esc(h.name)}</button>: ${i.w > 0 ? 'raises it' : 'holds it down'} (${esc(i.note || '')})</li>`; }).join('')}</ul>` : ''}`;
+    ${feeds.length ? `<h4>Feeds crises</h4><div class="feeds">${feeds.map(h => { const i = h.inputs.find(x => splitRef(x.ref)[0] === id); return `<button class="fchip" data-node="hz:${esc(h.id)}" title="${esc(i.note || '')}">${i.w > 0 ? '▲' : '▼'} ${esc(h.name.replace(/ Risk$/, ''))}</button>`; }).join('')}</div>` : ''}`;
   wireDrawer(el);
   $$('.srow', el).forEach(row => {
-    const ref = row.dataset.ref, sl = $('input', row), num = $('.num', row); let t = null;
-    sl.addEventListener('input', () => {
-      num.textContent = sl.value;
-      const [l, c] = badgeOf(g, +sl.value); const b = $('.badge', row); b.textContent = l; b.className = 'badge ' + c;
-      clearTimeout(t); t = setTimeout(() => commitSlider(ref, +sl.value), 220);
-    });
-    sl.addEventListener('change', () => { clearTimeout(t); commitSlider(ref, +sl.value); });
+    const ref = row.dataset.ref, sl = $('input', row), num = $('.num', row); let tm = null;
+    sl.addEventListener('input', () => { num.textContent = sl.value; clearTimeout(tm); tm = setTimeout(() => commitSlider(ref, +sl.value), 220); });
+    sl.addEventListener('change', () => { clearTimeout(tm); commitSlider(ref, +sl.value); });
   });
 }
 function wireDrawer(el) {
-  $('[data-close]', el)?.addEventListener('click', () => { MAP.sel = null; paintMap(); renderDrawer(); renderRail(); });
+  $('[data-close]', el)?.addEventListener('click', () => { MAP.sel = null; paintMap(); renderDrawer(); });
   $$('[data-node]', el).forEach(b => b.onclick = () => selectNode(b.dataset.node));
 }
+// A compact bar list: label | centred bar. Used for impacts, break effects and drift.
+function barRows(rows, { max, onRow } = {}) {
+  const m = max || Math.max(4, ...rows.map(r => Math.abs(r.d)));
+  return rows.map((r, i) => {
+    const w = Math.min(50, Math.abs(r.d) / m * 50), wn = r.now != null ? Math.min(50, Math.abs(r.now) / m * 50) : 0;
+    return `<button class="brow${r.hidden ? ' hidden' : ''}" data-i="${i}" ${r.node ? `data-node="${esc(r.node)}"` : ''} title="${esc(r.title || '')}">
+      <span class="br-n">${r.hidden ? '<span class="hid">✦</span> ' : ''}${esc(r.label)}</span>
+      <span class="br-b"><i class="${r.d > 0 ? 'up' : 'down'}" style="${r.d > 0 ? 'left' : 'right'}:50%;width:${w.toFixed(1)}%"></i>${r.now != null && Math.abs(r.now) >= 0.5 ? `<em style="${r.now > 0 ? 'left' : 'right'}:50%;width:${wn.toFixed(1)}%"></em>` : ''}</span></button>`;
+  }).join('');
+}
+const rowLabel = ref => `${cap(shortOf(splitRef(ref)[0]).replace(/^the /, ''))} · ${splitRef(ref)[1].slice(0, 4)}`;
 function breakEffectsHTML(h, max = 6) {
   const be = breakEffects(h);
   if (!be) return '<p class="empty">No measurable effect within the horizon.</p>';
-  const end = dateOf(E.sim.turn + FC.H);
-  return `<p class="small">${be.mode === 'natural' ? `Breaks in ${pct(be.p)}% of futures, on average around <b>${esc(dateOf(E.sim.turn + Math.round(be.turn)).label.split(' · ')[0])}</b>.` : `Unlikely on its own (${pct(be.p)}%). If it broke next season anyway:`} By ${esc(end.label.split(' · ')[0])}, compared with it not breaking:</p>
-    <ul class="blist fx">${be.eff.slice(0, max).map(x => `<li><b>${esc(cap(subj(x.ref)))}</b> <span class="${x.d > 0 ? 'up' : 'down'}">${fmt(x.d)}</span></li>`).join('')}</ul>
-    ${be.knock.length ? `<p class="small"><b>Knock-on crises:</b> ${be.knock.map(k => `${esc(k.h.name)} ${pct(k.pb)}% → <b class="down">${pct(k.pa)}%</b>`).join(', ')}.</p>` : ''}`;
+  const when = dateOf(E.sim.turn + Math.max(1, Math.round(be.turn))).label.split(' · ')[0];
+  return `<p class="small">${be.mode === 'natural' ? `Likely around <b>${esc(when)}</b>.` : `Unlikely on its own. If it broke next season:`}</p>
+    <div class="bars">${barRows(be.eff.slice(0, max).map(x => ({ label: rowLabel(x.ref), d: x.d, node: splitRef(x.ref)[0], title: `${nameRef(x.ref)} ${fmt(x.d)} by +${FC.H}` })))}</div>
+    ${be.knock.length ? `<div class="knock">${be.knock.map(k => `<button class="fchip warn" data-node="hz:${esc(k.h.id)}" title="${pct(k.pb)}% → ${pct(k.pa)}%">▲ ${esc(k.h.name.replace(/ Risk$/, ''))} ${pct(k.pa)}%</button>`).join('')}</div>` : ''}`;
 }
 function hazardDrawerHTML(h) {
-  const v = hazardV(E, h), A = RAIL.with, p = pFire(A, h.id), pb = RAIL.without ? pFire(RAIL.without, h.id) : null;
-  return `<div class="dr-h"><div><h3>⚠ ${esc(h.name)}</h3><div class="small muted">Meter ${r0(v)}% · breaks at ${h.threshold}% · <b>${pct(p)}%</b> chance of breaking within ${FC.H} seasons${pb != null && Math.abs(p - pb) >= 0.03 ? ` (was ${pct(pb)}%)` : ''}</div></div><button class="btn sm ghost" data-close>Close</button></div>
+  const A = RAIL.with, p = pFire(A, h.id), pb = RAIL.without ? pFire(RAIL.without, h.id) : null;
+  return `<div class="dr-h"><div><h3>⚠ ${esc(h.name)}</h3></div><button class="btn sm ghost" data-close aria-label="Close">✕</button></div>
     <div class="lcols">
-      <div>${hazardDetailHTML(h)}</div>
-      <div><h4>If it breaks: “${esc(h.event.name)}”</h4><p class="ex-why">${esc(h.event.narrative.split(/(?<=[a-z]{2}[.!?])\s/).slice(0, 2).join(' '))}</p>${breakEffectsHTML(h, 8)}</div>
-    </div>`;
+      <div class="hz-top">${dialSVG(p, pb, 86)}<div><div class="lbl">If it breaks</div><b class="fell" style="font-size:17px">${esc(h.event.name)}</b>${whyBox(`<p class="ex-why">${esc(h.event.narrative)}</p>`)}</div></div>
+      <div>${breakEffectsHTML(h, 8)}</div>
+    </div>
+    ${whyBox(hazardDetailHTML(h))}`;
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   The forecast rail — always visible, always about what comes next
+   The forecast rail — impact chart, crisis dials, what-ifs
    ════════════════════════════════════════════════════════════════════ */
+const RUI = { open: null, dial: null };
 function fanSVG(ref, { w = 340, h = 118 } = {}) {
   const A = RAIL.with, B = RAIL.without, H = A.H;
   const ba = bandOf(A, ref), bm = B ? bandOf(B, ref).map(x => x.mid) : null;
   const all = [...ba.flatMap(x => [x.lo, x.hi]), ...(bm || [])];
   let lo = Math.min(...all), hi = Math.max(...all);
   const pad = Math.max(4, (hi - lo) * 0.15); lo = Math.max(0, lo - pad); hi = Math.min(100, hi + pad);
-  const L = 30, R = 44, T = 8, Bt = 22;
+  const L = 26, R = 30, T = 6, Bt = 16;
   const x = t => L + t / H * (w - L - R), y = v => T + (1 - (v - lo) / (hi - lo || 1)) * (h - T - Bt);
   const band = ba.map((b, t) => `${x(t).toFixed(1)},${y(b.hi).toFixed(1)}`).join(' ') + ' ' + [...ba].reverse().map((b, i) => `${x(H - i).toFixed(1)},${y(b.lo).toFixed(1)}`).join(' ');
   const line = pts => pts.map((v, t) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
   const end = ba[H].mid;
-  const ticks = Array.from({ length: H + 1 }, (_, t) => t).filter(t => H <= 6 || t % Math.ceil(H / 6) === 0 || t === H);
-  return `<svg class="fan" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(nameRef(ref))}: now ${r0(ba[0].mid)}, likely ${r0(end)} in ${H} seasons, range ${r0(ba[H].lo)} to ${r0(ba[H].hi)}">
+  return `<svg class="fan" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(nameRef(ref))}: now ${r0(ba[0].mid)}, likely ${r0(end)} in ${H} seasons">
     <line x1="${L}" x2="${w - R}" y1="${y(lo)}" y2="${y(lo)}" class="ax"/>
-    <text x="${L - 4}" y="${y(hi) + 4}" text-anchor="end" class="tk">${r0(hi)}</text><text x="${L - 4}" y="${y(lo) + 1}" text-anchor="end" class="tk">${r0(lo)}</text>
-    ${ticks.map(t => `<text x="${x(t)}" y="${h - 6}" text-anchor="middle" class="tk">${t === 0 ? 'now' : '+' + t}</text>`).join('')}
+    <text x="${L - 3}" y="${y(hi) + 4}" text-anchor="end" class="tk">${r0(hi)}</text><text x="${L - 3}" y="${y(lo) + 1}" text-anchor="end" class="tk">${r0(lo)}</text>
+    <text x="${L}" y="${h - 3}" class="tk">now</text><text x="${w - R}" y="${h - 3}" text-anchor="end" class="tk">+${H}</text>
     <polygon points="${band}" class="band"/>
     ${bm ? `<polyline points="${line(bm)}" class="without"/>` : ''}
     <polyline points="${line(ba.map(b => b.mid))}" class="with"/>
-    <circle cx="${x(H)}" cy="${y(end)}" r="3.5" class="enddot"/>
-    <text x="${x(H) + 7}" y="${y(end) + 4}" class="endlbl">${r0(end)}</text>
+    <circle cx="${x(H)}" cy="${y(end)}" r="3.5" class="enddot"/><text x="${x(H) + 5}" y="${y(end) + 4}" class="endlbl">${r0(end)}</text>
   </svg>`;
 }
-function sparkSVG(ref) {
-  const A = RAIL.with, B = RAIL.without, H = A.H, a = bandOf(A, ref).map(b => b.mid), b = B ? bandOf(B, ref).map(x => x.mid) : null;
-  const all = [...a, ...(b || [])], lo = Math.min(...all) - 1, hi = Math.max(...all) + 1;
-  const x = t => 2 + t / H * 76, y = v => 2 + (1 - (v - lo) / (hi - lo)) * 18;
-  const pl = arr => arr.map((v, t) => `${x(t).toFixed(1)},${y(v).toFixed(1)}`).join(' ');
-  return `<svg class="spark" viewBox="0 0 80 22" aria-hidden="true">${b ? `<polyline points="${pl(b)}" class="without"/>` : ''}<polyline points="${pl(a)}" class="with"/></svg>`;
-}
-function probSVG(h) {
-  const A = RAIL.with, B = RAIL.without, H = A.H, w = 340, hh = 90, L = 30, R = 40, T = 8, Bt = 20;
+function probSVG(h, { w = 340, h: hh = 90 } = {}) {
+  const A = RAIL.with, B = RAIL.without, H = A.H, L = 26, R = 34, T = 6, Bt = 16;
   const x = t => L + t / H * (w - L - R), y = p => T + (1 - p) * (hh - T - Bt);
   const pa = Array.from({ length: H + 1 }, (_, t) => pFire(A, h.id, t)), pb = B ? Array.from({ length: H + 1 }, (_, t) => pFire(B, h.id, t)) : null;
   const pl = arr => arr.map((p, t) => `${x(t).toFixed(1)},${y(p).toFixed(1)}`).join(' ');
-  return `<svg class="fan" viewBox="0 0 ${w} ${hh}" role="img" aria-label="Chance ${esc(h.name)} has broken, by season: ${pct(pa[H])}% by the end of the horizon">
+  return `<svg class="fan" viewBox="0 0 ${w} ${hh}" role="img" aria-label="Chance ${esc(h.name)} has broken: ${pct(pa[H])}% by +${H}">
     <line x1="${L}" x2="${w - R}" y1="${y(0)}" y2="${y(0)}" class="ax"/><line x1="${L}" x2="${w - R}" y1="${y(0.5)}" y2="${y(0.5)}" class="ax" stroke-dasharray="3 3"/>
-    <text x="${L - 4}" y="${y(1) + 4}" text-anchor="end" class="tk">100%</text><text x="${L - 4}" y="${y(0.5) + 4}" text-anchor="end" class="tk">50%</text><text x="${L - 4}" y="${y(0) + 1}" text-anchor="end" class="tk">0</text>
-    ${Array.from({ length: H + 1 }, (_, t) => `<text x="${x(t)}" y="${hh - 5}" text-anchor="middle" class="tk">${t === 0 ? 'now' : '+' + t}</text>`).join('')}
+    <text x="${L - 3}" y="${y(1) + 4}" text-anchor="end" class="tk">100</text><text x="${L - 3}" y="${y(0) + 1}" text-anchor="end" class="tk">0</text>
+    <text x="${L}" y="${hh - 3}" class="tk">now</text><text x="${w - R}" y="${hh - 3}" text-anchor="end" class="tk">+${H}</text>
     ${pb ? `<polyline points="${pl(pb)}" class="without"/>` : ''}<polyline points="${pl(pa)}" class="with"/>
-    <circle cx="${x(H)}" cy="${y(pa[H])}" r="3.5" class="enddot"/><text x="${x(H) + 7}" y="${y(pa[H]) + 4}" class="endlbl">${pct(pa[H])}%</text>
+    <circle cx="${x(H)}" cy="${y(pa[H])}" r="3.5" class="enddot"/><text x="${x(H) + 5}" y="${y(pa[H]) + 4}" class="endlbl">${pct(pa[H])}%</text>
   </svg>`;
+}
+// A dial: filled arc = chance of breaking; tick = chance before your change.
+function dialSVG(p, pb, size = 54) {
+  const r = 20, c = 2 * Math.PI * r, arc = c * 0.75;
+  const tick = pb != null && Math.abs(p - pb) >= 0.03 ? (() => { const a = (135 + 270 * pb) * Math.PI / 180; return `<line x1="${(26 + Math.cos(a) * 16).toFixed(1)}" y1="${(26 + Math.sin(a) * 16).toFixed(1)}" x2="${(26 + Math.cos(a) * 25).toFixed(1)}" y2="${(26 + Math.sin(a) * 25).toFixed(1)}" class="dial-tick"/>`; })() : '';
+  return `<svg class="dial" viewBox="0 0 52 52" width="${size}" height="${size}" aria-hidden="true">
+    <circle cx="26" cy="26" r="${r}" class="dial-bg" stroke-dasharray="${arc.toFixed(1)} ${c.toFixed(1)}" transform="rotate(135 26 26)"/>
+    <circle cx="26" cy="26" r="${r}" class="dial-fg ${p >= 0.5 ? 'hot' : ''}" stroke-dasharray="${(arc * p).toFixed(1)} ${c.toFixed(1)}" transform="rotate(135 26 26)"/>
+    ${tick}<text x="26" y="30" text-anchor="middle" class="dial-t">${pct(p)}%</text></svg>`;
 }
 
 function renderRail() {
   const el = $('#rail'); if (!el || el.hidden || !RAIL.with) return;
-  const A = RAIL.with, from = dateOf(E.sim.turn + 1), to = dateOf(E.sim.turn + FC.H);
   el.innerHTML = `
     <div class="rail-h">
-      <div class="eyebrow">Forecast · ${FC.N} simulated futures</div>
-      <h2>The Next ${FC.H} Seasons</h2>
-      <div class="small muted">${esc(from.label.split(' · ')[0])} to ${esc(to.label.split(' · ')[0])}</div>
+      <h2>Next ${FC.H} Seasons</h2>
       <div class="rail-ctl">
-        <label class="small">Horizon <select class="inp" id="fcH">${[3, 6, 9, 12].map(n => `<option value="${n}" ${n === FC.H ? 'selected' : ''}>${n} seasons</option>`).join('')}</select></label>
+        <select class="inp" id="fcH" aria-label="Horizon">${[3, 6, 9, 12].map(n => `<option value="${n}" ${n === FC.H ? 'selected' : ''}>${n} seasons</option>`).join('')}</select>
         <div class="seg" role="group" aria-label="Compare against"><button data-mode="last" aria-pressed="${RAIL.mode === 'last'}">vs last change</button><button data-mode="canon" aria-pressed="${RAIL.mode === 'canon'}">vs canon</button></div>
       </div>
+      <p class="help small muted">${FC.N} simulated futures. Every number compares the forecast with and without the change.</p>
     </div>
     ${railChangeHTML()}
-    ${railFocusHTML()}
     ${railCrisisHTML()}
     ${railWhatIfHTML()}
     ${railHeadingHTML()}`;
-  $('#fcH', el).onchange = e => { FC.H = +e.target.value; RAIL.whatif.forEach(w => w.turn = Math.min(w.turn, 12)); computeForecast(); afterForecast(); save(); };
+  $('#fcH', el).onchange = e => { FC.H = +e.target.value; MAP.t = Math.min(MAP.t, FC.H); computeForecast(); afterForecast(); if (UI.tab === 'map') renderMap(); save(); };
   $$('.seg button', el).forEach(b => b.onclick = () => { RAIL.mode = b.dataset.mode; computeForecast(); afterForecast(); save(); });
-  $$('[data-node]', el).forEach(b => b.onclick = () => { if (UI.tab !== 'map') { UI.tab = 'map'; renderAll(); } selectNode(b.dataset.node); });
-  $$('details[data-hz]', el).forEach(d => d.addEventListener('toggle', () => {
-    if (d.open && !d.dataset.done) { d.dataset.done = 1; $('.be', d).innerHTML = breakEffectsHTML(W.hazards.find(h => h.id === d.dataset.hz)); }
-  }));
+  $$('#impBars .brow', el).forEach(b => b.onclick = () => { const i = +b.dataset.i; RUI.open = RUI.open === i ? null : i; renderRail(); });
+  $$('.dialbtn', el).forEach(b => b.onclick = () => { RUI.dial = RUI.dial === b.dataset.hz ? null : b.dataset.hz; renderRail(); });
+  $$('[data-node]', el).forEach(b => { if (!b.closest('#impBars')) b.onclick = () => selectNode(b.dataset.node); });
   const add = $('#wiAdd', el);
   if (add) add.onclick = () => { const id = $('#wiSel', el).value, turn = +$('#wiTurn', el).value; if (id) addWhatIf({ id, turn }); };
   $$('[data-wi-del]', el).forEach(b => b.onclick = () => removeWhatIf(+b.dataset.wiDel));
 }
-
-function railChangeHTML() {
-  const A = RAIL.with, B = RAIL.without;
-  if (!B) return `<section class="rs"><h3>What your change does</h3><p class="empty">Change anything on the map, or add a What-if below. This section then shows what the change does right now and over the next ${FC.H} seasons, including groups you never touched.</p></section>`;
-  const imps = impacts(), shifts = hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.05).sort((a, b) => Math.abs(b.pa - b.pb) - Math.abs(a.pa - a.pb));
-  const label = RAIL.mode === 'canon' ? ((n, w) => `Everything changed since canon (${n} setting${n === 1 ? '' : 's'}, ${w} what-if${w === 1 ? '' : 's'})`)(Object.keys(E.sim.anchors).filter(r => Math.abs(E.sim.anchors[r] - seedVal(r)) >= 1).length, RAIL.whatif.length) : RAIL.change?.label || 'Your change';
-  const hidden = imps.filter(x => x.hidden).length;
-  const row = x => {
-    const r = routeFor(x);
-    const steps = r.path ? chainSteps(r.path, r.dir) : null;
-    return `<details class="imp"><summary>
-        <span class="imp-n"><b>${esc(nameRef(x.ref).replace(/ \(.*\)$/, ''))}</b> <span class="muted">· ${esc(splitRef(x.ref)[1])}</span>${x.hidden ? ' <span class="hid" title="Not directly linked to what you changed">✦ hidden link</span>' : ''}</span>
-        <span class="imp-v">${Math.abs(x.now) >= 0.5 ? `<span class="${x.now > 0 ? 'up' : 'down'}">${fmt(x.now)}</span> now · ` : ''}<b class="${x.later > 0 ? 'up' : 'down'}">${fmt(x.later)}</b> by +${FC.H}</span>
-        ${sparkSVG(x.ref)}</summary>
-      <div class="imp-b">
-        ${steps ? `<p class="chainline">${steps.map(esc).join(' → ')}</p><ol class="steps">${r.path.map(e => `<li><b>${esc(e.short)}</b>${e.lagTurns ? ` · ⏳${e.lagTurns}` : ''}${e.mode === 'pressure' ? ' · every season' : ''}. <span class="why">${esc(e.explanation)}</span> <span class="canon ${esc(e.canon)}">${esc(e.canon)}</span></li>`).join('')}</ol>` : '<p class="small muted">No single route explains it. It is the sum of many weak links.</p>'}
-        ${r.viaHz.length ? `<p class="small">Also through crisis odds: ${r.viaHz.map(v => `${esc(v.h.name)} ${pct(v.pb)}% → <b>${pct(v.pa)}%</b>`).join(', ')}.</p>` : ''}
-        <button class="golink" data-node="${esc(splitRef(x.ref)[0])}">Show on map</button>
-      </div></details>`;
-  };
-  return `<section class="rs"><h3>What your change does</h3>
-    <p class="chg">${esc(label)}</p>
-    ${shifts.length ? `<div class="shifts">${shifts.slice(0, 4).map(x => `<span class="shift ${x.pa > x.pb ? 'worse' : 'better'}">${esc(x.h.name.replace(/ Risk$/, ''))} ${pct(x.pb)}% → <b>${pct(x.pa)}%</b></span>`).join('')}</div>` : ''}
-    ${imps.length ? `<p class="small muted">${imps.length} group stat${imps.length > 1 ? 's' : ''} affected${hidden ? `, ${hidden} through <span class="hid">✦ hidden links</span>` : ''}. Faded line: without the change. Open a row to see the route.</p>
-      ${imps.slice(0, 7).map(row).join('')}${imps.length > 7 ? `<details class="more"><summary class="small">${imps.length - 7} smaller effects</summary>${imps.slice(7, 25).map(row).join('')}</details>` : ''}`
-      : '<p class="empty">No measurable effect beyond the thing you changed.</p>'}
-  </section>`;
+function routeHTML(x) {
+  const r = routeFor(x);
+  if (!r.path) return '<p class="small muted">No single route; many weak links add up.</p>';
+  let sg = r.dir;
+  const pill = (ref, s) => `<span class="pill ${s > 0 ? 'up' : 'down'}">${esc(cap(shortOf(splitRef(ref)[0]).replace(/^the /, '')))} <small>${esc(splitRef(ref)[1].slice(0, 4))}</small> ${s > 0 ? '▲' : '▼'}</span>`;
+  const parts = [pill(fromRef(r.path[0]), sg)];
+  for (const e of r.path) { sg *= (e.type === 'oppose' ? -1 : 1) * (e.type === 'latent' ? (e.sign ?? 1) : 1); parts.push(`<span class="arr">→</span>`, pill(toRef(e), sg)); }
+  return `<div class="route">${parts.join('')}</div>
+    ${whyBox(`<ol class="steps">${r.path.map(e => `<li><b>${esc(cap(e.short))}</b>${e.lagTurns ? ` ⏳${e.lagTurns}` : ''}. ${esc(e.explanation)} <span class="canon ${esc(e.canon)}">${esc(e.canon)}</span></li>`).join('')}</ol>${r.viaHz.length ? `<p class="small">Also via crisis odds: ${r.viaHz.map(v => `${esc(v.h.name)} ${pct(v.pb)}% → ${pct(v.pa)}%`).join(', ')}.</p>` : ''}`)}`;
 }
-function railFocusHTML() {
-  const imps = impacts();
-  const id = MAP.sel || (imps[0] && splitRef(imps[0].ref)[0]);
-  if (!id) return '';
-  if (id.startsWith('hz:')) {
-    const h = W.hazards.find(x => 'hz:' + x.id === id); if (!h) return '';
-    return `<section class="rs"><h3>Focus: ${esc(h.name)}</h3><p class="small muted">Chance it has broken, season by season.</p>${probSVG(h)}</section>`;
-  }
-  const g = G(id); if (!g) return '';
-  const hit = imps.filter(x => splitRef(x.ref)[0] === id).sort((a, b) => Math.abs(b.later) - Math.abs(a.later))[0];
-  const ref = hit ? hit.ref : refOf(id, primaryStat(g)), b = bandOf(RAIL.with, ref)[FC.H];
-  return `<section class="rs"><h3>Focus: ${esc(nameRef(ref))}</h3>
-    <p class="small muted">${esc(cap(W.meta.statNouns[splitRef(ref)[1]] || ''))}: likely <b>${r0(b.mid)}</b> in ${FC.H} seasons (8 in 10 futures between ${r0(b.lo)} and ${r0(b.hi)}).${RAIL.without ? ' Dashed: without your change.' : ''}</p>
-    ${fanSVG(ref)}</section>`;
+function railChangeHTML() {
+  if (!RAIL.without) return `<section class="rs"><h3>Your change</h3><p class="empty">Change something on the map or add a What-if.</p></section>`;
+  const imps = impacts(), shifts = hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.05).sort((a, b) => Math.abs(b.pa - b.pb) - Math.abs(a.pa - a.pb));
+  const label = RAIL.mode === 'canon' ? 'Everything since canon' : RAIL.change?.label || 'Your change';
+  const rows = imps.slice(0, 12);
+  const open = RUI.open != null && rows[RUI.open] ? rows[RUI.open] : null;
+  return `<section class="rs"><h3>Your change</h3>
+    <p class="chg">${esc(label)}</p>
+    ${shifts.length ? `<div class="shifts">${shifts.slice(0, 4).map(x => `<button class="shift ${x.pa > x.pb ? 'worse' : 'better'}" data-node="hz:${esc(x.h.id)}">${esc(x.h.name.replace(/ Risk$/, ''))} ${pct(x.pb)}→<b>${pct(x.pa)}%</b></button>`).join('')}</div>` : ''}
+    ${rows.length ? `<div class="bars" id="impBars">${barRows(rows.map(x => ({ label: rowLabel(x.ref), d: x.later, now: x.now, hidden: x.hidden, title: `${nameRef(x.ref)}: ${fmt(x.now)} now, ${fmt(x.later)} by +${FC.H}${x.hidden ? ' · hidden link' : ''}` })))}</div>
+      <div class="help small muted">Bar: change by +${FC.H}. Dark inner bar: change today. ✦ = hidden link. Click a bar for its route.</div>
+      ${open ? `<div class="routebox"><div class="small"><b>${esc(nameRef(open.ref))}</b> ${pips(open.later)}</div>${routeHTML(open)}</div>` : ''}`
+      : '<p class="empty">No effect beyond what you changed.</p>'}
+  </section>`;
 }
 function railCrisisHTML() {
   const rows = hazardShifts().map(x => ({ ...x, v: hazardV(E, x.h) })).sort((a, b) => b.pa - a.pa || b.v / b.h.threshold - a.v / a.h.threshold);
-  return `<section class="rs"><h3>Crisis odds</h3><p class="small muted">Chance each hazard breaks within ${FC.H} seasons. Open one to see what breaking would actually do.</p>
-    ${rows.map((x, i) => {
-      const d = x.pa - x.pb, auto = x.pa >= 0.3 && i < 2;
-      return `<details class="crisis" data-hz="${esc(x.h.id)}" ${auto ? 'open data-done="1"' : ''}><summary>
-        <span class="cr-n">${esc(x.h.name.replace(/ Risk$/, ''))}${x.v >= x.h.threshold ? ' <span class="chip breaking">past threshold</span>' : ''}</span>
-        <span class="cr-p"><b>${pct(x.pa)}%</b>${RAIL.without && Math.abs(d) >= 0.03 ? ` <span class="${d > 0 ? 'down' : 'up'}">${d > 0 ? '▲' : '▼'}${Math.abs(pct(d))}</span>` : ''}</span>
-        <span class="cr-bar"><i style="width:${pct(x.pa)}%"></i>${RAIL.without ? `<em style="left:${pct(x.pb)}%"></em>` : ''}</span></summary>
-        <div class="be">${auto ? breakEffectsHTML(x.h) : '<p class="small muted">Working it out…</p>'}</div>
-        <button class="golink" data-node="hz:${esc(x.h.id)}">Open on map</button></details>`;
-    }).join('')}</section>`;
+  const sel = RUI.dial && W.hazards.find(h => h.id === RUI.dial);
+  return `<section class="rs"><h3>Crisis odds</h3>
+    <div class="dials">${rows.map(x => `<button class="dialbtn${RUI.dial === x.h.id ? ' on' : ''}${x.v >= x.h.threshold ? ' past' : ''}" data-hz="${esc(x.h.id)}" title="${esc(x.h.name)}: ${pct(x.pa)}% within ${FC.H} seasons${RAIL.without ? ` (was ${pct(x.pb)}%)` : ''}">${dialSVG(x.pa, RAIL.without ? x.pb : null)}<span>${esc(x.h.name.replace(/ Risk$/, '').replace('Aleforge ', '').replace('Ducket ', ''))}</span></button>`).join('')}</div>
+    <div class="help small muted">Arc = chance of breaking within ${FC.H} seasons; tick = before your change. Click a dial to see what the break would do.</div>
+    ${sel ? `<div class="routebox"><div class="small"><b>${esc(sel.event.name)}</b> <button class="golink" data-node="hz:${esc(sel.id)}">open</button></div>${breakEffectsHTML(sel)}</div>` : ''}
+  </section>`;
 }
 function railWhatIfHTML() {
-  return `<section class="rs"><h3>What if…</h3><p class="small muted">Add an event to the forecast. It counts as a change, so the section above shows what it does.</p>
+  return `<section class="rs"><h3>What if…</h3>
     ${RAIL.whatif.map((w, i) => { const d = injDef(w); return `<div class="wi"><span class="tn">+${w.turn}</span><span>${esc(d?.name || w.id)}${w.turn > FC.H ? ' <i class="muted">(beyond horizon)</i>' : ''}</span><button class="btn sm ghost" data-wi-del="${i}" aria-label="Remove">×</button></div>`; }).join('')}
-    <div class="row2 wi-add"><select class="inp" id="wiSel" aria-label="Event"><option value="">Choose an event…</option>${W.injectables.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('')}</select>
+    <div class="row2 wi-add"><select class="inp" id="wiSel" aria-label="Event"><option value="">Add an event…</option>${W.injectables.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('')}</select>
       <select class="inp" id="wiTurn" aria-label="When" style="width:auto">${Array.from({ length: FC.H }, (_, i) => `<option value="${i + 1}">+${i + 1}</option>`).join('')}</select><button class="btn sm" id="wiAdd">Add</button></div>
   </section>`;
 }
 function railHeadingHTML() {
   const A = RAIL.with;
-  const drift = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: medAt(A, ref) - E.values[ref] })).filter(x => Math.abs(x.d) >= 1.5).sort((a, b) => Math.abs(b.d) - Math.abs(a.d)).slice(0, 5);
-  return `<section class="rs"><h3>Where the Isles are heading</h3><p class="small muted">Biggest expected moves from today, whatever caused them.</p>
-    ${drift.length ? `<ul class="blist">${drift.map(x => { const p = pressuresOn(x.ref).find(q => Math.sign(q.amt) === Math.sign(x.d)); return `<li><button class="golink plain" data-node="${esc(splitRef(x.ref)[0])}">${esc(cap(subj(x.ref)))}</button> <b class="${x.d > 0 ? 'up' : 'down'}">${fmt(x.d)}</b> ${sparkSVG(x.ref)}<br><span class="why">${p ? esc(cap(p.r.short)) + ' (every season)' : 'Knock-on effects and crisis odds'}.</span></li>`; }).join('')}</ul>` : '<p class="empty">Nothing is expected to move much.</p>'}
+  const drift = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: medAt(A, ref) - E.values[ref] })).filter(x => Math.abs(x.d) >= 1.5).sort((a, b) => Math.abs(b.d) - Math.abs(a.d)).slice(0, 6);
+  return `<section class="rs"><h3>Heading, left alone</h3>
+    ${drift.length ? `<div class="bars">${barRows(drift.map(x => { const p = pressuresOn(x.ref).find(q => Math.sign(q.amt) === Math.sign(x.d)); return { label: rowLabel(x.ref), d: x.d, node: splitRef(x.ref)[0], title: `${nameRef(x.ref)} ${fmt(x.d)} by +${FC.H}. ${p ? cap(p.r.short) + ' (every season)' : 'Knock-on effects'}` }; }))}</div>` : '<p class="empty">Nothing much moves.</p>'}
   </section>`;
 }
 
@@ -6003,7 +6902,8 @@ function commitSlider(ref, newVal) {
   const out = [];
   setDirect(E, ref, newVal, { kind: 'user', label: nameRef(ref), ref, turn: E.sim.turn }, out);
   disp.records.push(...out); disp.to = newVal; disp.time = now;
-  RAIL.change = { label: `You ${newVal > disp.from ? 'raised' : 'lowered'} ${nameRef(ref)} · ${splitRef(ref)[1]}, ${r0(disp.from)} → ${r0(newVal)}`, sources: [{ ref, dir: Math.sign(newVal - disp.from) || 1 }] };
+  RAIL.change = { label: `${nameRef(ref)} · ${splitRef(ref)[1]} ${r0(disp.from)} → ${r0(newVal)}`, sources: [{ ref, dir: Math.sign(newVal - disp.from) || 1 }] };
+  RUI.open = null;
   paintMap(); renderClock(); scheduleForecast(); save();
 }
 function addWhatIf(item) {
@@ -6011,23 +6911,23 @@ function addWhatIf(item) {
   pushUndo();
   RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
   RAIL.whatif.push(item);
-  RAIL.change = { label: `What if: ${d.name} (in ${item.turn} season${item.turn > 1 ? 's' : ''})`, sources: whatifSources(item) };
+  RAIL.change = { label: `What if: ${d.name} (+${item.turn})`, sources: whatifSources(item) };
   LOG.unshift({ id: Date.now(), kind: 'whatif', title: RAIL.change.label, turn: E.sim.turn, time: Date.now(), records: [] });
-  scheduleForecast(0); save();
+  RUI.open = null; scheduleForecast(0); save();
 }
 function removeWhatIf(i) {
   const item = RAIL.whatif[i], d = injDef(item);
   pushUndo();
   RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
   RAIL.whatif.splice(i, 1);
-  RAIL.change = { label: `Removed what-if: ${d?.name || item.id}`, sources: whatifSources(item, -1) };
-  scheduleForecast(0); save();
+  RAIL.change = { label: `Removed: ${d?.name || item.id}`, sources: whatifSources(item, -1) };
+  RUI.open = null; scheduleForecast(0); save();
 }
 function undo() {
   const u = UNDO.pop(); if (!u) return;
   E = u.E; LOG = LOG.slice(LOG.length - u.logLen);
   if (u.rail) Object.assign(RAIL, u.rail);
-  MAP.trace = null;
+  MAP.trace = null; RUI.open = null;
   computeForecast(); renderAll(); save();
 }
 
@@ -6363,9 +7263,8 @@ function renderTimeline() {
    Chronicle
    ════════════════════════════════════════════════════════════════════ */
 /* ════════════════════════════════════════════════════════════════════
-   Briefing — the Game Master's landing page, written live from the state
+   Shared readers: standing pressures, crisis state, open threads
    ════════════════════════════════════════════════════════════════════ */
-// Standing pressures acting on a stat next season, strongest first.
 function pressuresOn(ref) {
   const season = seasonOf(E.sim.turn + 1);
   return IDX.pressure.filter(r => toRef(r) === ref && (!r.season || r.season === season)).map(r => {
@@ -6375,153 +7274,25 @@ function pressuresOn(ref) {
     return { r, src, amt };
   }).filter(x => Math.abs(x.amt) >= 0.25).sort((a, b) => Math.abs(b.amt) - Math.abs(a.amt));
 }
-// The main reason a stat has moved away from canon: the change log first, then standing pressures.
-function whyMoved(ref, d) {
-  if (E.sim.anchors[ref] != null && Math.abs(E.sim.anchors[ref] - seedVal(ref)) >= 1) return 'set by hand';
-  const tally = new Map();
-  for (const disp of LOG) for (const r of disp.records || []) {
-    if (r.ref !== ref || r.pending || Math.sign(r.delta) !== Math.sign(d)) continue;
-    const st = r.chain[r.chain.length - 1];
-    const key = st ? 'e:' + st.edgeId : 'o:' + (r.origin?.label || '');
-    tally.set(key, (tally.get(key) || 0) + r.delta);
-  }
-  let top = null;
-  for (const [k, v] of tally) if (!top || Math.abs(v) > Math.abs(top[1])) top = [k, v];
-  if (top) {
-    if (top[0].startsWith('o:')) return top[0].length > 2 ? `“${top[0].slice(2)}”` : 'a direct change';
-    const e = IDX.byId[top[0].slice(2)];
-    if (e) return `${e.short} (${tagRef(fromRef(e))})`;
-  }
-  const p = pressuresOn(ref)[0];
-  if (p && Math.sign(p.amt) === Math.sign(d)) return `${p.r.short} (every season)`;
-  return 'small ripples';
-}
+const chip = (cls, text) => `<span class="chip ${cls}">${esc(text)}</span>`;
 function hazardState(h) {
   const v = hazardV(E, h), p = pFire(RAIL.with, h.id);
   if (v >= h.threshold) return ['breaking', `past threshold · ${pct(p)}%`];
-  if (p >= 0.5) return ['breaking', `likely to break · ${pct(p)}%`];
-  if (p >= 0.15) return ['near', `may break · ${pct(p)}%`];
+  if (p >= 0.5) return ['breaking', `likely · ${pct(p)}%`];
+  if (p >= 0.15) return ['near', `possible · ${pct(p)}%`];
   if (h.threshold - v <= 10) return ['near', 'near threshold'];
-  if (v - (h.initial ?? v) >= 5) return ['rising', 'rising'];
   return ['quiet', `quiet · ${pct(p)}%`];
 }
-const moversSinceCanon = () => IDX.refs.filter(r => !G(splitRef(r)[0]).lever)
-  .map(ref => ({ ref, d: E.values[ref] - seedVal(ref) })).filter(x => Math.abs(x.d) >= 2).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
-const goBtn = (filter, label, node) => `<button class="golink" data-go="${esc(filter || '')}" ${node ? `data-gonode="${esc(node)}"` : ''}>${esc(label)} →</button>`;
-const chip = (cls, text) => `<span class="chip ${cls}">${esc(text)}</span>`;
-
-function renderBriefing() {
-  const root = $('#view-briefing');
-  if (!RAIL.with) computeForecast();
-  const A = RAIL.with, H = FC.H, d = dateOf(E.sim.turn);
-  const hs = W.hazards.map(h => ({ h, v: hazardV(E, h), p: pFire(A, h.id) })).sort((a, b) => b.p - a.p || (b.v - b.h.threshold) - (a.v - a.h.threshold));
-  const top = hs[0], broken = hs.filter(x => x.v >= x.h.threshold), likely = hs.filter(x => x.p >= 0.5), possible = hs.filter(x => x.p >= 0.2);
-  const verdict = broken.length ? ['In Crisis', 'crisis', 'in crisis'] : likely.length ? ['Strained', 'strained', 'strained'] : possible.length ? ['Uneasy', 'uneasy', 'uneasy']
-    : (top.h.threshold - top.v <= 20) ? ['Watchful', 'watchful', 'watchful'] : ['Calm Seas', 'calm', 'calm'];
-  const movers = moversSinceCanon();
-  const drift = IDX.refs.filter(r => !G(splitRef(r)[0]).lever).map(ref => ({ ref, d: medAt(A, ref) - E.values[ref] })).sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
-
-  const bl = [];
-  bl.push(top.p >= 0.05
-    ? `The Isles are <b>${verdict[2]}</b>. The likeliest crisis is <b>${esc(top.h.name)}</b>: ${pct(top.p)}% chance within ${H} seasons (meter at ${r0(top.v)}%, breaks at ${top.h.threshold}%).`
-    : `The Isles are <b>${verdict[2]}</b>. No crisis looks likely within ${H} seasons; the closest is ${esc(top.h.name)} at ${r0(top.v)}% of ${top.h.threshold}%.`);
-  bl.push(movers.length
-    ? `Biggest shift since Year 466: ${esc(subj(movers[0].ref))} is ${movers[0].d > 0 ? 'up' : 'down'} ${Math.round(Math.abs(movers[0].d))} (now ${r0(E.values[movers[0].ref])}). Cause: ${esc(whyMoved(movers[0].ref, movers[0].d))}.`
-    : 'Nothing has moved far from canon yet.');
-  bl.push(Math.abs(drift[0].d) >= 1.5
-    ? `Over the next ${H} seasons the biggest expected move is ${esc(subj(drift[0].ref))} (${fmt(drift[0].d)}).`
-    : `Little is expected to move over the next ${H} seasons.`);
-  if (RAIL.whatif.length) bl.push(`The forecast includes ${RAIL.whatif.length} what-if event${RAIL.whatif.length > 1 ? 's' : ''}.`);
-
-  const tile = (label, value, sub, cls = '') => `<div class="tile ${cls}"><div class="k">${esc(label)}</div><div class="v">${value}</div><div class="s">${sub}</div></div>`;
-  const vs = ref => { const dd = E.values[ref] - seedVal(ref); return Math.abs(dd) < 0.5 ? 'at canon' : `<span class="${dd > 0 ? 'up' : 'down'}">${fmt(dd)}</span> vs canon`; };
-  const fcTo = ref => `→ ${r0(medAt(A, ref))} in ${H} seasons`;
-  const tiles = [
-    tile('Likeliest crisis', `${pct(top.p)}<small>%</small>`, `${esc(top.h.name)}<br>within ${H} seasons`, top.p >= 0.3 ? 'alert' : ''),
-    ...['liquorKings.political', 'aleforgeGov.economic', 'ducket.economic', 'playerEconomy.economic'].filter(r => r in E.values)
-      .map(r => tile(nameRef(r).replace(/ \(.*\)$/, '') + (r === 'liquorKings.political' ? ' · political' : ''), r0(E.values[r]), `${vs(r)}<br>${fcTo(r)}`)),
-    tile('What-ifs in the forecast', RAIL.whatif.length, RAIL.whatif.length ? esc(RAIL.whatif.map(w => injDef(w)?.name).filter(Boolean).slice(0, 2).join('; ')) : 'none; add them in the forecast panel'),
-  ];
-
-  const tabLines = STATS.map(stat => {
-    const gs = domainGroups(stat).filter(g => !g.lever); if (!gs.length) return '';
-    const leader = [...gs].sort((a, b) => E.values[refOf(b.id, stat)] - E.values[refOf(a.id, stat)])[0];
-    const mv = gs.map(g => ({ ref: refOf(g.id, stat), d: medAt(A, refOf(g.id, stat)) - E.values[refOf(g.id, stat)] })).filter(x => Math.abs(x.d) >= 1.5).sort((a, b) => Math.abs(b.d) - Math.abs(a.d))[0];
-    const hz = hs.filter(x => x.h.domain === stat)[0];
-    return `<div class="tabline"><div class="tl-name">${esc(TAB[stat])}</div><div>
-      <b>${esc(nameRef(refOf(leader.id, stat)))}</b> leads at ${r0(E.values[refOf(leader.id, stat)])}.
-      ${mv ? `Heading: ${esc(nameRef(mv.ref))} <span class="${mv.d > 0 ? 'up' : 'down'}">${fmt(mv.d)}</span>.` : 'Steady.'}
-      ${hz ? `Watch: ${esc(hz.h.name)} <b>${pct(hz.p)}%</b>.` : ''}</div>${goBtn(stat, 'Map')}</div>`;
-  }).join('');
-
-  const threats = hs.slice(0, 3).map(x => {
-    const cs = x.h.inputs.map(i => ({ i, c: i.w * (E.values[i.ref] - 50) / 10 }));
-    const hold = [...cs].sort((a, b) => a.c - b.c)[0], push = [...cs].sort((a, b) => b.c - a.c)[0];
-    const [st, stText] = hazardState(x.h);
-    const be = breakEffects(x.h);
-    return `<div class="threat"><div class="th-h"><b>${esc(x.h.name)}</b>${chip(st, stText)}</div>
-      <div class="bar"><div class="fill" style="width:${x.v.toFixed(1)}%"></div><div class="thr" style="left:${x.h.threshold}%"></div></div>
-      <ul class="blist">
-        <li>Held down by <b>${esc(tagRef(hold.i.ref))}</b>${hold.i.w > 0 ? ' being low' : ''} (${r0(E.values[hold.i.ref])}).</li>
-        <li>Pushed up by <b>${esc(tagRef(push.i.ref))}</b>${push.i.w < 0 ? ' being low' : ''} (${r0(E.values[push.i.ref])}).</li>
-        <li>If it breaks (<i>${esc(x.h.event.name)}</i>): ${be && be.eff.length ? be.eff.slice(0, 3).map(e => `${esc(nameRef(e.ref).replace(/ \(.*\)$/, ''))} <span class="${e.d > 0 ? 'up' : 'down'}">${fmt(e.d)}</span>`).join(', ') : 'little measurable effect'}${be?.knock.length ? `; raises ${esc(be.knock[0].h.name)} to ${pct(be.knock[0].pa)}%` : ''}.</li>
-      </ul></div>`;
-  }).join('');
-
-  const moverLi = m => `<li><b>${esc(nameRef(m.ref))}</b> <span class="muted">· ${esc(splitRef(m.ref)[1])}</span> <span class="${m.d > 0 ? 'up' : 'down'}">${fmt(m.d)}</span> → ${r0(E.values[m.ref])}. <span class="why">${esc(cap(whyMoved(m.ref, m.d)))}.</span></li>`;
-  const rising = movers.filter(m => m.d > 0).slice(0, 3), falling = movers.filter(m => m.d < 0).slice(0, 3);
-  const strongest = domainGroups('political').filter(g => !g.lever).map(g => ({ g, v: E.values[refOf(g.id, 'political')] })).sort((a, b) => b.v - a.v).slice(0, 3);
-  const power = `
-    <div class="lbl">Who holds power</div>
-    <p class="plain">${strongest.map(s => `${esc(s.g.short ? cap(s.g.short) : s.g.name)} <b>${r0(s.v)}</b>`).join(' · ')}</p>
-    <div class="lbl">Rising since canon</div><ul class="blist">${rising.length ? rising.map(moverLi).join('') : '<li class="muted">No one has gained more than 2 points.</li>'}</ul>
-    <div class="lbl">Falling since canon</div><ul class="blist">${falling.length ? falling.map(moverLi).join('') : '<li class="muted">No one has lost more than 2 points.</li>'}</ul>`;
-
-  const econRefs = ['ducket.economic', 'velocity.economic', 'aleforgeGov.economic', 'bonds.economic', 'playerEconomy.economic'].filter(r => r in E.values);
-  const econTiles = econRefs.map(ref => { const v = E.values[ref], [b2, bc] = badgeFor(v); return `<div class="etile"><div class="k">${esc(nameRef(ref).replace(/ \(.*\)$/, ''))}</div><div class="v">${r0(v)} <span class="badge ${bc}">${b2}</span></div><div class="s">${fcTo(ref)}</div></div>`; }).join('');
-  const econWhy = econRefs.map(ref => ({ ref, p: pressuresOn(ref)[0] })).filter(x => x.p && Math.abs(x.p.amt) >= 0.3).sort((a, b) => Math.abs(b.p.amt) - Math.abs(a.p.amt)).slice(0, 3)
-    .map(x => `<li><b>${esc(nameRef(x.ref).replace(/ \(.*\)$/, ''))}</b> ${x.p.amt > 0 ? 'lifted' : 'drained'} every season: ${esc(x.p.r.short)} <span class="muted">(${esc(tagRef(fromRef(x.p.r)))} at ${r0(x.p.src)})</span>.</li>`).join('');
-  const levers = W.groups.filter(g => g.lever).map(g => ({ g, ref: refOf(g.id, 'economic') })).filter(x => x.ref in E.values);
-  const offLevers = levers.filter(x => E.values[x.ref] <= 38 || E.values[x.ref] >= 62);
-  const econ = `<div class="etiles">${econTiles}</div><ul class="blist">
-      ${econWhy || '<li class="muted">No strong standing pressure on the headline numbers.</li>'}
-      <li>${offLevers.length ? `Levers off status quo: ${offLevers.map(x => `<b>${esc(x.g.name)}</b> ${r0(E.values[x.ref])} (${leverBadge(E.values[x.ref])[0].toLowerCase()})`).join(', ')}.` : `All ${levers.length} policy levers sit at status quo.`}</li>
-      <li>Economic crisis odds: ${hs.filter(x => x.h.domain === 'economic').map(x => `${esc(x.h.name.replace(/ Risk$/, ''))} ${pct(x.p)}%`).join(' · ')}.</li></ul>`;
-
-  const threads = (W.openThreads || []).map(t => {
-    let c = chip('static', 'no live signal');
+function threadsHTML() {
+  return (W.openThreads || []).map(t => {
+    let c = chip('static', '—');
     if (t.watch?.hazard) { const h = W.hazards.find(z => z.id === t.watch.hazard); if (h) { const [st, txt] = hazardState(h); c = chip(st, txt); } }
     else if (t.watch?.ref && t.watch.ref in E.values) {
-      const v = E.values[t.watch.ref], dd = medAt(A, t.watch.ref) - v;
+      const v = E.values[t.watch.ref], dd = medAt(RAIL.with, t.watch.ref) - v;
       c = dd >= 3 ? chip('rising', `rising · ${r0(v)}`) : dd <= -3 ? chip('rising', `falling · ${r0(v)}`) : chip('quiet', `quiet · ${r0(v)}`);
     }
-    return `<li><b>${esc(t.name)}</b> ${c}<br><span class="why">${esc(t.summary || '')}</span></li>`;
+    return `<li><b>${esc(t.name)}</b> ${c}<br><span class="why-t">${esc(t.summary || '')}</span></li>`;
   }).join('');
-  const soon = [...E.sim.pending].filter(p => p.due <= E.sim.turn + 3).sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta)).slice(0, 3);
-  const coming = `
-    <div class="lbl">Canon open threads</div><ul class="blist threads">${threads || '<li class="muted">None recorded.</li>'}</ul>
-    <div class="lbl">Already in motion</div>
-    <ul class="blist">${soon.length ? soon.map(p => { const e = IDX.byId[p.chain[p.chain.length - 1].edgeId]; return `<li>Within ${p.due - E.sim.turn} season${p.due - E.sim.turn > 1 ? 's' : ''}: ${esc(cap(subj(p.ref)))} <span class="${p.delta > 0 ? 'up' : 'down'}">${fmt(p.delta)}</span>. <span class="why">${esc(e?.short || '')}.</span></li>`; }).join('') : '<li class="muted">Nothing queued.</li>'}
-    ${likely.map(x => `<li>Likely: <b>${esc(x.h.event.name)}</b> (${pct(x.p)}% within ${H} seasons).</li>`).join('')}</ul>
-    ${RAIL.change ? `<div class="lbl">Latest change</div><p class="plain">${esc(RAIL.change.label)}</p>` : ''}`;
-
-  root.innerHTML = `
-    <div class="brief-hero panel">
-      <div>
-        <div class="eyebrow">Intelligence briefing · for the Game Master · ${esc(d.label)}</div>
-        <div class="verdict v-${verdict[1]}"><div class="seal big" aria-hidden="true">${verdict[1] === 'calm' ? '✓' : '!'}</div><div><div class="lbl">State of the Isles</div><h2>${verdict[0]}</h2></div></div>
-        <div class="bottomline">${bl.map(s => `<p>${s}</p>`).join('')}</div>
-      </div>
-      <div class="tiles">${tiles.join('')}</div>
-    </div>
-    <div class="panel"><h3><span class="orn">✦</span> Every Domain in One Line</h3>${tabLines}</div>
-    <div class="grid-brief">
-      <div class="panel"><h3><span class="orn">✦</span> Threats &amp; Crises <span class="muted">The three likeliest to break.</span></h3><div class="threats">${threats}</div></div>
-      <div class="panel"><h3><span class="orn">✦</span> Power Standings</h3>${power}</div>
-      <div class="panel"><h3><span class="orn">✦</span> Economy at a Glance</h3>${econ}${goBtn('economic', 'Economy on the map')}</div>
-      <div class="panel"><h3><span class="orn">✦</span> Open Threads &amp; Coming Events</h3>${coming}</div>
-    </div>`;
-  $$('[data-go]', root).forEach(b => b.onclick = () => { UI.tab = 'map'; MAP.filter = b.dataset.go || null; MAP.sel = b.dataset.gonode || null; renderAll(); save(); window.scrollTo(0, 0); });
 }
 
 function renderChronicle() {
@@ -6529,6 +7300,7 @@ function renderChronicle() {
   const hist = [...W.events].sort((a, b) => (a.era ?? 0) - (b.era ?? 0));
   const changeTitle = d => d.kind === 'user' ? `You set ${nameRef(d.ref)} · ${splitRef(d.ref)[1]}: ${r0(d.from)} → ${r0(d.to)}` : d.title || 'Change';
   root.innerHTML = `<p class="intro">Canon events are the precedents the simulator reasons from. Your changes to the present are listed beside them.</p>
+  <div class="panel"><h3><span class="orn">✦</span> Canon Open Threads</h3><ul class="blist threads">${threadsHTML()}</ul></div>
   <div class="grid-2">
     <div class="panel"><h3><span class="orn">✦</span> The Canon Record</h3><div class="hist">${hist.map(e => `
       <div class="hist-item"><div class="when">${esc(e.turnOrDate)}</div><h4>${esc(e.name)}</h4><p>${esc(e.description)}</p>
@@ -6607,6 +7379,10 @@ function renderData() {
    ════════════════════════════════════════════════════════════════════ */
 boot();
 $('#btnUndo').onclick = undo;
+$('#btnHelp').onclick = e => { const on = document.body.classList.toggle('show-help'); e.currentTarget.setAttribute('aria-pressed', on); };
+$('#btnMenu').onclick = e => { const pop = $('#menuPop'); pop.hidden = !pop.hidden; e.currentTarget.setAttribute('aria-expanded', String(!pop.hidden)); };
+document.addEventListener('click', e => { if (!e.target.closest('.menu')) { $('#menuPop').hidden = true; $('#btnMenu').setAttribute('aria-expanded', 'false'); } });
+$('#backWeb').onclick = () => { UI.tab = 'map'; renderAll(); save(); };
 $('#btnReset').onclick = () => {
   pushUndo();
   RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };

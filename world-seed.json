@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "The Pintland Isles — Dynamics Simulator",
-    "version": 3,
-    "changes": "the Briefing tab: canon open threads with live signals",
+    "version": 4,
+    "changes": "40 new political and cultural links; MAMA, Owe Block and the Cloister now simmer instead of sleeping",
     "calendar": {
       "startYear": 466,
       "startCycle": 94,
@@ -3063,6 +3063,694 @@
       "canon": "canon",
       "pivot": 50,
       "season": "Goldsun"
+    },
+    {
+      "id": "r154",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "cultural",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Brewers Lane pride feeds the festival",
+      "explanation": "The Trials are Aleforge's brewing culture on show. When the young brewers of Brewers Lane are proud of their craft, the festival has something to celebrate.",
+      "precedent": "Beckoning the New Brews (Aleforge coming-of-age holiday)",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r155",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the festival makes brewers",
+      "explanation": "Every Trials sends a few more youths into the brewhouses hoping to be named in the Gilded Tankard's walls.",
+      "precedent": "Winners' names etched in the Gilded Tankard",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r156",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "a brewing culture sells",
+      "explanation": "A town that honours its brewers gets better beer a season later, and better beer exports.",
+      "precedent": "Beckoning the New Brews",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r157",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "brewing becomes shameful",
+      "explanation": "The prohibitionist current frames alcohol itself as corruption; where it spreads, brewing stops being an honour.",
+      "precedent": "MAA founding creed",
+      "canon": "canon"
+    },
+    {
+      "id": "r158",
+      "fromId": "rotoCouncil",
+      "fromStat": "cultural",
+      "toId": "rotoCouncil",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Xi's principles keep the heirs honest",
+      "explanation": "Roto's government is a chain of hand-picked heirs trained in Xi's principles. The culture of those principles is what keeps the chain from breaking.",
+      "precedent": "Xi's succession system; Kim Jong Un",
+      "canon": "canon"
+    },
+    {
+      "id": "r159",
+      "fromId": "rotoCouncil",
+      "fromStat": "cultural",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "taboos keep dark trade after dark",
+      "explanation": "Nothing in Roto is illegal, only taboo. A strong taboo culture keeps slave, drug and dark-magic markets confined to the night.",
+      "precedent": "Roto Kaiishi: the taboo system",
+      "canon": "canon"
+    },
+    {
+      "id": "r160",
+      "fromId": "goldcoral",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "cultural",
+      "domain": "economic→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "big players erode Xi's principles",
+      "explanation": "Xi feared the biggest players would write rules that gut Roto from the bottom up. A booming Goldcoral is exactly that player.",
+      "precedent": "Roto Kaiishi: Xi on market domination",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r161",
+      "fromId": "rotoCouncil",
+      "fromStat": "political",
+      "toId": "goldcoral",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the heirs check the robber barons",
+      "explanation": "Xi built the succession system as \"an important counterweight to the often corrupting effects of market domination.\"",
+      "precedent": "Roto Kaiishi: Xi's succession system",
+      "canon": "canon"
+    },
+    {
+      "id": "r162",
+      "fromId": "rotoCouncil",
+      "fromStat": "political",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Roto's security forces",
+      "explanation": "After Xi's death the elite asked for dedicated security. A strong council polices the lower stilts.",
+      "precedent": "Roto Kaiishi: dedicated security forces",
+      "canon": "canon"
+    },
+    {
+      "id": "r163",
+      "fromId": "fleshborn",
+      "fromStat": "racial",
+      "toId": "veilwalkers",
+      "toStat": "political",
+      "domain": "racial→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "encroachment rouses Fenwick",
+      "explanation": "The Veil plays no politics until the flesh-born take too much. Then \"you can't predict what don't want anything\" becomes a warning.",
+      "precedent": "Shanty Town on Fenwick; Guinnie's manifest-destiny vote",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r164",
+      "fromId": "veilwalkers",
+      "fromStat": "political",
+      "toId": "goldcoral",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "cursed ventures",
+      "explanation": "Those who take too much from the earth are \"haunted by this tribe and cursed by famine and disease.\" A roused Veil makes plunder expensive.",
+      "precedent": "Fenwick & the Veilwalkers; pirates returning cursed",
+      "canon": "canon"
+    },
+    {
+      "id": "r165",
+      "fromId": "veilwalkers",
+      "fromStat": "political",
+      "toId": "fleshborn",
+      "toStat": "racial",
+      "domain": "political→racial",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the earth takes the flesh-born back",
+      "explanation": "A mobilized Veil does not burn anyone; \"they'd just let the earth take us back.\"",
+      "precedent": "Shanty Town on Fenwick",
+      "canon": "canon"
+    },
+    {
+      "id": "r166",
+      "fromId": "veilwalkers",
+      "fromStat": "cultural",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "vows kept, abundance given",
+      "explanation": "Those who keep their promises to the Veil \"have abundance from whatever item they traded for.\" The custom itself is agricultural insurance.",
+      "precedent": "Veilwalker Trade & Custom",
+      "canon": "canon"
+    },
+    {
+      "id": "r167",
+      "fromId": "veilwalkers",
+      "fromStat": "religious",
+      "toId": "veilwalkers",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "faith keeps the custom alive",
+      "explanation": "The vow-trade only works while the Veil's faith gives vows their weight.",
+      "precedent": "Veilwalker Trade & Custom",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r168",
+      "fromId": "unknownism",
+      "fromStat": "religious",
+      "toId": "unknownism",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.4,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the mission builds a following",
+      "explanation": "Baba Paku's preaching becomes a culture wherever it takes root.",
+      "precedent": "Baba Paku",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r169",
+      "fromId": "unknownism",
+      "fromStat": "cultural",
+      "toId": "oweBlock",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Owe Block's own faith",
+      "explanation": "Unknownism is the district's export and its pride; its spread strengthens Owe Block's sense of itself apart from the spire.",
+      "precedent": "Baba Paku's quest for the first Owe Block Saint",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r170",
+      "fromId": "patmos",
+      "fromStat": "cultural",
+      "toId": "unknownism",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "order leaves no room for heresy",
+      "explanation": "Patmos social order and a street-preached heterodoxy compete for the same faithful.",
+      "precedent": "Day of Hollow Tongues",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r171",
+      "fromId": "cumstead",
+      "fromStat": "economic",
+      "toId": "lineOfJohns",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.5,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Cumstead is the family fortune",
+      "explanation": "The Line of Johns' wealth is the farm. When it fails, so does the family's purse.",
+      "precedent": "John Rump inherits the Cumstead",
+      "canon": "canon"
+    },
+    {
+      "id": "r172",
+      "fromId": "lineOfJohns",
+      "fromStat": "economic",
+      "toId": "lineOfJohns",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "money buys Rump his grip",
+      "explanation": "Rump coasts on his family's wealth and reputation to keep the treasurer's office.",
+      "precedent": "John Rump: \"coasting off the positive reputation of his family\"",
+      "canon": "canon"
+    },
+    {
+      "id": "r173",
+      "fromId": "mama",
+      "fromStat": "religious",
+      "toId": "mama",
+      "toStat": "political",
+      "domain": "religious→political",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "zeal becomes action",
+      "explanation": "The moral certainty that alcohol is corruption turns, a season later, into people willing to raid a brewery.",
+      "precedent": "MAA to MAMA",
+      "canon": "canon"
+    },
+    {
+      "id": "r174",
+      "fromId": "mama",
+      "fromStat": "religious",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "religious→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "sermons against the Trials",
+      "explanation": "The prohibitionist current preaches against the festival first; it is the most visible sin in the Isles.",
+      "precedent": "MAA raid on the first Trials",
+      "canon": "canon"
+    },
+    {
+      "id": "r175",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Ashen Oath stirs",
+      "explanation": "Shanty Town has its own purifiers: the Ashen Oath believe grog has tainted the world. A rising prohibitionist current emboldens them and splits the pirate ethos.",
+      "precedent": "Shanty Town's Political Factions: the Ashen Oath",
+      "canon": "canon"
+    },
+    {
+      "id": "r176",
+      "fromId": "oweBlock",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "every Ducket underground is a Ducket untithed",
+      "explanation": "Owe Block's informal economy is precisely the money the tithe cannot reach.",
+      "precedent": "Founding of Owe Block",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r177",
+      "fromId": "oweBlock",
+      "fromStat": "economic",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the underground trades with the night market",
+      "explanation": "Owe Block's underground markets and Roto's after-dark stalls deal in the same goods.",
+      "precedent": "A Walk on Owe Block: underground markets",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r178",
+      "fromId": "oweBlock",
+      "fromStat": "cultural",
+      "toId": "oweBlock",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "gang culture builds gang power",
+      "explanation": "The Stank Tank, the Crimson Cutters and the Seaside Circus are culture first; recruits follow the colours.",
+      "precedent": "A Walk on Owe Block",
+      "canon": "canon"
+    },
+    {
+      "id": "r179",
+      "fromId": "oweBlock",
+      "fromStat": "political",
+      "toId": "oweBlock",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "protection and the underground",
+      "explanation": "Stronger gangs run bigger underground markets.",
+      "precedent": "A Walk on Owe Block",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r180",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Trials make legends",
+      "explanation": "Every retelling of the six-way tie keeps the Kings famous.",
+      "precedent": "The six-way tie",
+      "canon": "canon"
+    },
+    {
+      "id": "r181",
+      "fromId": "mama",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "\"WHO KILLED MAXIMILIAN?\"",
+      "explanation": "The prohibitionist current tells the Kings' story differently: a massacre in a cave, a mayor left in a cage, an assassination.",
+      "precedent": "MAMA's founding grievance",
+      "canon": "canon"
+    },
+    {
+      "id": "r182",
+      "fromId": "liquorKings",
+      "fromStat": "cultural",
+      "toId": "liquorKings",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "legend is legitimacy",
+      "explanation": "The Kings' only formal claim to rule is that they are famous for winning. A tarnished legend is a weaker crown.",
+      "precedent": "The Age of the Six Kings",
+      "canon": "canon"
+    },
+    {
+      "id": "r183",
+      "fromId": "liquorKings",
+      "fromStat": "cultural",
+      "toId": "aleforgeBrewing",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "celebrity sells ale",
+      "explanation": "Visitors come to drink where the Kings drink.",
+      "precedent": "Drunken Trials tourism",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r184",
+      "fromId": "aleforgeGov",
+      "fromStat": "political",
+      "toId": "drunkenTrials",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the mayor runs the Trials",
+      "explanation": "Aleforge's mayors have always handled the festival's logistics; a steady administration puts on a better show.",
+      "precedent": "Thomas Thatcher, \"in charge of the festival's logistics\"; Drake's Revival Fund",
+      "canon": "canon"
+    },
+    {
+      "id": "r185",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Council decides who eats",
+      "explanation": "The Windsunk Council decides \"who eats, who raids.\" A strong Council runs a fatter Shanty.",
+      "precedent": "Shanty Town: the Windsunk Council",
+      "canon": "canon"
+    },
+    {
+      "id": "r186",
+      "fromId": "shantyTown",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "grog and reputation",
+      "explanation": "Shanty runs on reputation, not law. A proud pirate culture draws crews and their plunder.",
+      "precedent": "Shanty Town: \"we raise legends\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r187",
+      "fromId": "shantyTown",
+      "fromStat": "political",
+      "toId": "rotoBlackMarket",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "pirates fence through Roto's nights",
+      "explanation": "Roto was built as the pirates' fence; a strong Shanty sends more plunder to the after-dark stalls.",
+      "precedent": "Xi Jin Ping's floating shop",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r188",
+      "fromId": "patmos",
+      "fromStat": "political",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "political→cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Shanty defines itself against the spire",
+      "explanation": "\"They call us sinners. We call ourselves free.\" A stronger Providence hardens the pirate ethos.",
+      "precedent": "Jasper \"no Eyes, all-Hands\" on Providence",
+      "canon": "canon"
+    },
+    {
+      "id": "r189",
+      "fromId": "patmos",
+      "fromStat": "cultural",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "order breeds obedience",
+      "explanation": "A city that prays every three hours does what the spire says.",
+      "precedent": "Providence: prayer bells every three hours",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r190",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "shantyTown",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the young run off to sea",
+      "explanation": "Aleforge's youth \"sometimes sneak off to become pirates.\" A great Trials is also a recruiting fair.",
+      "precedent": "Old Salty on Aleforge",
+      "canon": "canon"
+    },
+    {
+      "id": "r191",
+      "fromId": "drunkenTrials",
+      "fromStat": "cultural",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "festival work and festival coin",
+      "explanation": "The Trials hire builders and game-makers and fill every shop in town.",
+      "precedent": "Drunken Trials Revival Fund",
+      "canon": "canon"
+    },
+    {
+      "id": "r192",
+      "fromId": "mama",
+      "fromStat": "political",
+      "toId": "drunkenTrials",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "oppose",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tourists stay home",
+      "explanation": "Nobody books a room for a festival that was raided last year.",
+      "precedent": "The MAA raid on the Trials",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r193",
+      "fromId": "liquorKings",
+      "fromStat": "political",
+      "toId": "goldcoral",
+      "toStat": "political",
+      "domain": "political",
+      "type": "support",
+      "strengthMultiplier": 0.2,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "Jack's crown opens doors",
+      "explanation": "Goldcoral's owner is a sitting King. A strong Parliament is a strong seat for Jack.",
+      "precedent": "Goldcoral Incorporated",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r194",
+      "fromId": "goldcoral",
+      "fromStat": "political",
+      "toId": "rotoCouncil",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.15,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the big player leans on Roto",
+      "explanation": "Goldcoral keeps its real books in Roto; as Jack's leverage grows, so does his interest in who Roto's next heir is.",
+      "precedent": "Goldcoral's Roto-kept books",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r195",
+      "fromId": "sbn",
+      "fromStat": "political",
+      "toId": "sbn",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.3,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "formal ties open trade",
+      "explanation": "Every step out of isolation widens the Bellows' trade routes.",
+      "precedent": "SBN and StormVeil",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r196",
+      "fromId": "sbn",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "political",
+      "type": "oppose",
+      "strengthMultiplier": 0.1,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Drinkers Unit is watching",
+      "explanation": "The Aleforge Special Drinkers Unit has flagged the Bellows; their rise is one more thing the castle is blamed for missing.",
+      "precedent": "SBN flagged by the ASDU",
+      "canon": "extrapolated"
     }
   ],
   "events": [
@@ -3284,6 +3972,16 @@
           "ref": "goldcoral.economic",
           "w": 0.08,
           "note": "plunder of spirit-marked land"
+        },
+        {
+          "ref": "veilwalkers.cultural",
+          "w": -0.15,
+          "note": "vows still traded and kept"
+        },
+        {
+          "ref": "veilwalkers.political",
+          "w": 0.1,
+          "note": "a mobilized, angry Veil"
         }
       ],
       "seasonMods": {
@@ -3334,7 +4032,7 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": -1.348
+      "base": -1.208
     },
     {
       "id": "inflation",
@@ -3392,6 +4090,11 @@
           "ref": "banks.economic",
           "w": 0.08,
           "note": "banks paying interest they haven't earned from loans"
+        },
+        {
+          "ref": "oweBlock.economic",
+          "w": 0.1,
+          "note": "money off the books"
         }
       ],
       "seasonMods": {},
@@ -3436,13 +4139,13 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.002
+      "base": 0.138
     },
     {
       "id": "mamaRad",
       "name": "MAMA Radicalization",
       "domain": "political",
-      "initial": 26,
+      "initial": 52,
       "threshold": 68,
       "inputs": [
         {
@@ -3474,6 +4177,16 @@
           "ref": "cumstead.economic",
           "w": -0.1,
           "note": "the harvest"
+        },
+        {
+          "ref": "mama.religious",
+          "w": 0.15,
+          "note": "moral zeal"
+        },
+        {
+          "ref": "conceptRewards.economic",
+          "w": 0.1,
+          "note": "the Kings paying themselves"
         }
       ],
       "seasonMods": {
@@ -3520,7 +4233,7 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": -0.936
+      "base": 0.72
     },
     {
       "id": "harvest",
@@ -3553,6 +4266,11 @@
           "ref": "veilwalkers.racial",
           "w": -0.1,
           "note": "a Veil still willing to tend the soil"
+        },
+        {
+          "ref": "oweBlock.political",
+          "w": 0.08,
+          "note": "emigrants on thin wheat"
         }
       ],
       "seasonMods": {
@@ -3599,7 +4317,7 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -1.283
+      "base": -1.203
     },
     {
       "id": "bondCrisis",
@@ -3632,6 +4350,11 @@
           "ref": "mama.political",
           "w": 0.1,
           "note": "insurgency risk priced into the paper"
+        },
+        {
+          "ref": "liquorKings.political",
+          "w": -0.1,
+          "note": "a steady crown"
         }
       ],
       "seasonMods": {},
@@ -3672,13 +4395,13 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.817
+      "base": -0.697
     },
     {
       "id": "oweRising",
       "name": "Owe Block Rising",
       "domain": "cultural",
-      "initial": 30,
+      "initial": 50,
       "threshold": 70,
       "inputs": [
         {
@@ -3705,6 +4428,16 @@
           "ref": "oweBlock.economic",
           "w": -0.12,
           "note": "an informal economy that still feeds people"
+        },
+        {
+          "ref": "oweBlock.cultural",
+          "w": 0.15,
+          "note": "gang culture"
+        },
+        {
+          "ref": "titheRate.economic",
+          "w": 0.15,
+          "note": "the tithe rate"
         }
       ],
       "seasonMods": {},
@@ -3753,7 +4486,7 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.205
+      "base": 0.567
     },
     {
       "id": "creditCrunch",
@@ -3786,6 +4519,11 @@
           "ref": "rotoBlackMarket.economic",
           "w": 0.1,
           "note": "deposits fleeing to the night market"
+        },
+        {
+          "ref": "mama.political",
+          "w": 0.08,
+          "note": "insurgency scaring lenders"
         }
       ],
       "seasonMods": {
@@ -3832,13 +4570,13 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -2.363
+      "base": -2.091
     },
     {
       "id": "cloister",
       "name": "Cloister Stirring",
       "domain": "religious",
-      "initial": 28,
+      "initial": 46,
       "threshold": 74,
       "openThread": true,
       "inputs": [
@@ -3861,6 +4599,11 @@
           "ref": "veilwalkers.religious",
           "w": -0.1,
           "note": "the Veil's old stewardship of the land"
+        },
+        {
+          "ref": "veilwalkers.political",
+          "w": 0.1,
+          "note": "a roused Veil"
         }
       ],
       "seasonMods": {
@@ -3907,7 +4650,7 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": 0.316
+      "base": 1.3
     }
   ],
   "injectables": [

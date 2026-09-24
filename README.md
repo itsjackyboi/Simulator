@@ -12,18 +12,17 @@ to keep a copy anywhere else.
 
 ## What's in it
 
-The screen has two parts: a **main view** and a **forecast panel** that stays on the right.
+One screen: **the Web** (a map of every group, lever and hazard) and a **forecast panel** beside it. Everything else sits in the **⋯** menu, and **?** shows or hides the explanations.
 
-| Part | What it does |
-| --- | --- |
-| **Forecast panel** (always visible) | Runs 40 futures over the next 3, 6, 9 or 12 seasons. **What your change does** compares the forecast with and without your last change (or everything since canon): what moves now, what moves by the end of the horizon, how the crisis odds shift, and which groups you never touched were affected (✦ hidden link). Open any row to see the chain of links that carried the change. **Crisis odds** gives each hazard's chance of breaking and, when opened, what breaking would actually do: the knock-on changes and any further crises it makes likelier. **What if…** adds canon open-thread events to the forecast. **Where the Isles are heading** shows the biggest expected moves regardless of cause. |
-| **Briefing** (landing page) | One-screen Game Master summary, written live from the state and the forecast: a verdict on the state of the Isles, the likeliest crisis, the biggest shift since canon, one line per domain, threats, power standings, the economy, open threads. |
-| **The Web** | Every group, policy lever and hazard on one map, clustered by domain, with linked groups drawn near each other. Hover to see a group's links. Click to open its sliders, forecast range and every link with its in-world reason. After any change, the map traces where it travels: shifted numbers on every group it reaches, and animated routes. |
-| **Projection** | A deep dive: long runs with scheduled or custom events, turn-by-turn narration, branching, and comparison against an untouched control run. *Load into dashboard* makes a projected season the present. |
-| **Chronicle** | Canon history and a log of your changes. |
-| **World Data** | JSON editor, validation, import and export for all world data. |
-
-There is no "advance a season" step. The present only changes when you change it, and the forecast panel shows what follows.
+- **Status strip** above the map: the state of the Isles, the likeliest crisis, and the biggest risers and fallers over the horizon.
+- **The map.** Node size is current power, and fill tint is where it's heading (green up, red down). Links show faintly, stronger ones darker. Hover a node for its links and a preview chart of its likely path; click it for its sliders and every link. A node's name shows when it's relevant. Drag the **season slider**, or press ▶, to watch the forecast play out on the map.
+- **Forecast panel** (40 simulated futures over 3–12 seasons):
+  - **Your change**: one bar chart of everything your last change moves by the horizon, with the effect today as a dark inner bar. ✦ marks hidden links (no direct connection). Click a bar for its route, drawn as linked pills.
+  - **Crisis odds**: eight dials, where the arc is the chance of breaking and the tick is the chance before your change. Click a dial for what the break would do and which crises it sets off next.
+  - **What if…**: add canon open-thread events to the forecast.
+  - **Heading, left alone**: the biggest expected moves.
+- **Why?** Every in-world explanation, precedent and lore note sits behind a *why?* marker. Sizes are shown as pips (▲▮▮); exact numbers are on hover.
+- **⋯ menu**: Projection (long runs, narration, branching), Chronicle (canon record, open threads, your change log), World Data (JSON editor, import and export).
 
 **Turn unit:** one turn is one season of the Pintland Calendar: **Stormtide**,
 **Goldsun** and **Veilfrost**, three per year. The simulation starts at Cycle 94,
@@ -73,7 +72,7 @@ Every relationship carries an `explanation` and a `precedent`, plus a `canon` fl
 - `rumour`: e.g. the ClockHeart Tonic soul-binding
 - `open-thread`: e.g. the Fayte Druids; deliberately speculative
 
-The seed's 31 groups (including 6 policy levers), 153 relationships, 8 hazards,
+The seed's 31 groups (including 6 policy levers), 196 relationships, 8 hazards,
 15 canon events and 20 injectable events are all editable in the app.
 
 When the canon seed's `meta.version` goes up, a browser holding an older saved world
