@@ -32,6 +32,7 @@ for (const h of seed.hazards) {
     else { const [id, s] = i.ref.split('.'); contrib += i.w * (groups[id].stats[s] - 50) / 10; }
   }
   for (const e of h.event.effects) if (!hasRef(e.ref)) errors.push(`${h.id}: bad effect ${e.ref}`);
+  if (h.scope === 'regional') for (const e of h.event.effects) { const g = groups[e.ref.split('.')[0]]; if (g && g.region !== h.region) errors.push(`${h.id}: regional event hits ${e.ref} outside ${h.region}`); }
   h.base = +(logit(h.initial / 100) - contrib).toFixed(3);
 }
 for (const inj of seed.injectables) for (const e of inj.effects) if (!hasRef(e.ref)) errors.push(`${inj.id}: bad effect ${e.ref}`);

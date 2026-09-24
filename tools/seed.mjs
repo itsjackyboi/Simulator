@@ -995,7 +995,7 @@ export const relationships = [
 // `base` is computed by build.mjs so the seed value lands on `initial`.
 export const hazards = [
   {
-    id: 'veilrunner', name: 'VeilRunner Corruption Risk', domain: 'racial', initial: 22, threshold: 72,
+    id: 'veilrunner', scope: 'global', name: 'VeilRunner Corruption Risk', domain: 'racial', initial: 22, threshold: 72,
     inputs: [
       { ref: 'veilwalkers.religious', w: -0.35, note: 'the Elders\' custom and the Vow of Mate holding' },
       { ref: 'veilwalkers.racial', w: -0.2, note: 'earth-born standing intact' },
@@ -1026,7 +1026,7 @@ export const hazards = [
     },
   },
   {
-    id: 'inflation', name: 'Ducket Inflation Risk', domain: 'economic', initial: 20, threshold: 70,
+    id: 'inflation', scope: 'global', name: 'Ducket Inflation Risk', domain: 'economic', initial: 20, threshold: 70,
     inputs: [
       { ref: 'ducket.economic', w: -0.5, note: 'a healthy, flat Ducket supply' },
       { ref: 'rotoCouncil.economic', w: -0.15, note: 'Roto liquidity anchoring the rates' },
@@ -1059,7 +1059,7 @@ export const hazards = [
     },
   },
   {
-    id: 'mamaRad', name: 'MAMA Radicalization', domain: 'political', initial: 52, threshold: 68,
+    id: 'mamaRad', scope: 'regional', region: 'Aleforge', name: 'MAMA Radicalization', domain: 'political', initial: 52, threshold: 68,
     inputs: [
       { ref: 'mama.cultural', w: 0.35, note: 'the prohibitionist ideology\'s reach' },
       { ref: 'liquorKings.political', w: 0.2, note: 'Kingly overreach (every massacre makes a mourner)' },
@@ -1089,7 +1089,7 @@ export const hazards = [
     },
   },
   {
-    id: 'harvest', name: 'Cumstead Collapse', domain: 'economic', initial: 34, threshold: 72,
+    id: 'harvest', scope: 'regional', region: 'Aleforge', name: 'Cumstead Collapse', domain: 'economic', initial: 34, threshold: 72,
     inputs: [
       { ref: 'cumstead.economic', w: -0.45, note: 'the Cumstead\'s current yield' },
       { ref: 'lineOfJohns.racial', w: -0.2, note: 'the blood the blessing follows' },
@@ -1110,14 +1110,14 @@ export const hazards = [
       narrative: 'The wheat came up grey and went down black. Farmhands found the green Factory sludge seeping from the same north furrows Mr. BBL noted during the Commission, and John Rump — reached for comment at a tonic den — asked whether the harvest "had to be this season specifically." Aleforge signs another emergency grain deal with Providence at a price the Cardinal described as merciful. The brewers of Brewers Lane start measuring malt with spoons.',
       effects: [
         { ref: 'cumstead.economic', delta: -18 }, { ref: 'aleforgeBrewing.economic', delta: -10 },
-        { ref: 'ducket.economic', delta: -4 }, { ref: 'patmos.economic', delta: 6 },
         { ref: 'drunkenTrials.cultural', delta: -5 }, { ref: 'lineOfJohns.political', delta: -8 },
+        { ref: 'lineOfJohns.economic', delta: -8 },
       ],
       chargeAfter: -1.2,
     },
   },
   {
-    id: 'bondCrisis', name: 'Aleforge Bond Crisis', domain: 'economic', initial: 36, threshold: 70,
+    id: 'bondCrisis', scope: 'regional', region: 'Aleforge', name: 'Aleforge Bond Crisis', domain: 'economic', initial: 36, threshold: 70,
     inputs: [
       { ref: 'bonds.economic', w: -0.45, note: 'bond-market confidence' },
       { ref: 'aleforgeGov.economic', w: -0.25, note: 'treasury health' },
@@ -1137,15 +1137,14 @@ export const hazards = [
       name: 'Aleforge Misses a Coupon',
       narrative: 'The coupon came due on Mooringday and the treasury, after a thorough search of the castle, the Boner Bar and John Rump\'s coat, could not find it. Roto\'s merchant-philosophers — the largest holders — issue a statement of great philosophical depth that amounts to "pay us." Goldcoral quietly buys distressed Aleforge paper at a tenth of its face. Bonehardy addresses the town and says, of the crisis, nothing at all, which for once is noticed.',
       effects: [
-        { ref: 'bonds.economic', delta: -15 }, { ref: 'rotoCouncil.economic', delta: -7 },
-        { ref: 'aleforgeGov.political', delta: -9 }, { ref: 'goldcoral.economic', delta: 6 },
-        { ref: 'liquorKings.political', delta: -5 },
+        { ref: 'bonds.economic', delta: -15 }, { ref: 'aleforgeGov.economic', delta: -6 },
+        { ref: 'aleforgeGov.political', delta: -9 }, { ref: 'liquorKings.political', delta: -5 },
       ],
       chargeAfter: -1.2,
     },
   },
   {
-    id: 'oweRising', name: 'Owe Block Rising', domain: 'cultural', initial: 50, threshold: 70,
+    id: 'oweRising', scope: 'regional', region: 'Providence', name: 'Owe Block Rising', domain: 'cultural', initial: 50, threshold: 70,
     inputs: [
       { ref: 'oweBlock.political', w: 0.3, note: 'gang strength' },
       { ref: 'patmos.economic', w: 0.2, note: 'tithe extraction' },
@@ -1168,14 +1167,14 @@ export const hazards = [
       effects: [
         { ref: 'patmos.political', delta: -10 }, { ref: 'patmos.religious', delta: -5 },
         { ref: 'oweBlock.political', delta: 12 }, { ref: 'oweBlock.cultural', delta: 6 },
-        { ref: 'veilwalkers.religious', delta: 4 }, { ref: 'unknownism.religious', delta: 6 },
+        { ref: 'unknownism.religious', delta: 6 },
         { ref: 'patmos.economic', delta: -5 },
       ],
       chargeAfter: -1.2,
     },
   },
   {
-    id: 'creditCrunch', name: 'Credit Crunch', domain: 'economic', initial: 24, threshold: 70,
+    id: 'creditCrunch', scope: 'global', name: 'Credit Crunch', domain: 'economic', initial: 24, threshold: 70,
     inputs: [
       { ref: 'banks.economic', w: -0.35, note: 'bank health' },
       { ref: 'insurers.economic', w: -0.25, note: 'underwriters able to pay claims' },
@@ -1203,7 +1202,7 @@ export const hazards = [
     },
   },
   {
-    id: 'cloister', name: 'Cloister Stirring', domain: 'religious', initial: 46, threshold: 74, openThread: true,
+    id: 'cloister', scope: 'global', name: 'Cloister Stirring', domain: 'religious', initial: 46, threshold: 74, openThread: true,
     inputs: [
       { ref: 'faytedruids.religious', w: 0.3, note: 'the Druids\' rites' },
       { ref: 'faytedruids.political', w: 0.15, note: 'their hold on the hall' },
@@ -1225,6 +1224,82 @@ export const hazards = [
         { ref: 'faytedruids.religious', delta: 15 }, { ref: 'faytedruids.political', delta: 12 },
         { ref: 'liquorKings.political', delta: -6 }, { ref: 'shantyTown.economic', delta: -6 },
         { ref: 'patmos.religious', delta: 4 }, { ref: 'veilwalkers.religious', delta: 3 },
+      ],
+      chargeAfter: -1.5,
+    },
+  },
+  {
+    id: 'ashenOath', scope: 'regional', region: 'Shanty Town', name: 'Ashen Oath Purge', domain: 'cultural', initial: 30, threshold: 70,
+    inputs: [
+      { ref: 'mama.cultural', w: 0.25, note: 'the prohibitionist current emboldening the Oath' },
+      { ref: 'shantyTown.cultural', w: -0.3, note: 'a proud pirate ethos' },
+      { ref: 'shantyTown.political', w: -0.2, note: 'a strong Windsunk Council' },
+      { ref: 'rotoCouncil.economic', w: 0.1, note: 'crews leaving for Roto' },
+      { ref: 'faytedruids.religious', w: 0.1, note: 'fire-and-order fervour near the Cloister' },
+    ],
+    seasonMods: { Veilfrost: 0.4 },
+    explanation: {
+      suppressedBy: 'A proud, grog-soaked pirate culture and a Windsunk Council strong enough to toss fanatics off the cliffs.',
+      erodedBy: 'Anything that spreads the idea that grog has tainted the world, and anything that thins the crews who would stand against it.',
+      ifCrossed: 'The Ashen Oath stops abducting one person a year and starts burning the Shoals.',
+    },
+    omens: ['A second charred effigy was found on the cliffs this Keg, and it is not the Night of the False Sun.', 'Someone has been pouring grog into the sea at the Tavern steps.'],
+    event: {
+      name: 'The Ashen Oath Burns the Shoals',
+      narrative: 'The Night of the False Sun came early and stayed. The Ashen Oath set the grog stores along La-Di-Da Street alight, tried to burn the beast bones, and left the Windsunk Council arguing over whether this counts as a raid. Half the captains sailed out rather than choose a side.',
+      effects: [
+        { ref: 'shantyTown.cultural', delta: -12 }, { ref: 'shantyTown.political', delta: -9 }, { ref: 'shantyTown.economic', delta: -7 },
+      ],
+      chargeAfter: -1.5,
+    },
+  },
+  {
+    id: 'rotoSuccession', scope: 'regional', region: 'Roto Kaiishi', name: 'Roto Succession Crisis', domain: 'political', initial: 24, threshold: 70,
+    inputs: [
+      { ref: 'rotoCouncil.cultural', w: -0.35, note: 'Xi\'s principles still taught' },
+      { ref: 'rotoCouncil.political', w: -0.2, note: 'a steady council' },
+      { ref: 'goldcoral.political', w: 0.2, note: 'a big player wanting to pick the heir' },
+      { ref: 'goldcoral.economic', w: 0.1, note: 'market domination' },
+      { ref: 'rotoBlackMarket.economic', w: 0.1, note: 'money that prefers a weak heir' },
+    ],
+    seasonMods: {},
+    explanation: {
+      suppressedBy: 'Xi\'s personally trained chain of heirs and the culture of principles around it.',
+      erodedBy: 'The biggest players wanting a say in the next heir, exactly what Xi built the system to prevent.',
+      ifCrossed: '"One poorly chosen candidate could be the end of Roto." A poorly chosen candidate is chosen.',
+    },
+    omens: ['Two merchant houses are each training a "true" disciple of Xi.', 'A Goldcoral ship has been moored at the council stilts for three Kegs.'],
+    event: {
+      name: 'A Poorly Chosen Heir',
+      narrative: 'The heir took the council seat with Goldcoral\'s blessing and three new laws in his first week, none with any clear economic benefit. The old taboos stop holding; the night market opens at noon.',
+      effects: [
+        { ref: 'rotoCouncil.political', delta: -14 }, { ref: 'rotoCouncil.cultural', delta: -10 },
+        { ref: 'rotoBlackMarket.economic', delta: 10 }, { ref: 'goldcoral.economic', delta: 6 }, { ref: 'insurers.economic', delta: -5 },
+      ],
+      chargeAfter: -1.5,
+    },
+  },
+  {
+    id: 'veilWithdraws', scope: 'regional', region: 'Fenwick', name: 'The Veil Withdraws', domain: 'racial', initial: 24, threshold: 72,
+    inputs: [
+      { ref: 'veilwalkers.cultural', w: -0.25, note: 'vows still traded and kept' },
+      { ref: 'veilwalkers.religious', w: -0.15, note: 'the Veil\'s faith' },
+      { ref: 'fleshborn.racial', w: 0.2, note: 'flesh-born encroachment' },
+      { ref: 'veilwalkers.political', w: 0.2, note: 'a roused Fenwick' },
+      { ref: 'goldcoral.economic', w: 0.1, note: 'plunder of spirit-marked land' },
+    ],
+    seasonMods: { Veilfrost: 0.3 },
+    explanation: {
+      suppressedBy: 'Promises kept to the Veil, and islanders who "give due respect to the earth."',
+      erodedBy: 'Taking too much from the earth, and a flesh-born majority that stops leaving offerings at the treeline.',
+      ifCrossed: 'The Veil stops trading vows and stops tending the soil. No curse, just absence, which is worse.',
+    },
+    omens: ['The fishing lures from Fenwick have stopped arriving.', 'A pirate who left an offering at the treeline found it there untouched a week later.'],
+    event: {
+      name: 'The Veil Withdraws',
+      narrative: 'Fenwick did not curse anyone. The Walkers simply stopped trading vows, stopped guiding travellers, and stopped tending the fields at the forest edge. By the end of the season nobody could find the village at all.',
+      effects: [
+        { ref: 'veilwalkers.cultural', delta: -14 }, { ref: 'veilwalkers.racial', delta: -6 }, { ref: 'veilwalkers.political', delta: 10 },
       ],
       chargeAfter: -1.5,
     },
@@ -1367,8 +1442,8 @@ export const narration = {
 
 export const meta = {
   title: 'The Pintland Isles — Dynamics Simulator',
-  version: 4,
-  changes: '40 new political and cultural links; MAMA, Owe Block and the Cloister now simmer instead of sleeping',
+  version: 5,
+  changes: 'global and regional hazards, three new town crises (Shanty Town, Roto, Fenwick), and regions for every group',
   calendar: { startYear: 466, startCycle: 94, seasons: ['Stormtide', 'Goldsun', 'Veilfrost'], yearsPerCycle: 5 },
   statNouns: { political: 'political reach', economic: 'economic strength', cultural: 'cultural influence', religious: 'religious authority', racial: 'lineage standing' },
   engine: { rippleDepth: 4, minEffect: 0.2, meanReversion: 0.03, noise: 0.7, hazardCooldown: 4 },
@@ -1390,3 +1465,13 @@ const SHORT = {
   monopolyCharters: ['monopoly charters', 'MON'], subsidies: ['Aleforge subsidies', 'SUB'], conceptRewards: ['the Kings\' performance rewards', 'RWD'],
 };
 for (const grp of groups) { const [s, c] = SHORT[grp.id]; grp.short = s; grp.code = c; }
+
+// Region for the region lens and for keeping regional crises local. No region = Isles-wide.
+const REGION = {
+  Aleforge: ['liquorKings', 'aleforgeGov', 'aleforgeBrewing', 'bonds', 'cumstead', 'drunkenTrials', 'mama', 'lineOfJohns', 'aleforgeTaxes', 'aleforgeTariffs', 'subsidies', 'conceptRewards'],
+  Providence: ['patmos', 'oweBlock', 'unknownism', 'titheRate'],
+  'Shanty Town': ['shantyTown'],
+  'Roto Kaiishi': ['rotoCouncil', 'rotoBlackMarket', 'goldcoral', 'insurers'],
+  Fenwick: ['veilwalkers'],
+};
+for (const [region, ids] of Object.entries(REGION)) for (const id of ids) groups.find(g => g.id === id).region = region;

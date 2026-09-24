@@ -12,17 +12,17 @@ to keep a copy anywhere else.
 
 ## What's in it
 
-One screen: **the Web** (a map of every group, lever and hazard) and a **forecast panel** beside it. Everything else sits in the **⋯** menu, and **?** shows or hides the explanations.
+One screen: a **dock** on the left, **the Web** in the middle, and a **forecast panel** on the right that you can hide with **Forecast** or **»**. Everything else sits in the **⋯** menu, and **?** shows or hides the explanations.
 
 - **Status strip** above the map: the state of the Isles, the likeliest crisis, and the biggest risers and fallers over the horizon.
-- **The map.** Node size is current power, and fill tint is where it's heading (green up, red down). Links show faintly, stronger ones darker. Hover a node for its links and a preview chart of its likely path; click it for its sliders and every link. A node's name shows when it's relevant. Drag the **season slider**, or press ▶, to watch the forecast play out on the map.
-- **Forecast panel** (40 simulated futures over 3–12 seasons):
-  - **Your change**: one bar chart of everything your last change moves by the horizon, with the effect today as a dark inner bar. ✦ marks hidden links (no direct connection). Click a bar for its route, drawn as linked pills.
-  - **Crisis odds**: eight dials, where the arc is the chance of breaking and the tick is the chance before your change. Click a dial for what the break would do and which crises it sets off next.
-  - **What if…**: add canon open-thread events to the forecast.
-  - **Heading, left alone**: the biggest expected moves.
-- **Why?** Every in-world explanation, precedent and lore note sits behind a *why?* marker. Sizes are shown as pips (▲▮▮); exact numbers are on hover.
-- **⋯ menu**: Projection (long runs, narration, branching), Chronicle (canon record, open threads, your change log), World Data (JSON editor, import and export).
+- **The map.** Node size is current power, and fill tint is where it's heading. After a change, a **dashed outline shows each node's size before it**, so before and after sit on the map together. A **Region** lens (Aleforge, Providence, Shanty Town, Roto Kaiishi, Fenwick, Isles-wide) highlights one town, its crises, and everything linked into it. The season slider and ▶ play the forecast out. Hover a node for its likely path.
+- **The dock.** Click a node to get its sliders beside the map, plus a quick list of the 3 biggest things **growing** it and the 3 biggest **shrinking** it over the horizon (click a stat's name to switch stats). Crises show what raises and lowers their odds, and what breaking would do. With nothing selected, the dock holds the tools:
+  - **Weak points**: the stats where a ±10 nudge travels furthest (marked ⚡ on the map).
+  - **Find the lever**: pick an outcome; every slider (±15) and every What-if is tried and ranked.
+  - **Scenarios**: save the present under a name, load it later, or compare the present against it.
+- **Forecast panel** (40 simulated futures over 3–12 seasons): *Your change* bar chart with click-through routes; *Crisis odds* as dials, split into **global** crises (far-reaching) and **regional** crises (one town; their direct effects stay inside it, and only the web's links carry them further); *What if…*; *Heading, left alone*.
+- **Why?** markers hold every in-world explanation. Sizes are pips (▲▮▮); exact numbers are on hover.
+- **⋯ menu**: Projection, Chronicle (canon record, open threads, change log), World Data.
 
 **Turn unit:** one turn is one season of the Pintland Calendar: **Stormtide**,
 **Goldsun** and **Veilfrost**, three per year. The simulation starts at Cycle 94,
@@ -72,7 +72,7 @@ Every relationship carries an `explanation` and a `precedent`, plus a `canon` fl
 - `rumour`: e.g. the ClockHeart Tonic soul-binding
 - `open-thread`: e.g. the Fayte Druids; deliberately speculative
 
-The seed's 31 groups (including 6 policy levers), 196 relationships, 8 hazards,
+The seed's 31 groups (including 6 policy levers), 196 relationships, 11 hazards (4 global, 7 regional),
 15 canon events and 20 injectable events are all editable in the app.
 
 When the canon seed's `meta.version` goes up, a browser holding an older saved world

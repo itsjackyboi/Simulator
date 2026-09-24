@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "The Pintland Isles — Dynamics Simulator",
-    "version": 4,
-    "changes": "40 new political and cultural links; MAMA, Owe Block and the Cloister now simmer instead of sleeping",
+    "version": 5,
+    "changes": "global and regional hazards, three new town crises (Shanty Town, Roto, Fenwick), and regions for every group",
     "calendar": {
       "startYear": 466,
       "startCycle": 94,
@@ -52,7 +52,8 @@
         "cultural": "The Liquor Kings (Celebrity & Legend)"
       },
       "short": "the Liquor Kings",
-      "code": "KING"
+      "code": "KING",
+      "region": "Aleforge"
     },
     {
       "id": "aleforgeGov",
@@ -71,7 +72,8 @@
         "economic": "Aleforge Treasury"
       },
       "short": "the Bonehardy administration",
-      "code": "ALE"
+      "code": "ALE",
+      "region": "Aleforge"
     },
     {
       "id": "patmos",
@@ -98,7 +100,8 @@
         "religious": "Church of Patmos"
       },
       "short": "the Church of Patmos",
-      "code": "PAT"
+      "code": "PAT",
+      "region": "Providence"
     },
     {
       "id": "rotoCouncil",
@@ -118,7 +121,8 @@
         "economic": "Roto Free-Market Hub"
       },
       "short": "Roto",
-      "code": "ROTO"
+      "code": "ROTO",
+      "region": "Roto Kaiishi"
     },
     {
       "id": "shantyTown",
@@ -138,7 +142,8 @@
         "cultural": "Pirate-Freedom Ethos"
       },
       "short": "Shanty Town",
-      "code": "SHN"
+      "code": "SHN",
+      "region": "Shanty Town"
     },
     {
       "id": "mama",
@@ -161,7 +166,8 @@
         "religious": "Prohibitionist Moral Current (MAA/MAMA)"
       },
       "short": "MAMA",
-      "code": "MAMA"
+      "code": "MAMA",
+      "region": "Aleforge"
     },
     {
       "id": "gideon",
@@ -191,7 +197,8 @@
       "description": "The Gilded Tankard's magic spring, Brewers Lane and Trials tourism — Aleforge is a single-export state and knows it. The Tankard's entire stockpile currently sits under Goldcoral control, sold in secret at Jack's Grog Galley.",
       "loreSource": "Compendium VI (The Gilded Tankard); II (Aleforge)",
       "short": "Aleforge brewing",
-      "code": "BRW"
+      "code": "BRW",
+      "region": "Aleforge"
     },
     {
       "id": "goldcoral",
@@ -207,7 +214,8 @@
       "description": "\"Aggressive mercantilism.\" Headquartered in Providence, but every real book is kept in Roto, where nobody asks. Privately owned by Jack Anqoak; seized the Gilded Tankard's stockpile after Wepple gambled the investment away.",
       "loreSource": "Compendium VI (Goldcoral Incorporated)",
       "short": "Goldcoral Inc.",
-      "code": "GLD"
+      "code": "GLD",
+      "region": "Roto Kaiishi"
     },
     {
       "id": "ducket",
@@ -277,7 +285,8 @@
       "description": "Insurance began as a few people gambling on whether or not ships would return from voyages. \"As unsexy as insurance is, gambling is smoking hot.\" Every Stormtide is claims season; every pirate raid is a payout.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Banks and Insurance)",
       "short": "the voyage insurers",
-      "code": "INS"
+      "code": "INS",
+      "region": "Roto Kaiishi"
     },
     {
       "id": "rotoBlackMarket",
@@ -291,7 +300,8 @@
       "description": "Where the posted exchange rates stop meaning anything. \"A strong black market for currencies would be fun, obviously based in Roto\" — and it fits Roto's taboo system exactly: not illegal, just sold after dark. Insider trading and arbitrage are features, not bugs.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Player Economy; Taxes and Treasuries); Compendium II (Roto Kaiishi)",
       "short": "the Roto black market",
-      "code": "BLK"
+      "code": "BLK",
+      "region": "Roto Kaiishi"
     },
     {
       "id": "bonds",
@@ -305,7 +315,8 @@
       "description": "Instituted by Drake at low rates, expanded by the Kings during the Stewards crisis \"at increasingly unfavorable interest rates.\" Roto traders are the big holders. Stat = market confidence; low values mean the debt is winning.",
       "loreSource": "Compendium VI (The Aleforge Bond Market)",
       "short": "the Aleforge bond market",
-      "code": "BND"
+      "code": "BND",
+      "region": "Aleforge"
     },
     {
       "id": "cumstead",
@@ -319,7 +330,8 @@
       "description": "Aleforge's key grain source. Its plenty was the Veilwalker blessing on John Cum; Cum is dead (by Drake's hand), the fields saw blight and green Factory sludge, and John Rump — addict, embezzler — now holds it without the blessing.",
       "loreSource": "Compendium II (John Cum's Cumstead); Concept V",
       "short": "the Cumstead",
-      "code": "CUM"
+      "code": "CUM",
+      "region": "Aleforge"
     },
     {
       "id": "sbn",
@@ -350,7 +362,8 @@
       "description": "The Isles' most important cultural event: magic ale from the Tankard's spring that never hangs you over but does strange things at volume. Crowns the Liquor Kings. Tourism engine, prestige engine, and — since the MAA raided the first one — a standing target.",
       "loreSource": "Compendium VI (The Drunken Trials); Concept I",
       "short": "the Drunken Trials",
-      "code": "TRL"
+      "code": "TRL",
+      "region": "Aleforge"
     },
     {
       "id": "oweBlock",
@@ -371,7 +384,8 @@
         "economic": "Owe Block Informal Economy"
       },
       "short": "Owe Block",
-      "code": "OWE"
+      "code": "OWE",
+      "region": "Providence"
     },
     {
       "id": "veilwalkers",
@@ -396,7 +410,8 @@
         "racial": "Veilwalkers (Earth-born)"
       },
       "short": "the Veilwalkers",
-      "code": "VEIL"
+      "code": "VEIL",
+      "region": "Fenwick"
     },
     {
       "id": "unknownism",
@@ -411,7 +426,8 @@
       "description": "The missionary strand of the unknown-gods faith that walked out of Owe Block with Baba Paku, \"explaining to anyone who will listen the secrets of Providence's main religion.\" Wants its first Owe Block Saint. Funds itself with arms dealing.",
       "loreSource": "Compendium III (Baba Paku)",
       "short": "Unknownism",
-      "code": "UNK"
+      "code": "UNK",
+      "region": "Providence"
     },
     {
       "id": "faytedruids",
@@ -460,7 +476,8 @@
         "political": "Line of Johns (Rump's Treasury Grip)"
       },
       "short": "the Line of Johns",
-      "code": "JOHN"
+      "code": "JOHN",
+      "region": "Aleforge"
     },
     {
       "id": "aleforgeTaxes",
@@ -475,7 +492,8 @@
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Taxes and Treasuries); Compendium III (Drake's policies)",
       "lever": true,
       "short": "the Aleforge tax take",
-      "code": "TAX"
+      "code": "TAX",
+      "region": "Aleforge"
     },
     {
       "id": "aleforgeTariffs",
@@ -490,7 +508,8 @@
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy); Compendium II (Providence Foreign Relations)",
       "lever": true,
       "short": "Aleforge tariffs",
-      "code": "TRF"
+      "code": "TRF",
+      "region": "Aleforge"
     },
     {
       "id": "titheRate",
@@ -505,7 +524,8 @@
       "loreSource": "Compendium VI (The Church of Patmos); Concept IV",
       "lever": true,
       "short": "the tithe rate",
-      "code": "TTH"
+      "code": "TTH",
+      "region": "Providence"
     },
     {
       "id": "monopolyCharters",
@@ -535,7 +555,8 @@
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy); Concept V",
       "lever": true,
       "short": "Aleforge subsidies",
-      "code": "SUB"
+      "code": "SUB",
+      "region": "Aleforge"
     },
     {
       "id": "conceptRewards",
@@ -550,7 +571,8 @@
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Concept Economy)",
       "lever": true,
       "short": "the Kings' performance rewards",
-      "code": "RWD"
+      "code": "RWD",
+      "region": "Aleforge"
     }
   ],
   "relationships": [
@@ -3938,6 +3960,7 @@
   "hazards": [
     {
       "id": "veilrunner",
+      "scope": "global",
       "name": "VeilRunner Corruption Risk",
       "domain": "racial",
       "initial": 22,
@@ -4036,6 +4059,7 @@
     },
     {
       "id": "inflation",
+      "scope": "global",
       "name": "Ducket Inflation Risk",
       "domain": "economic",
       "initial": 20,
@@ -4143,6 +4167,8 @@
     },
     {
       "id": "mamaRad",
+      "scope": "regional",
+      "region": "Aleforge",
       "name": "MAMA Radicalization",
       "domain": "political",
       "initial": 52,
@@ -4237,6 +4263,8 @@
     },
     {
       "id": "harvest",
+      "scope": "regional",
+      "region": "Aleforge",
       "name": "Cumstead Collapse",
       "domain": "economic",
       "initial": 34,
@@ -4299,19 +4327,15 @@
             "delta": -10
           },
           {
-            "ref": "ducket.economic",
-            "delta": -4
-          },
-          {
-            "ref": "patmos.economic",
-            "delta": 6
-          },
-          {
             "ref": "drunkenTrials.cultural",
             "delta": -5
           },
           {
             "ref": "lineOfJohns.political",
+            "delta": -8
+          },
+          {
+            "ref": "lineOfJohns.economic",
             "delta": -8
           }
         ],
@@ -4321,6 +4345,8 @@
     },
     {
       "id": "bondCrisis",
+      "scope": "regional",
+      "region": "Aleforge",
       "name": "Aleforge Bond Crisis",
       "domain": "economic",
       "initial": 36,
@@ -4377,16 +4403,12 @@
             "delta": -15
           },
           {
-            "ref": "rotoCouncil.economic",
-            "delta": -7
+            "ref": "aleforgeGov.economic",
+            "delta": -6
           },
           {
             "ref": "aleforgeGov.political",
             "delta": -9
-          },
-          {
-            "ref": "goldcoral.economic",
-            "delta": 6
           },
           {
             "ref": "liquorKings.political",
@@ -4399,6 +4421,8 @@
     },
     {
       "id": "oweRising",
+      "scope": "regional",
+      "region": "Providence",
       "name": "Owe Block Rising",
       "domain": "cultural",
       "initial": 50,
@@ -4472,10 +4496,6 @@
             "delta": 6
           },
           {
-            "ref": "veilwalkers.religious",
-            "delta": 4
-          },
-          {
             "ref": "unknownism.religious",
             "delta": 6
           },
@@ -4490,6 +4510,7 @@
     },
     {
       "id": "creditCrunch",
+      "scope": "global",
       "name": "Credit Crunch",
       "domain": "economic",
       "initial": 24,
@@ -4574,6 +4595,7 @@
     },
     {
       "id": "cloister",
+      "scope": "global",
       "name": "Cloister Stirring",
       "domain": "religious",
       "initial": 46,
@@ -4651,6 +4673,216 @@
         "chargeAfter": -1.5
       },
       "base": 1.3
+    },
+    {
+      "id": "ashenOath",
+      "scope": "regional",
+      "region": "Shanty Town",
+      "name": "Ashen Oath Purge",
+      "domain": "cultural",
+      "initial": 30,
+      "threshold": 70,
+      "inputs": [
+        {
+          "ref": "mama.cultural",
+          "w": 0.25,
+          "note": "the prohibitionist current emboldening the Oath"
+        },
+        {
+          "ref": "shantyTown.cultural",
+          "w": -0.3,
+          "note": "a proud pirate ethos"
+        },
+        {
+          "ref": "shantyTown.political",
+          "w": -0.2,
+          "note": "a strong Windsunk Council"
+        },
+        {
+          "ref": "rotoCouncil.economic",
+          "w": 0.1,
+          "note": "crews leaving for Roto"
+        },
+        {
+          "ref": "faytedruids.religious",
+          "w": 0.1,
+          "note": "fire-and-order fervour near the Cloister"
+        }
+      ],
+      "seasonMods": {
+        "Veilfrost": 0.4
+      },
+      "explanation": {
+        "suppressedBy": "A proud, grog-soaked pirate culture and a Windsunk Council strong enough to toss fanatics off the cliffs.",
+        "erodedBy": "Anything that spreads the idea that grog has tainted the world, and anything that thins the crews who would stand against it.",
+        "ifCrossed": "The Ashen Oath stops abducting one person a year and starts burning the Shoals."
+      },
+      "omens": [
+        "A second charred effigy was found on the cliffs this Keg, and it is not the Night of the False Sun.",
+        "Someone has been pouring grog into the sea at the Tavern steps."
+      ],
+      "event": {
+        "name": "The Ashen Oath Burns the Shoals",
+        "narrative": "The Night of the False Sun came early and stayed. The Ashen Oath set the grog stores along La-Di-Da Street alight, tried to burn the beast bones, and left the Windsunk Council arguing over whether this counts as a raid. Half the captains sailed out rather than choose a side.",
+        "effects": [
+          {
+            "ref": "shantyTown.cultural",
+            "delta": -12
+          },
+          {
+            "ref": "shantyTown.political",
+            "delta": -9
+          },
+          {
+            "ref": "shantyTown.economic",
+            "delta": -7
+          }
+        ],
+        "chargeAfter": -1.5
+      },
+      "base": -0.077
+    },
+    {
+      "id": "rotoSuccession",
+      "scope": "regional",
+      "region": "Roto Kaiishi",
+      "name": "Roto Succession Crisis",
+      "domain": "political",
+      "initial": 24,
+      "threshold": 70,
+      "inputs": [
+        {
+          "ref": "rotoCouncil.cultural",
+          "w": -0.35,
+          "note": "Xi's principles still taught"
+        },
+        {
+          "ref": "rotoCouncil.political",
+          "w": -0.2,
+          "note": "a steady council"
+        },
+        {
+          "ref": "goldcoral.political",
+          "w": 0.2,
+          "note": "a big player wanting to pick the heir"
+        },
+        {
+          "ref": "goldcoral.economic",
+          "w": 0.1,
+          "note": "market domination"
+        },
+        {
+          "ref": "rotoBlackMarket.economic",
+          "w": 0.1,
+          "note": "money that prefers a weak heir"
+        }
+      ],
+      "seasonMods": {},
+      "explanation": {
+        "suppressedBy": "Xi's personally trained chain of heirs and the culture of principles around it.",
+        "erodedBy": "The biggest players wanting a say in the next heir, exactly what Xi built the system to prevent.",
+        "ifCrossed": "\"One poorly chosen candidate could be the end of Roto.\" A poorly chosen candidate is chosen."
+      },
+      "omens": [
+        "Two merchant houses are each training a \"true\" disciple of Xi.",
+        "A Goldcoral ship has been moored at the council stilts for three Kegs."
+      ],
+      "event": {
+        "name": "A Poorly Chosen Heir",
+        "narrative": "The heir took the council seat with Goldcoral's blessing and three new laws in his first week, none with any clear economic benefit. The old taboos stop holding; the night market opens at noon.",
+        "effects": [
+          {
+            "ref": "rotoCouncil.political",
+            "delta": -14
+          },
+          {
+            "ref": "rotoCouncil.cultural",
+            "delta": -10
+          },
+          {
+            "ref": "rotoBlackMarket.economic",
+            "delta": 10
+          },
+          {
+            "ref": "goldcoral.economic",
+            "delta": 6
+          },
+          {
+            "ref": "insurers.economic",
+            "delta": -5
+          }
+        ],
+        "chargeAfter": -1.5
+      },
+      "base": -0.833
+    },
+    {
+      "id": "veilWithdraws",
+      "scope": "regional",
+      "region": "Fenwick",
+      "name": "The Veil Withdraws",
+      "domain": "racial",
+      "initial": 24,
+      "threshold": 72,
+      "inputs": [
+        {
+          "ref": "veilwalkers.cultural",
+          "w": -0.25,
+          "note": "vows still traded and kept"
+        },
+        {
+          "ref": "veilwalkers.religious",
+          "w": -0.15,
+          "note": "the Veil's faith"
+        },
+        {
+          "ref": "fleshborn.racial",
+          "w": 0.2,
+          "note": "flesh-born encroachment"
+        },
+        {
+          "ref": "veilwalkers.political",
+          "w": 0.2,
+          "note": "a roused Fenwick"
+        },
+        {
+          "ref": "goldcoral.economic",
+          "w": 0.1,
+          "note": "plunder of spirit-marked land"
+        }
+      ],
+      "seasonMods": {
+        "Veilfrost": 0.3
+      },
+      "explanation": {
+        "suppressedBy": "Promises kept to the Veil, and islanders who \"give due respect to the earth.\"",
+        "erodedBy": "Taking too much from the earth, and a flesh-born majority that stops leaving offerings at the treeline.",
+        "ifCrossed": "The Veil stops trading vows and stops tending the soil. No curse, just absence, which is worse."
+      },
+      "omens": [
+        "The fishing lures from Fenwick have stopped arriving.",
+        "A pirate who left an offering at the treeline found it there untouched a week later."
+      ],
+      "event": {
+        "name": "The Veil Withdraws",
+        "narrative": "Fenwick did not curse anyone. The Walkers simply stopped trading vows, stopped guiding travellers, and stopped tending the fields at the forest edge. By the end of the season nobody could find the village at all.",
+        "effects": [
+          {
+            "ref": "veilwalkers.cultural",
+            "delta": -14
+          },
+          {
+            "ref": "veilwalkers.racial",
+            "delta": -6
+          },
+          {
+            "ref": "veilwalkers.political",
+            "delta": 10
+          }
+        ],
+        "chargeAfter": -1.5
+      },
+      "base": -1.303
     }
   ],
   "injectables": [
