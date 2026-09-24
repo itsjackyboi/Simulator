@@ -1000,7 +1000,7 @@ export const relationships = [
 // `base` is computed by build.mjs so the seed value lands on `initial`.
 export const hazards = [
   {
-    id: 'veilrunner', scope: 'global', name: 'VeilRunner Corruption Risk', domain: 'racial', initial: 22, threshold: 72,
+    id: 'veilrunner', scope: 'global', name: 'VeilRunner Corruption Risk', domain: 'racial', initial: 36, threshold: 72,
     inputs: [
       { ref: 'veilwalkers.religious', w: -0.35, note: 'the Elders\' custom and the Vow of Mate holding' },
       { ref: 'veilwalkers.racial', w: -0.2, note: 'earth-born standing intact' },
@@ -1031,7 +1031,7 @@ export const hazards = [
     },
   },
   {
-    id: 'mamaRad', scope: 'regional', region: 'Aleforge', name: 'MAMA Radicalization', domain: 'political', initial: 52, threshold: 68,
+    id: 'mamaRad', scope: 'regional', region: 'Aleforge', name: 'MAMA Radicalization', domain: 'political', initial: 51, threshold: 68,
     inputs: [
       { ref: 'mama.cultural', w: 0.35, note: 'the prohibitionist ideology\'s reach' },
       { ref: 'liquorKings.political', w: 0.2, note: 'Kingly overreach (every massacre makes a mourner)' },
@@ -1061,7 +1061,7 @@ export const hazards = [
     },
   },
   {
-    id: 'harvest', scope: 'regional', region: 'Aleforge', name: 'Cumstead Collapse', domain: 'economic', initial: 34, threshold: 72,
+    id: 'harvest', scope: 'global', name: 'Cumstead Collapse', domain: 'economic', initial: 45, threshold: 72,
     inputs: [
       { ref: 'cumstead.economic', w: -0.45, note: 'the Cumstead\'s current yield' },
       { ref: 'lineOfJohns.racial', w: -0.2, note: 'the blood the blessing follows' },
@@ -1074,7 +1074,7 @@ export const hazards = [
     explanation: {
       suppressedBy: 'Whatever yield the unblessed Cumstead can still manage, subsidy money, and the Veil\'s residual goodwill toward the Line of Johns.',
       erodedBy: 'John Rump\'s neglect, contempt for the halfbreed line, and the green Factory sludge nobody has cleaned out of Cum\'s fields.',
-      ifCrossed: 'The Cumstead fails outright, not a poor year but a dead one, and Aleforge learns how much of its economy was a Veilwalker blessing on one sad man.',
+      ifCrossed: 'The Cumstead fails outright, not a poor year but a dead one, and Aleforge learns how much of its economy was a Veilwalker blessing on one sad man. Every town pays for it: emergency grain from Providence, dearer bread in every shop.',
     },
     omens: ['Farmhands say the green sludge has come back along the north furrows.', 'John Rump has sold two ploughs. Nobody knows to whom.', 'The scarecrow at the Cumstead has been found facing the house.'],
     event: {
@@ -1083,13 +1083,14 @@ export const hazards = [
       effects: [
         { ref: 'cumstead.economic', delta: -18 }, { ref: 'aleforgeBrewing.economic', delta: -10 },
         { ref: 'drunkenTrials.cultural', delta: -5 }, { ref: 'lineOfJohns.political', delta: -8 },
-        { ref: 'lineOfJohns.economic', delta: -8 },
+        { ref: 'lineOfJohns.economic', delta: -8 }, { ref: 'playerEconomy.economic', delta: -5 },
+        { ref: 'patmos.economic', delta: 4 }, { ref: 'ducket.economic', delta: -3 },
       ],
       chargeAfter: -1.2,
     },
   },
   {
-    id: 'bondCrisis', scope: 'regional', region: 'Aleforge', name: 'Aleforge Bond Crisis', domain: 'economic', initial: 36, threshold: 70,
+    id: 'bondCrisis', scope: 'global', name: 'Aleforge Bond Crisis', domain: 'economic', initial: 46, threshold: 70,
     inputs: [
       { ref: 'bonds.economic', w: -0.45, note: 'bond-market confidence' },
       { ref: 'aleforgeGov.economic', w: -0.25, note: 'treasury health' },
@@ -1102,7 +1103,7 @@ export const hazards = [
     explanation: {
       suppressedBy: 'Roto\'s continued willingness to hold Aleforge paper, and a treasury that can still make its coupons.',
       erodedBy: 'Stewards-era debt at "increasingly unfavorable" rates, an embezzling treasurer, and a mayor whose signature achievement is inaction.',
-      ifCrossed: 'Aleforge misses a coupon. Roto, holding the paper, stops being a partner and starts being a creditor.',
+      ifCrossed: 'Aleforge misses a coupon. Roto, holding the paper, stops being a partner and starts being a creditor, and every bank holding Aleforge paper takes the loss with it.',
     },
     omens: ['Roto brokers are quoting Aleforge bonds by the barrel rather than the Ducket.', 'The treasury ledger has three pages glued together.', 'Mr. BBL\'s posture has become noticeably tense.'],
     event: {
@@ -1111,12 +1112,13 @@ export const hazards = [
       effects: [
         { ref: 'bonds.economic', delta: -15 }, { ref: 'aleforgeGov.economic', delta: -6 },
         { ref: 'aleforgeGov.political', delta: -9 }, { ref: 'liquorKings.political', delta: -5 },
+        { ref: 'rotoCouncil.economic', delta: -5 }, { ref: 'banks.economic', delta: -6 }, { ref: 'goldcoral.economic', delta: 4 },
       ],
       chargeAfter: -1.2,
     },
   },
   {
-    id: 'oweRising', scope: 'regional', region: 'Providence', name: 'Owe Block Rising', domain: 'cultural', initial: 50, threshold: 70,
+    id: 'oweRising', scope: 'regional', region: 'Providence', name: 'Owe Block Rising', domain: 'cultural', initial: 48, threshold: 70,
     inputs: [
       { ref: 'oweBlock.political', w: 0.3, note: 'gang strength' },
       { ref: 'patmos.economic', w: 0.2, note: 'tithe extraction' },
@@ -1146,7 +1148,7 @@ export const hazards = [
     },
   },
   {
-    id: 'creditCrunch', scope: 'global', name: 'Credit Crunch', domain: 'economic', initial: 24, threshold: 70,
+    id: 'creditCrunch', scope: 'global', name: 'Credit Crunch', domain: 'economic', initial: 39, threshold: 70,
     inputs: [
       { ref: 'banks.economic', w: -0.35, note: 'bank health' },
       { ref: 'insurers.economic', w: -0.25, note: 'underwriters able to pay claims' },
@@ -1174,7 +1176,7 @@ export const hazards = [
     },
   },
   {
-    id: 'ashenOath', scope: 'regional', region: 'Shanty Town', name: 'Ashen Oath Purge', domain: 'cultural', initial: 30, threshold: 70,
+    id: 'ashenOath', scope: 'regional', region: 'Shanty Town', name: 'Ashen Oath Purge', domain: 'cultural', initial: 42, threshold: 70,
     inputs: [
       { ref: 'mama.cultural', w: 0.25, note: 'the prohibitionist current emboldening the Oath' },
       { ref: 'shantyTown.cultural', w: -0.3, note: 'a proud pirate ethos' },
@@ -1199,7 +1201,7 @@ export const hazards = [
     },
   },
   {
-    id: 'rotoSuccession', scope: 'regional', region: 'Roto Kaiishi', name: 'Roto Succession Crisis', domain: 'political', initial: 24, threshold: 70,
+    id: 'rotoSuccession', scope: 'regional', region: 'Roto Kaiishi', name: 'Roto Succession Crisis', domain: 'political', initial: 47, threshold: 70,
     inputs: [
       { ref: 'rotoCouncil.cultural', w: -0.35, note: 'Xi\'s principles still taught' },
       { ref: 'rotoCouncil.political', w: -0.2, note: 'a steady council' },
@@ -1362,11 +1364,11 @@ export const narration = {
 
 export const meta = {
   title: 'The Pintland Isles — Dynamics Simulator',
-  version: 7,
-  changes: 'retired four crises that are not current risks (Ducket Inflation, Cloister Stirring, The Veil Withdraws, Nethergate Breach) and the vanished monk order',
+  version: 8,
+  changes: 'your influence ranking: link strengths follow each item\'s tier and rank, Past / Now / Future sets each item\'s drift, the Bond Crisis and Cumstead Collapse are global, and the Warden heresy is gone',
   calendar: { startYear: 466, startCycle: 94, seasons: ['Stormtide', 'Goldsun', 'Veilfrost'], yearsPerCycle: 5 },
   statNouns: { political: 'political reach', economic: 'economic strength', cultural: 'cultural influence', religious: 'religious authority', racial: 'lineage standing' },
-  engine: { rippleDepth: 4, minEffect: 0.2, meanReversion: 0.03, noise: 0.7, hazardCooldown: 4 },
+  engine: { rippleDepth: 4, minEffect: 0.2, meanReversion: 0.03, noise: 0.7, hazardCooldown: 4, chargeRate: 150, fireMax: 0.45, fireSlope: 4, fireWindow: 15 },
   sources: ['THE PINTLAND ISLES — MASTER LORE COMPENDIUM', 'HOEGAARDEN HALL OF RECORDS', 'A Macroeconomic Analysis of the Pintland Isles (Concept Economy)'],
 };
 
@@ -1462,11 +1464,6 @@ groups.push(
     { religious: 30, political: 20 },
     'Hidden fanatics who believe the sea, pirates and grog have tainted the world. They keep the Night of the False Sun, abduct one "tainted" soul each Veilfrost, and want to purge the Shoals and burn the beast bones. "Most dangerous when ignored."',
     'Compendium II (Shanty Town\'s Political Factions); VI (Holidays: Night of the False Sun)'),
-  g('wardenCult', 'The Warden Heresy', ['religious'],
-    { religious: 10 },
-    'OPEN THREAD. Fentmaxxer\'s demonic altar under the Observatory well, dedicated to the Warden, the great beast whose egg he mistook for an asteroid and meant to raise as a weapon. Fentmaxxer is dead. His altar is not.',
-    'Compendium II (Fentmaxxer\'s Observatory)',
-    { openThread: true }),
 
   // ── RACIAL / LINEAGE ──
   g('coralEyed', 'The Coral-eyed', ['racial', 'religious'],
@@ -1939,10 +1936,6 @@ relationships.push(
     'more than drowned',
     'The Coral-eyed are part of what makes Shanty Town stranger than anywhere else.',
     'Shanty Town\'s Political Factions', X),
-  r('liquorKings.political', 'wardenCult.religious', 'oppose', 0.2, 0,
-    'the Kings killed Fentmaxxer',
-    'The Warden\'s astronomer died at the Kings\' hands. A strong Parliament keeps the altar under the well cold.',
-    'Concept II: The Cloister Beast'),
 
   // Shanty, Roto, trade
   r('captains.economic', 'shantyTown.economic', 'support', 0.3, 0,
@@ -2161,7 +2154,7 @@ addInputs('rotoSuccession', [
 
 hazards.push(
   {
-    id: 'kingsSplit', scope: 'global', name: 'The Parliament Splits', domain: 'political', initial: 30, threshold: 70,
+    id: 'kingsSplit', scope: 'global', name: 'The Parliament Splits', domain: 'political', initial: 48, threshold: 70,
     inputs: [
       { ref: 'liquorKings.political', w: -0.3, note: 'a Parliament with authority' },
       { ref: 'seamus.political', w: -0.2, note: 'a mayor the others respect' },
@@ -2241,7 +2234,7 @@ export const deals = [
     { name: 'Vodkonian Rum in Shanty Cellars', narrative: 'The ASDU follows a crate of exotic rum from a crewless skiff to the Windsunk Council\'s own cellar.',
       effects: [{ ref: 'rel_ale_shanty.political', delta: -12 }, { ref: 'shantyTown.political', delta: -6 }], charge: { veilrunner: 0.3 } },
     { desc: 'Drake pays in Vodkonian rum and favours. Aleforge banished him; Shanty never agreed to.', watch: 'asdu.political' }),
-  D('nethergateRelics', 'shanty', 'Fence Nethergate relics through Roto', 4, ['rotoBlackMarket', 'captains', 'wardenCult'],
+  D('nethergateRelics', 'shanty', 'Fence Nethergate relics through Roto', 4, ['rotoBlackMarket', 'captains'],
     [{ ref: 'shantyTown.economic', delta: 1.2 }, { ref: 'rotoBlackMarket.economic', delta: 0.8 }],
     { name: 'Factory Glass', narrative: 'A relic sold on the lower stilts starts to hum, and the buyer names the crew that sold it.',
       effects: [{ ref: 'shantyTown.political', delta: -8 }, { ref: 'rel_ale_shanty.political', delta: -6 }, { ref: 'rel_prov_shanty.political', delta: -6 }] },
@@ -2296,23 +2289,166 @@ injectables.push(
     narrative: 'Hoegaarden\'s night archivist swears a figure with Jack\'s face walked the catacombs, reading.' },
   { id: 'relicMarket', name: 'A Nethergate relic surfaces in Roto', effects: [{ ref: 'rotoBlackMarket.economic', delta: 10 }],
     narrative: 'A lantern-seller on the lower stilts is offering a piece of Orchenk glass that hums in the key of the old portal.' },
-  { id: 'wardenEgg', name: 'Another egg falls near the Observatory', effects: [{ ref: 'wardenCult.religious', delta: 15 }], hazardCharge: {},
-    narrative: 'Something bright crosses the sky and comes down where Fentmaxxer\'s did. Someone has already lit the altar under the well.' },
   { id: 'oathAbduction', name: 'The Ashen Oath takes a King\'s friend', effects: [{ ref: 'ashenOathSect.political', delta: 10 }, { ref: 'guinnie.political', delta: 4 }], hazardCharge: { ashenOath: 0.8 },
     narrative: 'On the first night of Veilfrost the Oath takes a bouncer from Guinnie\'s old crew. Guinnie has not said anything, which worries everyone.' },
 );
 
 openThreads.push(
-  { id: 'warden', name: 'The Warden\'s altar', summary: 'Fentmaxxer is dead. His altar under the Observatory well is not.', watch: { ref: 'wardenCult.religious' } },
   { id: 'six', name: 'The Parliament of Six', summary: 'Seamus wears the chain, Jack lost his soul, Buke wants the chain. Six story lines, one crown.', watch: { hazard: 'kingsSplit' } },
 );
 narration.closers.unshift(
   { if: 'jack.economic>85', text: 'Jack Anqoak bought a second Galley. Nobody knows what for.' },
   { if: 'seamus.political<45', text: 'Seamus Bonehardy was seen humming the Ode to the Six in town hall, which is at least attendance.' },
   { if: 'asdu.political>65', text: 'Captain Crawdad\'s patrols now reach the abandoned shrine twice a night.' },
-  { if: 'wardenCult.religious>30', text: 'Someone has been sweeping the courtyard at Fentmaxxer\'s Observatory.' },
   { if: 'ashenOathSect.political>40', text: 'Charred effigies are turning up on Shanty\'s cliffs out of season.' },
 );
+
+// ── v8: links for the items the GM ranks Global that barely touched the web ──
+relationships.push(
+  r('playerEconomy.economic', 'aleforgeGov.political', 'support', 0.15, 0,
+    'people feel it',
+    '"As items get scarcer and more expensive, they feel that their town is struggling even if they don\'t know it\'s due to embargos." Full shelves are a mayor\'s best friend.',
+    'A Macroeconomic Analysis (Player Economy vs. Concept Economy)'),
+  r('playerEconomy.economic', 'patmos.political', 'support', 0.1, 0,
+    'order that feeds people',
+    'Providence\'s perfect order is easier to preach over full plates.',
+    'A Macroeconomic Analysis (Player Economy)', X),
+  r('playerEconomy.economic', 'shantyTown.political', 'support', 0.1, 0,
+    'the Council that decides who eats',
+    'When the shops are full, fewer crews question the Windsunk Council.',
+    'Shanty Town: "who eats, who raids"', X),
+  r('playerEconomy.economic', 'mama.cultural', 'oppose', 0.12, 1,
+    'poverty recruits',
+    'Hard times send people looking for someone to blame, and MAMA always has a Liquor King ready.',
+    'Plinket: rise "if morale drops below 30% in any sector"', X),
+  r('playerEconomy.economic', 'oweBlock.political', 'oppose', 0.12, 0,
+    'want feeds the gangs',
+    'Empty shelves send Owe Block\'s young to the Cutters and the Circus.',
+    'Founding of Owe Block', X),
+  r('playerEconomy.economic', 'banks.economic', 'support', 0.15, 0,
+    'loans for shops',
+    'Banks lend "for land, ships and shops"; a busy player economy borrows and repays.',
+    'A Macroeconomic Analysis (Banks and Insurance)'),
+  r('playerEconomy.economic', 'drunkenTrials.economic', 'support', 0.1, 0,
+    'money to spend',
+    'Tourists with coin in their pockets fill the Trials grounds.',
+    'The Drunken Trials', X),
+  r('velocity.economic', 'banks.economic', 'support', 0.12, 0,
+    'money moving through the counting-house',
+    'Loans only get repaid when coin changes hands.',
+    'A Macroeconomic Analysis (Global Currency)'),
+  r('velocity.economic', 'aleforgeGov.economic', 'support', 0.12, 0,
+    'tolls and docking fees',
+    'Aleforge taxes movement: tolls, docking, luxury. Faster money, fuller treasury.',
+    'A Macroeconomic Analysis (Taxes and Treasuries)'),
+  r('velocity.economic', 'rotoCouncil.economic', 'support', 0.12, 0,
+    'turnover at the hub',
+    'Roto lives on trade volume.',
+    'Roto Kaiishi', X),
+  r('velocity.economic', 'shantyTown.economic', 'support', 0.08, 0,
+    'coin reaching the cliffs',
+    'Shanty sees the Isles\' coin last; it only arrives when coin is moving.',
+    'Shanty Town', X),
+  r('ducket.economic', 'velocity.economic', 'support', 0.15, 0,
+    'trusted coin circulates',
+    'People spend a currency they trust and hoard one they don\'t.',
+    'A Macroeconomic Analysis (Global Currency)'),
+  r('ducket.economic', 'banks.economic', 'support', 0.12, 0,
+    'a stable unit to lend in',
+    'Interest "must come from loan income"; stable rates make lending sane.',
+    'A Macroeconomic Analysis (Banks and Insurance)'),
+  r('ducket.economic', 'shantyTown.economic', 'support', 0.08, 0,
+    'fair conversion',
+    'Every town converts through the Ducket; a stable one is fair to the smallest economy too.',
+    'A Macroeconomic Analysis (Global Currency)', X),
+  r('aleforgeBrewing.economic', 'playerEconomy.economic', 'support', 0.12, 0,
+    'the Isles drink Aleforge',
+    'Aleforge\'s export stocks shelves and taps across the Isles.',
+    'Compendium II (Aleforge)', X),
+  r('aleforgeBrewing.economic', 'velocity.economic', 'support', 0.1, 0,
+    'the ale trade',
+    'The Isles\' biggest trade good keeps coin moving between towns.',
+    'A Macroeconomic Analysis', X),
+  r('aleforgeBrewing.economic', 'shantyTown.economic', 'support', 0.1, 0,
+    'grog for the cliffs',
+    'Shanty\'s taverns pour Aleforge ale.',
+    'Shanty Town\'s Foreign Relations: On Aleforge', X),
+  r('aleforgeBrewing.economic', 'captains.economic', 'support', 0.08, 0,
+    'cargo worth carrying',
+    'Ale is the cargo crews want to haul.',
+    'Shanty Town', X),
+  r('press.cultural', 'aleforgeGov.political', 'oppose', 0.1, 0,
+    'the Chronicle\'s scrutiny',
+    'A bold press asks what the mayor has done. The answer, so far, is nothing.',
+    'Mayoral speeches; the Chronicle', X),
+  r('press.cultural', 'patmos.political', 'oppose', 0.06, 0,
+    'printing what the spire won\'t',
+    'The Owe Block Chronicle stopped printing the Cardinal\'s prayer times.',
+    'Owe Block Rising omens', X),
+  r('press.cultural', 'mama.cultural', 'support', 0.08, 0,
+    '"WHO KILLED MAXIMILIAN?"',
+    'MAMA\'s question travels faster in print.',
+    'MAMA omens', X),
+  r('press.cultural', 'drunkenTrials.economic', 'support', 0.12, 0,
+    'publicity',
+    'Every Chronicle headline about the Trials sells tickets.',
+    'The Drunken Trials', X),
+  r('fleshborn.racial', 'playerEconomy.economic', 'support', 0.12, 0,
+    'the majority\'s labour',
+    'The flesh-born work the fields, shops and ships of every town.',
+    'Compendium II', X),
+  r('fleshborn.racial', 'cumstead.economic', 'support', 0.08, 0,
+    'farmhands',
+    'The Cumstead needs hands as well as a blessing.',
+    'John Cum\'s Cumstead', X),
+);
+
+// ── v8: the GM's influence ranking ──
+// Tiers and order from the GM's ranking (most influential first). A group's outgoing links scale with
+// its tier and rank; Past / Now / Future sets a gentle drift over the forecast.
+const RANK = {
+  global: ['liquorKings', 'playerEconomy', 'drunkenTrials', 'ducket', 'velocity', 'aleforgeBrewing', 'press', 'fleshborn', 'rotoCouncil', 'goldcoral',
+    'hz:bondCrisis', 'hz:harvest', 'hz:veilrunner', 'hz:kingsSplit', 'hz:creditCrunch'],
+  regional: ['aleforgeGov', 'patmos', 'shantyTown', 'bonds', 'fenwick', 'veilwalkers', 'oweBlock', 'cumstead', 'tonicGuild', 'brewmasters', 'asdu',
+    'seamus', 'jack', 'jager', 'guinnie', 'buke', 'jp', 'providenceGuard', 'captains', 'miners', 'rotoBlackMarket', 'hoegaarden', 'tideCallers',
+    'stormveil', 'insurers', 'banks', 'seasideCircus', 'hz:oweRising', 'hz:rotoSuccession', 'hz:ashenOath', 'unknownism', 'sbn', 'wolendi', 'gideon',
+    'hz:mamaRad', 'lineOfJohns'],
+  negligible: ['mama', 'ashenOathSect', 'veilSym', 'faytedruids', 'oldMunicipal', 'wepple', 'crimsonCutters', 'whiskeyRunners', 'coralEyed'],
+};
+const ERA = {
+  liquorKings: 'now future', playerEconomy: 'now', drunkenTrials: 'now', ducket: 'now future', velocity: 'now', aleforgeBrewing: 'now',
+  press: 'now future', fleshborn: 'now', rotoCouncil: 'now', goldcoral: 'future', aleforgeGov: 'now', patmos: 'now', shantyTown: 'now',
+  bonds: 'past now future', fenwick: 'now', veilwalkers: 'past now', oweBlock: 'future', cumstead: 'past future', tonicGuild: 'now future',
+  brewmasters: 'past future', asdu: 'now future', seamus: 'now future', jack: 'now future', jager: 'now future', guinnie: 'now future',
+  buke: 'now future', jp: 'now future', providenceGuard: 'now', captains: 'now', miners: 'now future', rotoBlackMarket: 'future',
+  hoegaarden: 'now', tideCallers: 'now future', stormveil: 'future', insurers: 'future', banks: 'future', seasideCircus: 'now',
+  unknownism: 'future', sbn: 'future', wolendi: 'now future', gideon: 'past future', lineOfJohns: 'past now', mama: 'past',
+  ashenOathSect: 'future', veilSym: 'future', faytedruids: 'future', oldMunicipal: 'past', wepple: 'past', crimsonCutters: 'past',
+  whiskeyRunners: 'past', coralEyed: 'now',
+  'hz:bondCrisis': 'future', 'hz:harvest': 'future', 'hz:veilrunner': 'future', 'hz:kingsSplit': 'future', 'hz:creditCrunch': 'future',
+  'hz:oweRising': 'future', 'hz:rotoSuccession': 'future', 'hz:ashenOath': 'future', 'hz:mamaRad': 'past',
+};
+const TIER_BASE = { global: 1.15, regional: 1.0, negligible: 0.6 };
+// Future without Now: rising. Now and Future: growing. Past alone: fading. Per season, on the group's main stat.
+const trendOf = e => e.includes('future') && !e.includes('now') ? 0.3 : e.includes('future') ? 0.15 : e.length === 1 && e[0] === 'past' ? -0.15 : 0;
+const pull = {};
+for (const [tier, ids] of Object.entries(RANK)) {
+  const gs = ids.filter(id => !id.startsWith('hz:')), hs = ids.filter(id => id.startsWith('hz:'));
+  gs.forEach((id, i) => {
+    const grp = groups.find(x => x.id === id), era = ERA[id].split(' ');
+    grp.influence = { tier, rank: i + 1, of: gs.length, era };
+    const t = trendOf(era); if (t) grp.trend = t;
+    pull[id] = TIER_BASE[tier] * (1.1 - 0.2 * (gs.length > 1 ? i / (gs.length - 1) : 0));
+  });
+  hs.forEach((id, i) => {
+    const h = hazards.find(x => 'hz:' + x.id === id), era = ERA[id].split(' ');
+    h.influence = { tier, rank: i + 1, of: hs.length, era };
+    // A crisis the lore points toward builds pressure each season; one that belongs to the past loses it.
+    h.trend = era.includes('future') ? 0.03 : era.includes('past') && !era.includes('now') ? -0.05 : 0;
+  });
+}
+for (const rel of relationships) if (pull[rel.fromId]) rel.strengthMultiplier = +(rel.strengthMultiplier * pull[rel.fromId]).toFixed(3);
+for (const h of hazards) for (const i of h.inputs) { const m = pull[i.ref.split('.')[0]]; if (m) i.w = +(i.w * Math.sqrt(m)).toFixed(3); }
 
 // Prose names (for generated sentences) and 3–4 letter codes (for the influence matrix).
 const SHORT = {
@@ -2333,7 +2469,7 @@ const SHORT = {
   seasideCircus: ['the Seaside Circus', 'CIRC'], press: ['the Chronicles', 'PRSS'], hoegaarden: ['Hoegaarden', 'HOEG'],
   brewmasters: ['the Brewmasters\' faith', 'BREW'], tonicGuild: ['the tonic clergy', 'TONC'], whiskeyRunners: ['the Whiskey Runners', 'WHSK'],
   veilSym: ['the Veil sympathizers', 'VSYM'], tideCallers: ['the Tide Callers', 'TIDE'], ashenOathSect: ['the Ashen Oath', 'ASH'],
-  wardenCult: ['the Warden heresy', 'WRDN'], coralEyed: ['the Coral-eyed', 'CORL'],
+  coralEyed: ['the Coral-eyed', 'CORL'],
   miners: ['the Bully Hill mines', 'MINE'], stormveil: ['StormVeil', 'STRM'], wolendi: ['Wolendi', 'WIND'], wepple: ['Wepple', 'WEPL'],
   militiaFunding: ['militia funding', 'MIL'], trialsFund: ['the Trials fund', 'TFND'], craftingEdicts: ['the crafting edicts', 'EDCT'],
   friarPatrols: ['the Friar patrols', 'FRIA'], tonicRations: ['the tonic rations', 'RATN'], plunderShare: ['the plunder share', 'PLND'],

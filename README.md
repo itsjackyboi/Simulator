@@ -16,7 +16,7 @@ One screen: a **dock** on the left, **the Web** in the middle, and a **forecast 
 
 - **Status strip** above the map: the state of the Isles, the likeliest crisis, and the biggest risers and fallers over the horizon.
 - **The map.** Node size is current power, and fill tint is where it's heading. After a change, a **dashed outline shows each node's size before it**, so before and after sit on the map together. A **Region** lens (Aleforge, Providence, Shanty Town, Roto Kaiishi, Fenwick, Isles-wide) highlights one town, its crises, and everything linked into it. The season slider and ▶ play the forecast out. Hover a node for its likely path.
-- **The map's clusters:** Political (including Fenwick and the Veil Elders), **The Six** (each Liquor King as his own node beside the Parliament, one story line each), Cultural, Religious (Patmos, the Brewmasters' faith, the tonic clergy, the Whiskey Runners, the Owe Block Veil sympathizers, Unknownism, the Tide Callers, the Ashen Oath, the Warden heresy, and the Fayte Druids as a minor movement), Racial & Lineage (the flesh-born, the Veilwalkers, the Line of Johns, the Coral-eyed), Economic, and the crises.
+- **The map's clusters:** Political (including Fenwick and the Veil Elders), **The Six** (each Liquor King as his own node beside the Parliament, one story line each), Cultural, Religious (Patmos, the Brewmasters' faith, the tonic clergy, the Whiskey Runners, the Owe Block Veil sympathizers, Unknownism, the Tide Callers, the Ashen Oath, and the Fayte Druids as a minor movement), Racial & Lineage (the flesh-born, the Veilwalkers, the Line of Johns, the Coral-eyed), Economic, and the crises.
 - **The dock** has three tabs:
   - **Lead**: pick the town you lead (Aleforge, Providence, Shanty Town, Roto Kaiishi or Fenwick). You get:
     - a **scorecard**: legitimacy, treasury, standing abroad, stability and exposure, each where it lands at the horizon, with what your last change did to it;
@@ -58,9 +58,18 @@ Year 466. Seasons matter:
 - **Inertia**: each value drifts about 3% per season toward its anchor. The anchor is
   the canon value, or whatever you last set it to with a slider.
 - **Hazards**: meter = logistic(base + Σ w·(value−50)/10 + built-up grievance + season
-  modifier). Past the threshold, a hazard rolls each season to fire its event. Firing
-  applies the event's effects (which ripple like anything else) and releases the
-  built-up grievance.
+  modifier). Each season a hazard may fire its event; the chance rises smoothly as the meter
+  nears and passes its breaking point (0 until 15 below it, about 22% at it, up to 45% well
+  past it). Firing applies the event's effects (which ripple like anything else) and releases
+  the built-up grievance.
+- **Your influence ranking**: every group and crisis on the map carries a tier (Global,
+  Regional, Negligible), a rank within it, and when the lore says it holds power (Past, Now,
+  Future). A group's outgoing links scale with its tier and rank (Global ×1.1 at the top of
+  the tier, Negligible ×0.5 at the bottom). Groups marked Future drift up each season in the
+  forecast (+0.3 if not yet powerful, +0.15 if already powerful); groups marked only Past
+  fade (−0.15). Crises marked Future slowly build pressure; ones marked only Past lose it.
+  Starting crisis meters are calibrated so the 12-season odds follow the ranking. Inspect
+  shows each item's tier, rank and era.
 - The dice are seeded, so projections are reproducible. Noise, hazard rolls and
   narration use separate random streams, which is what keeps the control-run comparison
   fair.
@@ -83,9 +92,9 @@ Every relationship carries an `explanation` and a `precedent`, plus a `canon` fl
 - `open-thread`: e.g. the Fayte Druids; deliberately speculative
 
 The seed is all editable in the app. It holds:
-- 102 groups: 52 on the map, 40 town levers (20 of them diplomatic stances), and 10 hidden relationships between the towns;
-- 427 relationships;
-- 9 hazards: 3 global and 6 regional;
+- 101 groups: 51 on the map, 40 town levers (20 of them diplomatic stances), and 10 hidden relationships between the towns;
+- 450 relationships;
+- 9 hazards: 5 global and 4 regional;
 - 16 backroom deals;
 - 15 canon events and 25 injectable events.
 

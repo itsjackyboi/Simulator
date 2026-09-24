@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "The Pintland Isles — Dynamics Simulator",
-    "version": 7,
-    "changes": "retired four crises that are not current risks (Ducket Inflation, Cloister Stirring, The Veil Withdraws, Nethergate Breach) and the vanished monk order",
+    "version": 8,
+    "changes": "your influence ranking: link strengths follow each item's tier and rank, Past / Now / Future sets each item's drift, the Bond Crisis and Cumstead Collapse are global, and the Warden heresy is gone",
     "calendar": {
       "startYear": 466,
       "startCycle": 94,
@@ -25,7 +25,11 @@
       "minEffect": 0.2,
       "meanReversion": 0.03,
       "noise": 0.7,
-      "hazardCooldown": 4
+      "hazardCooldown": 4,
+      "chargeRate": 150,
+      "fireMax": 0.45,
+      "fireSlope": 4,
+      "fireWindow": 15
     },
     "sources": [
       "THE PINTLAND ISLES — MASTER LORE COMPENDIUM",
@@ -52,6 +56,16 @@
       "aliases": {
         "cultural": "The Liquor Kings (Celebrity & Legend)"
       },
+      "influence": {
+        "tier": "global",
+        "rank": 1,
+        "of": 10,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the Liquor Kings",
       "code": "KING",
       "region": "Aleforge"
@@ -71,6 +85,14 @@
       "loreSource": "Compendium II (Aleforge — Modern History); Hall of Records (Mayoral Election Speeches)",
       "aliases": {
         "economic": "Aleforge Treasury"
+      },
+      "influence": {
+        "tier": "regional",
+        "rank": 1,
+        "of": 32,
+        "era": [
+          "now"
+        ]
       },
       "short": "the Bonehardy administration",
       "code": "ALE",
@@ -100,6 +122,14 @@
         "cultural": "Patmos Social Order",
         "religious": "Church of Patmos"
       },
+      "influence": {
+        "tier": "regional",
+        "rank": 2,
+        "of": 32,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the Church of Patmos",
       "code": "PAT",
       "region": "Providence"
@@ -121,6 +151,14 @@
       "aliases": {
         "economic": "Roto Free-Market Hub"
       },
+      "influence": {
+        "tier": "global",
+        "rank": 9,
+        "of": 10,
+        "era": [
+          "now"
+        ]
+      },
       "short": "Roto",
       "code": "ROTO",
       "region": "Roto Kaiishi"
@@ -141,6 +179,14 @@
       "loreSource": "Compendium II (Shanty Town; Political Factions; Foreign Relations)",
       "aliases": {
         "cultural": "Pirate-Freedom Ethos"
+      },
+      "influence": {
+        "tier": "regional",
+        "rank": 3,
+        "of": 32,
+        "era": [
+          "now"
+        ]
       },
       "short": "Shanty Town",
       "code": "SHN",
@@ -166,6 +212,15 @@
         "cultural": "MAMA / Prohibitionist Current",
         "religious": "Prohibitionist Moral Current (MAA/MAMA)"
       },
+      "influence": {
+        "tier": "negligible",
+        "rank": 1,
+        "of": 9,
+        "era": [
+          "past"
+        ]
+      },
+      "trend": -0.15,
       "short": "MAMA",
       "code": "MAMA",
       "region": "Aleforge"
@@ -182,6 +237,16 @@
       },
       "description": "The Bastard Veil. Part-Veilwalker, Sackbeard's first mate and killer, former mayor who actually governed (Barley Road, subsidies, bonds, militia) — and John Cum's murderer, who framed MAMA for it. Banished to unexplored Vodkonia: long-lived, resourceful, desperate.",
       "loreSource": "Compendium III (Gideon Drake); Concept V; XI (Open Mysteries)",
+      "influence": {
+        "tier": "regional",
+        "rank": 31,
+        "of": 32,
+        "era": [
+          "past",
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "Gideon Drake",
       "code": "DRK"
     },
@@ -197,6 +262,14 @@
       },
       "description": "The Gilded Tankard's magic spring, Brewers Lane and Trials tourism — Aleforge is a single-export state and knows it. The Tankard's entire stockpile currently sits under Goldcoral control, sold in secret at Jack's Grog Galley.",
       "loreSource": "Compendium VI (The Gilded Tankard); II (Aleforge)",
+      "influence": {
+        "tier": "global",
+        "rank": 6,
+        "of": 10,
+        "era": [
+          "now"
+        ]
+      },
       "short": "Aleforge brewing",
       "code": "BRW",
       "region": "Aleforge"
@@ -214,6 +287,15 @@
       },
       "description": "\"Aggressive mercantilism.\" Headquartered in Providence, but every real book is kept in Roto, where nobody asks. Privately owned by Jack Anqoak; seized the Gilded Tankard's stockpile after Wepple gambled the investment away.",
       "loreSource": "Compendium VI (Goldcoral Incorporated)",
+      "influence": {
+        "tier": "global",
+        "rank": 10,
+        "of": 10,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "Goldcoral Inc.",
       "code": "GLD",
       "region": "Roto Kaiishi"
@@ -229,6 +311,16 @@
       },
       "description": "The global inter-town trade currency; every town runs its own sub-economy and converts at exchange rates that move with story events. Total supply (M2) is meant to stay flat — almost nothing may create new Duckets, and the one feasible exception is an influx from an outside economy. Higher = a flatter, more trusted M2 and stabler conversion rates.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Global Currency; The Concept Economy)",
+      "influence": {
+        "tier": "global",
+        "rank": 4,
+        "of": 10,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the Ducket",
       "code": "DKT"
     },
@@ -243,6 +335,14 @@
       },
       "description": "How fast Duckets change hands — the second number the Analysis tracks. \"If M2 is flat and velocity is consistent after six months we're on the right track.\" Low velocity is coin buried in chests and a stalled economy; very high velocity on a flat M2 is inflation's other door.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Global Currency; To Those Drunk in the Back of the Room)",
+      "influence": {
+        "tier": "global",
+        "rank": 5,
+        "of": 10,
+        "era": [
+          "now"
+        ]
+      },
       "short": "Ducket velocity",
       "code": "VEL"
     },
@@ -257,6 +357,14 @@
       },
       "description": "What the people of the Isles actually feel: shop stock and prices, restock rates, NPC wages, rotating town contracts. Driven top-down by the Concept Economy — players have little to no power over it. \"As items get scarcer and more expensive, they feel that their town is struggling even if they don't know it's due to embargos.\" Shops restock with town prosperity, never below a floor.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Player Economy vs. Concept Economy)",
+      "influence": {
+        "tier": "global",
+        "rank": 2,
+        "of": 10,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the player economy",
       "code": "PLYR"
     },
@@ -271,6 +379,15 @@
       },
       "description": "The key intermediary between the player and concept economies: loans for land, ships and shops; holdings accounts paying small interest. The catch — that interest must come from loan income, never from minted coin. The credit market is young.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Banks and Insurance)",
+      "influence": {
+        "tier": "regional",
+        "rank": 26,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the banks",
       "code": "BANK"
     },
@@ -285,6 +402,15 @@
       },
       "description": "Insurance began as a few people gambling on whether or not ships would return from voyages. \"As unsexy as insurance is, gambling is smoking hot.\" Every Stormtide is claims season; every pirate raid is a payout.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (Banks and Insurance)",
+      "influence": {
+        "tier": "regional",
+        "rank": 25,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the voyage insurers",
       "code": "INS",
       "region": "Roto Kaiishi"
@@ -300,6 +426,15 @@
       },
       "description": "Where the posted exchange rates stop meaning anything. \"A strong black market for currencies would be fun, obviously based in Roto\" — and it fits Roto's taboo system exactly: not illegal, just sold after dark. Insider trading and arbitrage are features, not bugs.",
       "loreSource": "A Macroeconomic Analysis of the Pintland Isles (The Player Economy; Taxes and Treasuries); Compendium II (Roto Kaiishi)",
+      "influence": {
+        "tier": "regional",
+        "rank": 21,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Roto black market",
       "code": "BLK",
       "region": "Roto Kaiishi"
@@ -315,6 +450,17 @@
       },
       "description": "Instituted by Drake at low rates, expanded by the Kings during the Stewards crisis \"at increasingly unfavorable interest rates.\" Roto traders are the big holders. Stat = market confidence; low values mean the debt is winning.",
       "loreSource": "Compendium VI (The Aleforge Bond Market)",
+      "influence": {
+        "tier": "regional",
+        "rank": 4,
+        "of": 32,
+        "era": [
+          "past",
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the Aleforge bond market",
       "code": "BND",
       "region": "Aleforge"
@@ -330,6 +476,16 @@
       },
       "description": "Aleforge's key grain source. Its plenty was the Veilwalker blessing on John Cum; Cum is dead (by Drake's hand), the fields saw blight and green Factory sludge, and John Rump — addict, embezzler — now holds it without the blessing.",
       "loreSource": "Compendium II (John Cum's Cumstead); Concept V",
+      "influence": {
+        "tier": "regional",
+        "rank": 8,
+        "of": 32,
+        "era": [
+          "past",
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Cumstead",
       "code": "CUM",
       "region": "Aleforge"
@@ -347,6 +503,15 @@
       },
       "description": "The fog-wrapped, agnostic-by-law brewers of the worst IPAs in existence, only now cracking their isolation through illegal Ale Bean routes and a partnership with StormVeil Trading Co. Flagged by both the Aleforge Special Drinkers Unit and the Providence Guard. Nobody knows why they are reaching out.",
       "loreSource": "Compendium II (The Southern Bellows Nation); VI (Stormveil Trading Co.)",
+      "influence": {
+        "tier": "regional",
+        "rank": 29,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Southern Bellows",
       "code": "SBN"
     },
@@ -362,6 +527,14 @@
       },
       "description": "The Isles' most important cultural event: magic ale from the Tankard's spring that never hangs you over but does strange things at volume. Crowns the Liquor Kings. Tourism engine, prestige engine, and — since the MAA raided the first one — a standing target.",
       "loreSource": "Compendium VI (The Drunken Trials); Concept I",
+      "influence": {
+        "tier": "global",
+        "rank": 3,
+        "of": 10,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the Drunken Trials",
       "code": "TRL",
       "region": "Aleforge"
@@ -384,6 +557,15 @@
         "cultural": "Owe Block Gang & Underground Culture",
         "economic": "Owe Block Informal Economy"
       },
+      "influence": {
+        "tier": "regional",
+        "rank": 7,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "Owe Block",
       "code": "OWE",
       "region": "Providence"
@@ -405,6 +587,14 @@
         "political": "Fenwick (the Veil Elders)",
         "economic": "Fenwick's Vow Trade"
       },
+      "influence": {
+        "tier": "regional",
+        "rank": 5,
+        "of": 32,
+        "era": [
+          "now"
+        ]
+      },
       "short": "Fenwick",
       "code": "FEN",
       "region": "Fenwick"
@@ -421,6 +611,15 @@
       },
       "description": "The missionary strand of the unknown-gods faith that walked out of Owe Block with Baba Paku, \"explaining to anyone who will listen the secrets of Providence's main religion.\" Wants its first Owe Block Saint. Funds itself with arms dealing.",
       "loreSource": "Compendium III (Baba Paku)",
+      "influence": {
+        "tier": "regional",
+        "rank": 28,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "Unknownism",
       "code": "UNK",
       "region": "Providence"
@@ -438,6 +637,15 @@
       "description": "OPEN THREAD. A small movement, not a church: a handful of monks who commandeered the Cloister months ago — the Kings' own meeting hall, built over a hole to hell and a beast's prison dimension. Strange chants and lights. Purpose unknown; every link to them is speculative by design.",
       "loreSource": "Compendium XI (Open Mysteries); II (The Cloister)",
       "openThread": true,
+      "influence": {
+        "tier": "negligible",
+        "rank": 4,
+        "of": 9,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Fayte Druids",
       "code": "FAY"
     },
@@ -462,6 +670,15 @@
         "religious": "Veilwalker Animism",
         "racial": "Veilwalkers (Earth-born)"
       },
+      "influence": {
+        "tier": "regional",
+        "rank": 6,
+        "of": 32,
+        "era": [
+          "past",
+          "now"
+        ]
+      },
       "short": "the Veilwalkers",
       "code": "VEIL",
       "region": "Fenwick"
@@ -477,6 +694,14 @@
       },
       "description": "Humanity as a lineage bloc: the barbarians whose conquest the earth-born were made to resist, and every town since. The baseline against which every other lineage's standing is measured.",
       "loreSource": "Compendium II (Fenwick & the Veilwalkers)",
+      "influence": {
+        "tier": "global",
+        "rank": 8,
+        "of": 10,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the flesh-born",
       "code": "FLSH"
     },
@@ -495,6 +720,15 @@
       "loreSource": "Compendium III (John Cum; John Rump); IV (The Rotted Soul — The First Treaty)",
       "aliases": {
         "political": "Line of Johns (Rump's Treasury Grip)"
+      },
+      "influence": {
+        "tier": "regional",
+        "rank": 32,
+        "of": 32,
+        "era": [
+          "past",
+          "now"
+        ]
       },
       "short": "the Line of Johns",
       "code": "JOHN",
@@ -626,6 +860,16 @@
       "description": "Navigator, mutineers' son, and the sitting Mayor of Aleforge. Crafted the best trade deals of the Stewards era, was blackmailed by his own treasurer into legalizing the tonic, and has since been seen more in taverns than in town hall. One of only two Kings to leave the Rotted Soul's prison with his soul intact. Some read his \"Ode to the Six\" as a farewell to politics.",
       "loreSource": "Compendium III (Seamus Bonehardy); Concept V (Individual Performance Summary)",
       "cluster": "six",
+      "influence": {
+        "tier": "regional",
+        "rank": 12,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "Seamus",
       "code": "SEAM",
       "region": "Aleforge"
@@ -646,6 +890,16 @@
       "description": "Thief of Gyntonick, founder of Goldcoral Incorporated, owner of the Grog Galley and The Bastard's Requiem. Beat Wepple and seized the Tankard's stockpile. Spent weeks in Hoegaarden's stacks and led the Kings to the Rotted Soul, where he lost his soul. \"A robber baron?\"",
       "loreSource": "Compendium III (Jack Anqoak); VI (Goldcoral; Grog Galley); Hall of Records (Mayoral Election Speeches)",
       "cluster": "six",
+      "influence": {
+        "tier": "regional",
+        "rank": 13,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "Jack",
       "code": "JACK",
       "region": "Aleforge"
@@ -666,6 +920,16 @@
       "description": "Born in Shanty Town, raised a refugee in Providence, turned functional alcoholic by Faegi's bootleg ClockHeart Tonic at sixteen. Pro-Providence; exposed Susan Plinket; flew into the Dread Harrow with the artifacts and closed the portal. \"Consistently sacrificed personal political reputation for Aleforge's wellbeing.\"",
       "loreSource": "Compendium III (Jagerbauhm); Concept V (The Resolution; Individual Performance Summary)",
       "cluster": "six",
+      "influence": {
+        "tier": "regional",
+        "rank": 14,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "Jagerbauhm",
       "code": "JAGR",
       "region": "Aleforge"
@@ -686,6 +950,16 @@
       "description": "Deserter who turned steel on his captain rather than torch a village near Fenwick, then won the Drunken Trials \"quiet as a tide.\" Pro-Shanty Town and strongly pragmatic, yet the only King to vote for Veilwalker manifest destiny. Helped slam the Nethergate shut. \"Blue flag 'til I'm buried.\"",
       "loreSource": "Compendium III (Guinnie); Concept V; Hall of Records (Guinnie's Reports; Mayoral Election Speeches)",
       "cluster": "six",
+      "influence": {
+        "tier": "regional",
+        "rank": 15,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "Guinnie",
       "code": "GUIN",
       "region": "Aleforge"
@@ -706,6 +980,16 @@
       "description": "Found as an infant in an empty whiskey barrel; the best fisherman in his village; chugged 17 pints in 180 seconds for a ticket to the Trials. Killed Maximilian, which not everyone calls just, and MAMA was born of it. Pro-ale production above all else, solved the portal problem, and was named a candidate for mayor.",
       "loreSource": "Compendium III (Buke); Concept III; Concept V (Individual Performance Summary)",
       "cluster": "six",
+      "influence": {
+        "tier": "regional",
+        "rank": 16,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "Buke",
       "code": "BUKE",
       "region": "Aleforge"
@@ -726,6 +1010,16 @@
       "description": "Born in a barren field soaked in whiskey and beer on the Coors Golden Isles, where drinking was religion and the IPA a fraud. Loves alcohol \"too much to abuse it.\" Found Cumsock the goat, died three times in the final battle and was raised each time by Aleforge ale. Pro-Fenwick.",
       "loreSource": "Compendium III (Jameson Pilsner); Concept V (Individual Performance Summary)",
       "cluster": "six",
+      "influence": {
+        "tier": "regional",
+        "rank": 17,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "JP",
       "code": "JP",
       "region": "Aleforge"
@@ -741,6 +1035,15 @@
       },
       "description": "The last three offices of old Aleforge: the Comptroller (Hornithan Buttlube), the Sheriff (Edward Cocaine) and the Color Guard (Cpt. Lincoln Dillydally). Honorary by law and hereditary by blood, and they do not see it that way. They still try to hold onto power.",
       "loreSource": "Compendium II (Aleforge: Old Aleforge Municipal)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 5,
+        "of": 9,
+        "era": [
+          "past"
+        ]
+      },
+      "trend": -0.15,
       "short": "the old municipal offices",
       "code": "OAM",
       "region": "Aleforge"
@@ -756,6 +1059,16 @@
       },
       "description": "The Aleforge Special Drinkers Unit and the volunteer militia Drake raised after the Trials riots. Captain Crawdad organized it against the hordes of interdimensional creatures. It flags the SBN, investigates missing persons at Hoegaarden, and has been trying to reach Rachel Zlurs for weeks.",
       "loreSource": "Compendium III (Gideon Drake: Aleforge Militia; Captain Crawdad; Rachel Zlurs); II (SBN)",
+      "influence": {
+        "tier": "regional",
+        "rank": 11,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the ASDU",
       "code": "ASDU",
       "region": "Aleforge"
@@ -771,6 +1084,14 @@
       },
       "description": "Sergeant Hark's Guard, Hunk the Monk at the Cardinal's towers, and the Friars who roam the markets on Beastwatch \"judging with a keen eye and a stricter hand.\" It watches Vlad the Kisser, flags the SBN, and once hunted the Kings for Sexton Gobbler.",
       "loreSource": "Compendium II (Providence); III (Sergeant Hark; Hunk the Monk; Vlad the Kisser)",
+      "influence": {
+        "tier": "regional",
+        "rank": 18,
+        "of": 32,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the Providence Guard",
       "code": "GRD",
       "region": "Providence"
@@ -788,6 +1109,14 @@
       },
       "description": "The lifeblood of Shanty Town: retired, rogue or rising captains who crashed here willingly or came to reclaim their legend. Each crew is its own little nation, and they don't always get along.",
       "loreSource": "Compendium II (Shanty Town's Political Factions)",
+      "influence": {
+        "tier": "regional",
+        "rank": 19,
+        "of": 32,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the Shanty captains",
       "code": "CAPT",
       "region": "Shanty Town"
@@ -805,6 +1134,15 @@
       },
       "description": "Owe Block's mafia gang, Pope's old outfit from the Buenacera on Vanity Street. Jack, Seamus and Jagerbauhm ran with them during A Walk on Owe Block and were obliterated by the Seaside Circus.",
       "loreSource": "Compendium III (Pope); IV (A Walk on Owe Block)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 7,
+        "of": 9,
+        "era": [
+          "past"
+        ]
+      },
+      "trend": -0.15,
       "short": "the Crimson Cutters",
       "code": "CUT",
       "region": "Providence"
@@ -822,6 +1160,14 @@
       },
       "description": "The Cutters' rival gang, and the side that won the Owe Block gang war. Guinnie, as a street reaper, mowed down Crimson Cutters in every confrontation.",
       "loreSource": "Compendium IV (A Walk on Owe Block)",
+      "influence": {
+        "tier": "regional",
+        "rank": 27,
+        "of": 32,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the Seaside Circus",
       "code": "CIRC",
       "region": "Providence"
@@ -838,6 +1184,16 @@
       "description": "The Aleforge Chronicle (eleven stories on Mr. BBL's posterior, one on the economy), the Owe Block Chronicle, and Sister Bertha, the \"most honest woman\" in Providence. The press decides what gets found out.",
       "loreSource": "Compendium III (Sister Bertha); narration canon",
       "canon": "extrapolated",
+      "influence": {
+        "tier": "global",
+        "rank": 7,
+        "of": 10,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the Chronicles",
       "code": "PRSS"
     },
@@ -852,6 +1208,14 @@
       },
       "description": "The oldest institution in the Isles, above the catacombs of Lagendale and the River Coffin. Holds the largest collection of books in the known waters, the records of the VeilRunner, classified manuscripts tied to Drake, and an embassy that sheltered the Kings from Gobbler's purchased law.",
       "loreSource": "Compendium II (Hoegaarden Library); IV (Horror in Hoegaarden); Hall of Records",
+      "influence": {
+        "tier": "regional",
+        "rank": 22,
+        "of": 32,
+        "era": [
+          "now"
+        ]
+      },
       "short": "Hoegaarden",
       "code": "HOEG"
     },
@@ -868,6 +1232,16 @@
       },
       "description": "Aleforge's own faith: the founders saved a brewmaster deity, who blessed the town with a spring of the finest ale. The deity enjoys revelry, cheer and the occasional chaos. Brewmasters Eve (each pint saves one soul from the Realm of the Soulless), Brewmasters Day, the founders' dance. Its dark mirror is Cedric the Vicar, beheaded for claiming to be the Deity reborn.",
       "loreSource": "Compendium II (Aleforge: Founding; Cedric the Vicar; Trodon Hallis); VI (Holidays)",
+      "influence": {
+        "tier": "regional",
+        "rank": 10,
+        "of": 32,
+        "era": [
+          "past",
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Brewmasters' faith",
       "code": "BREW",
       "region": "Aleforge"
@@ -885,6 +1259,16 @@
       },
       "description": "The Circs toil in hidden vats brewing ClockHeart Tonic with chants to the unknown gods; the Kalifarts, rare as a sober night, scribble variations in lofty towers, some say chasing a potion to raise the dead. The tonic is Providence's economy and its religion at once.",
       "loreSource": "Compendium II (Providence: The Ways of Providence)",
+      "influence": {
+        "tier": "regional",
+        "rank": 9,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the tonic clergy",
       "code": "TONC",
       "region": "Providence"
@@ -902,6 +1286,15 @@
       },
       "description": "A missionary group that smuggled illegal tonic from Providence to Aleforge during the previous Cardinal's reign; they brought Hunk the Monk to Providence as a baby. Faith and contraband in the same satchel. Rump's legalized bootleg tonic gave them a market.",
       "loreSource": "Compendium III (Hunk the Monk); Concept V (Rump's blackmail)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 8,
+        "of": 9,
+        "era": [
+          "past"
+        ]
+      },
+      "trend": -0.15,
       "short": "the Whiskey Runners",
       "code": "WHSK",
       "region": "Providence"
@@ -917,6 +1310,15 @@
       },
       "description": "Sexton Gobbler's hidden shrine, the Veil Oath book and Chalice, and Friar Leo's obsidian-and-amethyst chamber behind the stone button in the Church of the Monk. Patmos exposed one apostate; it did not expose the queue.",
       "loreSource": "Compendium III (Sexton Gobbler; Friar Leo); IV (A Walk on Owe Block)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 3,
+        "of": 9,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Veil sympathizers",
       "code": "VSYM",
       "region": "Providence"
@@ -934,6 +1336,16 @@
       },
       "description": "Shanty Town's semi-religious order of mystics, navigators and storm-readers: former helmsmen, weather witches and deep-sea interpreters who believe the ocean is a divine force that rewards devotion and punishes arrogance.",
       "loreSource": "Compendium II (Shanty Town's Political Factions)",
+      "influence": {
+        "tier": "regional",
+        "rank": 23,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the Tide Callers",
       "code": "TIDE",
       "region": "Shanty Town"
@@ -951,24 +1363,18 @@
       },
       "description": "Hidden fanatics who believe the sea, pirates and grog have tainted the world. They keep the Night of the False Sun, abduct one \"tainted\" soul each Veilfrost, and want to purge the Shoals and burn the beast bones. \"Most dangerous when ignored.\"",
       "loreSource": "Compendium II (Shanty Town's Political Factions); VI (Holidays: Night of the False Sun)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 2,
+        "of": 9,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "the Ashen Oath",
       "code": "ASH",
       "region": "Shanty Town"
-    },
-    {
-      "id": "wardenCult",
-      "name": "The Warden Heresy",
-      "domains": [
-        "religious"
-      ],
-      "stats": {
-        "religious": 10
-      },
-      "description": "OPEN THREAD. Fentmaxxer's demonic altar under the Observatory well, dedicated to the Warden, the great beast whose egg he mistook for an asteroid and meant to raise as a weapon. Fentmaxxer is dead. His altar is not.",
-      "loreSource": "Compendium II (Fentmaxxer's Observatory)",
-      "openThread": true,
-      "short": "the Warden heresy",
-      "code": "WRDN"
     },
     {
       "id": "coralEyed",
@@ -983,6 +1389,14 @@
       },
       "description": "Once sailors and scavengers who spent far too long beneath the sea, trapped in wrecks, cursed by unknown gods, or \"kissed by the trench.\" Now something less than human and more than drowned, and one of Shanty Town's factions.",
       "loreSource": "Compendium II (Shanty Town's Political Factions)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 9,
+        "of": 9,
+        "era": [
+          "now"
+        ]
+      },
       "short": "the Coral-eyed",
       "code": "CORL",
       "region": "Shanty Town"
@@ -998,6 +1412,16 @@
       },
       "description": "Dig Dug, Foreman of the Mines at the Basin at Bully Hill: one of the biggest employers in Owe Block and the source of most of the gold in Providence's treasury.",
       "loreSource": "Compendium III (Dig Dug)",
+      "influence": {
+        "tier": "regional",
+        "rank": 20,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "the Bully Hill mines",
       "code": "MINE",
       "region": "Providence"
@@ -1013,6 +1437,15 @@
       },
       "description": "A fast-growing carrier built on the Albatross, a sky ship that imitates the lost Cloudrunners and runs on Wolendi wind stores. Its semi-legal trade with the Southern Bellows is the first crack in their isolation.",
       "loreSource": "Compendium VI (Stormveil Trading Co.); II (SBN)",
+      "influence": {
+        "tier": "regional",
+        "rank": 24,
+        "of": 32,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.3,
       "short": "StormVeil",
       "code": "STRM"
     },
@@ -1027,6 +1460,16 @@
       },
       "description": "The Derecho family's East Wind farm off Aleforge and West Wind farm high in the Breakback Mountains: the near-universal source of the wind stores every Albatross needs.",
       "loreSource": "Compendium II (Wolendi); III (Gale & Guster Derecho); VI (Stormveil)",
+      "influence": {
+        "tier": "regional",
+        "rank": 30,
+        "of": 32,
+        "era": [
+          "now",
+          "future"
+        ]
+      },
+      "trend": 0.15,
       "short": "Wolendi",
       "code": "WIND"
     },
@@ -1041,6 +1484,15 @@
       },
       "description": "Glub Tuppus Wepple, the Tankard's gruff, kindly brewmaster: gambled away Goldcoral's investment, was beaten by Jack and lost his whole stock to him, now tends bar at the Grog Galley to watch it sold, and is developing a new brew in secret.",
       "loreSource": "Compendium III (Wepple); VI (Grog Galley)",
+      "influence": {
+        "tier": "negligible",
+        "rank": 6,
+        "of": 9,
+        "era": [
+          "past"
+        ]
+      },
+      "trend": -0.15,
       "short": "Wepple",
       "code": "WEPL",
       "region": "Aleforge"
@@ -1919,7 +2371,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.45,
+      "strengthMultiplier": 0.569,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Kings now wear the mayor's chain",
@@ -1935,7 +2387,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.33,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Bonehardy's record is every King's record",
@@ -1951,7 +2403,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.379,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Kings crush what they can see",
@@ -1967,7 +2419,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "latent",
-      "strengthMultiplier": 0.45,
+      "strengthMultiplier": 0.569,
       "lagTurns": 2,
       "mode": "pulse",
       "short": "overreach becomes martyrdom",
@@ -1989,7 +2441,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.264,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "insurgency shakes the castle",
@@ -2005,7 +2457,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.198,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Trials become a target again",
@@ -2021,7 +2473,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.165,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "guerrilla war on the brewhouses",
@@ -2037,7 +2489,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "\"JR\" suspicion resurfaces",
@@ -2053,7 +2505,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.275,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "militia and amnesty hold the line",
@@ -2069,7 +2521,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.253,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Shanty defines itself against crowns",
@@ -2085,7 +2537,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.379,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "a strong crown keeps an exile exiled",
@@ -2101,7 +2553,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.379,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Kings are the Trials' headliners",
@@ -2117,7 +2569,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.253,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Jack's purse is a King's purse",
@@ -2133,7 +2585,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.317,
       "lagTurns": 2,
       "mode": "pulse",
       "short": "Drake's old loyalists stir",
@@ -2149,7 +2601,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.272,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "the exile makes the Kings look careless",
@@ -2165,7 +2617,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.181,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Drake despises extremists",
@@ -2181,7 +2633,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.272,
       "lagTurns": 2,
       "mode": "pulse",
       "short": "the Johns' killer (and ancestor?) returns",
@@ -2197,7 +2649,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.181,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "Factory-artifact trades through Roto",
@@ -2213,7 +2665,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.275,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "a steady Aleforge leaves no vacuum",
@@ -2229,7 +2681,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.5,
+      "strengthMultiplier": 0.547,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Cardinal's voice is the law",
@@ -2245,7 +2697,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.437,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the church decrees what may be sold",
@@ -2261,7 +2713,7 @@
       "toStat": "religious",
       "domain": "economic→religious",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.273,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "tithe gold funds the cryptic agenda",
@@ -2277,7 +2729,7 @@
       "toStat": "cultural",
       "domain": "religious→cultural",
       "type": "latent",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.437,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the tonic binds (hidden variable)",
@@ -2299,7 +2751,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.45,
+      "strengthMultiplier": 0.492,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "tithe pressure feeds the underground",
@@ -2315,7 +2767,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.328,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "the squeezed join the gangs",
@@ -2331,7 +2783,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.328,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Friars clamp down on the district",
@@ -2347,7 +2799,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.273,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "order and the underground are zero-sum",
@@ -2363,7 +2815,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "brewing tools out, red-earth mineral in",
@@ -2379,7 +2831,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.273,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Providence investors ask no questions",
@@ -2395,7 +2847,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.164,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Aleforge bristles at theocracy",
@@ -2411,7 +2863,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Hollow Tongues vigilance",
@@ -2427,7 +2879,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "orthodoxy squeezes the missionary",
@@ -2443,7 +2895,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "sobriety sermons give prohibition cover",
@@ -2459,7 +2911,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.164,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Providence sneers at \"pagan revelry\"",
@@ -2475,7 +2927,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "bootleg tonic gets dearer",
@@ -2491,7 +2943,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "latent",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.328,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "\"next on the list\"",
@@ -2513,7 +2965,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.265,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "gang power hollows Church order",
@@ -2529,7 +2981,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "emigrants crowd Aleforge's thin wheat",
@@ -2545,7 +2997,7 @@
       "toStat": "religious",
       "domain": "cultural→religious",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "secret shrines under the church",
@@ -2561,7 +3013,7 @@
       "toStat": "religious",
       "domain": "cultural→religious",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.318,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the district wants its first Saint",
@@ -2577,7 +3029,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.139,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "missionary guns reach the gangs",
@@ -2593,7 +3045,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.139,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "heterodoxy leaks the church's secrets",
@@ -2609,7 +3061,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.217,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the detente tilts",
@@ -2625,7 +3077,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.265,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto's elite want the reefs \"cleaned up\"",
@@ -2641,7 +3093,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "pirates skip the cliffs for Roto",
@@ -2657,7 +3109,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.265,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the fence needs plunder",
@@ -2673,7 +3125,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.217,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "\"raid a shipment, to remind 'em\"",
@@ -2689,7 +3141,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.163,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "pirates fill the stands",
@@ -2705,7 +3157,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.5,
+      "strengthMultiplier": 0.569,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the treasury is ale",
@@ -2721,7 +3173,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.22,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "grants reach the brewhouses",
@@ -2737,7 +3189,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.341,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "more ale, bigger Trials",
@@ -2753,7 +3205,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.303,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "tourist coin in the coffers",
@@ -2769,7 +3221,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.486,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "prestige sells kegs",
@@ -2785,7 +3237,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.425,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Trials are the Kings' mandate",
@@ -2801,7 +3253,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.243,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "every Trials is a recruiting poster",
@@ -2817,7 +3269,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.45,
+      "strengthMultiplier": 0.466,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "real ale trade diverted to Roto books",
@@ -2833,7 +3285,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.259,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "profits that never touch the treasury",
@@ -2849,7 +3301,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.362,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the original books live in Roto",
@@ -2865,7 +3317,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.414,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the robber baron buys a voice",
@@ -2881,7 +3333,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.207,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Jack campaigns against the debt",
@@ -2897,7 +3349,7 @@
       "toStat": "racial",
       "domain": "economic→racial",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.155,
       "lagTurns": 2,
       "mode": "pulse",
       "short": "taking too much from the earth",
@@ -2913,7 +3365,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.124,
       "lagTurns": 2,
       "mode": "pulse",
       "short": "grey books bend the rates",
@@ -2929,7 +3381,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.385,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "a healthy treasury reassures holders",
@@ -2945,7 +3397,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.275,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "stability lowers the rate",
@@ -2961,7 +3413,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.216,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto holds the paper",
@@ -2977,7 +3429,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.159,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto's appetite for paper",
@@ -2993,7 +3445,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.238,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "stable Duckets, stable ledgers",
@@ -3009,7 +3461,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.297,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto clears in Duckets",
@@ -3025,7 +3477,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.178,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "tithes are counted in Duckets",
@@ -3041,7 +3493,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "liquidity anchors the rate",
@@ -3057,7 +3509,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "cheap Roto grog floods in",
@@ -3073,7 +3525,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.184,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "smuggled IPAs undercut Aleforge",
@@ -3089,7 +3541,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.23,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "unaccounted goods, unaccounted coin",
@@ -3105,7 +3557,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.138,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "an agnostic-by-law neighbour",
@@ -3121,7 +3573,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "dependent",
-      "strengthMultiplier": 0.55,
+      "strengthMultiplier": 0.58,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "no wheat, no ale",
@@ -3137,7 +3589,7 @@
       "toStat": "economic",
       "domain": "racial→economic",
       "type": "support",
-      "strengthMultiplier": 0.5,
+      "strengthMultiplier": 0.45,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "the blessing follows the blood",
@@ -3153,7 +3605,7 @@
       "toStat": "economic",
       "domain": "racial→economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.267,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "the Veil tends the soil",
@@ -3169,7 +3621,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.22,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "subsidies reach the fields",
@@ -3185,7 +3637,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.27,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the treasurer embezzles",
@@ -3201,7 +3653,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.158,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "bread prices move the rate",
@@ -3217,7 +3669,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.158,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Providence sells the emergency wheat",
@@ -3233,7 +3685,7 @@
       "toStat": "racial",
       "domain": "racial",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.326,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "conquest presses the earth-born",
@@ -3249,7 +3701,7 @@
       "toStat": "racial",
       "domain": "racial",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.16,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the earth takes back its due",
@@ -3265,7 +3717,7 @@
       "toStat": "racial",
       "domain": "racial",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.272,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "halfbreeds have no precedent",
@@ -3281,7 +3733,7 @@
       "toStat": "racial",
       "domain": "racial",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.32,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Veil acknowledges the blood",
@@ -3297,7 +3749,7 @@
       "toStat": "racial",
       "domain": "religious→racial",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.32,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "custom is what keeps the Walkers whole",
@@ -3313,7 +3765,7 @@
       "toStat": "religious",
       "domain": "cultural→religious",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.32,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "vows are the Veil's economy",
@@ -3329,7 +3781,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.128,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Veil sympathy inside the church",
@@ -3345,7 +3797,7 @@
       "toStat": "economic",
       "domain": "racial→economic",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.128,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the accord: wind when all winds fail",
@@ -3361,7 +3813,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.185,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "chants become occupation",
@@ -3377,7 +3829,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.123,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Kings' hall is not theirs",
@@ -3393,7 +3845,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.316,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Kings could take it back",
@@ -3409,7 +3861,7 @@
       "toStat": "economic",
       "domain": "religious→economic",
       "type": "latent",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.185,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "\"our cliffs catch the tide first\"",
@@ -3431,7 +3883,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.5,
+      "strengthMultiplier": 0.54,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "debt service eats the treasury",
@@ -3448,7 +3900,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.422,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "the harvest sets the brewing season",
@@ -3465,7 +3917,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.328,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "the tithe keeps draining upward",
@@ -3482,7 +3934,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.198,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "the ideology regrows cells",
@@ -3499,7 +3951,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.33,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "the ledger reprices the paper",
@@ -3516,7 +3968,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.18,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "Rump skims every season",
@@ -3533,7 +3985,7 @@
       "toStat": "economic",
       "domain": "racial→economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.27,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "the unblessed fields drift",
@@ -3550,7 +4002,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.207,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "the Grog Galley keeps selling Wepple Ale",
@@ -3567,7 +4019,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.227,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "resources in exile become schemes",
@@ -3584,7 +4036,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.6,
+      "strengthMultiplier": 0.728,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "Trials season: the tourist tide",
@@ -3602,7 +4054,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.326,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "Hoppy Holidays at Sackbeard's",
@@ -3620,7 +4072,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.407,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "coin that moves pays wages",
@@ -3636,7 +4088,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.357,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "stable rates, stable prices",
@@ -3652,7 +4104,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.33,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "treasuries fund contracts and wages",
@@ -3668,7 +4120,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.131,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Providence shops restock with the spire",
@@ -3684,7 +4136,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.159,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto keeps the shelves full",
@@ -3700,7 +4152,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.149,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "players' trades are circulation",
@@ -3716,7 +4168,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "latent",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.349,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "too-fast money is inflation's other door",
@@ -4106,7 +4558,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.27,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "banks hold Aleforge paper",
@@ -4122,7 +4574,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.235,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "loans for land, ships and shops",
@@ -4138,7 +4590,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.188,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "credit makes money move",
@@ -4154,7 +4606,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "latent",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.188,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "interest from nowhere is minting",
@@ -4176,7 +4628,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.189,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "a failed underwriter drags its lender",
@@ -4192,7 +4644,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.142,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "insured voyages sail",
@@ -4208,7 +4660,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto underwrites the voyages",
@@ -4224,7 +4676,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.291,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the posted rate stops meaning anything",
@@ -4240,7 +4692,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.194,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "taboo trade is still trade",
@@ -4256,7 +4708,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.259,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "real books need a real fence",
@@ -4272,7 +4724,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.23,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Ale Bean coin needs changing",
@@ -4288,7 +4740,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.297,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "a trusted Ducket starves the night market",
@@ -4304,7 +4756,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "latent",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.211,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "one crop for endless coin",
@@ -4326,7 +4778,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.109,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "barter loops around the Ducket",
@@ -4393,7 +4845,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.38,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "Stormtide claims season",
@@ -4411,7 +4863,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.318,
       "lagTurns": 0,
       "mode": "pressure",
       "short": "Goldsun trade season",
@@ -4429,7 +4881,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.341,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Brewers Lane pride feeds the festival",
@@ -4445,7 +4897,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.303,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the festival makes brewers",
@@ -4461,7 +4913,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.284,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "a brewing culture sells",
@@ -4477,7 +4929,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.165,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "brewing becomes shameful",
@@ -4493,7 +4945,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.318,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Xi's principles keep the heirs honest",
@@ -4509,7 +4961,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "taboos keep dark trade after dark",
@@ -4525,7 +4977,7 @@
       "toStat": "cultural",
       "domain": "economic→cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.207,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "big players erode Xi's principles",
@@ -4541,7 +4993,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the heirs check the robber barons",
@@ -4557,7 +5009,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.159,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Roto's security forces",
@@ -4573,7 +5025,7 @@
       "toStat": "political",
       "domain": "racial→political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.272,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "encroachment rouses Fenwick",
@@ -4589,7 +5041,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.215,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "cursed ventures",
@@ -4605,7 +5057,7 @@
       "toStat": "racial",
       "domain": "political→racial",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.215,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the earth takes the flesh-born back",
@@ -4621,7 +5073,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.16,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "vows kept, abundance given",
@@ -4637,7 +5089,7 @@
       "toStat": "cultural",
       "domain": "religious→cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.214,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "faith keeps the custom alive",
@@ -4653,7 +5105,7 @@
       "toStat": "cultural",
       "domain": "religious→cultural",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.37,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the mission builds a following",
@@ -4669,7 +5121,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.185,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Owe Block's own faith",
@@ -4685,7 +5137,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "order leaves no room for heresy",
@@ -4701,7 +5153,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.5,
+      "strengthMultiplier": 0.527,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Cumstead is the family fortune",
@@ -4717,7 +5169,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.27,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "money buys Rump his grip",
@@ -4733,7 +5185,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "zeal becomes action",
@@ -4749,7 +5201,7 @@
       "toStat": "cultural",
       "domain": "religious→cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.099,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "sermons against the Trials",
@@ -4765,7 +5217,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Ashen Oath stirs",
@@ -4781,7 +5233,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "every Ducket underground is a Ducket untithed",
@@ -4797,7 +5249,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the underground trades with the night market",
@@ -4813,7 +5265,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.265,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "gang culture builds gang power",
@@ -4829,7 +5281,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "protection and the underground",
@@ -4845,7 +5297,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.364,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Trials make legends",
@@ -4861,7 +5313,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "\"WHO KILLED MAXIMILIAN?\"",
@@ -4877,7 +5329,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.316,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "legend is legitimacy",
@@ -4893,7 +5345,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.19,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "celebrity sells ale",
@@ -4909,7 +5361,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.165,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the mayor runs the Trials",
@@ -4925,7 +5377,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.272,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Council decides who eats",
@@ -4941,7 +5393,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.217,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "grog and reputation",
@@ -4957,7 +5409,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.163,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "pirates fence through Roto's nights",
@@ -4973,7 +5425,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.164,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Shanty defines itself against the spire",
@@ -4989,7 +5441,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.219,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "order breeds obedience",
@@ -5005,7 +5457,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.182,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the young run off to sea",
@@ -5021,7 +5473,7 @@
       "toStat": "economic",
       "domain": "cultural→economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.182,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "festival work and festival coin",
@@ -5037,7 +5489,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "tourists stay home",
@@ -5053,7 +5505,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.253,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Jack's crown opens doors",
@@ -5069,7 +5521,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.155,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the big player leans on Roto",
@@ -5085,7 +5537,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.276,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "formal ties open trade",
@@ -5101,7 +5553,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.092,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Drinkers Unit is watching",
@@ -5117,7 +5569,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.35,
+      "strengthMultiplier": 0.36,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the mayor's own standing",
@@ -5133,7 +5585,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.33,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the chain weighs on the man",
@@ -5149,7 +5601,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.225,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Rump's blackmail",
@@ -5165,7 +5617,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.154,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the best trade deals",
@@ -5181,7 +5633,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.206,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Ode to the Six",
@@ -5213,7 +5665,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.409,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Jack is Goldcoral",
@@ -5229,7 +5681,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.4,
+      "strengthMultiplier": 0.414,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Goldcoral pays its owner",
@@ -5245,7 +5697,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.256,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "a King's company",
@@ -5261,7 +5713,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.307,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Wepple debt",
@@ -5277,7 +5729,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "latent",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.205,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "the robber baron problem",
@@ -5299,7 +5751,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.153,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Oracle in the stacks",
@@ -5315,7 +5767,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.102,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "an old Cutter",
@@ -5331,7 +5783,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.254,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the pro-Providence King",
@@ -5347,7 +5799,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.203,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the King who unmasked Plinket",
@@ -5363,7 +5815,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.203,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Drunken Angel's flight",
@@ -5379,7 +5831,7 @@
       "toStat": "economic",
       "domain": "religious→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.105,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the tonic habit",
@@ -5395,7 +5847,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.202,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the pro-Shanty King",
@@ -5411,7 +5863,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.252,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Shanty's friend in the Parliament",
@@ -5427,7 +5879,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.202,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "manifest destiny",
@@ -5443,7 +5895,7 @@
       "toStat": "racial",
       "domain": "political→racial",
       "type": "oppose",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.121,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "anti-Fenwick policy",
@@ -5459,7 +5911,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.243,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "won quiet as a tide",
@@ -5475,7 +5927,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.101,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the street reaper",
@@ -5491,7 +5943,7 @@
       "toStat": "political",
       "domain": "cultural→political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.198,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Maximilian's killer",
@@ -5507,7 +5959,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "latent",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.251,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "celebrating the killing",
@@ -5529,7 +5981,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.301,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "ale production above all",
@@ -5545,7 +5997,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.171,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the brewers' candidate",
@@ -5561,7 +6013,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.249,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the pro-Fenwick King",
@@ -5609,7 +6061,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.182,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Slayer of Sobriety",
@@ -5625,7 +6077,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.123,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "one of the six",
@@ -5641,7 +6093,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.122,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "one of the six",
@@ -5657,7 +6109,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.121,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "one of the six",
@@ -5705,7 +6157,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.206,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "one of the six, and the mayor",
@@ -5721,7 +6173,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.127,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the crown's authority",
@@ -5737,7 +6189,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.127,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the crown's authority",
@@ -5753,7 +6205,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.127,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the crown's authority",
@@ -5769,7 +6221,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.127,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the crown's authority",
@@ -5785,7 +6237,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.127,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the crown's authority",
@@ -5801,7 +6253,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.127,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the crown's authority",
@@ -5817,7 +6269,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.163,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "his Shanty base",
@@ -5865,7 +6317,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.136,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "17 pints in 180 seconds",
@@ -5881,7 +6333,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.116,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Oracle's reputation",
@@ -5897,7 +6349,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.152,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Parliament's legend",
@@ -5913,7 +6365,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.152,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Parliament's legend",
@@ -5929,7 +6381,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.152,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Parliament's legend",
@@ -5945,7 +6397,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.152,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Parliament's legend",
@@ -5961,7 +6413,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.152,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Parliament's legend",
@@ -5977,7 +6429,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.152,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Parliament's legend",
@@ -6089,7 +6541,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.214,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Elders' authority",
@@ -6105,7 +6557,7 @@
       "toStat": "cultural",
       "domain": "economic→cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.161,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "vows kept",
@@ -6121,7 +6573,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.086,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "lures from the Fen",
@@ -6137,7 +6589,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.22,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the honorary offices wake",
@@ -6153,7 +6605,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.072,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "three offices, one castle",
@@ -6169,7 +6621,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.06,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Sheriff and the Unit",
@@ -6185,7 +6637,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.311,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the militia on the streets",
@@ -6201,7 +6653,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.155,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "order over chaos",
@@ -6217,7 +6669,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.104,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "flagged by the ASDU",
@@ -6233,7 +6685,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.104,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Crawdad remembers",
@@ -6249,7 +6701,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.198,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the spire's arm",
@@ -6265,7 +6717,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.248,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Guard in the lower terraces",
@@ -6281,7 +6733,7 @@
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.198,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "contraband seized",
@@ -6297,7 +6749,7 @@
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.164,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the tithe pays the Guard",
@@ -6313,7 +6765,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.171,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the gang war",
@@ -6329,7 +6781,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.28,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the gang war",
@@ -6345,7 +6797,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.18,
+      "strengthMultiplier": 0.103,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Cutter muscle",
@@ -6361,7 +6813,7 @@
       "toStat": "political",
       "domain": "political",
       "type": "support",
-      "strengthMultiplier": 0.18,
+      "strengthMultiplier": 0.168,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Circus muscle",
@@ -6377,7 +6829,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.186,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Circus colours",
@@ -6393,7 +6845,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.293,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Bully Hill gold",
@@ -6409,7 +6861,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.293,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Owe Block's biggest employer",
@@ -6441,7 +6893,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.262,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the tonic is the economy",
@@ -6457,7 +6909,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.262,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "chants in the vats",
@@ -6473,7 +6925,7 @@
       "toStat": "religious",
       "domain": "political→religious",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.164,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Cardinal's brewers",
@@ -6489,7 +6941,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.083,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Rump's tonic",
@@ -6505,7 +6957,7 @@
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.056,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "tonic leaking out",
@@ -6521,7 +6973,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.056,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "missionaries with satchels",
@@ -6537,7 +6989,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.328,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "apostasy hunted",
@@ -6553,7 +7005,7 @@
       "toStat": "religious",
       "domain": "cultural→religious",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.159,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the shrine in the underground",
@@ -6569,7 +7021,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.063,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "offerings from the city",
@@ -6585,7 +7037,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.076,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the quiet dance",
@@ -6601,7 +7053,7 @@
       "toStat": "cultural",
       "domain": "religious→cultural",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.208,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the spring's festival",
@@ -6617,7 +7069,7 @@
       "toStat": "economic",
       "domain": "religious→economic",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.156,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the blessing on the spring",
@@ -6633,7 +7085,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "corruption or sacrament",
@@ -6649,7 +7101,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.156,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Brewmasters Eve",
@@ -6665,7 +7117,7 @@
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.104,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Kings of the Deity's town",
@@ -6681,7 +7133,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "latent",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.208,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "Cedric the Vicar",
@@ -6703,7 +7155,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.104,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the brew-god and the clock-heart",
@@ -6719,7 +7171,7 @@
       "toStat": "religious",
       "domain": "cultural→religious",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.132,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "grog has tainted the world",
@@ -6735,7 +7187,7 @@
       "toStat": "political",
       "domain": "religious→political",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.194,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "fanatics find followers",
@@ -6751,7 +7203,7 @@
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.129,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "order through fire",
@@ -6767,7 +7219,7 @@
       "toStat": "cultural",
       "domain": "religious→cultural",
       "type": "support",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.144,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the sea rewards devotion",
@@ -6783,7 +7235,7 @@
       "toStat": "economic",
       "domain": "religious→economic",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.096,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "storm-readers keep hulls home",
@@ -6799,7 +7251,7 @@
       "toStat": "religious",
       "domain": "religious",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.144,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the sea is holy, not tainted",
@@ -6815,7 +7267,7 @@
       "toStat": "racial",
       "domain": "economic→racial",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.095,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "fewer wrecks, fewer drowned",
@@ -6831,7 +7283,7 @@
       "toStat": "cultural",
       "domain": "racial→cultural",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.043,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "more than drowned",
@@ -6841,29 +7293,13 @@
     },
     {
       "id": "r304",
-      "fromId": "liquorKings",
-      "fromStat": "political",
-      "toId": "wardenCult",
-      "toStat": "religious",
-      "domain": "political→religious",
-      "type": "oppose",
-      "strengthMultiplier": 0.2,
-      "lagTurns": 0,
-      "mode": "pulse",
-      "short": "the Kings killed Fentmaxxer",
-      "explanation": "The Warden's astronomer died at the Kings' hands. A strong Parliament keeps the altar under the well cold.",
-      "precedent": "Concept II: The Cloister Beast",
-      "canon": "canon"
-    },
-    {
-      "id": "r305",
       "fromId": "captains",
       "fromStat": "economic",
       "toId": "shantyTown",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.295,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the lifeblood",
@@ -6872,14 +7308,14 @@
       "canon": "canon"
     },
     {
-      "id": "r306",
+      "id": "r305",
       "fromId": "captains",
       "fromStat": "political",
       "toId": "insurers",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "oppose",
-      "strengthMultiplier": 0.15,
+      "strengthMultiplier": 0.148,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "raids are payouts",
@@ -6888,14 +7324,14 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r307",
+      "id": "r306",
       "fromId": "rotoCouncil",
       "fromStat": "economic",
       "toId": "captains",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.212,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the fence",
@@ -6904,14 +7340,14 @@
       "canon": "canon"
     },
     {
-      "id": "r308",
+      "id": "r307",
       "fromId": "stormveil",
       "fromStat": "economic",
       "toId": "sbn",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.285,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Albatross routes",
@@ -6920,14 +7356,14 @@
       "canon": "canon"
     },
     {
-      "id": "r309",
+      "id": "r308",
       "fromId": "sbn",
       "fromStat": "economic",
       "toId": "stormveil",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.25,
+      "strengthMultiplier": 0.23,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Bellows trade",
@@ -6936,14 +7372,14 @@
       "canon": "canon"
     },
     {
-      "id": "r310",
+      "id": "r309",
       "fromId": "wolendi",
       "fromStat": "economic",
       "toId": "stormveil",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.3,
+      "strengthMultiplier": 0.274,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "wind stores",
@@ -6952,14 +7388,14 @@
       "canon": "canon"
     },
     {
-      "id": "r311",
+      "id": "r310",
       "fromId": "stormveil",
       "fromStat": "economic",
       "toId": "velocity",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.076,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "sky freight",
@@ -6968,14 +7404,14 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r312",
+      "id": "r311",
       "fromId": "wepple",
       "fromStat": "economic",
       "toId": "aleforgeBrewing",
       "toStat": "economic",
       "domain": "economic",
       "type": "support",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.117,
       "lagTurns": 1,
       "mode": "pulse",
       "short": "Wepple's secret brew",
@@ -6984,14 +7420,14 @@
       "canon": "canon"
     },
     {
-      "id": "r313",
+      "id": "r312",
       "fromId": "goldcoral",
       "fromStat": "economic",
       "toId": "wepple",
       "toStat": "economic",
       "domain": "economic",
       "type": "oppose",
-      "strengthMultiplier": 0.2,
+      "strengthMultiplier": 0.207,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Galley's grip",
@@ -7000,14 +7436,14 @@
       "canon": "canon"
     },
     {
-      "id": "r314",
+      "id": "r313",
       "fromId": "drunkenTrials",
       "fromStat": "cultural",
       "toId": "press",
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.121,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the news sells",
@@ -7016,14 +7452,14 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r315",
+      "id": "r314",
       "fromId": "press",
       "fromStat": "cultural",
       "toId": "liquorKings",
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.089,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "celebrity",
@@ -7032,14 +7468,14 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r316",
+      "id": "r315",
       "fromId": "patmos",
       "fromStat": "political",
       "toId": "press",
       "toStat": "cultural",
       "domain": "political→cultural",
       "type": "oppose",
-      "strengthMultiplier": 0.12,
+      "strengthMultiplier": 0.131,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the spire's censors",
@@ -7048,14 +7484,14 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r317",
+      "id": "r316",
       "fromId": "oweBlock",
       "fromStat": "cultural",
       "toId": "press",
       "toStat": "cultural",
       "domain": "cultural",
       "type": "support",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.106,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the Owe Block Chronicle",
@@ -7064,7 +7500,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r318",
+      "id": "r317",
       "fromId": "militiaFunding",
       "fromStat": "political",
       "toId": "asdu",
@@ -7080,7 +7516,7 @@
       "canon": "canon"
     },
     {
-      "id": "r319",
+      "id": "r318",
       "fromId": "militiaFunding",
       "fromStat": "political",
       "toId": "aleforgeGov",
@@ -7096,7 +7532,7 @@
       "canon": "canon"
     },
     {
-      "id": "r320",
+      "id": "r319",
       "fromId": "militiaFunding",
       "fromStat": "political",
       "toId": "mama",
@@ -7112,7 +7548,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r321",
+      "id": "r320",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "drunkenTrials",
@@ -7128,7 +7564,7 @@
       "canon": "canon"
     },
     {
-      "id": "r322",
+      "id": "r321",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "drunkenTrials",
@@ -7144,7 +7580,7 @@
       "canon": "canon"
     },
     {
-      "id": "r323",
+      "id": "r322",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "aleforgeGov",
@@ -7160,7 +7596,7 @@
       "canon": "canon"
     },
     {
-      "id": "r324",
+      "id": "r323",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "mama",
@@ -7176,7 +7612,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r325",
+      "id": "r324",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "patmos",
@@ -7192,7 +7628,7 @@
       "canon": "canon"
     },
     {
-      "id": "r326",
+      "id": "r325",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "oweBlock",
@@ -7208,7 +7644,7 @@
       "canon": "canon"
     },
     {
-      "id": "r327",
+      "id": "r326",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "playerEconomy",
@@ -7224,7 +7660,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r328",
+      "id": "r327",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "rel_ale_prov",
@@ -7240,7 +7676,7 @@
       "canon": "canon"
     },
     {
-      "id": "r329",
+      "id": "r328",
       "fromId": "friarPatrols",
       "fromStat": "political",
       "toId": "providenceGuard",
@@ -7256,7 +7692,7 @@
       "canon": "canon"
     },
     {
-      "id": "r330",
+      "id": "r329",
       "fromId": "friarPatrols",
       "fromStat": "political",
       "toId": "oweBlock",
@@ -7272,7 +7708,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r331",
+      "id": "r330",
       "fromId": "friarPatrols",
       "fromStat": "political",
       "toId": "oweBlock",
@@ -7288,7 +7724,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r332",
+      "id": "r331",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "patmos",
@@ -7304,7 +7740,7 @@
       "canon": "canon"
     },
     {
-      "id": "r333",
+      "id": "r332",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "tonicGuild",
@@ -7320,7 +7756,7 @@
       "canon": "canon"
     },
     {
-      "id": "r334",
+      "id": "r333",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "whiskeyRunners",
@@ -7336,7 +7772,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r335",
+      "id": "r334",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "patmos",
@@ -7352,7 +7788,7 @@
       "canon": "canon"
     },
     {
-      "id": "r336",
+      "id": "r335",
       "fromId": "plunderShare",
       "fromStat": "economic",
       "toId": "shantyTown",
@@ -7368,7 +7804,7 @@
       "canon": "canon"
     },
     {
-      "id": "r337",
+      "id": "r336",
       "fromId": "plunderShare",
       "fromStat": "economic",
       "toId": "captains",
@@ -7384,7 +7820,7 @@
       "canon": "canon"
     },
     {
-      "id": "r338",
+      "id": "r337",
       "fromId": "plunderShare",
       "fromStat": "economic",
       "toId": "captains",
@@ -7400,7 +7836,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r339",
+      "id": "r338",
       "fromId": "councilRule",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -7416,7 +7852,7 @@
       "canon": "canon"
     },
     {
-      "id": "r340",
+      "id": "r339",
       "fromId": "councilRule",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -7432,7 +7868,7 @@
       "canon": "canon"
     },
     {
-      "id": "r341",
+      "id": "r340",
       "fromId": "councilRule",
       "fromStat": "political",
       "toId": "ashenOathSect",
@@ -7448,7 +7884,7 @@
       "canon": "canon"
     },
     {
-      "id": "r342",
+      "id": "r341",
       "fromId": "driftersWelcome",
       "fromStat": "cultural",
       "toId": "shantyTown",
@@ -7464,7 +7900,7 @@
       "canon": "canon"
     },
     {
-      "id": "r343",
+      "id": "r342",
       "fromId": "driftersWelcome",
       "fromStat": "cultural",
       "toId": "rel_shanty_roto",
@@ -7480,7 +7916,7 @@
       "canon": "canon"
     },
     {
-      "id": "r344",
+      "id": "r343",
       "fromId": "driftersWelcome",
       "fromStat": "cultural",
       "toId": "ashenOathSect",
@@ -7496,7 +7932,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r345",
+      "id": "r344",
       "fromId": "merchantFee",
       "fromStat": "economic",
       "toId": "rotoCouncil",
@@ -7512,7 +7948,7 @@
       "canon": "canon"
     },
     {
-      "id": "r346",
+      "id": "r345",
       "fromId": "merchantFee",
       "fromStat": "economic",
       "toId": "rotoBlackMarket",
@@ -7528,7 +7964,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r347",
+      "id": "r346",
       "fromId": "merchantFee",
       "fromStat": "economic",
       "toId": "goldcoral",
@@ -7544,7 +7980,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r348",
+      "id": "r347",
       "fromId": "tabooEnforcement",
       "fromStat": "political",
       "toId": "rotoBlackMarket",
@@ -7560,7 +7996,7 @@
       "canon": "canon"
     },
     {
-      "id": "r349",
+      "id": "r348",
       "fromId": "tabooEnforcement",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -7576,7 +8012,7 @@
       "canon": "canon"
     },
     {
-      "id": "r350",
+      "id": "r349",
       "fromId": "tabooEnforcement",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -7592,7 +8028,7 @@
       "canon": "canon"
     },
     {
-      "id": "r351",
+      "id": "r350",
       "fromId": "heirSchool",
       "fromStat": "cultural",
       "toId": "rotoCouncil",
@@ -7608,7 +8044,7 @@
       "canon": "canon"
     },
     {
-      "id": "r352",
+      "id": "r351",
       "fromId": "heirSchool",
       "fromStat": "cultural",
       "toId": "goldcoral",
@@ -7624,7 +8060,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r353",
+      "id": "r352",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "fenwick",
@@ -7640,7 +8076,7 @@
       "canon": "canon"
     },
     {
-      "id": "r354",
+      "id": "r353",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "veilwalkers",
@@ -7656,7 +8092,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r355",
+      "id": "r354",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "shantyTown",
@@ -7672,7 +8108,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r356",
+      "id": "r355",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "rel_prov_fen",
@@ -7688,7 +8124,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r357",
+      "id": "r356",
       "fromId": "eldersHear",
       "fromStat": "political",
       "toId": "fenwick",
@@ -7704,7 +8140,7 @@
       "canon": "canon"
     },
     {
-      "id": "r358",
+      "id": "r357",
       "fromId": "eldersHear",
       "fromStat": "political",
       "toId": "veilwalkers",
@@ -7720,7 +8156,7 @@
       "canon": "canon"
     },
     {
-      "id": "r359",
+      "id": "r358",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "fleshborn",
@@ -7736,7 +8172,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r360",
+      "id": "r359",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "goldcoral",
@@ -7752,7 +8188,7 @@
       "canon": "canon"
     },
     {
-      "id": "r361",
+      "id": "r360",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "fenwick",
@@ -7768,7 +8204,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r362",
+      "id": "r361",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -7784,7 +8220,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r363",
+      "id": "r362",
       "fromId": "aleforgeTariffs",
       "fromStat": "economic",
       "toId": "rel_ale_prov",
@@ -7800,14 +8236,14 @@
       "canon": "canon"
     },
     {
-      "id": "r364",
+      "id": "r363",
       "fromId": "goldcoral",
       "fromStat": "economic",
       "toId": "rel_prov_roto",
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.083,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "Goldcoral's two homes",
@@ -7816,14 +8252,14 @@
       "canon": "canon"
     },
     {
-      "id": "r365",
+      "id": "r364",
       "fromId": "hoegaarden",
       "fromStat": "cultural",
       "toId": "rel_ale_prov",
       "toStat": "political",
       "domain": "cultural→political",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.077,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "the embassy",
@@ -7832,14 +8268,14 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r366",
+      "id": "r365",
       "fromId": "patmos",
       "fromStat": "religious",
       "toId": "rel_prov_shanty",
       "toStat": "political",
       "domain": "religious→political",
       "type": "oppose",
-      "strengthMultiplier": 0.1,
+      "strengthMultiplier": 0.109,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "pious disdain",
@@ -7848,14 +8284,14 @@
       "canon": "canon"
     },
     {
-      "id": "r367",
+      "id": "r366",
       "fromId": "tonicGuild",
       "fromStat": "economic",
       "toId": "rel_prov_fen",
       "toStat": "political",
       "domain": "economic→political",
       "type": "support",
-      "strengthMultiplier": 0.08,
+      "strengthMultiplier": 0.084,
       "lagTurns": 0,
       "mode": "pulse",
       "short": "tonic as goodwill",
@@ -7864,7 +8300,7 @@
       "canon": "canon"
     },
     {
-      "id": "r368",
+      "id": "r367",
       "fromId": "dip_ale_prov",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -7880,7 +8316,7 @@
       "canon": "canon"
     },
     {
-      "id": "r369",
+      "id": "r368",
       "fromId": "dip_ale_prov",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -7896,7 +8332,7 @@
       "canon": "canon"
     },
     {
-      "id": "r370",
+      "id": "r369",
       "fromId": "dip_ale_shanty",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -7912,7 +8348,7 @@
       "canon": "canon"
     },
     {
-      "id": "r371",
+      "id": "r370",
       "fromId": "dip_ale_shanty",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -7928,7 +8364,7 @@
       "canon": "canon"
     },
     {
-      "id": "r372",
+      "id": "r371",
       "fromId": "dip_ale_roto",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -7944,7 +8380,7 @@
       "canon": "canon"
     },
     {
-      "id": "r373",
+      "id": "r372",
       "fromId": "dip_ale_roto",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -7960,7 +8396,7 @@
       "canon": "canon"
     },
     {
-      "id": "r374",
+      "id": "r373",
       "fromId": "dip_ale_fen",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -7976,7 +8412,7 @@
       "canon": "canon"
     },
     {
-      "id": "r375",
+      "id": "r374",
       "fromId": "dip_ale_fen",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -7992,7 +8428,7 @@
       "canon": "canon"
     },
     {
-      "id": "r376",
+      "id": "r375",
       "fromId": "dip_prov_ale",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -8008,7 +8444,7 @@
       "canon": "canon"
     },
     {
-      "id": "r377",
+      "id": "r376",
       "fromId": "dip_prov_ale",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -8024,7 +8460,7 @@
       "canon": "canon"
     },
     {
-      "id": "r378",
+      "id": "r377",
       "fromId": "dip_prov_shanty",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8040,7 +8476,7 @@
       "canon": "canon"
     },
     {
-      "id": "r379",
+      "id": "r378",
       "fromId": "dip_prov_shanty",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8056,7 +8492,7 @@
       "canon": "canon"
     },
     {
-      "id": "r380",
+      "id": "r379",
       "fromId": "dip_prov_roto",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8072,7 +8508,7 @@
       "canon": "canon"
     },
     {
-      "id": "r381",
+      "id": "r380",
       "fromId": "dip_prov_roto",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8088,7 +8524,7 @@
       "canon": "canon"
     },
     {
-      "id": "r382",
+      "id": "r381",
       "fromId": "dip_prov_fen",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8104,7 +8540,7 @@
       "canon": "canon"
     },
     {
-      "id": "r383",
+      "id": "r382",
       "fromId": "dip_prov_fen",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8120,7 +8556,7 @@
       "canon": "canon"
     },
     {
-      "id": "r384",
+      "id": "r383",
       "fromId": "dip_shanty_ale",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -8136,7 +8572,7 @@
       "canon": "canon"
     },
     {
-      "id": "r385",
+      "id": "r384",
       "fromId": "dip_shanty_ale",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -8152,7 +8588,7 @@
       "canon": "canon"
     },
     {
-      "id": "r386",
+      "id": "r385",
       "fromId": "dip_shanty_prov",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8168,7 +8604,7 @@
       "canon": "canon"
     },
     {
-      "id": "r387",
+      "id": "r386",
       "fromId": "dip_shanty_prov",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8184,7 +8620,7 @@
       "canon": "canon"
     },
     {
-      "id": "r388",
+      "id": "r387",
       "fromId": "dip_shanty_roto",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8200,7 +8636,7 @@
       "canon": "canon"
     },
     {
-      "id": "r389",
+      "id": "r388",
       "fromId": "dip_shanty_roto",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8216,7 +8652,7 @@
       "canon": "canon"
     },
     {
-      "id": "r390",
+      "id": "r389",
       "fromId": "dip_shanty_fen",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8232,7 +8668,7 @@
       "canon": "canon"
     },
     {
-      "id": "r391",
+      "id": "r390",
       "fromId": "dip_shanty_fen",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8248,7 +8684,7 @@
       "canon": "canon"
     },
     {
-      "id": "r392",
+      "id": "r391",
       "fromId": "dip_roto_ale",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -8264,7 +8700,7 @@
       "canon": "canon"
     },
     {
-      "id": "r393",
+      "id": "r392",
       "fromId": "dip_roto_ale",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -8280,7 +8716,7 @@
       "canon": "canon"
     },
     {
-      "id": "r394",
+      "id": "r393",
       "fromId": "dip_roto_prov",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8296,7 +8732,7 @@
       "canon": "canon"
     },
     {
-      "id": "r395",
+      "id": "r394",
       "fromId": "dip_roto_prov",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8312,7 +8748,7 @@
       "canon": "canon"
     },
     {
-      "id": "r396",
+      "id": "r395",
       "fromId": "dip_roto_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8328,7 +8764,7 @@
       "canon": "canon"
     },
     {
-      "id": "r397",
+      "id": "r396",
       "fromId": "dip_roto_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8344,7 +8780,7 @@
       "canon": "canon"
     },
     {
-      "id": "r398",
+      "id": "r397",
       "fromId": "dip_roto_fen",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8360,7 +8796,7 @@
       "canon": "canon"
     },
     {
-      "id": "r399",
+      "id": "r398",
       "fromId": "dip_roto_fen",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8376,7 +8812,7 @@
       "canon": "canon"
     },
     {
-      "id": "r400",
+      "id": "r399",
       "fromId": "dip_fen_ale",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -8392,7 +8828,7 @@
       "canon": "canon"
     },
     {
-      "id": "r401",
+      "id": "r400",
       "fromId": "dip_fen_ale",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -8408,7 +8844,7 @@
       "canon": "canon"
     },
     {
-      "id": "r402",
+      "id": "r401",
       "fromId": "dip_fen_prov",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8424,7 +8860,7 @@
       "canon": "canon"
     },
     {
-      "id": "r403",
+      "id": "r402",
       "fromId": "dip_fen_prov",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8440,7 +8876,7 @@
       "canon": "canon"
     },
     {
-      "id": "r404",
+      "id": "r403",
       "fromId": "dip_fen_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8456,7 +8892,7 @@
       "canon": "canon"
     },
     {
-      "id": "r405",
+      "id": "r404",
       "fromId": "dip_fen_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8472,7 +8908,7 @@
       "canon": "canon"
     },
     {
-      "id": "r406",
+      "id": "r405",
       "fromId": "dip_fen_roto",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8488,7 +8924,7 @@
       "canon": "canon"
     },
     {
-      "id": "r407",
+      "id": "r406",
       "fromId": "dip_fen_roto",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8504,10 +8940,27 @@
       "canon": "canon"
     },
     {
-      "id": "r408",
+      "id": "r407",
       "fromId": "rel_ale_prov",
       "fromStat": "political",
       "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "trade follows friendship",
+      "explanation": "Warmer relations between Aleforge and Providence mean more trade and better terms for both.",
+      "precedent": "The Concept Economy: rates move with story events",
+      "canon": "canon",
+      "pivot": 40
+    },
+    {
+      "id": "r408",
+      "fromId": "rel_ale_prov",
+      "fromStat": "political",
+      "toId": "patmos",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8522,9 +8975,9 @@
     },
     {
       "id": "r409",
-      "fromId": "rel_ale_prov",
+      "fromId": "rel_ale_shanty",
       "fromStat": "political",
-      "toId": "patmos",
+      "toId": "aleforgeGov",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8532,16 +8985,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Providence mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Shanty Town mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 40
+      "pivot": 45
     },
     {
       "id": "r410",
       "fromId": "rel_ale_shanty",
       "fromStat": "political",
-      "toId": "aleforgeGov",
+      "toId": "shantyTown",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8556,9 +9009,9 @@
     },
     {
       "id": "r411",
-      "fromId": "rel_ale_shanty",
+      "fromId": "rel_ale_roto",
       "fromStat": "political",
-      "toId": "shantyTown",
+      "toId": "aleforgeGov",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8566,16 +9019,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Shanty Town mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Roto Kaiishi mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 45
+      "pivot": 58
     },
     {
       "id": "r412",
       "fromId": "rel_ale_roto",
       "fromStat": "political",
-      "toId": "aleforgeGov",
+      "toId": "rotoCouncil",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8590,23 +9043,6 @@
     },
     {
       "id": "r413",
-      "fromId": "rel_ale_roto",
-      "fromStat": "political",
-      "toId": "rotoCouncil",
-      "toStat": "economic",
-      "domain": "political→economic",
-      "type": "support",
-      "strengthMultiplier": 0.25,
-      "lagTurns": 0,
-      "mode": "pressure",
-      "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Roto Kaiishi mean more trade and better terms for both.",
-      "precedent": "The Concept Economy: rates move with story events",
-      "canon": "canon",
-      "pivot": 58
-    },
-    {
-      "id": "r414",
       "fromId": "rel_ale_fen",
       "fromStat": "political",
       "toId": "aleforgeGov",
@@ -8623,7 +9059,7 @@
       "pivot": 55
     },
     {
-      "id": "r415",
+      "id": "r414",
       "fromId": "rel_ale_fen",
       "fromStat": "political",
       "toId": "fenwick",
@@ -8640,10 +9076,27 @@
       "pivot": 55
     },
     {
-      "id": "r416",
+      "id": "r415",
       "fromId": "rel_prov_shanty",
       "fromStat": "political",
       "toId": "patmos",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "trade follows friendship",
+      "explanation": "Warmer relations between Providence and Shanty Town mean more trade and better terms for both.",
+      "precedent": "The Concept Economy: rates move with story events",
+      "canon": "canon",
+      "pivot": 30
+    },
+    {
+      "id": "r416",
+      "fromId": "rel_prov_shanty",
+      "fromStat": "political",
+      "toId": "shantyTown",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8658,9 +9111,9 @@
     },
     {
       "id": "r417",
-      "fromId": "rel_prov_shanty",
+      "fromId": "rel_prov_roto",
       "fromStat": "political",
-      "toId": "shantyTown",
+      "toId": "patmos",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8668,16 +9121,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Shanty Town mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Roto Kaiishi mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 30
+      "pivot": 60
     },
     {
       "id": "r418",
       "fromId": "rel_prov_roto",
       "fromStat": "political",
-      "toId": "patmos",
+      "toId": "rotoCouncil",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8692,23 +9145,6 @@
     },
     {
       "id": "r419",
-      "fromId": "rel_prov_roto",
-      "fromStat": "political",
-      "toId": "rotoCouncil",
-      "toStat": "economic",
-      "domain": "political→economic",
-      "type": "support",
-      "strengthMultiplier": 0.25,
-      "lagTurns": 0,
-      "mode": "pressure",
-      "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Roto Kaiishi mean more trade and better terms for both.",
-      "precedent": "The Concept Economy: rates move with story events",
-      "canon": "canon",
-      "pivot": 60
-    },
-    {
-      "id": "r420",
       "fromId": "rel_prov_fen",
       "fromStat": "political",
       "toId": "patmos",
@@ -8725,7 +9161,7 @@
       "pivot": 62
     },
     {
-      "id": "r421",
+      "id": "r420",
       "fromId": "rel_prov_fen",
       "fromStat": "political",
       "toId": "fenwick",
@@ -8742,10 +9178,27 @@
       "pivot": 62
     },
     {
-      "id": "r422",
+      "id": "r421",
       "fromId": "rel_shanty_roto",
       "fromStat": "political",
       "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "trade follows friendship",
+      "explanation": "Warmer relations between Shanty Town and Roto Kaiishi mean more trade and better terms for both.",
+      "precedent": "The Concept Economy: rates move with story events",
+      "canon": "canon",
+      "pivot": 50
+    },
+    {
+      "id": "r422",
+      "fromId": "rel_shanty_roto",
+      "fromStat": "political",
+      "toId": "rotoCouncil",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8760,23 +9213,6 @@
     },
     {
       "id": "r423",
-      "fromId": "rel_shanty_roto",
-      "fromStat": "political",
-      "toId": "rotoCouncil",
-      "toStat": "economic",
-      "domain": "political→economic",
-      "type": "support",
-      "strengthMultiplier": 0.25,
-      "lagTurns": 0,
-      "mode": "pressure",
-      "short": "trade follows friendship",
-      "explanation": "Warmer relations between Shanty Town and Roto Kaiishi mean more trade and better terms for both.",
-      "precedent": "The Concept Economy: rates move with story events",
-      "canon": "canon",
-      "pivot": 50
-    },
-    {
-      "id": "r424",
       "fromId": "rel_shanty_fen",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -8793,7 +9229,7 @@
       "pivot": 55
     },
     {
-      "id": "r425",
+      "id": "r424",
       "fromId": "rel_shanty_fen",
       "fromStat": "political",
       "toId": "fenwick",
@@ -8810,7 +9246,7 @@
       "pivot": 55
     },
     {
-      "id": "r426",
+      "id": "r425",
       "fromId": "rel_roto_fen",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -8827,7 +9263,7 @@
       "pivot": 50
     },
     {
-      "id": "r427",
+      "id": "r426",
       "fromId": "rel_roto_fen",
       "fromStat": "political",
       "toId": "fenwick",
@@ -8842,6 +9278,390 @@
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
       "pivot": 50
+    },
+    {
+      "id": "r427",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.186,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "people feel it",
+      "explanation": "\"As items get scarcer and more expensive, they feel that their town is struggling even if they don't know it's due to embargos.\" Full shelves are a mayor's best friend.",
+      "precedent": "A Macroeconomic Analysis (Player Economy vs. Concept Economy)",
+      "canon": "canon"
+    },
+    {
+      "id": "r428",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.124,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "order that feeds people",
+      "explanation": "Providence's perfect order is easier to preach over full plates.",
+      "precedent": "A Macroeconomic Analysis (Player Economy)",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r429",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "shantyTown",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "support",
+      "strengthMultiplier": 0.124,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Council that decides who eats",
+      "explanation": "When the shops are full, fewer crews question the Windsunk Council.",
+      "precedent": "Shanty Town: \"who eats, who raids\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r430",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "mama",
+      "toStat": "cultural",
+      "domain": "economic→cultural",
+      "type": "oppose",
+      "strengthMultiplier": 0.149,
+      "lagTurns": 1,
+      "mode": "pulse",
+      "short": "poverty recruits",
+      "explanation": "Hard times send people looking for someone to blame, and MAMA always has a Liquor King ready.",
+      "precedent": "Plinket: rise \"if morale drops below 30% in any sector\"",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r431",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "oweBlock",
+      "toStat": "political",
+      "domain": "economic→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.149,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "want feeds the gangs",
+      "explanation": "Empty shelves send Owe Block's young to the Cutters and the Circus.",
+      "precedent": "Founding of Owe Block",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r432",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "banks",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.186,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "loans for shops",
+      "explanation": "Banks lend \"for land, ships and shops\"; a busy player economy borrows and repays.",
+      "precedent": "A Macroeconomic Analysis (Banks and Insurance)",
+      "canon": "canon"
+    },
+    {
+      "id": "r433",
+      "fromId": "playerEconomy",
+      "fromStat": "economic",
+      "toId": "drunkenTrials",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.124,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "money to spend",
+      "explanation": "Tourists with coin in their pockets fill the Trials grounds.",
+      "precedent": "The Drunken Trials",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r434",
+      "fromId": "velocity",
+      "fromStat": "economic",
+      "toId": "banks",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.14,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "money moving through the counting-house",
+      "explanation": "Loans only get repaid when coin changes hands.",
+      "precedent": "A Macroeconomic Analysis (Global Currency)",
+      "canon": "canon"
+    },
+    {
+      "id": "r435",
+      "fromId": "velocity",
+      "fromStat": "economic",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.14,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "tolls and docking fees",
+      "explanation": "Aleforge taxes movement: tolls, docking, luxury. Faster money, fuller treasury.",
+      "precedent": "A Macroeconomic Analysis (Taxes and Treasuries)",
+      "canon": "canon"
+    },
+    {
+      "id": "r436",
+      "fromId": "velocity",
+      "fromStat": "economic",
+      "toId": "rotoCouncil",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.14,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "turnover at the hub",
+      "explanation": "Roto lives on trade volume.",
+      "precedent": "Roto Kaiishi",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r437",
+      "fromId": "velocity",
+      "fromStat": "economic",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.093,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "coin reaching the cliffs",
+      "explanation": "Shanty sees the Isles' coin last; it only arrives when coin is moving.",
+      "precedent": "Shanty Town",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r438",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.178,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "trusted coin circulates",
+      "explanation": "People spend a currency they trust and hoard one they don't.",
+      "precedent": "A Macroeconomic Analysis (Global Currency)",
+      "canon": "canon"
+    },
+    {
+      "id": "r439",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "banks",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.143,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "a stable unit to lend in",
+      "explanation": "Interest \"must come from loan income\"; stable rates make lending sane.",
+      "precedent": "A Macroeconomic Analysis (Banks and Insurance)",
+      "canon": "canon"
+    },
+    {
+      "id": "r440",
+      "fromId": "ducket",
+      "fromStat": "economic",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.095,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "fair conversion",
+      "explanation": "Every town converts through the Ducket; a stable one is fair to the smallest economy too.",
+      "precedent": "A Macroeconomic Analysis (Global Currency)",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r441",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "economic",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.136,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Isles drink Aleforge",
+      "explanation": "Aleforge's export stocks shelves and taps across the Isles.",
+      "precedent": "Compendium II (Aleforge)",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r442",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "economic",
+      "toId": "velocity",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.114,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the ale trade",
+      "explanation": "The Isles' biggest trade good keeps coin moving between towns.",
+      "precedent": "A Macroeconomic Analysis",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r443",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "economic",
+      "toId": "shantyTown",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.114,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "grog for the cliffs",
+      "explanation": "Shanty's taverns pour Aleforge ale.",
+      "precedent": "Shanty Town's Foreign Relations: On Aleforge",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r444",
+      "fromId": "aleforgeBrewing",
+      "fromStat": "economic",
+      "toId": "captains",
+      "toStat": "economic",
+      "domain": "economic",
+      "type": "support",
+      "strengthMultiplier": 0.091,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "cargo worth carrying",
+      "explanation": "Ale is the cargo crews want to haul.",
+      "precedent": "Shanty Town",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r445",
+      "fromId": "press",
+      "fromStat": "cultural",
+      "toId": "aleforgeGov",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.111,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the Chronicle's scrutiny",
+      "explanation": "A bold press asks what the mayor has done. The answer, so far, is nothing.",
+      "precedent": "Mayoral speeches; the Chronicle",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r446",
+      "fromId": "press",
+      "fromStat": "cultural",
+      "toId": "patmos",
+      "toStat": "political",
+      "domain": "cultural→political",
+      "type": "oppose",
+      "strengthMultiplier": 0.067,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "printing what the spire won't",
+      "explanation": "The Owe Block Chronicle stopped printing the Cardinal's prayer times.",
+      "precedent": "Owe Block Rising omens",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r447",
+      "fromId": "press",
+      "fromStat": "cultural",
+      "toId": "mama",
+      "toStat": "cultural",
+      "domain": "cultural",
+      "type": "support",
+      "strengthMultiplier": 0.089,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "\"WHO KILLED MAXIMILIAN?\"",
+      "explanation": "MAMA's question travels faster in print.",
+      "precedent": "MAMA omens",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r448",
+      "fromId": "press",
+      "fromStat": "cultural",
+      "toId": "drunkenTrials",
+      "toStat": "economic",
+      "domain": "cultural→economic",
+      "type": "support",
+      "strengthMultiplier": 0.133,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "publicity",
+      "explanation": "Every Chronicle headline about the Trials sells tickets.",
+      "precedent": "The Drunken Trials",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r449",
+      "fromId": "fleshborn",
+      "fromStat": "racial",
+      "toId": "playerEconomy",
+      "toStat": "economic",
+      "domain": "racial→economic",
+      "type": "support",
+      "strengthMultiplier": 0.13,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "the majority's labour",
+      "explanation": "The flesh-born work the fields, shops and ships of every town.",
+      "precedent": "Compendium II",
+      "canon": "extrapolated"
+    },
+    {
+      "id": "r450",
+      "fromId": "fleshborn",
+      "fromStat": "racial",
+      "toId": "cumstead",
+      "toStat": "economic",
+      "domain": "racial→economic",
+      "type": "support",
+      "strengthMultiplier": 0.087,
+      "lagTurns": 0,
+      "mode": "pulse",
+      "short": "farmhands",
+      "explanation": "The Cumstead needs hands as well as a blessing.",
+      "precedent": "John Cum's Cumstead",
+      "canon": "extrapolated"
     }
   ],
   "events": [
@@ -9032,47 +9852,47 @@
       "scope": "global",
       "name": "VeilRunner Corruption Risk",
       "domain": "racial",
-      "initial": 22,
+      "initial": 36,
       "threshold": 72,
       "inputs": [
         {
           "ref": "veilwalkers.religious",
-          "w": -0.35,
+          "w": -0.362,
           "note": "the Elders' custom and the Vow of Mate holding"
         },
         {
           "ref": "veilwalkers.racial",
-          "w": -0.2,
+          "w": -0.207,
           "note": "earth-born standing intact"
         },
         {
           "ref": "lineOfJohns.racial",
-          "w": -0.15,
+          "w": -0.142,
           "note": "the halfbreed line honoured, not despised"
         },
         {
           "ref": "fleshborn.racial",
-          "w": 0.25,
+          "w": 0.261,
           "note": "flesh-born encroachment pressing on vows"
         },
         {
           "ref": "gideon.political",
-          "w": 0.15,
+          "w": 0.143,
           "note": "an aggrieved part-Walker who has used Veil secrets to curse before"
         },
         {
           "ref": "goldcoral.economic",
-          "w": 0.08,
+          "w": 0.081,
           "note": "plunder of spirit-marked land"
         },
         {
           "ref": "veilwalkers.cultural",
-          "w": -0.15,
+          "w": -0.155,
           "note": "vows still traded and kept"
         },
         {
           "ref": "fenwick.political",
-          "w": 0.1,
+          "w": 0.104,
           "note": "a mobilized, angry Veil"
         },
         {
@@ -9092,7 +9912,7 @@
         },
         {
           "ref": "hoegaarden.cultural",
-          "w": -0.08,
+          "w": -0.079,
           "note": "the records of how a VeilRunner is made"
         }
       ],
@@ -9144,7 +9964,16 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": -1.15
+      "influence": {
+        "tier": "global",
+        "rank": 3,
+        "of": 5,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": -0.467
     },
     {
       "id": "mamaRad",
@@ -9152,42 +9981,42 @@
       "region": "Aleforge",
       "name": "MAMA Radicalization",
       "domain": "political",
-      "initial": 52,
+      "initial": 51,
       "threshold": 68,
       "inputs": [
         {
           "ref": "mama.cultural",
-          "w": 0.35,
+          "w": 0.284,
           "note": "the prohibitionist ideology's reach"
         },
         {
           "ref": "liquorKings.political",
-          "w": 0.2,
+          "w": 0.225,
           "note": "Kingly overreach (every massacre makes a mourner)"
         },
         {
           "ref": "drunkenTrials.cultural",
-          "w": 0.1,
+          "w": 0.11,
           "note": "the Trials as a standing provocation"
         },
         {
           "ref": "aleforgeGov.political",
-          "w": -0.3,
+          "w": -0.315,
           "note": "a confident administration: militia, amnesty"
         },
         {
           "ref": "aleforgeGov.economic",
-          "w": -0.15,
+          "w": -0.157,
           "note": "full bellies (poverty is a recruiter)"
         },
         {
           "ref": "cumstead.economic",
-          "w": -0.1,
+          "w": -0.103,
           "note": "the harvest"
         },
         {
           "ref": "mama.religious",
-          "w": 0.15,
+          "w": 0.122,
           "note": "moral zeal"
         },
         {
@@ -9202,7 +10031,7 @@
         },
         {
           "ref": "asdu.political",
-          "w": -0.15,
+          "w": -0.153,
           "note": "the militia and the ASDU"
         },
         {
@@ -9217,7 +10046,7 @@
         },
         {
           "ref": "brewmasters.religious",
-          "w": -0.08,
+          "w": -0.082,
           "note": "a confident Brewmasters' faith"
         }
       ],
@@ -9265,45 +10094,53 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": 0.664
+      "influence": {
+        "tier": "regional",
+        "rank": 4,
+        "of": 4,
+        "era": [
+          "past"
+        ]
+      },
+      "trend": -0.05,
+      "base": 0.389
     },
     {
       "id": "harvest",
-      "scope": "regional",
-      "region": "Aleforge",
+      "scope": "global",
       "name": "Cumstead Collapse",
       "domain": "economic",
-      "initial": 34,
+      "initial": 45,
       "threshold": 72,
       "inputs": [
         {
           "ref": "cumstead.economic",
-          "w": -0.45,
+          "w": -0.462,
           "note": "the Cumstead's current yield"
         },
         {
           "ref": "lineOfJohns.racial",
-          "w": -0.2,
+          "w": -0.19,
           "note": "the blood the blessing follows"
         },
         {
           "ref": "aleforgeGov.economic",
-          "w": -0.1,
+          "w": -0.105,
           "note": "subsidy money for farmhands and seed"
         },
         {
           "ref": "lineOfJohns.political",
-          "w": 0.15,
+          "w": 0.142,
           "note": "Rump's grip (an addict running a farm)"
         },
         {
           "ref": "veilwalkers.racial",
-          "w": -0.1,
+          "w": -0.103,
           "note": "a Veil still willing to tend the soil"
         },
         {
           "ref": "oweBlock.political",
-          "w": 0.08,
+          "w": 0.082,
           "note": "emigrants on thin wheat"
         }
       ],
@@ -9313,7 +10150,7 @@
       "explanation": {
         "suppressedBy": "Whatever yield the unblessed Cumstead can still manage, subsidy money, and the Veil's residual goodwill toward the Line of Johns.",
         "erodedBy": "John Rump's neglect, contempt for the halfbreed line, and the green Factory sludge nobody has cleaned out of Cum's fields.",
-        "ifCrossed": "The Cumstead fails outright, not a poor year but a dead one, and Aleforge learns how much of its economy was a Veilwalker blessing on one sad man."
+        "ifCrossed": "The Cumstead fails outright, not a poor year but a dead one, and Aleforge learns how much of its economy was a Veilwalker blessing on one sad man. Every town pays for it: emergency grain from Providence, dearer bread in every shop."
       },
       "omens": [
         "Farmhands say the green sludge has come back along the north furrows.",
@@ -9343,59 +10180,79 @@
           {
             "ref": "lineOfJohns.economic",
             "delta": -8
+          },
+          {
+            "ref": "playerEconomy.economic",
+            "delta": -5
+          },
+          {
+            "ref": "patmos.economic",
+            "delta": 4
+          },
+          {
+            "ref": "ducket.economic",
+            "delta": -3
           }
         ],
         "chargeAfter": -1.2
       },
-      "base": -1.203
+      "influence": {
+        "tier": "global",
+        "rank": 2,
+        "of": 5,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": -0.743
     },
     {
       "id": "bondCrisis",
-      "scope": "regional",
-      "region": "Aleforge",
+      "scope": "global",
       "name": "Aleforge Bond Crisis",
       "domain": "economic",
-      "initial": 36,
+      "initial": 46,
       "threshold": 70,
       "inputs": [
         {
           "ref": "bonds.economic",
-          "w": -0.45,
+          "w": -0.468,
           "note": "bond-market confidence"
         },
         {
           "ref": "aleforgeGov.economic",
-          "w": -0.25,
+          "w": -0.262,
           "note": "treasury health"
         },
         {
           "ref": "aleforgeGov.political",
-          "w": -0.1,
+          "w": -0.105,
           "note": "administration stability"
         },
         {
           "ref": "lineOfJohns.political",
-          "w": 0.12,
+          "w": 0.114,
           "note": "an embezzler as treasurer"
         },
         {
           "ref": "mama.political",
-          "w": 0.1,
+          "w": 0.081,
           "note": "insurgency risk priced into the paper"
         },
         {
           "ref": "liquorKings.political",
-          "w": -0.1,
+          "w": -0.112,
           "note": "a steady crown"
         },
         {
           "ref": "seamus.political",
-          "w": -0.08,
+          "w": -0.081,
           "note": "a mayor with standing"
         },
         {
           "ref": "oldMunicipal.political",
-          "w": 0.06,
+          "w": 0.046,
           "note": "the Comptroller's office meddling"
         }
       ],
@@ -9403,7 +10260,7 @@
       "explanation": {
         "suppressedBy": "Roto's continued willingness to hold Aleforge paper, and a treasury that can still make its coupons.",
         "erodedBy": "Stewards-era debt at \"increasingly unfavorable\" rates, an embezzling treasurer, and a mayor whose signature achievement is inaction.",
-        "ifCrossed": "Aleforge misses a coupon. Roto, holding the paper, stops being a partner and starts being a creditor."
+        "ifCrossed": "Aleforge misses a coupon. Roto, holding the paper, stops being a partner and starts being a creditor, and every bank holding Aleforge paper takes the loss with it."
       },
       "omens": [
         "Roto brokers are quoting Aleforge bonds by the barrel rather than the Ducket.",
@@ -9429,11 +10286,32 @@
           {
             "ref": "liquorKings.political",
             "delta": -5
+          },
+          {
+            "ref": "rotoCouncil.economic",
+            "delta": -5
+          },
+          {
+            "ref": "banks.economic",
+            "delta": -6
+          },
+          {
+            "ref": "goldcoral.economic",
+            "delta": 4
           }
         ],
         "chargeAfter": -1.2
       },
-      "base": -0.413
+      "influence": {
+        "tier": "global",
+        "rank": 1,
+        "of": 5,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": -0.123
     },
     {
       "id": "oweRising",
@@ -9441,37 +10319,37 @@
       "region": "Providence",
       "name": "Owe Block Rising",
       "domain": "cultural",
-      "initial": 50,
+      "initial": 48,
       "threshold": 70,
       "inputs": [
         {
           "ref": "oweBlock.political",
-          "w": 0.3,
+          "w": 0.309,
           "note": "gang strength"
         },
         {
           "ref": "patmos.economic",
-          "w": 0.2,
+          "w": 0.209,
           "note": "tithe extraction"
         },
         {
           "ref": "unknownism.religious",
-          "w": 0.1,
+          "w": 0.096,
           "note": "a mission that sells guns"
         },
         {
           "ref": "patmos.political",
-          "w": -0.25,
+          "w": -0.261,
           "note": "the spire's enforcement"
         },
         {
           "ref": "oweBlock.economic",
-          "w": -0.12,
+          "w": -0.124,
           "note": "an informal economy that still feeds people"
         },
         {
           "ref": "oweBlock.cultural",
-          "w": 0.15,
+          "w": 0.155,
           "note": "gang culture"
         },
         {
@@ -9486,27 +10364,27 @@
         },
         {
           "ref": "providenceGuard.political",
-          "w": -0.15,
+          "w": -0.149,
           "note": "Sergeant Hark's Guard"
         },
         {
           "ref": "crimsonCutters.political",
-          "w": 0.1,
+          "w": 0.075,
           "note": "the Crimson Cutters"
         },
         {
           "ref": "seasideCircus.political",
-          "w": 0.1,
+          "w": 0.097,
           "note": "the Seaside Circus"
         },
         {
           "ref": "miners.economic",
-          "w": -0.12,
+          "w": -0.119,
           "note": "Bully Hill jobs"
         },
         {
           "ref": "veilSym.religious",
-          "w": 0.05,
+          "w": 0.04,
           "note": "a shrine with a queue"
         }
       ],
@@ -9552,44 +10430,53 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": 1.133
+      "influence": {
+        "tier": "regional",
+        "rank": 1,
+        "of": 4,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": 1.004
     },
     {
       "id": "creditCrunch",
       "scope": "global",
       "name": "Credit Crunch",
       "domain": "economic",
-      "initial": 24,
+      "initial": 39,
       "threshold": 70,
       "inputs": [
         {
           "ref": "banks.economic",
-          "w": -0.35,
+          "w": -0.339,
           "note": "bank health"
         },
         {
           "ref": "insurers.economic",
-          "w": -0.25,
+          "w": -0.243,
           "note": "underwriters able to pay claims"
         },
         {
           "ref": "bonds.economic",
-          "w": -0.2,
+          "w": -0.208,
           "note": "the Aleforge paper banks hold"
         },
         {
           "ref": "velocity.economic",
-          "w": -0.15,
+          "w": -0.162,
           "note": "money still moving"
         },
         {
           "ref": "rotoBlackMarket.economic",
-          "w": 0.1,
+          "w": 0.099,
           "note": "deposits fleeing to the night market"
         },
         {
           "ref": "mama.political",
-          "w": 0.08,
+          "w": 0.065,
           "note": "insurgency scaring lenders"
         }
       ],
@@ -9637,7 +10524,16 @@
         ],
         "chargeAfter": -1.2
       },
-      "base": -2.091
+      "influence": {
+        "tier": "global",
+        "rank": 5,
+        "of": 5,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": -1.415
     },
     {
       "id": "ashenOath",
@@ -9645,37 +10541,37 @@
       "region": "Shanty Town",
       "name": "Ashen Oath Purge",
       "domain": "cultural",
-      "initial": 30,
+      "initial": 42,
       "threshold": 70,
       "inputs": [
         {
           "ref": "mama.cultural",
-          "w": 0.25,
+          "w": 0.203,
           "note": "the prohibitionist current emboldening the Oath"
         },
         {
           "ref": "shantyTown.cultural",
-          "w": -0.3,
+          "w": -0.313,
           "note": "a proud pirate ethos"
         },
         {
           "ref": "shantyTown.political",
-          "w": -0.2,
+          "w": -0.209,
           "note": "a strong Windsunk Council"
         },
         {
           "ref": "rotoCouncil.economic",
-          "w": 0.1,
+          "w": 0.103,
           "note": "crews leaving for Roto"
         },
         {
           "ref": "faytedruids.religious",
-          "w": 0.1,
+          "w": 0.078,
           "note": "fire-and-order fervour near the Cloister"
         },
         {
           "ref": "ashenOathSect.religious",
-          "w": 0.3,
+          "w": 0.241,
           "note": "the Oath's zeal"
         },
         {
@@ -9685,12 +10581,12 @@
         },
         {
           "ref": "tideCallers.religious",
-          "w": -0.1,
+          "w": -0.098,
           "note": "the Tide Callers' sea-faith"
         },
         {
           "ref": "captains.political",
-          "w": -0.12,
+          "w": -0.119,
           "note": "captains who will fight"
         }
       ],
@@ -9725,7 +10621,16 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": 0.647
+      "influence": {
+        "tier": "regional",
+        "rank": 3,
+        "of": 4,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": 0.918
     },
     {
       "id": "rotoSuccession",
@@ -9733,32 +10638,32 @@
       "region": "Roto Kaiishi",
       "name": "Roto Succession Crisis",
       "domain": "political",
-      "initial": 24,
+      "initial": 47,
       "threshold": 70,
       "inputs": [
         {
           "ref": "rotoCouncil.cultural",
-          "w": -0.35,
+          "w": -0.36,
           "note": "Xi's principles still taught"
         },
         {
           "ref": "rotoCouncil.political",
-          "w": -0.2,
+          "w": -0.206,
           "note": "a steady council"
         },
         {
           "ref": "goldcoral.political",
-          "w": 0.2,
+          "w": 0.203,
           "note": "a big player wanting to pick the heir"
         },
         {
           "ref": "goldcoral.economic",
-          "w": 0.1,
+          "w": 0.102,
           "note": "market domination"
         },
         {
           "ref": "rotoBlackMarket.economic",
-          "w": 0.1,
+          "w": 0.099,
           "note": "money that prefers a weak heir"
         },
         {
@@ -9773,7 +10678,7 @@
         },
         {
           "ref": "jack.economic",
-          "w": 0.06,
+          "w": 0.061,
           "note": "a King rich enough to buy an heir"
         }
       ],
@@ -9814,29 +10719,38 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": -1.013
+      "influence": {
+        "tier": "regional",
+        "rank": 2,
+        "of": 4,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": 0.021
     },
     {
       "id": "kingsSplit",
       "scope": "global",
       "name": "The Parliament Splits",
       "domain": "political",
-      "initial": 30,
+      "initial": 48,
       "threshold": 70,
       "inputs": [
         {
           "ref": "liquorKings.political",
-          "w": -0.3,
+          "w": -0.337,
           "note": "a Parliament with authority"
         },
         {
           "ref": "seamus.political",
-          "w": -0.2,
+          "w": -0.203,
           "note": "a mayor the others respect"
         },
         {
           "ref": "jack.economic",
-          "w": 0.15,
+          "w": 0.152,
           "note": "one King richer than the realm"
         },
         {
@@ -9856,7 +10770,7 @@
         },
         {
           "ref": "lineOfJohns.political",
-          "w": 0.08,
+          "w": 0.076,
           "note": "Rump's blackmail"
         }
       ],
@@ -9902,7 +10816,16 @@
         ],
         "chargeAfter": -1.5
       },
-      "base": -0.241
+      "influence": {
+        "tier": "global",
+        "rank": 4,
+        "of": 5,
+        "era": [
+          "future"
+        ]
+      },
+      "trend": 0.03,
+      "base": 0.564
     }
   ],
   "injectables": [
@@ -10287,18 +11210,6 @@
       "narrative": "A lantern-seller on the lower stilts is offering a piece of Orchenk glass that hums in the key of the old portal."
     },
     {
-      "id": "wardenEgg",
-      "name": "Another egg falls near the Observatory",
-      "effects": [
-        {
-          "ref": "wardenCult.religious",
-          "delta": 15
-        }
-      ],
-      "hazardCharge": {},
-      "narrative": "Something bright crosses the sky and comes down where Fentmaxxer's did. Someone has already lit the altar under the well."
-    },
-    {
       "id": "oathAbduction",
       "name": "The Ashen Oath takes a King's friend",
       "effects": [
@@ -10347,10 +11258,6 @@
       {
         "if": "asdu.political>65",
         "text": "Captain Crawdad's patrols now reach the abandoned shrine twice a night."
-      },
-      {
-        "if": "wardenCult.religious>30",
-        "text": "Someone has been sweeping the courtyard at Fentmaxxer's Observatory."
       },
       {
         "if": "ashenOathSect.political>40",
@@ -10494,14 +11401,6 @@
       "id": "tomes",
       "name": "The Tome Monuments",
       "summary": "One of six found. What the other five hold is unknown."
-    },
-    {
-      "id": "warden",
-      "name": "The Warden's altar",
-      "summary": "Fentmaxxer is dead. His altar under the Observatory well is not.",
-      "watch": {
-        "ref": "wardenCult.religious"
-      }
     },
     {
       "id": "six",
@@ -10977,8 +11876,7 @@
       "severity": 4,
       "partners": [
         "rotoBlackMarket",
-        "captains",
-        "wardenCult"
+        "captains"
       ],
       "perSeason": [
         {

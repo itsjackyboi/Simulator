@@ -44,6 +44,8 @@ for (const d of seed.deals) {
   for (const hid of Object.keys({ ...d.charge, ...d.scandal.charge })) if (!seed.hazards.some(h => h.id === hid)) errors.push(`deal ${d.id}: bad hazard ${hid}`);
   if (!seed.towns.some(t => t.id === d.town)) errors.push(`deal ${d.id}: bad town ${d.town}`);
 }
+for (const g of seed.groups) if (!g.lever && !g.hidden && !g.influence) errors.push(`${g.id}: on the map but missing from the influence ranking`);
+for (const h of seed.hazards) if (!h.influence) errors.push(`${h.id}: missing from the influence ranking`);
 for (const t of seed.towns) for (const k of ['legit', 'treasury']) if (!hasRef(t[k])) errors.push(`town ${t.id}: bad ${k}`);
 for (const g of seed.groups) if (g.lever && g.town && !seed.towns.some(t => t.id === g.town)) errors.push(`${g.id}: bad town ${g.town}`);
 for (const inj of seed.injectables) for (const hid of Object.keys(inj.hazardCharge || {})) if (!seed.hazards.some(h => h.id === hid)) errors.push(`${inj.id}: bad hazard ${hid}`);
