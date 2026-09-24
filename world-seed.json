@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "The Pintland Isles — Dynamics Simulator",
-    "version": 6,
-    "changes": "the Six as separate story lines, many more faiths and factions, Fenwick as a political power, town leaders with levers and backroom deals, and relations between the towns",
+    "version": 7,
+    "changes": "retired four crises that are not current risks (Ducket Inflation, Cloister Stirring, The Veil Withdraws, Nethergate Breach) and the vanished monk order",
     "calendar": {
       "startYear": 466,
       "startCycle": 94,
@@ -954,21 +954,6 @@
       "short": "the Ashen Oath",
       "code": "ASH",
       "region": "Shanty Town"
-    },
-    {
-      "id": "monkOrder",
-      "name": "The Vanished Monk Order",
-      "domains": [
-        "religious"
-      ],
-      "stats": {
-        "religious": 18
-      },
-      "description": "OPEN THREAD. The order that built the ancient shrines and, much later, the Cloister, and then disappeared. \"Our priests are gone. They were not killed. Their sandals were still by the temple doors.\" Whoever placed the armor in their shrines was someone else again.",
-      "loreSource": "Compendium II (The Shrines; The Cloister); IV (Timeline); Tome fragments",
-      "openThread": true,
-      "short": "the vanished monks",
-      "code": "MONK"
     },
     {
       "id": "wardenCult",
@@ -6856,38 +6841,6 @@
     },
     {
       "id": "r304",
-      "fromId": "monkOrder",
-      "fromStat": "religious",
-      "toId": "patmos",
-      "toStat": "religious",
-      "domain": "religious",
-      "type": "oppose",
-      "strengthMultiplier": 0.15,
-      "lagTurns": 1,
-      "mode": "pulse",
-      "short": "what Friar Leo guards",
-      "explanation": "Friar Leo keeps forbidden documents about the Monk Who Ne'er Slumber'd. Anything that revives the old order's memory is a question Patmos would rather not answer.",
-      "precedent": "Compendium III (Friar Leo)",
-      "canon": "extrapolated"
-    },
-    {
-      "id": "r305",
-      "fromId": "hoegaarden",
-      "fromStat": "cultural",
-      "toId": "monkOrder",
-      "toStat": "religious",
-      "domain": "cultural→religious",
-      "type": "support",
-      "strengthMultiplier": 0.1,
-      "lagTurns": 0,
-      "mode": "pulse",
-      "short": "records of the vanished",
-      "explanation": "The Tome fragments and shrine histories live in Hoegaarden's stacks.",
-      "precedent": "Hoegaarden Hall of Records",
-      "canon": "extrapolated"
-    },
-    {
-      "id": "r306",
       "fromId": "liquorKings",
       "fromStat": "political",
       "toId": "wardenCult",
@@ -6903,7 +6856,7 @@
       "canon": "canon"
     },
     {
-      "id": "r307",
+      "id": "r305",
       "fromId": "captains",
       "fromStat": "economic",
       "toId": "shantyTown",
@@ -6919,7 +6872,7 @@
       "canon": "canon"
     },
     {
-      "id": "r308",
+      "id": "r306",
       "fromId": "captains",
       "fromStat": "political",
       "toId": "insurers",
@@ -6935,7 +6888,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r309",
+      "id": "r307",
       "fromId": "rotoCouncil",
       "fromStat": "economic",
       "toId": "captains",
@@ -6951,7 +6904,7 @@
       "canon": "canon"
     },
     {
-      "id": "r310",
+      "id": "r308",
       "fromId": "stormveil",
       "fromStat": "economic",
       "toId": "sbn",
@@ -6967,7 +6920,7 @@
       "canon": "canon"
     },
     {
-      "id": "r311",
+      "id": "r309",
       "fromId": "sbn",
       "fromStat": "economic",
       "toId": "stormveil",
@@ -6983,7 +6936,7 @@
       "canon": "canon"
     },
     {
-      "id": "r312",
+      "id": "r310",
       "fromId": "wolendi",
       "fromStat": "economic",
       "toId": "stormveil",
@@ -6999,7 +6952,7 @@
       "canon": "canon"
     },
     {
-      "id": "r313",
+      "id": "r311",
       "fromId": "stormveil",
       "fromStat": "economic",
       "toId": "velocity",
@@ -7015,7 +6968,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r314",
+      "id": "r312",
       "fromId": "wepple",
       "fromStat": "economic",
       "toId": "aleforgeBrewing",
@@ -7031,7 +6984,7 @@
       "canon": "canon"
     },
     {
-      "id": "r315",
+      "id": "r313",
       "fromId": "goldcoral",
       "fromStat": "economic",
       "toId": "wepple",
@@ -7047,7 +7000,7 @@
       "canon": "canon"
     },
     {
-      "id": "r316",
+      "id": "r314",
       "fromId": "drunkenTrials",
       "fromStat": "cultural",
       "toId": "press",
@@ -7063,7 +7016,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r317",
+      "id": "r315",
       "fromId": "press",
       "fromStat": "cultural",
       "toId": "liquorKings",
@@ -7079,7 +7032,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r318",
+      "id": "r316",
       "fromId": "patmos",
       "fromStat": "political",
       "toId": "press",
@@ -7095,7 +7048,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r319",
+      "id": "r317",
       "fromId": "oweBlock",
       "fromStat": "cultural",
       "toId": "press",
@@ -7111,7 +7064,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r320",
+      "id": "r318",
       "fromId": "militiaFunding",
       "fromStat": "political",
       "toId": "asdu",
@@ -7127,7 +7080,7 @@
       "canon": "canon"
     },
     {
-      "id": "r321",
+      "id": "r319",
       "fromId": "militiaFunding",
       "fromStat": "political",
       "toId": "aleforgeGov",
@@ -7143,7 +7096,7 @@
       "canon": "canon"
     },
     {
-      "id": "r322",
+      "id": "r320",
       "fromId": "militiaFunding",
       "fromStat": "political",
       "toId": "mama",
@@ -7159,7 +7112,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r323",
+      "id": "r321",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "drunkenTrials",
@@ -7175,7 +7128,7 @@
       "canon": "canon"
     },
     {
-      "id": "r324",
+      "id": "r322",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "drunkenTrials",
@@ -7191,7 +7144,7 @@
       "canon": "canon"
     },
     {
-      "id": "r325",
+      "id": "r323",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "aleforgeGov",
@@ -7207,7 +7160,7 @@
       "canon": "canon"
     },
     {
-      "id": "r326",
+      "id": "r324",
       "fromId": "trialsFund",
       "fromStat": "cultural",
       "toId": "mama",
@@ -7223,7 +7176,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r327",
+      "id": "r325",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "patmos",
@@ -7239,7 +7192,7 @@
       "canon": "canon"
     },
     {
-      "id": "r328",
+      "id": "r326",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "oweBlock",
@@ -7255,7 +7208,7 @@
       "canon": "canon"
     },
     {
-      "id": "r329",
+      "id": "r327",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "playerEconomy",
@@ -7271,7 +7224,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r330",
+      "id": "r328",
       "fromId": "craftingEdicts",
       "fromStat": "economic",
       "toId": "rel_ale_prov",
@@ -7287,7 +7240,7 @@
       "canon": "canon"
     },
     {
-      "id": "r331",
+      "id": "r329",
       "fromId": "friarPatrols",
       "fromStat": "political",
       "toId": "providenceGuard",
@@ -7303,7 +7256,7 @@
       "canon": "canon"
     },
     {
-      "id": "r332",
+      "id": "r330",
       "fromId": "friarPatrols",
       "fromStat": "political",
       "toId": "oweBlock",
@@ -7319,7 +7272,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r333",
+      "id": "r331",
       "fromId": "friarPatrols",
       "fromStat": "political",
       "toId": "oweBlock",
@@ -7335,7 +7288,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r334",
+      "id": "r332",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "patmos",
@@ -7351,7 +7304,7 @@
       "canon": "canon"
     },
     {
-      "id": "r335",
+      "id": "r333",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "tonicGuild",
@@ -7367,7 +7320,7 @@
       "canon": "canon"
     },
     {
-      "id": "r336",
+      "id": "r334",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "whiskeyRunners",
@@ -7383,7 +7336,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r337",
+      "id": "r335",
       "fromId": "tonicRations",
       "fromStat": "religious",
       "toId": "patmos",
@@ -7399,7 +7352,7 @@
       "canon": "canon"
     },
     {
-      "id": "r338",
+      "id": "r336",
       "fromId": "plunderShare",
       "fromStat": "economic",
       "toId": "shantyTown",
@@ -7415,7 +7368,7 @@
       "canon": "canon"
     },
     {
-      "id": "r339",
+      "id": "r337",
       "fromId": "plunderShare",
       "fromStat": "economic",
       "toId": "captains",
@@ -7431,7 +7384,7 @@
       "canon": "canon"
     },
     {
-      "id": "r340",
+      "id": "r338",
       "fromId": "plunderShare",
       "fromStat": "economic",
       "toId": "captains",
@@ -7447,7 +7400,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r341",
+      "id": "r339",
       "fromId": "councilRule",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -7463,7 +7416,7 @@
       "canon": "canon"
     },
     {
-      "id": "r342",
+      "id": "r340",
       "fromId": "councilRule",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -7479,7 +7432,7 @@
       "canon": "canon"
     },
     {
-      "id": "r343",
+      "id": "r341",
       "fromId": "councilRule",
       "fromStat": "political",
       "toId": "ashenOathSect",
@@ -7495,7 +7448,7 @@
       "canon": "canon"
     },
     {
-      "id": "r344",
+      "id": "r342",
       "fromId": "driftersWelcome",
       "fromStat": "cultural",
       "toId": "shantyTown",
@@ -7511,7 +7464,7 @@
       "canon": "canon"
     },
     {
-      "id": "r345",
+      "id": "r343",
       "fromId": "driftersWelcome",
       "fromStat": "cultural",
       "toId": "rel_shanty_roto",
@@ -7527,7 +7480,7 @@
       "canon": "canon"
     },
     {
-      "id": "r346",
+      "id": "r344",
       "fromId": "driftersWelcome",
       "fromStat": "cultural",
       "toId": "ashenOathSect",
@@ -7543,7 +7496,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r347",
+      "id": "r345",
       "fromId": "merchantFee",
       "fromStat": "economic",
       "toId": "rotoCouncil",
@@ -7559,7 +7512,7 @@
       "canon": "canon"
     },
     {
-      "id": "r348",
+      "id": "r346",
       "fromId": "merchantFee",
       "fromStat": "economic",
       "toId": "rotoBlackMarket",
@@ -7575,7 +7528,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r349",
+      "id": "r347",
       "fromId": "merchantFee",
       "fromStat": "economic",
       "toId": "goldcoral",
@@ -7591,7 +7544,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r350",
+      "id": "r348",
       "fromId": "tabooEnforcement",
       "fromStat": "political",
       "toId": "rotoBlackMarket",
@@ -7607,7 +7560,7 @@
       "canon": "canon"
     },
     {
-      "id": "r351",
+      "id": "r349",
       "fromId": "tabooEnforcement",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -7623,7 +7576,7 @@
       "canon": "canon"
     },
     {
-      "id": "r352",
+      "id": "r350",
       "fromId": "tabooEnforcement",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -7639,7 +7592,7 @@
       "canon": "canon"
     },
     {
-      "id": "r353",
+      "id": "r351",
       "fromId": "heirSchool",
       "fromStat": "cultural",
       "toId": "rotoCouncil",
@@ -7655,7 +7608,7 @@
       "canon": "canon"
     },
     {
-      "id": "r354",
+      "id": "r352",
       "fromId": "heirSchool",
       "fromStat": "cultural",
       "toId": "goldcoral",
@@ -7671,7 +7624,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r355",
+      "id": "r353",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "fenwick",
@@ -7687,7 +7640,7 @@
       "canon": "canon"
     },
     {
-      "id": "r356",
+      "id": "r354",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "veilwalkers",
@@ -7703,7 +7656,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r357",
+      "id": "r355",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "shantyTown",
@@ -7719,7 +7672,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r358",
+      "id": "r356",
       "fromId": "vowTrade",
       "fromStat": "economic",
       "toId": "rel_prov_fen",
@@ -7735,7 +7688,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r359",
+      "id": "r357",
       "fromId": "eldersHear",
       "fromStat": "political",
       "toId": "fenwick",
@@ -7751,7 +7704,7 @@
       "canon": "canon"
     },
     {
-      "id": "r360",
+      "id": "r358",
       "fromId": "eldersHear",
       "fromStat": "political",
       "toId": "veilwalkers",
@@ -7767,7 +7720,7 @@
       "canon": "canon"
     },
     {
-      "id": "r361",
+      "id": "r359",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "fleshborn",
@@ -7783,7 +7736,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r362",
+      "id": "r360",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "goldcoral",
@@ -7799,7 +7752,7 @@
       "canon": "canon"
     },
     {
-      "id": "r363",
+      "id": "r361",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "fenwick",
@@ -7815,7 +7768,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r364",
+      "id": "r362",
       "fromId": "veilWatch",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -7831,7 +7784,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r365",
+      "id": "r363",
       "fromId": "aleforgeTariffs",
       "fromStat": "economic",
       "toId": "rel_ale_prov",
@@ -7847,7 +7800,7 @@
       "canon": "canon"
     },
     {
-      "id": "r366",
+      "id": "r364",
       "fromId": "goldcoral",
       "fromStat": "economic",
       "toId": "rel_prov_roto",
@@ -7863,7 +7816,7 @@
       "canon": "canon"
     },
     {
-      "id": "r367",
+      "id": "r365",
       "fromId": "hoegaarden",
       "fromStat": "cultural",
       "toId": "rel_ale_prov",
@@ -7879,7 +7832,7 @@
       "canon": "extrapolated"
     },
     {
-      "id": "r368",
+      "id": "r366",
       "fromId": "patmos",
       "fromStat": "religious",
       "toId": "rel_prov_shanty",
@@ -7895,7 +7848,7 @@
       "canon": "canon"
     },
     {
-      "id": "r369",
+      "id": "r367",
       "fromId": "tonicGuild",
       "fromStat": "economic",
       "toId": "rel_prov_fen",
@@ -7911,7 +7864,7 @@
       "canon": "canon"
     },
     {
-      "id": "r370",
+      "id": "r368",
       "fromId": "dip_ale_prov",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -7927,7 +7880,7 @@
       "canon": "canon"
     },
     {
-      "id": "r371",
+      "id": "r369",
       "fromId": "dip_ale_prov",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -7943,7 +7896,7 @@
       "canon": "canon"
     },
     {
-      "id": "r372",
+      "id": "r370",
       "fromId": "dip_ale_shanty",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -7959,7 +7912,7 @@
       "canon": "canon"
     },
     {
-      "id": "r373",
+      "id": "r371",
       "fromId": "dip_ale_shanty",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -7975,7 +7928,7 @@
       "canon": "canon"
     },
     {
-      "id": "r374",
+      "id": "r372",
       "fromId": "dip_ale_roto",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -7991,7 +7944,7 @@
       "canon": "canon"
     },
     {
-      "id": "r375",
+      "id": "r373",
       "fromId": "dip_ale_roto",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -8007,7 +7960,7 @@
       "canon": "canon"
     },
     {
-      "id": "r376",
+      "id": "r374",
       "fromId": "dip_ale_fen",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -8023,7 +7976,7 @@
       "canon": "canon"
     },
     {
-      "id": "r377",
+      "id": "r375",
       "fromId": "dip_ale_fen",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -8039,7 +7992,7 @@
       "canon": "canon"
     },
     {
-      "id": "r378",
+      "id": "r376",
       "fromId": "dip_prov_ale",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -8055,7 +8008,7 @@
       "canon": "canon"
     },
     {
-      "id": "r379",
+      "id": "r377",
       "fromId": "dip_prov_ale",
       "fromStat": "political",
       "toId": "rel_ale_prov",
@@ -8071,7 +8024,7 @@
       "canon": "canon"
     },
     {
-      "id": "r380",
+      "id": "r378",
       "fromId": "dip_prov_shanty",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8087,7 +8040,7 @@
       "canon": "canon"
     },
     {
-      "id": "r381",
+      "id": "r379",
       "fromId": "dip_prov_shanty",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8103,7 +8056,7 @@
       "canon": "canon"
     },
     {
-      "id": "r382",
+      "id": "r380",
       "fromId": "dip_prov_roto",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8119,7 +8072,7 @@
       "canon": "canon"
     },
     {
-      "id": "r383",
+      "id": "r381",
       "fromId": "dip_prov_roto",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8135,7 +8088,7 @@
       "canon": "canon"
     },
     {
-      "id": "r384",
+      "id": "r382",
       "fromId": "dip_prov_fen",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8151,7 +8104,7 @@
       "canon": "canon"
     },
     {
-      "id": "r385",
+      "id": "r383",
       "fromId": "dip_prov_fen",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8167,7 +8120,7 @@
       "canon": "canon"
     },
     {
-      "id": "r386",
+      "id": "r384",
       "fromId": "dip_shanty_ale",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -8183,7 +8136,7 @@
       "canon": "canon"
     },
     {
-      "id": "r387",
+      "id": "r385",
       "fromId": "dip_shanty_ale",
       "fromStat": "political",
       "toId": "rel_ale_shanty",
@@ -8199,7 +8152,7 @@
       "canon": "canon"
     },
     {
-      "id": "r388",
+      "id": "r386",
       "fromId": "dip_shanty_prov",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8215,7 +8168,7 @@
       "canon": "canon"
     },
     {
-      "id": "r389",
+      "id": "r387",
       "fromId": "dip_shanty_prov",
       "fromStat": "political",
       "toId": "rel_prov_shanty",
@@ -8231,7 +8184,7 @@
       "canon": "canon"
     },
     {
-      "id": "r390",
+      "id": "r388",
       "fromId": "dip_shanty_roto",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8247,7 +8200,7 @@
       "canon": "canon"
     },
     {
-      "id": "r391",
+      "id": "r389",
       "fromId": "dip_shanty_roto",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8263,7 +8216,7 @@
       "canon": "canon"
     },
     {
-      "id": "r392",
+      "id": "r390",
       "fromId": "dip_shanty_fen",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8279,7 +8232,7 @@
       "canon": "canon"
     },
     {
-      "id": "r393",
+      "id": "r391",
       "fromId": "dip_shanty_fen",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8295,7 +8248,7 @@
       "canon": "canon"
     },
     {
-      "id": "r394",
+      "id": "r392",
       "fromId": "dip_roto_ale",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -8311,7 +8264,7 @@
       "canon": "canon"
     },
     {
-      "id": "r395",
+      "id": "r393",
       "fromId": "dip_roto_ale",
       "fromStat": "political",
       "toId": "rel_ale_roto",
@@ -8327,7 +8280,7 @@
       "canon": "canon"
     },
     {
-      "id": "r396",
+      "id": "r394",
       "fromId": "dip_roto_prov",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8343,7 +8296,7 @@
       "canon": "canon"
     },
     {
-      "id": "r397",
+      "id": "r395",
       "fromId": "dip_roto_prov",
       "fromStat": "political",
       "toId": "rel_prov_roto",
@@ -8359,7 +8312,7 @@
       "canon": "canon"
     },
     {
-      "id": "r398",
+      "id": "r396",
       "fromId": "dip_roto_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8375,7 +8328,7 @@
       "canon": "canon"
     },
     {
-      "id": "r399",
+      "id": "r397",
       "fromId": "dip_roto_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_roto",
@@ -8391,7 +8344,7 @@
       "canon": "canon"
     },
     {
-      "id": "r400",
+      "id": "r398",
       "fromId": "dip_roto_fen",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8407,7 +8360,7 @@
       "canon": "canon"
     },
     {
-      "id": "r401",
+      "id": "r399",
       "fromId": "dip_roto_fen",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8423,7 +8376,7 @@
       "canon": "canon"
     },
     {
-      "id": "r402",
+      "id": "r400",
       "fromId": "dip_fen_ale",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -8439,7 +8392,7 @@
       "canon": "canon"
     },
     {
-      "id": "r403",
+      "id": "r401",
       "fromId": "dip_fen_ale",
       "fromStat": "political",
       "toId": "rel_ale_fen",
@@ -8455,7 +8408,7 @@
       "canon": "canon"
     },
     {
-      "id": "r404",
+      "id": "r402",
       "fromId": "dip_fen_prov",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8471,7 +8424,7 @@
       "canon": "canon"
     },
     {
-      "id": "r405",
+      "id": "r403",
       "fromId": "dip_fen_prov",
       "fromStat": "political",
       "toId": "rel_prov_fen",
@@ -8487,7 +8440,7 @@
       "canon": "canon"
     },
     {
-      "id": "r406",
+      "id": "r404",
       "fromId": "dip_fen_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8503,7 +8456,7 @@
       "canon": "canon"
     },
     {
-      "id": "r407",
+      "id": "r405",
       "fromId": "dip_fen_shanty",
       "fromStat": "political",
       "toId": "rel_shanty_fen",
@@ -8519,7 +8472,7 @@
       "canon": "canon"
     },
     {
-      "id": "r408",
+      "id": "r406",
       "fromId": "dip_fen_roto",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8535,7 +8488,7 @@
       "canon": "canon"
     },
     {
-      "id": "r409",
+      "id": "r407",
       "fromId": "dip_fen_roto",
       "fromStat": "political",
       "toId": "rel_roto_fen",
@@ -8551,7 +8504,7 @@
       "canon": "canon"
     },
     {
-      "id": "r410",
+      "id": "r408",
       "fromId": "rel_ale_prov",
       "fromStat": "political",
       "toId": "aleforgeGov",
@@ -8566,12 +8519,46 @@
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
       "pivot": 40
+    },
+    {
+      "id": "r409",
+      "fromId": "rel_ale_prov",
+      "fromStat": "political",
+      "toId": "patmos",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "trade follows friendship",
+      "explanation": "Warmer relations between Aleforge and Providence mean more trade and better terms for both.",
+      "precedent": "The Concept Economy: rates move with story events",
+      "canon": "canon",
+      "pivot": 40
+    },
+    {
+      "id": "r410",
+      "fromId": "rel_ale_shanty",
+      "fromStat": "political",
+      "toId": "aleforgeGov",
+      "toStat": "economic",
+      "domain": "political→economic",
+      "type": "support",
+      "strengthMultiplier": 0.25,
+      "lagTurns": 0,
+      "mode": "pressure",
+      "short": "trade follows friendship",
+      "explanation": "Warmer relations between Aleforge and Shanty Town mean more trade and better terms for both.",
+      "precedent": "The Concept Economy: rates move with story events",
+      "canon": "canon",
+      "pivot": 45
     },
     {
       "id": "r411",
-      "fromId": "rel_ale_prov",
+      "fromId": "rel_ale_shanty",
       "fromStat": "political",
-      "toId": "patmos",
+      "toId": "shantyTown",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8579,14 +8566,14 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Providence mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Shanty Town mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 40
+      "pivot": 45
     },
     {
       "id": "r412",
-      "fromId": "rel_ale_shanty",
+      "fromId": "rel_ale_roto",
       "fromStat": "political",
       "toId": "aleforgeGov",
       "toStat": "economic",
@@ -8596,16 +8583,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Shanty Town mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Roto Kaiishi mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 45
+      "pivot": 58
     },
     {
       "id": "r413",
-      "fromId": "rel_ale_shanty",
+      "fromId": "rel_ale_roto",
       "fromStat": "political",
-      "toId": "shantyTown",
+      "toId": "rotoCouncil",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8613,14 +8600,14 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Shanty Town mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Roto Kaiishi mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 45
+      "pivot": 58
     },
     {
       "id": "r414",
-      "fromId": "rel_ale_roto",
+      "fromId": "rel_ale_fen",
       "fromStat": "political",
       "toId": "aleforgeGov",
       "toStat": "economic",
@@ -8630,16 +8617,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Roto Kaiishi mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Fenwick mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 58
+      "pivot": 55
     },
     {
       "id": "r415",
-      "fromId": "rel_ale_roto",
+      "fromId": "rel_ale_fen",
       "fromStat": "political",
-      "toId": "rotoCouncil",
+      "toId": "fenwick",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8647,16 +8634,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Roto Kaiishi mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Aleforge and Fenwick mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 58
+      "pivot": 55
     },
     {
       "id": "r416",
-      "fromId": "rel_ale_fen",
+      "fromId": "rel_prov_shanty",
       "fromStat": "political",
-      "toId": "aleforgeGov",
+      "toId": "patmos",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8664,16 +8651,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Fenwick mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Shanty Town mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 55
+      "pivot": 30
     },
     {
       "id": "r417",
-      "fromId": "rel_ale_fen",
+      "fromId": "rel_prov_shanty",
       "fromStat": "political",
-      "toId": "fenwick",
+      "toId": "shantyTown",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8681,14 +8668,14 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Aleforge and Fenwick mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Shanty Town mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 55
+      "pivot": 30
     },
     {
       "id": "r418",
-      "fromId": "rel_prov_shanty",
+      "fromId": "rel_prov_roto",
       "fromStat": "political",
       "toId": "patmos",
       "toStat": "economic",
@@ -8698,16 +8685,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Shanty Town mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Roto Kaiishi mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 30
+      "pivot": 60
     },
     {
       "id": "r419",
-      "fromId": "rel_prov_shanty",
+      "fromId": "rel_prov_roto",
       "fromStat": "political",
-      "toId": "shantyTown",
+      "toId": "rotoCouncil",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8715,14 +8702,14 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Shanty Town mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Roto Kaiishi mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 30
+      "pivot": 60
     },
     {
       "id": "r420",
-      "fromId": "rel_prov_roto",
+      "fromId": "rel_prov_fen",
       "fromStat": "political",
       "toId": "patmos",
       "toStat": "economic",
@@ -8732,16 +8719,16 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Roto Kaiishi mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Fenwick mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 60
+      "pivot": 62
     },
     {
       "id": "r421",
-      "fromId": "rel_prov_roto",
+      "fromId": "rel_prov_fen",
       "fromStat": "political",
-      "toId": "rotoCouncil",
+      "toId": "fenwick",
       "toStat": "economic",
       "domain": "political→economic",
       "type": "support",
@@ -8749,47 +8736,13 @@
       "lagTurns": 0,
       "mode": "pressure",
       "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Roto Kaiishi mean more trade and better terms for both.",
+      "explanation": "Warmer relations between Providence and Fenwick mean more trade and better terms for both.",
       "precedent": "The Concept Economy: rates move with story events",
       "canon": "canon",
-      "pivot": 60
+      "pivot": 62
     },
     {
       "id": "r422",
-      "fromId": "rel_prov_fen",
-      "fromStat": "political",
-      "toId": "patmos",
-      "toStat": "economic",
-      "domain": "political→economic",
-      "type": "support",
-      "strengthMultiplier": 0.25,
-      "lagTurns": 0,
-      "mode": "pressure",
-      "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Fenwick mean more trade and better terms for both.",
-      "precedent": "The Concept Economy: rates move with story events",
-      "canon": "canon",
-      "pivot": 62
-    },
-    {
-      "id": "r423",
-      "fromId": "rel_prov_fen",
-      "fromStat": "political",
-      "toId": "fenwick",
-      "toStat": "economic",
-      "domain": "political→economic",
-      "type": "support",
-      "strengthMultiplier": 0.25,
-      "lagTurns": 0,
-      "mode": "pressure",
-      "short": "trade follows friendship",
-      "explanation": "Warmer relations between Providence and Fenwick mean more trade and better terms for both.",
-      "precedent": "The Concept Economy: rates move with story events",
-      "canon": "canon",
-      "pivot": 62
-    },
-    {
-      "id": "r424",
       "fromId": "rel_shanty_roto",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -8806,7 +8759,7 @@
       "pivot": 50
     },
     {
-      "id": "r425",
+      "id": "r423",
       "fromId": "rel_shanty_roto",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -8823,7 +8776,7 @@
       "pivot": 50
     },
     {
-      "id": "r426",
+      "id": "r424",
       "fromId": "rel_shanty_fen",
       "fromStat": "political",
       "toId": "shantyTown",
@@ -8840,7 +8793,7 @@
       "pivot": 55
     },
     {
-      "id": "r427",
+      "id": "r425",
       "fromId": "rel_shanty_fen",
       "fromStat": "political",
       "toId": "fenwick",
@@ -8857,7 +8810,7 @@
       "pivot": 55
     },
     {
-      "id": "r428",
+      "id": "r426",
       "fromId": "rel_roto_fen",
       "fromStat": "political",
       "toId": "rotoCouncil",
@@ -8874,7 +8827,7 @@
       "pivot": 50
     },
     {
-      "id": "r429",
+      "id": "r427",
       "fromId": "rel_roto_fen",
       "fromStat": "political",
       "toId": "fenwick",
@@ -9192,119 +9145,6 @@
         "chargeAfter": -1.5
       },
       "base": -1.15
-    },
-    {
-      "id": "inflation",
-      "scope": "global",
-      "name": "Ducket Inflation Risk",
-      "domain": "economic",
-      "initial": 20,
-      "threshold": 70,
-      "inputs": [
-        {
-          "ref": "ducket.economic",
-          "w": -0.5,
-          "note": "a healthy, flat Ducket supply"
-        },
-        {
-          "ref": "rotoCouncil.economic",
-          "w": -0.15,
-          "note": "Roto liquidity anchoring the rates"
-        },
-        {
-          "ref": "sbn.economic",
-          "w": 0.25,
-          "note": "smuggled SBN trade outside every ledger"
-        },
-        {
-          "ref": "goldcoral.economic",
-          "w": 0.1,
-          "note": "Goldcoral's grey books"
-        },
-        {
-          "ref": "cumstead.economic",
-          "w": -0.2,
-          "note": "wheat supply (a failed harvest means emergency imports)"
-        },
-        {
-          "ref": "bonds.economic",
-          "w": -0.2,
-          "note": "Aleforge debt confidence (a distressed issuer is tempted to print)"
-        },
-        {
-          "ref": "rotoBlackMarket.economic",
-          "w": 0.2,
-          "note": "the Roto currency black market"
-        },
-        {
-          "ref": "velocity.economic",
-          "w": 0.12,
-          "note": "money changing hands faster than goods are made"
-        },
-        {
-          "ref": "aleforgeTaxes.economic",
-          "w": -0.1,
-          "note": "taxes pulling coin out of circulation"
-        },
-        {
-          "ref": "banks.economic",
-          "w": 0.08,
-          "note": "banks paying interest they haven't earned from loans"
-        },
-        {
-          "ref": "oweBlock.economic",
-          "w": 0.1,
-          "note": "money off the books"
-        },
-        {
-          "ref": "stormveil.economic",
-          "w": 0.05,
-          "note": "untracked sky freight"
-        }
-      ],
-      "seasonMods": {},
-      "explanation": {
-        "suppressedBy": "The closed loop: almost nothing may create Duckets, taxes pull coin back out of circulation into treasuries, and deep, honest Roto liquidity holds the conversion rates. The goal is M2 flat and velocity consistent.",
-        "erodedBy": "Everything the Analysis warns about: big farms trading one item for endless coin, banks paying interest they never earned, a Roto currency black market, untracked outside money (SBN smuggling, Goldcoral's books), and a debt-strained town tempted to print.",
-        "ifCrossed": "Somebody finds a way to mint. Rates between the towns' sub-economies come unstuck, and every treasury funded in Duckets discovers what its savings were really worth."
-      },
-      "omens": [
-        "Roto money-changers have started biting Duckets again.",
-        "A Shanty barkeep is refusing coin and asking for grog-weight.",
-        "Mr. BBL has been seen at the Post Office and Public Records, reading ledgers very slowly."
-      ],
-      "event": {
-        "name": "The Ducket Slips Its Moorings",
-        "narrative": "No one admits to minting. Everyone admits that there are more Duckets than there were last season, and that a suspicious number of them smell faintly of Ale Bean. Conversion rates between Aleforge, Providence and Roto swing by the day; Roto's merchant-philosophers convene an emergency council whose only unanimous finding is that it was somebody else's fault. In Shanty Town, which never trusted coin, a barter economy of grog, rope and favours carries on almost smugly.",
-        "effects": [
-          {
-            "ref": "ducket.economic",
-            "delta": -15
-          },
-          {
-            "ref": "aleforgeGov.economic",
-            "delta": -6
-          },
-          {
-            "ref": "rotoCouncil.economic",
-            "delta": -8
-          },
-          {
-            "ref": "patmos.economic",
-            "delta": -4
-          },
-          {
-            "ref": "shantyTown.economic",
-            "delta": 4
-          },
-          {
-            "ref": "oweBlock.economic",
-            "delta": 5
-          }
-        ],
-        "chargeAfter": -1.2
-      },
-      "base": 0.158
     },
     {
       "id": "mamaRad",
@@ -9800,105 +9640,6 @@
       "base": -2.091
     },
     {
-      "id": "cloister",
-      "scope": "global",
-      "name": "Cloister Stirring",
-      "domain": "religious",
-      "initial": 36,
-      "threshold": 74,
-      "openThread": true,
-      "inputs": [
-        {
-          "ref": "faytedruids.religious",
-          "w": 0.3,
-          "note": "the Druids' rites"
-        },
-        {
-          "ref": "faytedruids.political",
-          "w": 0.15,
-          "note": "their hold on the hall"
-        },
-        {
-          "ref": "liquorKings.political",
-          "w": -0.15,
-          "note": "Kings able to take their hall back"
-        },
-        {
-          "ref": "veilwalkers.religious",
-          "w": -0.1,
-          "note": "the Veil's old stewardship of the land"
-        },
-        {
-          "ref": "fenwick.political",
-          "w": 0.1,
-          "note": "a roused Veil"
-        },
-        {
-          "ref": "monkOrder.religious",
-          "w": 0.12,
-          "note": "the builders' memory stirring"
-        },
-        {
-          "ref": "wardenCult.religious",
-          "w": 0.06,
-          "note": "the Warden's altar"
-        }
-      ],
-      "seasonMods": {
-        "Veilfrost": 0.45
-      },
-      "explanation": {
-        "suppressedBy": "The Cloister Beast is dead and the Kings still have the strength to evict squatters from their own hall.",
-        "erodedBy": "The Fayte Druids' unexplained chanting, in a building over a hole to hell, over a prison dimension, next to the magic lights that decide fates. Veilfrost is when things best left alone tend to stir.",
-        "ifCrossed": "OPEN THREAD — the simulator only knows the shape: something under the Cloister answers, and Shanty Town's cliffs catch the tide first."
-      },
-      "omens": [
-        "The lights in the Cloister hillside have been seen from Shanty Town, in a colour nobody can name.",
-        "The Druids' chanting now carries to the Tavern on still nights.",
-        "A second invisible hallway is rumoured. The Kings have not checked."
-      ],
-      "event": {
-        "name": "The Cloister Lights Answer",
-        "narrative": "On the longest night of Veilfrost, the magic lights in the Cloister hillside — the ones the Kings consult when they cannot be bothered to decide — all lit at once and stayed lit. The Druids' chant stopped. Whatever they were asking, they have been answered, and they are not saying what the answer was. Shanty Town reports a warm tide, the smell of sulphur, and three ships that sailed out to look and came back with their crews insisting it was a lovely evening.",
-        "effects": [
-          {
-            "ref": "faytedruids.religious",
-            "delta": 15
-          },
-          {
-            "ref": "faytedruids.political",
-            "delta": 12
-          },
-          {
-            "ref": "liquorKings.political",
-            "delta": -6
-          },
-          {
-            "ref": "shantyTown.economic",
-            "delta": -6
-          },
-          {
-            "ref": "patmos.religious",
-            "delta": 4
-          },
-          {
-            "ref": "veilwalkers.religious",
-            "delta": 3
-          },
-          {
-            "ref": "monkOrder.religious",
-            "delta": 6
-          },
-          {
-            "ref": "coralEyed.religious",
-            "delta": 4
-          }
-        ],
-        "chargeAfter": -1.5
-      },
-      "base": 1.929
-    },
-    {
       "id": "ashenOath",
       "scope": "regional",
       "region": "Shanty Town",
@@ -10076,187 +9817,6 @@
       "base": -1.013
     },
     {
-      "id": "veilWithdraws",
-      "scope": "regional",
-      "region": "Fenwick",
-      "name": "The Veil Withdraws",
-      "domain": "racial",
-      "initial": 24,
-      "threshold": 72,
-      "inputs": [
-        {
-          "ref": "veilwalkers.cultural",
-          "w": -0.25,
-          "note": "vows still traded and kept"
-        },
-        {
-          "ref": "veilwalkers.religious",
-          "w": -0.15,
-          "note": "the Veil's faith"
-        },
-        {
-          "ref": "fleshborn.racial",
-          "w": 0.2,
-          "note": "flesh-born encroachment"
-        },
-        {
-          "ref": "fenwick.political",
-          "w": 0.2,
-          "note": "a roused Fenwick"
-        },
-        {
-          "ref": "goldcoral.economic",
-          "w": 0.1,
-          "note": "plunder of spirit-marked land"
-        },
-        {
-          "ref": "eldersHear.political",
-          "w": -0.12,
-          "note": "Elders who listen"
-        },
-        {
-          "ref": "vowTrade.economic",
-          "w": -0.1,
-          "note": "vows still asked and given"
-        },
-        {
-          "ref": "guinnie.political",
-          "w": 0.05,
-          "note": "manifest destiny talk in Aleforge"
-        }
-      ],
-      "seasonMods": {
-        "Veilfrost": 0.3
-      },
-      "explanation": {
-        "suppressedBy": "Promises kept to the Veil, and islanders who \"give due respect to the earth.\"",
-        "erodedBy": "Taking too much from the earth, and a flesh-born majority that stops leaving offerings at the treeline.",
-        "ifCrossed": "The Veil stops trading vows and stops tending the soil. No curse, just absence, which is worse."
-      },
-      "omens": [
-        "The fishing lures from Fenwick have stopped arriving.",
-        "A pirate who left an offering at the treeline found it there untouched a week later."
-      ],
-      "event": {
-        "name": "The Veil Withdraws",
-        "narrative": "Fenwick did not curse anyone. The Walkers simply stopped trading vows, stopped guiding travellers, and stopped tending the fields at the forest edge. By the end of the season nobody could find the village at all.",
-        "effects": [
-          {
-            "ref": "veilwalkers.cultural",
-            "delta": -14
-          },
-          {
-            "ref": "veilwalkers.racial",
-            "delta": -6
-          },
-          {
-            "ref": "fenwick.political",
-            "delta": 10
-          }
-        ],
-        "chargeAfter": -1.5
-      },
-      "base": -1.263
-    },
-    {
-      "id": "nethergate",
-      "scope": "global",
-      "name": "Nethergate Breach",
-      "domain": "political",
-      "initial": 18,
-      "threshold": 72,
-      "inputs": [
-        {
-          "ref": "gideon.political",
-          "w": 0.2,
-          "note": "Drake, who has opened portals before"
-        },
-        {
-          "ref": "rotoBlackMarket.economic",
-          "w": 0.15,
-          "note": "Nethergate relics sold in Roto"
-        },
-        {
-          "ref": "wardenCult.religious",
-          "w": 0.15,
-          "note": "the Warden's heresy"
-        },
-        {
-          "ref": "asdu.political",
-          "w": -0.15,
-          "note": "the militia that fought the hordes"
-        },
-        {
-          "ref": "jager.political",
-          "w": -0.1,
-          "note": "the King who closed the portal"
-        },
-        {
-          "ref": "guinnie.political",
-          "w": -0.05,
-          "note": "the King who helped slam it shut"
-        },
-        {
-          "ref": "hoegaarden.cultural",
-          "w": -0.08,
-          "note": "scholars who know what the Factory was"
-        }
-      ],
-      "seasonMods": {
-        "Veilfrost": 0.3
-      },
-      "explanation": {
-        "suppressedBy": "A sealed Factory, a militia that has fought the hordes before, and the Kings who closed the Dread Harrow's portal.",
-        "erodedBy": "Relics smuggled out of Orchenk Manufactory into Roto's night market, Drake's grudge, and anyone still praying to the Warden.",
-        "ifCrossed": "The Nethergate hums again: things come through, the green sludge spreads, and Aleforge learns whether its militia is still a militia."
-      },
-      "omens": [
-        "The green sludge has reached the Cumstead's north furrows again.",
-        "A Roto lantern-seller is offering \"Factory glass\" that hums.",
-        "Cumsock the goat refuses to go near the harbour."
-      ],
-      "event": {
-        "name": "The Nethergate Opens Again",
-        "narrative": "Somebody bought the wrong relic. The hum from Orchenk Manufactory carried across the water for three nights and on the fourth the harbour glowed green, the way it did when the Dread Harrow came through. The militia held the Barley Road; the Cumstead did not. Crawdad asks the castle for more men. The Kings ask Jagerbauhm if he still has the wings.",
-        "effects": [
-          {
-            "ref": "aleforgeGov.political",
-            "delta": -8
-          },
-          {
-            "ref": "asdu.political",
-            "delta": -6
-          },
-          {
-            "ref": "cumstead.economic",
-            "delta": -8
-          },
-          {
-            "ref": "playerEconomy.economic",
-            "delta": -5
-          },
-          {
-            "ref": "rotoBlackMarket.economic",
-            "delta": 8
-          },
-          {
-            "ref": "drunkenTrials.cultural",
-            "delta": -6
-          },
-          {
-            "ref": "jager.cultural",
-            "delta": 6
-          },
-          {
-            "ref": "liquorKings.political",
-            "delta": 4
-          }
-        ],
-        "chargeAfter": -1.5
-      },
-      "base": -0.106
-    },
-    {
       "id": "kingsSplit",
       "scope": "global",
       "name": "The Parliament Splits",
@@ -10424,9 +9984,6 @@
           "delta": 10
         }
       ],
-      "hazardCharge": {
-        "cloister": 1
-      },
       "narrative": "The Druids open the Cloister doors for the first time in months and invite the Kings to \"witness.\" The Kings, hungover, send Rollo."
     },
     {
@@ -10578,9 +10135,6 @@
           "delta": 4
         }
       ],
-      "hazardCharge": {
-        "inflation": 1
-      },
       "narrative": "Someone has built a wheat farm the size of a parish and is selling its entire output to the Aleforge exchange every day at the posted rate — the exact thing the Analysis said must never be allowed."
     },
     {
@@ -10641,9 +10195,6 @@
           "delta": -3
         }
       ],
-      "hazardCharge": {
-        "inflation": 0.6
-      },
       "narrative": "A StormVeil Albatross unloads a hold of Bellows coin at Roto — the one legitimate way new money can enter the Isles, and a test of whether anyone is counting."
     },
     {
@@ -10733,9 +10284,6 @@
           "delta": 10
         }
       ],
-      "hazardCharge": {
-        "nethergate": 1
-      },
       "narrative": "A lantern-seller on the lower stilts is offering a piece of Orchenk glass that hums in the key of the old portal."
     },
     {
@@ -10747,10 +10295,7 @@
           "delta": 15
         }
       ],
-      "hazardCharge": {
-        "nethergate": 0.6,
-        "cloister": 0.4
-      },
+      "hazardCharge": {},
       "narrative": "Something bright crosses the sky and comes down where Fentmaxxer's did. Someone has already lit the altar under the well."
     },
     {
@@ -10926,7 +10471,7 @@
       "name": "The Fayte Druids in the Cloister",
       "summary": "Chants and lights in the Kings' own meeting hall. Purpose unknown.",
       "watch": {
-        "hazard": "cloister"
+        "ref": "faytedruids.religious"
       }
     },
     {
@@ -10951,19 +10496,11 @@
       "summary": "One of six found. What the other five hold is unknown."
     },
     {
-      "id": "monks",
-      "name": "The vanished monk order",
-      "summary": "They built the shrines and the Cloister, then vanished and left their sandals by the temple doors.",
-      "watch": {
-        "ref": "monkOrder.religious"
-      }
-    },
-    {
       "id": "warden",
       "name": "The Warden's altar",
       "summary": "Fentmaxxer is dead. His altar under the Observatory well is not.",
       "watch": {
-        "hazard": "nethergate"
+        "ref": "wardenCult.religious"
       }
     },
     {
@@ -11469,15 +11006,9 @@
             "ref": "rel_prov_shanty.political",
             "delta": -6
           }
-        ],
-        "charge": {
-          "nethergate": 0.8
-        }
+        ]
       },
       "desc": "Crews dare the sludge for Orchenk relics. The Council takes a share.",
-      "charge": {
-        "nethergate": 0.12
-      },
       "watch": "rotoCouncil.cultural"
     },
     {

@@ -1031,39 +1031,6 @@ export const hazards = [
     },
   },
   {
-    id: 'inflation', scope: 'global', name: 'Ducket Inflation Risk', domain: 'economic', initial: 20, threshold: 70,
-    inputs: [
-      { ref: 'ducket.economic', w: -0.5, note: 'a healthy, flat Ducket supply' },
-      { ref: 'rotoCouncil.economic', w: -0.15, note: 'Roto liquidity anchoring the rates' },
-      { ref: 'sbn.economic', w: 0.25, note: 'smuggled SBN trade outside every ledger' },
-      { ref: 'goldcoral.economic', w: 0.1, note: 'Goldcoral\'s grey books' },
-      { ref: 'cumstead.economic', w: -0.2, note: 'wheat supply (a failed harvest means emergency imports)' },
-      { ref: 'bonds.economic', w: -0.2, note: 'Aleforge debt confidence (a distressed issuer is tempted to print)' },
-      { ref: 'rotoBlackMarket.economic', w: 0.2, note: 'the Roto currency black market' },
-      { ref: 'velocity.economic', w: 0.12, note: 'money changing hands faster than goods are made' },
-      { ref: 'aleforgeTaxes.economic', w: -0.1, note: 'taxes pulling coin out of circulation' },
-      { ref: 'banks.economic', w: 0.08, note: 'banks paying interest they haven\'t earned from loans' },
-      { ref: 'oweBlock.economic', w: 0.1, note: 'money off the books' },
-    ],
-    seasonMods: {},
-    explanation: {
-      suppressedBy: 'The closed loop: almost nothing may create Duckets, taxes pull coin back out of circulation into treasuries, and deep, honest Roto liquidity holds the conversion rates. The goal is M2 flat and velocity consistent.',
-      erodedBy: 'Everything the Analysis warns about: big farms trading one item for endless coin, banks paying interest they never earned, a Roto currency black market, untracked outside money (SBN smuggling, Goldcoral\'s books), and a debt-strained town tempted to print.',
-      ifCrossed: 'Somebody finds a way to mint. Rates between the towns\' sub-economies come unstuck, and every treasury funded in Duckets discovers what its savings were really worth.',
-    },
-    omens: ['Roto money-changers have started biting Duckets again.', 'A Shanty barkeep is refusing coin and asking for grog-weight.', 'Mr. BBL has been seen at the Post Office and Public Records, reading ledgers very slowly.'],
-    event: {
-      name: 'The Ducket Slips Its Moorings',
-      narrative: 'No one admits to minting. Everyone admits that there are more Duckets than there were last season, and that a suspicious number of them smell faintly of Ale Bean. Conversion rates between Aleforge, Providence and Roto swing by the day; Roto\'s merchant-philosophers convene an emergency council whose only unanimous finding is that it was somebody else\'s fault. In Shanty Town, which never trusted coin, a barter economy of grog, rope and favours carries on almost smugly.',
-      effects: [
-        { ref: 'ducket.economic', delta: -15 }, { ref: 'aleforgeGov.economic', delta: -6 },
-        { ref: 'rotoCouncil.economic', delta: -8 }, { ref: 'patmos.economic', delta: -4 },
-        { ref: 'shantyTown.economic', delta: 4 }, { ref: 'oweBlock.economic', delta: 5 },
-      ],
-      chargeAfter: -1.2,
-    },
-  },
-  {
     id: 'mamaRad', scope: 'regional', region: 'Aleforge', name: 'MAMA Radicalization', domain: 'political', initial: 52, threshold: 68,
     inputs: [
       { ref: 'mama.cultural', w: 0.35, note: 'the prohibitionist ideology\'s reach' },
@@ -1207,33 +1174,6 @@ export const hazards = [
     },
   },
   {
-    id: 'cloister', scope: 'global', name: 'Cloister Stirring', domain: 'religious', initial: 36, threshold: 74, openThread: true,
-    inputs: [
-      { ref: 'faytedruids.religious', w: 0.3, note: 'the Druids\' rites' },
-      { ref: 'faytedruids.political', w: 0.15, note: 'their hold on the hall' },
-      { ref: 'liquorKings.political', w: -0.15, note: 'Kings able to take their hall back' },
-      { ref: 'veilwalkers.religious', w: -0.1, note: 'the Veil\'s old stewardship of the land' },
-      { ref: 'fenwick.political', w: 0.1, note: 'a roused Veil' },
-    ],
-    seasonMods: { Veilfrost: 0.45 },
-    explanation: {
-      suppressedBy: 'The Cloister Beast is dead and the Kings still have the strength to evict squatters from their own hall.',
-      erodedBy: 'The Fayte Druids\' unexplained chanting, in a building over a hole to hell, over a prison dimension, next to the magic lights that decide fates. Veilfrost is when things best left alone tend to stir.',
-      ifCrossed: 'OPEN THREAD — the simulator only knows the shape: something under the Cloister answers, and Shanty Town\'s cliffs catch the tide first.',
-    },
-    omens: ['The lights in the Cloister hillside have been seen from Shanty Town, in a colour nobody can name.', 'The Druids\' chanting now carries to the Tavern on still nights.', 'A second invisible hallway is rumoured. The Kings have not checked.'],
-    event: {
-      name: 'The Cloister Lights Answer',
-      narrative: 'On the longest night of Veilfrost, the magic lights in the Cloister hillside — the ones the Kings consult when they cannot be bothered to decide — all lit at once and stayed lit. The Druids\' chant stopped. Whatever they were asking, they have been answered, and they are not saying what the answer was. Shanty Town reports a warm tide, the smell of sulphur, and three ships that sailed out to look and came back with their crews insisting it was a lovely evening.',
-      effects: [
-        { ref: 'faytedruids.religious', delta: 15 }, { ref: 'faytedruids.political', delta: 12 },
-        { ref: 'liquorKings.political', delta: -6 }, { ref: 'shantyTown.economic', delta: -6 },
-        { ref: 'patmos.religious', delta: 4 }, { ref: 'veilwalkers.religious', delta: 3 },
-      ],
-      chargeAfter: -1.5,
-    },
-  },
-  {
     id: 'ashenOath', scope: 'regional', region: 'Shanty Town', name: 'Ashen Oath Purge', domain: 'cultural', initial: 30, threshold: 70,
     inputs: [
       { ref: 'mama.cultural', w: 0.25, note: 'the prohibitionist current emboldening the Oath' },
@@ -1280,31 +1220,6 @@ export const hazards = [
       effects: [
         { ref: 'rotoCouncil.political', delta: -14 }, { ref: 'rotoCouncil.cultural', delta: -10 },
         { ref: 'rotoBlackMarket.economic', delta: 10 }, { ref: 'goldcoral.economic', delta: 6 }, { ref: 'insurers.economic', delta: -5 },
-      ],
-      chargeAfter: -1.5,
-    },
-  },
-  {
-    id: 'veilWithdraws', scope: 'regional', region: 'Fenwick', name: 'The Veil Withdraws', domain: 'racial', initial: 24, threshold: 72,
-    inputs: [
-      { ref: 'veilwalkers.cultural', w: -0.25, note: 'vows still traded and kept' },
-      { ref: 'veilwalkers.religious', w: -0.15, note: 'the Veil\'s faith' },
-      { ref: 'fleshborn.racial', w: 0.2, note: 'flesh-born encroachment' },
-      { ref: 'fenwick.political', w: 0.2, note: 'a roused Fenwick' },
-      { ref: 'goldcoral.economic', w: 0.1, note: 'plunder of spirit-marked land' },
-    ],
-    seasonMods: { Veilfrost: 0.3 },
-    explanation: {
-      suppressedBy: 'Promises kept to the Veil, and islanders who "give due respect to the earth."',
-      erodedBy: 'Taking too much from the earth, and a flesh-born majority that stops leaving offerings at the treeline.',
-      ifCrossed: 'The Veil stops trading vows and stops tending the soil. No curse, just absence, which is worse.',
-    },
-    omens: ['The fishing lures from Fenwick have stopped arriving.', 'A pirate who left an offering at the treeline found it there untouched a week later.'],
-    event: {
-      name: 'The Veil Withdraws',
-      narrative: 'Fenwick did not curse anyone. The Walkers simply stopped trading vows, stopped guiding travellers, and stopped tending the fields at the forest edge. By the end of the season nobody could find the village at all.',
-      effects: [
-        { ref: 'veilwalkers.cultural', delta: -14 }, { ref: 'veilwalkers.racial', delta: -6 }, { ref: 'fenwick.political', delta: 10 },
       ],
       chargeAfter: -1.5,
     },
@@ -1357,7 +1272,7 @@ export const injectables = [
     narrative: 'The thing the Hoegaarden records warned was replicable is replicated.' },
   { id: 'mamaCell', name: 'A MAMA cell reactivates', effects: [{ ref: 'mama.political', delta: 14 }, { ref: 'mama.cultural', delta: 8 }], hazardCharge: { mamaRad: 1.0 },
     narrative: 'Someone has been restocking the cave under the abandoned shrine. The Kings raided it once already; nobody filled it in.' },
-  { id: 'druidsReveal', name: 'The Fayte Druids reveal their purpose', effects: [{ ref: 'faytedruids.religious', delta: 14 }, { ref: 'faytedruids.political', delta: 10 }], hazardCharge: { cloister: 1.0 },
+  { id: 'druidsReveal', name: 'The Fayte Druids reveal their purpose', effects: [{ ref: 'faytedruids.religious', delta: 14 }, { ref: 'faytedruids.political', delta: 10 }],
     narrative: 'The Druids open the Cloister doors for the first time in months and invite the Kings to "witness." The Kings, hungover, send Rollo.' },
   { id: 'tome', name: 'A second Tome Monument is found', effects: [{ ref: 'liquorKings.cultural', delta: 6 }, { ref: 'rotoCouncil.economic', delta: 4 }, { ref: 'veilwalkers.religious', delta: 4 }],
     narrative: 'A second of the six Tome Monuments surfaces; Hoegaarden, Roto relic-brokers and at least one Liquor King all claim to have found it first.' },
@@ -1375,7 +1290,7 @@ export const injectables = [
     narrative: 'For one night, the harbour water where the Dread Harrow materialized glows green. Drake, it is remembered, spent twenty years afraid of exactly this.' },
   { id: 'kingsFeud', name: 'The Kings publicly feud over Bonehardy\'s inaction', effects: [{ ref: 'liquorKings.political', delta: -12 }, { ref: 'aleforgeGov.political', delta: -4 }],
     narrative: 'Jack, Guinnie and Buke denounce the mayor at the Hall of Ale. Bonehardy does not respond, which his supporters call "statesmanlike."' },
-  { id: 'megaFarm', name: 'A mega-farm floods the exchange', effects: [{ ref: 'ducket.economic', delta: -8 }, { ref: 'velocity.economic', delta: 8 }, { ref: 'playerEconomy.economic', delta: 4 }], hazardCharge: { inflation: 1.0 },
+  { id: 'megaFarm', name: 'A mega-farm floods the exchange', effects: [{ ref: 'ducket.economic', delta: -8 }, { ref: 'velocity.economic', delta: 8 }, { ref: 'playerEconomy.economic', delta: 4 }],
     narrative: 'Someone has built a wheat farm the size of a parish and is selling its entire output to the Aleforge exchange every day at the posted rate — the exact thing the Analysis said must never be allowed.' },
   { id: 'blackMarketBoom', name: 'Roto\'s currency black market booms', effects: [{ ref: 'rotoBlackMarket.economic', delta: 18 }],
     narrative: 'After dark on the lower stilts of Roto, a Ducket is now worth whatever the man with the lantern says, and more people are asking him than asking the exchange.' },
@@ -1383,7 +1298,7 @@ export const injectables = [
     narrative: 'Bonehardy signs an embargo on Providence brewing tools, reportedly without reading it. Shoppers notice the prices before they notice the policy.' },
   { id: 'kingsRewards', name: 'The Kings are paid their concept performance rewards', effects: [{ ref: 'conceptRewards.economic', delta: 30 }],
     narrative: 'The gamemaster\'s ledger closes on another concept and the treasury pays out the Kings\' performance rewards in coin and Goldcoral stock. Jack\'s share is the largest; nobody is surprised.' },
-  { id: 'foreignCoin', name: 'Foreign coin arrives from outside the Isles', effects: [{ ref: 'velocity.economic', delta: 6 }, { ref: 'rotoCouncil.economic', delta: 6 }, { ref: 'playerEconomy.economic', delta: 5 }, { ref: 'sbn.economic', delta: 6 }, { ref: 'ducket.economic', delta: -3 }], hazardCharge: { inflation: 0.6 },
+  { id: 'foreignCoin', name: 'Foreign coin arrives from outside the Isles', effects: [{ ref: 'velocity.economic', delta: 6 }, { ref: 'rotoCouncil.economic', delta: 6 }, { ref: 'playerEconomy.economic', delta: 5 }, { ref: 'sbn.economic', delta: 6 }, { ref: 'ducket.economic', delta: -3 }],
     narrative: 'A StormVeil Albatross unloads a hold of Bellows coin at Roto — the one legitimate way new money can enter the Isles, and a test of whether anyone is counting.' },
   { id: 'wreckSeason', name: 'A season of wrecks', effects: [{ ref: 'insurers.economic', delta: -14 }, { ref: 'rotoCouncil.economic', delta: -4 }, { ref: 'shantyTown.economic', delta: 5 }],
     narrative: 'Four merchantmen go down off the Shoals in a single Keg. The underwriters pay; Shanty Town\'s salvagers, who were somehow already out there, do very well.' },
@@ -1397,7 +1312,7 @@ export const openThreads = [
   { id: 'gideon', name: 'Gideon Drake in Vodkonia', summary: 'Banished, long-lived, aggrieved, and plotting from unexplored shores.', watch: { ref: 'gideon.political' } },
   { id: 'rump', name: 'John Rump holds the Cumstead', summary: 'No Veilwalker blessing, an addict in charge, and Factory sludge in the furrows.', watch: { hazard: 'harvest' } },
   { id: 'mama', name: 'MAMA\'s surviving cells', summary: 'Plinket is neutralized; the ideology and some cells are not.', watch: { hazard: 'mamaRad' } },
-  { id: 'druids', name: 'The Fayte Druids in the Cloister', summary: 'Chants and lights in the Kings\' own meeting hall. Purpose unknown.', watch: { hazard: 'cloister' } },
+  { id: 'druids', name: 'The Fayte Druids in the Cloister', summary: 'Chants and lights in the Kings\' own meeting hall. Purpose unknown.', watch: { ref: 'faytedruids.religious' } },
   { id: 'descendant', name: 'The Rotted Soul\'s living descendant', summary: 'The Corrupted Ancestry compass points at someone alive. The half-blood Line of Johns is the obvious suspect.', watch: { ref: 'lineOfJohns.racial' } },
   { id: 'sbn', name: 'The Southern Bellows reach out', summary: 'Generations of isolation cracking through smuggling and StormVeil. Nobody knows why now.', watch: { ref: 'sbn.economic' } },
   { id: 'tomes', name: 'The Tome Monuments', summary: 'One of six found. What the other five hold is unknown.' },
@@ -1447,8 +1362,8 @@ export const narration = {
 
 export const meta = {
   title: 'The Pintland Isles — Dynamics Simulator',
-  version: 6,
-  changes: 'the Six as separate story lines, many more faiths and factions, Fenwick as a political power, town leaders with levers and backroom deals, and relations between the towns',
+  version: 7,
+  changes: 'retired four crises that are not current risks (Ducket Inflation, Cloister Stirring, The Veil Withdraws, Nethergate Breach) and the vanished monk order',
   calendar: { startYear: 466, startCycle: 94, seasons: ['Stormtide', 'Goldsun', 'Veilfrost'], yearsPerCycle: 5 },
   statNouns: { political: 'political reach', economic: 'economic strength', cultural: 'cultural influence', religious: 'religious authority', racial: 'lineage standing' },
   engine: { rippleDepth: 4, minEffect: 0.2, meanReversion: 0.03, noise: 0.7, hazardCooldown: 4 },
@@ -1547,11 +1462,6 @@ groups.push(
     { religious: 30, political: 20 },
     'Hidden fanatics who believe the sea, pirates and grog have tainted the world. They keep the Night of the False Sun, abduct one "tainted" soul each Veilfrost, and want to purge the Shoals and burn the beast bones. "Most dangerous when ignored."',
     'Compendium II (Shanty Town\'s Political Factions); VI (Holidays: Night of the False Sun)'),
-  g('monkOrder', 'The Vanished Monk Order', ['religious'],
-    { religious: 18 },
-    'OPEN THREAD. The order that built the ancient shrines and, much later, the Cloister, and then disappeared. "Our priests are gone. They were not killed. Their sandals were still by the temple doors." Whoever placed the armor in their shrines was someone else again.',
-    'Compendium II (The Shrines; The Cloister); IV (Timeline); Tome fragments',
-    { openThread: true }),
   g('wardenCult', 'The Warden Heresy', ['religious'],
     { religious: 10 },
     'OPEN THREAD. Fentmaxxer\'s demonic altar under the Observatory well, dedicated to the Warden, the great beast whose egg he mistook for an asteroid and meant to raise as a weapon. Fentmaxxer is dead. His altar is not.',
@@ -2029,14 +1939,6 @@ relationships.push(
     'more than drowned',
     'The Coral-eyed are part of what makes Shanty Town stranger than anywhere else.',
     'Shanty Town\'s Political Factions', X),
-  r('monkOrder.religious', 'patmos.religious', 'oppose', 0.15, 1,
-    'what Friar Leo guards',
-    'Friar Leo keeps forbidden documents about the Monk Who Ne\'er Slumber\'d. Anything that revives the old order\'s memory is a question Patmos would rather not answer.',
-    'Compendium III (Friar Leo)', X),
-  r('hoegaarden.cultural', 'monkOrder.religious', 'support', 0.1, 0,
-    'records of the vanished',
-    'The Tome fragments and shrine histories live in Hoegaarden\'s stacks.',
-    'Hoegaarden Hall of Records', X),
   r('liquorKings.political', 'wardenCult.religious', 'oppose', 0.2, 0,
     'the Kings killed Fentmaxxer',
     'The Warden\'s astronomer died at the Kings\' hands. A strong Parliament keeps the altar under the well cold.',
@@ -2245,10 +2147,6 @@ addInputs('oweRising', [
   ['miners.economic', -0.12, 'Bully Hill jobs'],
   ['veilSym.religious', 0.05, 'a shrine with a queue'],
 ]);
-addInputs('cloister', [
-  ['monkOrder.religious', 0.12, 'the builders\' memory stirring'],
-  ['wardenCult.religious', 0.06, 'the Warden\'s altar'],
-]);
 addInputs('ashenOath', [
   ['ashenOathSect.religious', 0.3, 'the Oath\'s zeal'],
   ['councilRule.political', -0.2, 'the Council\'s rule'],
@@ -2260,43 +2158,8 @@ addInputs('rotoSuccession', [
   ['heirSchool.cultural', -0.2, 'the heir\'s schooling'],
   ['jack.economic', 0.06, 'a King rich enough to buy an heir'],
 ]);
-addInputs('veilWithdraws', [
-  ['eldersHear.political', -0.12, 'Elders who listen'],
-  ['vowTrade.economic', -0.1, 'vows still asked and given'],
-  ['guinnie.political', 0.05, 'manifest destiny talk in Aleforge'],
-]);
-addInputs('inflation', [['stormveil.economic', 0.05, 'untracked sky freight']]);
 
 hazards.push(
-  {
-    id: 'nethergate', scope: 'global', name: 'Nethergate Breach', domain: 'political', initial: 18, threshold: 72,
-    inputs: [
-      { ref: 'gideon.political', w: 0.2, note: 'Drake, who has opened portals before' },
-      { ref: 'rotoBlackMarket.economic', w: 0.15, note: 'Nethergate relics sold in Roto' },
-      { ref: 'wardenCult.religious', w: 0.15, note: 'the Warden\'s heresy' },
-      { ref: 'asdu.political', w: -0.15, note: 'the militia that fought the hordes' },
-      { ref: 'jager.political', w: -0.1, note: 'the King who closed the portal' },
-      { ref: 'guinnie.political', w: -0.05, note: 'the King who helped slam it shut' },
-      { ref: 'hoegaarden.cultural', w: -0.08, note: 'scholars who know what the Factory was' },
-    ],
-    seasonMods: { Veilfrost: 0.3 },
-    explanation: {
-      suppressedBy: 'A sealed Factory, a militia that has fought the hordes before, and the Kings who closed the Dread Harrow\'s portal.',
-      erodedBy: 'Relics smuggled out of Orchenk Manufactory into Roto\'s night market, Drake\'s grudge, and anyone still praying to the Warden.',
-      ifCrossed: 'The Nethergate hums again: things come through, the green sludge spreads, and Aleforge learns whether its militia is still a militia.',
-    },
-    omens: ['The green sludge has reached the Cumstead\'s north furrows again.', 'A Roto lantern-seller is offering "Factory glass" that hums.', 'Cumsock the goat refuses to go near the harbour.'],
-    event: {
-      name: 'The Nethergate Opens Again',
-      narrative: 'Somebody bought the wrong relic. The hum from Orchenk Manufactory carried across the water for three nights and on the fourth the harbour glowed green, the way it did when the Dread Harrow came through. The militia held the Barley Road; the Cumstead did not. Crawdad asks the castle for more men. The Kings ask Jagerbauhm if he still has the wings.',
-      effects: [
-        { ref: 'aleforgeGov.political', delta: -8 }, { ref: 'asdu.political', delta: -6 }, { ref: 'cumstead.economic', delta: -8 },
-        { ref: 'playerEconomy.economic', delta: -5 }, { ref: 'rotoBlackMarket.economic', delta: 8 }, { ref: 'drunkenTrials.cultural', delta: -6 },
-        { ref: 'jager.cultural', delta: 6 }, { ref: 'liquorKings.political', delta: 4 },
-      ],
-      chargeAfter: -1.5,
-    },
-  },
   {
     id: 'kingsSplit', scope: 'global', name: 'The Parliament Splits', domain: 'political', initial: 30, threshold: 70,
     inputs: [
@@ -2326,7 +2189,6 @@ hazards.push(
     },
   },
 );
-hazards.find(h => h.id === 'cloister').event.effects.push({ ref: 'monkOrder.religious', delta: 6 }, { ref: 'coralEyed.religious', delta: 4 });
 
 // ── Backroom deals: illegal or reputation-risking. Each season a deal runs, it pays out and may be found. ──
 // P(found this season) = severity × 0.025 × (1 + 0.15 × people in on it) × (0.6 + press/100) × (1 + (watcher − 50)/100)
@@ -2382,8 +2244,8 @@ export const deals = [
   D('nethergateRelics', 'shanty', 'Fence Nethergate relics through Roto', 4, ['rotoBlackMarket', 'captains', 'wardenCult'],
     [{ ref: 'shantyTown.economic', delta: 1.2 }, { ref: 'rotoBlackMarket.economic', delta: 0.8 }],
     { name: 'Factory Glass', narrative: 'A relic sold on the lower stilts starts to hum, and the buyer names the crew that sold it.',
-      effects: [{ ref: 'shantyTown.political', delta: -8 }, { ref: 'rel_ale_shanty.political', delta: -6 }, { ref: 'rel_prov_shanty.political', delta: -6 }], charge: { nethergate: 0.8 } },
-    { desc: 'Crews dare the sludge for Orchenk relics. The Council takes a share.', charge: { nethergate: 0.12 }, watch: 'rotoCouncil.cultural' }),
+      effects: [{ ref: 'shantyTown.political', delta: -8 }, { ref: 'rel_ale_shanty.political', delta: -6 }, { ref: 'rel_prov_shanty.political', delta: -6 }] },
+    { desc: 'Crews dare the sludge for Orchenk relics. The Council takes a share.', watch: 'rotoCouncil.cultural' }),
 
   D('heirTutor', 'roto', 'Let Goldcoral choose the heir\'s tutor', 4, ['goldcoral', 'jack'],
     [{ ref: 'rotoCouncil.economic', delta: 1.2 }, { ref: 'goldcoral.political', delta: 0.8 }, { ref: 'rotoCouncil.cultural', delta: -0.8 }],
@@ -2432,17 +2294,16 @@ injectables.push(
     narrative: 'The King of Kegs performs the Ode to the Six at the Hall of Ale, sets the mayor\'s chain on the bar, and orders a round.' },
   { id: 'jackSoul', name: 'Jack\'s lost soul is sighted', effects: [{ ref: 'jack.political', delta: -6 }, { ref: 'jack.cultural', delta: 6 }, { ref: 'hoegaarden.cultural', delta: 4 }], hazardCharge: { veilrunner: 0.6 },
     narrative: 'Hoegaarden\'s night archivist swears a figure with Jack\'s face walked the catacombs, reading.' },
-  { id: 'relicMarket', name: 'A Nethergate relic surfaces in Roto', effects: [{ ref: 'rotoBlackMarket.economic', delta: 10 }], hazardCharge: { nethergate: 1.0 },
+  { id: 'relicMarket', name: 'A Nethergate relic surfaces in Roto', effects: [{ ref: 'rotoBlackMarket.economic', delta: 10 }],
     narrative: 'A lantern-seller on the lower stilts is offering a piece of Orchenk glass that hums in the key of the old portal.' },
-  { id: 'wardenEgg', name: 'Another egg falls near the Observatory', effects: [{ ref: 'wardenCult.religious', delta: 15 }], hazardCharge: { nethergate: 0.6, cloister: 0.4 },
+  { id: 'wardenEgg', name: 'Another egg falls near the Observatory', effects: [{ ref: 'wardenCult.religious', delta: 15 }], hazardCharge: {},
     narrative: 'Something bright crosses the sky and comes down where Fentmaxxer\'s did. Someone has already lit the altar under the well.' },
   { id: 'oathAbduction', name: 'The Ashen Oath takes a King\'s friend', effects: [{ ref: 'ashenOathSect.political', delta: 10 }, { ref: 'guinnie.political', delta: 4 }], hazardCharge: { ashenOath: 0.8 },
     narrative: 'On the first night of Veilfrost the Oath takes a bouncer from Guinnie\'s old crew. Guinnie has not said anything, which worries everyone.' },
 );
 
 openThreads.push(
-  { id: 'monks', name: 'The vanished monk order', summary: 'They built the shrines and the Cloister, then vanished and left their sandals by the temple doors.', watch: { ref: 'monkOrder.religious' } },
-  { id: 'warden', name: 'The Warden\'s altar', summary: 'Fentmaxxer is dead. His altar under the Observatory well is not.', watch: { hazard: 'nethergate' } },
+  { id: 'warden', name: 'The Warden\'s altar', summary: 'Fentmaxxer is dead. His altar under the Observatory well is not.', watch: { ref: 'wardenCult.religious' } },
   { id: 'six', name: 'The Parliament of Six', summary: 'Seamus wears the chain, Jack lost his soul, Buke wants the chain. Six story lines, one crown.', watch: { hazard: 'kingsSplit' } },
 );
 narration.closers.unshift(
@@ -2472,7 +2333,7 @@ const SHORT = {
   seasideCircus: ['the Seaside Circus', 'CIRC'], press: ['the Chronicles', 'PRSS'], hoegaarden: ['Hoegaarden', 'HOEG'],
   brewmasters: ['the Brewmasters\' faith', 'BREW'], tonicGuild: ['the tonic clergy', 'TONC'], whiskeyRunners: ['the Whiskey Runners', 'WHSK'],
   veilSym: ['the Veil sympathizers', 'VSYM'], tideCallers: ['the Tide Callers', 'TIDE'], ashenOathSect: ['the Ashen Oath', 'ASH'],
-  monkOrder: ['the vanished monks', 'MONK'], wardenCult: ['the Warden heresy', 'WRDN'], coralEyed: ['the Coral-eyed', 'CORL'],
+  wardenCult: ['the Warden heresy', 'WRDN'], coralEyed: ['the Coral-eyed', 'CORL'],
   miners: ['the Bully Hill mines', 'MINE'], stormveil: ['StormVeil', 'STRM'], wolendi: ['Wolendi', 'WIND'], wepple: ['Wepple', 'WEPL'],
   militiaFunding: ['militia funding', 'MIL'], trialsFund: ['the Trials fund', 'TFND'], craftingEdicts: ['the crafting edicts', 'EDCT'],
   friarPatrols: ['the Friar patrols', 'FRIA'], tonicRations: ['the tonic rations', 'RATN'], plunderShare: ['the plunder share', 'PLND'],

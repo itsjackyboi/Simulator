@@ -16,7 +16,7 @@ One screen: a **dock** on the left, **the Web** in the middle, and a **forecast 
 
 - **Status strip** above the map: the state of the Isles, the likeliest crisis, and the biggest risers and fallers over the horizon.
 - **The map.** Node size is current power, and fill tint is where it's heading. After a change, a **dashed outline shows each node's size before it**, so before and after sit on the map together. A **Region** lens (Aleforge, Providence, Shanty Town, Roto Kaiishi, Fenwick, Isles-wide) highlights one town, its crises, and everything linked into it. The season slider and ▶ play the forecast out. Hover a node for its likely path.
-- **The map's clusters:** Political (including Fenwick and the Veil Elders), **The Six** (each Liquor King as his own node beside the Parliament, one story line each), Cultural, Religious (Patmos, the Brewmasters' faith, the tonic clergy, the Whiskey Runners, the Owe Block Veil sympathizers, Unknownism, the Tide Callers, the Ashen Oath, the vanished monk order, the Warden heresy, and the Fayte Druids as a minor movement), Racial & Lineage (the flesh-born, the Veilwalkers, the Line of Johns, the Coral-eyed), Economic, and the crises.
+- **The map's clusters:** Political (including Fenwick and the Veil Elders), **The Six** (each Liquor King as his own node beside the Parliament, one story line each), Cultural, Religious (Patmos, the Brewmasters' faith, the tonic clergy, the Whiskey Runners, the Owe Block Veil sympathizers, Unknownism, the Tide Callers, the Ashen Oath, the Warden heresy, and the Fayte Druids as a minor movement), Racial & Lineage (the flesh-born, the Veilwalkers, the Line of Johns, the Coral-eyed), Economic, and the crises.
 - **The dock** has three tabs:
   - **Lead**: pick the town you lead (Aleforge, Providence, Shanty Town, Roto Kaiishi or Fenwick). You get:
     - a **scorecard**: legitimacy, treasury, standing abroad, stability and exposure, each where it lands at the horizon, with what your last change did to it;
@@ -39,7 +39,7 @@ One screen: a **dock** on the left, **the Web** in the middle, and a **forecast 
 Year 466. Seasons matter:
 - The Drunken Trials' tourist boost happens in Stormtide.
 - Providence's Day of Hollow Tongues calms MAMA radicalization in Goldsun.
-- Veilwalker activity and the Cloister hazard rise during Veilfrost.
+- Veilwalker activity and the VeilRunner hazard rise during Veilfrost.
 - The Hoppy Holidays at Sackbeard's close each year.
 
 ## How the engine works
@@ -83,9 +83,9 @@ Every relationship carries an `explanation` and a `precedent`, plus a `canon` fl
 - `open-thread`: e.g. the Fayte Druids; deliberately speculative
 
 The seed is all editable in the app. It holds:
-- 103 groups: 53 on the map, 40 town levers (20 of them diplomatic stances), and 10 hidden relationships between the towns;
-- 429 relationships;
-- 13 hazards: 6 global and 7 regional;
+- 102 groups: 52 on the map, 40 town levers (20 of them diplomatic stances), and 10 hidden relationships between the towns;
+- 427 relationships;
+- 9 hazards: 3 global and 6 regional;
 - 16 backroom deals;
 - 15 canon events and 25 injectable events.
 
