@@ -13331,8 +13331,16 @@ function boot() {
   let saved = null;
   try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) { saved = null; }
   if (saved?.world && !validateWorld(saved.world).length) {
+    // A newer canon world ships with the page: switch to it automatically, keep the values,
+    // and keep the old world aside so it can be restored in one click.
+    const oldV = saved.world.meta?.version || 1;
+    if (oldV < (SEED.meta.version || 1)) {
+      try { localStorage.setItem(STORE + ':backup', JSON.stringify(saved)); } catch (e) { /* no room for a backup */ }
+      saved.world = SEED; saved.log = [];
+      UI.upgraded = oldV;
+    }
     loadWorld(saved.world);
-    UI.seedNotice = (saved.world.meta?.version || 1) < (SEED.meta.version || 1);
+    UI.seedNotice = false;
     E = reconcileEngine(saved.engine || freshEngine());
     LOG = (saved.log || []).filter(d => (d.records || []).every(r => r.ref in E.values && r.chain.every(c => IDX.byId[c.edgeId])));
     CHRON = saved.chron || [];
@@ -13350,6 +13358,7 @@ function boot() {
     if (r.base?.E) { RAIL.base = { E: reconcileEngine(r.base.E), whatif: (r.base.whatif || []).filter(w => injDef(w)) }; RAIL.change = r.change || null; }
     MAP.sel = saved.map?.sel && (G(saved.map.sel) || W.hazards.some(h => 'hz:' + h.id === saved.map.sel)) ? saved.map.sel : null;
   } else { loadWorld(SEED); E = freshEngine(); }
+  if (UI.upgraded) saveNow(); // keep the upgrade, so the next visit opens on it
 }
 
 /* ════════════════════════════════════════════════════════════════════
@@ -13373,6 +13382,21 @@ function renderTabs() {
 }
 function renderSeedNotice() {
   let el = $('#seedNotice');
+  if (UI.upgraded) {
+    if (!el) { el = document.createElement('div'); el.id = 'seedNotice'; el.className = 'panel'; $('main').prepend(el); }
+    el.innerHTML = `<h3><span class="orn">✦</span> Updated to the newest world <span class="muted">(v${SEED.meta.version}: ${esc(SEED.meta.changes || 'new content')}). Your values carried over wherever the groups still exist.</span></h3>
+      <div class="btns"><button class="btn sm wax" id="seedOk">Got it</button><button class="btn sm ghost" id="seedRestore">Restore my old v${UI.upgraded} world</button></div>
+      <p class="small muted" style="margin:0">Restore brings back the world you had before, including any World Data edits.</p>`;
+    $('#seedOk').onclick = () => { UI.upgraded = null; renderAll(); };
+    $('#seedRestore').onclick = () => {
+      let old = null; try { old = JSON.parse(localStorage.getItem(STORE + ':backup') || 'null'); } catch (e) { old = null; }
+      if (!old?.world) { el.querySelector('p').textContent = 'The old world could not be found in this browser.'; return; }
+      old.world.meta = { ...old.world.meta, version: SEED.meta.version }; // don't upgrade it again next time
+      try { localStorage.setItem(STORE, JSON.stringify(old)); } catch (e) { /* storage unavailable */ }
+      UI.upgraded = null; UNDO.length = 0; boot(); computeForecast(); renderAll();
+    };
+    return;
+  }
   if (!UI.seedNotice) { el?.remove(); return; }
   if (!el) { el = document.createElement('div'); el.id = 'seedNotice'; el.className = 'panel'; $('main').prepend(el); }
   el.innerHTML = `<h3><span class="orn">✦</span> The canon world has been updated <span class="muted">(v${SEED.meta.version}: ${esc(SEED.meta.changes || 'new content')}). This browser still holds your saved v${W.meta.version || 1} world.</span></h3>

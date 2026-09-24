@@ -99,7 +99,8 @@ The seed is all editable in the app. It holds:
 - 15 canon events and 25 injectable events.
 
 When the canon seed's `meta.version` goes up, a browser holding an older saved world
-shows a notice offering to load the new world and keep the current values.
+switches to the new world automatically and keeps its current values. A notice offers to
+restore the old world, World Data edits included, in one click.
 
 ## Editing the canonical seed (optional)
 
