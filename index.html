@@ -599,6 +599,113 @@ table.towns thead th{font-family:var(--f-head);font-size:10px;letter-spacing:.05
 /* ── v8: influence ranking flags ── */
 .flag.inf.global{background:var(--wax)} .flag.inf.regional{background:var(--gold)} .flag.inf.negligible{background:var(--ink-3)}
 .flag.era{background:none;color:var(--ink-2);border:1px solid var(--rule)}
+/* ── v9: consequences made visible ── */
+#mapSvg .nd .pring{fill:none;stroke:var(--gold);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;pointer-events:none}
+#mapSvg .nd.ping .pring{animation:ping .9s ease-out}
+@keyframes ping{0%{opacity:.95;transform:scale(1)}100%{opacity:0;transform:scale(2.6)}}
+#mapSvg .nd.ping .body,#mapSvg .nd.ping .hz-body{animation:flash .9s ease-out}
+@keyframes flash{0%{stroke:var(--gold);stroke-width:5}100%{}}
+#mapSvg.rippling .nd:not(.pinged) .nchip{opacity:0}
+#mapSvg .nd .nchip{transition:opacity .3s}
+#mapSvg .lk.pulse{animation:flow .5s linear infinite,lkflash .9s ease-out;}
+@keyframes lkflash{0%{opacity:1;stroke-width:7px}100%{}}
+#mapSvg.spot .nd:not(.hit):not(.src):not(.sel):not(.alarm){opacity:.1}
+#mapSvg.spot .hz-nd:not(.hit):not(.alarm){opacity:.1}
+#mapSvg.spot .lk:not(.trace){opacity:0}
+#mapSvg.spot .cl-label{opacity:.25}
+#mapSvg .nd .nchip{font-size:17px;letter-spacing:0;stroke-width:4px}
+#mapSvg .nd .nchip.md{font-size:22px}
+#mapSvg .nd .nchip.lg{font-size:28px}
+#mapSvg .hz-nd .nchip{font-size:18px}
+#mapSvg .nd.o1 .body{stroke:var(--ink);stroke-width:2.8}
+#mapSvg .nd.o2 .body{stroke:var(--ink-2);stroke-width:2.2;stroke-dasharray:5 3}
+#mapSvg .nd.o3 .body{stroke:var(--ink-3);stroke-width:1.8;stroke-dasharray:2 3}
+#mapSvg .hz-nd.alarm .hz-body{stroke:var(--wax);stroke-width:4;animation:alarm 1s ease-in-out infinite}
+@keyframes alarm{50%{stroke-width:8;stroke:#c0392b}}
+#mapSvg .ring-o{fill:none;stroke:var(--gold);stroke-width:1.2;stroke-dasharray:3 6;opacity:.55;pointer-events:none}
+#mapSvg .ring-o.o1{stroke-width:1.8;opacity:.7}
+#mapSvg .ring-l{font-family:var(--f-head);font-size:11px;font-weight:700;fill:var(--gold);letter-spacing:.08em;paint-order:stroke;stroke:var(--parch);stroke-width:3px}
+#mapSvg.pv .nd .nchip{font-style:italic;opacity:.85}
+#mapSvg.pv .nd.hit .body{stroke-dasharray:4 3}
+#mapSvg.before{outline:3px dashed var(--ink-3);outline-offset:-3px}
+#mapSvg.before .nd .nchip{opacity:0}
+.fx-view{display:inline-flex}
+.fx-view button{font-family:var(--f-head);font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:4px 9px;border:1px solid var(--rule);background:var(--parch-card);color:var(--ink-2);cursor:pointer}
+.fx-view button[aria-pressed="true"]{background:var(--ink);color:var(--parch);border-color:var(--ink)}
+#fxBefore{touch-action:none;user-select:none}
+.fxbar{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:stretch;margin:0 0 6px}
+.fxbar .towns-h{display:flex;flex-direction:column;justify-content:center}
+.fxbar .towns-h .lg{font-size:10px;color:var(--ink-3);white-space:nowrap}
+.tcs{display:flex;gap:4px;flex-wrap:wrap}
+.tc{display:flex;flex-direction:column;align-items:center;border:1px solid var(--rule);background:var(--parch-card);padding:3px 8px;min-width:70px}
+.tc.me{border-color:var(--wax);box-shadow:inset 0 -3px 0 var(--wax)}
+.tc b{font-family:var(--f-head);font-size:10.5px;letter-spacing:.04em}
+.tc span{display:flex;gap:6px;font-size:14px;line-height:1.2}
+.tc i{font-style:normal;min-width:14px;text-align:center}
+.tc i.up{color:var(--verd)} .tc i.down{color:var(--wax)} .tc i.z{color:var(--ink-3)}
+.alarms{display:flex;gap:4px;flex-wrap:wrap;align-items:stretch}
+.alarm{font:inherit;font-size:13px;border:2px solid var(--wax);background:#f6e2d6;color:var(--wax);padding:3px 9px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;animation:alarmbox 1.4s ease-in-out infinite}
+.alarm.better{border-color:var(--verd);background:#e3eedd;color:var(--verd);animation:none}
+.alarm .mini-route{font-size:11px;color:var(--ink-2)}
+@keyframes alarmbox{50%{box-shadow:0 0 0 3px rgba(142,27,27,.25)}}
+.flow-wrap{border:1px solid var(--rule);background:var(--parch-card);overflow-x:auto;position:relative}
+#flowSvg{display:block;width:100%;min-width:760px;height:auto}
+#flowSvg .fh{font-family:var(--f-head);font-size:12px;font-weight:700;letter-spacing:.1em;fill:var(--ink-3);text-transform:uppercase}
+#flowSvg .fband{fill:none;opacity:.35;cursor:pointer;transition:opacity .2s}
+#flowSvg .fband.up{stroke:var(--verd)} #flowSvg .fband.down{stroke:var(--wax)}
+#flowSvg .fband:hover,#flowSvg .fband.sel{opacity:.8}
+#flowSvg .fnode{cursor:pointer}
+#flowSvg .fnode rect{fill:var(--parch);stroke:var(--ink-2);stroke-width:1.2}
+#flowSvg .fnode.src rect{stroke:var(--ink);stroke-width:2.5}
+#flowSvg .fnode.hz rect{stroke:var(--wax);stroke-width:2}
+#flowSvg .fn{font-family:var(--f-body);font-size:13px;fill:var(--ink)}
+#flowSvg .fb{font-family:var(--f-head);font-size:13px;font-weight:900}
+#flowSvg .fb.up{fill:var(--verd)} #flowSvg .fb.down{fill:var(--wax)}
+.flow-why{position:absolute;right:10px;bottom:10px;max-width:340px;background:var(--parch);border:1px solid var(--ink-2);box-shadow:var(--shadow);padding:6px 10px;font-size:13px}
+.flow-why ul{margin:4px 0 0;padding-left:16px}
+.flow-empty{padding:40px;text-align:center;color:var(--ink-3);font-style:italic}
+.wl{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:6px 0 8px}
+.wl .lbl.up{color:var(--verd)} .wl .lbl.down{color:var(--wax)}
+.wl-c{display:flex;justify-content:space-between;gap:6px;width:100%;font:inherit;font-size:12.5px;text-align:left;border:none;border-left:3px solid;background:var(--parch);padding:2px 6px;margin:2px 0;cursor:pointer}
+.wl-c.up{border-color:var(--verd)} .wl-c.down{border-color:var(--wax)}
+.wl-c.up b{color:var(--verd)} .wl-c.down b{color:var(--wax)}
+.wl-flat{display:flex;flex-wrap:wrap;gap:3px}.wl-flat .wl-c{width:auto}
+.chains{display:grid;gap:3px;margin:4px 0 8px}
+.chain{cursor:pointer;border:1px solid transparent;padding:2px 3px}
+.chain:hover,.chain.open{border-color:var(--rule);background:var(--parch)}
+.chain .route{margin:0}
+.pill.n{color:var(--ink-2);border-color:var(--rule)}
+.why-l{margin:3px 0 2px;padding-left:18px;font-size:12.5px}
+.why-l .lag{color:var(--gold)}
+svg.heat{display:block;max-width:100%;height:auto;margin:2px 0 8px}
+svg.heat .hl{font-family:var(--f-body);font-size:11px;fill:var(--ink-2)}
+svg.heat .ha{font-family:var(--f-head);font-size:9px;fill:var(--ink-3)}
+svg.heat .hc.up{fill:var(--verd)} svg.heat .hc.down{fill:var(--wax)}
+details.alleff > summary{cursor:pointer;margin-top:4px}
+.shift.alarm{border-width:2px;font-weight:700}
+.shift{white-space:nowrap}
+.rs h3 .btn{float:right;font-size:10px;padding:1px 6px}
+.dec{display:grid;grid-template-columns:minmax(0,1fr) 70px;gap:2px 8px;align-items:center;padding:3px 0;border-bottom:1px dotted var(--rule);font-size:13px}
+.dec label{display:flex;gap:6px;align-items:baseline;cursor:pointer;min-width:0}
+.dec label span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dec.off label span{text-decoration:line-through;color:var(--ink-3)}
+.dbar{height:8px;background:var(--rule);position:relative}
+.dbar i{position:absolute;inset:0 auto 0 0;background:var(--gold)}
+.dtops{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:3px 8px;font-size:11.5px;padding-left:20px}
+.dtops em{font-style:normal}.dtops em.up{color:var(--verd)}.dtops em.down{color:var(--wax)}
+.cmp{margin-top:6px}
+.cmp-k{display:flex;gap:10px;font-size:12px;margin-bottom:4px}
+.ka{color:var(--sea)} .kb{color:var(--gold)}
+.cmp-k .ka::before,.cmp-k .kb::before{content:'■ '}
+table.cmpt{width:100%;border-collapse:collapse;font-size:12px}
+table.cmpt th{text-align:left;font-weight:600;padding:2px 4px 2px 0}
+table.cmpt thead th{font-family:var(--f-head);font-size:9.5px;color:var(--ink-3);letter-spacing:.05em}
+table.cmpt td{padding:2px 0;width:38%}
+.pb{display:block;height:6px;margin:1px 0;background:rgba(185,154,102,.2)}
+.pb i{display:block;height:100%}.pb i.a{background:var(--sea)}.pb i.b{background:var(--gold)}
+.cmp-hz{display:grid;grid-template-columns:minmax(0,1fr) 40px 40px;font-size:12px;gap:4px;padding:1px 0}
+.cmp-hz b{text-align:right}
+@media (prefers-reduced-motion: reduce){ #mapSvg .nd.ping .pring,#mapSvg .hz-nd.alarm .hz-body,.alarm,#mapSvg .lk.pulse{animation:none} }
 @media (max-width:1180px){ .grid-proj{grid-template-columns:260px minmax(0,1fr)} .grid-proj > .side{grid-column:1 / -1} }
 @media (max-width:900px){
   .grid-domain,.grid-2,.grid-proj{grid-template-columns:minmax(0,1fr)}
@@ -13323,10 +13430,14 @@ const UI = { tab: 'map' };
 
 function saveNow() {
   clearTimeout(save.t); save.t = null;
-  try { localStorage.setItem(STORE, JSON.stringify({ world: W, engine: E, log: LOG.slice(0, 30), chron: CHRON.slice(0, 80), ui: { tab: UI.tab, railOpen: UI.railOpen, dock: DOCK.tab === 'inspect' ? DOCK.back : DOCK.tab, leadOpen: LEAD_OPEN }, rail: { whatif: RAIL.whatif, mode: RAIL.mode, scenario: RAIL.scenario, H: FC.H, base: RAIL.base, change: RAIL.change }, map: { sel: MAP.sel, region: MAP.region }, scenarios: SCN })); } catch (e) { /* storage unavailable — state still lives in memory */ }
+  try { localStorage.setItem(STORE, JSON.stringify({ world: W, engine: E, log: LOG.slice(0, 30), chron: CHRON.slice(0, 80), ui: { tab: UI.tab, railOpen: UI.railOpen, dock: DOCK.tab === 'inspect' ? DOCK.back : DOCK.tab, leadOpen: LEAD_OPEN }, rail: { whatif: RAIL.whatif, mode: RAIL.mode, scenario: RAIL.scenario, H: FC.H, base: RAIL.base, change: RAIL.change }, map: { sel: MAP.sel, region: MAP.region }, scenarios: SCN, decisions: DECISIONS })); } catch (e) { /* storage unavailable — state still lives in memory */ }
 }
 function save() { clearTimeout(save.t); save.t = setTimeout(saveNow, 300); }
 addEventListener('pagehide', () => { if (save.t) saveNow(); });
+// Hold B to see the world without your change.
+const typing = e => /input|select|textarea/i.test(e.target.tagName);
+addEventListener('keydown', e => { if ((e.key === 'b' || e.key === 'B') && !e.repeat && !typing(e) && UI.tab === 'map' && RAIL.without) { FX.before = true; $('#fxBefore')?.classList.add('on'); paintMap(); } });
+addEventListener('keyup', e => { if ((e.key === 'b' || e.key === 'B') && FX.before) { FX.before = false; $('#fxBefore')?.classList.remove('on'); paintMap(); } });
 function boot() {
   let saved = null;
   try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) { saved = null; }
@@ -13350,6 +13461,7 @@ function boot() {
     UI.railOpen = saved.ui?.railOpen !== false;
     if (['lead', 'tools'].includes(saved.ui?.dock)) DOCK.tab = DOCK.back = saved.ui.dock;
     Object.assign(LEAD_OPEN, saved.ui?.leadOpen || {});
+    DECISIONS = (saved.decisions || []).filter(d => d && (d.kind !== 'set' || d.ref in E.values) && (d.kind !== 'deal' || W.deals.some(x => x.id === d.dealId)) && (d.kind !== 'whatif' || injDef(d.item)));
     SCN = (saved.scenarios || []).filter(x => x && x.E).map(x => ({ ...x, E: reconcileEngine(x.E), whatif: (x.whatif || []).filter(w => injDef(w)) }));
     RAIL.scenario = r.scenario || null;
     RAIL.mode = r.mode === 'canon' ? 'canon' : r.mode === 'scenario' && SCN.some(x => x.id === r.scenario) ? 'scenario' : 'last';
@@ -13542,6 +13654,7 @@ function sourcesBetween(baseE, baseWhatif) {
   return out;
 }
 function computeForecast() {
+  FX.fp = null;
   RAIL.with = simulate(E, RAIL.whatif);
   const base = compareBase();
   RAIL.without = base ? simulate(base.E, base.whatif) : null;
@@ -13554,8 +13667,17 @@ function scheduleForecast(delay = 180) {
 }
 function afterForecast() {
   $('#rail')?.classList.remove('busy');
+  FX.fp = computeFootprint(); FX.flowSel = null;
   renderRail();
-  if (UI.tab === 'map') { buildTrace(); const st = $('#strip'); if (st) { st.innerHTML = stripHTML(); wireStrip(document); } paintMap(); renderDock(); }
+  if (UI.tab === 'map') { buildTrace(); const st = $('#strip'); if (st) { st.innerHTML = stripHTML(); wireStrip(document); } paintMap(); renderDock(); fxAfter(true); }
+}
+// After the map is painted: the consequence bar, the flow view, the ripple and the decision shares.
+function fxAfter(allowPlay) {
+  const bar = $('#fxBar'); if (bar) { bar.innerHTML = fxBarHTML(); $$('[data-node]', bar).forEach(b => b.onclick = () => selectNode(b.dataset.node)); }
+  if (FX.view === 'flow') renderFlowView();
+  const k = FX.fp?.key;
+  if (k && k !== FX.played) { const first = FX.played == null; FX.played = k; if (allowPlay && !first && RAIL.mode === 'last' && FX.view === 'map') playRipple(); }
+  measureShares();
 }
 
 // What breaking a hazard would actually do over the horizon.
@@ -13790,14 +13912,21 @@ function renderMap() {
         <div class="map-tools">
           <div class="chips" role="group" aria-label="Region lens"><span class="lbl">Region</span>${['All', ...REGIONS, 'Isles-wide'].map(r => `<button class="fchip${(MAP.region || 'All') === r ? ' on' : ''}" data-r="${esc(r)}">${esc(r)}</button>`).join('')}</div>
           <label class="tog"><input type="checkbox" id="showAll" ${MAP.showAll ? 'checked' : ''}> Links</label>
+          <div class="seg fx-view" role="group" aria-label="View"><button data-view="map" aria-pressed="${FX.view === 'map'}">Map</button><button data-view="flow" aria-pressed="${FX.view === 'flow'}">Flow</button></div>
+          <button class="fchip${FX.spot ? ' on' : ''}" id="fxSpot" title="Fade everything your change didn't touch">Spotlight</button>
+          <button class="fchip" id="fxBefore" title="Hold to see the world without your change (or hold B)">◐ Hold: before</button>
+          <button class="fchip" id="fxReplay" title="Replay how your change spread">▶ Replay</button>
           <select class="inp" id="findNode" aria-label="Find a group"><option value="">Find…</option>${nodes.map(n => `<option value="${esc(n.id)}">${esc(n.kind === 'hazard' ? '⚠ ' + n.h.name : n.g.name)}</option>`).join('')}</select>
         </div>
         <div class="map-hint help" id="mapHint"></div>
-        <div class="map-wrap" id="mapWrap">
+        <div id="fxBar"></div>
+        <div class="flow-wrap" id="flowWrap" ${FX.view === 'flow' ? '' : 'hidden'}></div>
+        <div class="map-wrap" id="mapWrap" ${FX.view === 'flow' ? 'hidden' : ''}>
           <svg id="mapSvg" viewBox="0 0 ${VW} ${VH}" role="img" aria-label="The web of the Isles: every group and hazard, with the links between them">
             <defs>${['verd', 'wax', 'latent'].map(c => `<marker id="mk-${c}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--${c})"/></marker>`).join('')}</defs>
             ${clusterLabels}
-            <g id="mLinks">${links.map(L => `<path class="lk" data-k="${esc(L.key)}" data-w="${Math.min(L.k, 1.2).toFixed(2)}" d="${linkPath(L, pos)}" style="stroke:${linkColor(L)};stroke-width:${(0.7 + Math.min(L.k, 1.2) * 2).toFixed(2)}" ${L.lag ? 'stroke-dasharray="6 4"' : L.latent ? 'stroke-dasharray="2 4"' : ''} marker-end="url(#mk-${L.latent ? 'latent' : L.net >= 0 ? 'verd' : 'wax'})"/>`).join('')}</g>
+            <g id="mFx"></g>
+            <g id="mLinks">${links.map(L => `<path class="lk" data-k="${esc(L.key)}" data-w="${Math.min(L.k, 1.2).toFixed(2)}" data-sw="${(0.7 + Math.min(L.k, 1.2) * 2).toFixed(2)}" d="${linkPath(L, pos)}" style="stroke:${linkColor(L)};stroke-width:${(0.7 + Math.min(L.k, 1.2) * 2).toFixed(2)}" ${L.lag ? 'stroke-dasharray="6 4"' : L.latent ? 'stroke-dasharray="2 4"' : ''} marker-end="url(#mk-${L.latent ? 'latent' : L.net >= 0 ? 'verd' : 'wax'})"/>`).join('')}</g>
             <g id="mNodes">${nodes.map(n => nodeSVG(n, pos[n.id])).join('')}</g>
           </svg>
           <div id="tip" class="tip" hidden></div>
@@ -13819,6 +13948,13 @@ function renderMap() {
   $('#findNode').onchange = e => { if (e.target.value) selectNode(e.target.value); e.target.value = ''; };
   $('#tScrub').oninput = e => { MAP.t = +e.target.value; paintMap(); };
   $('#play').onclick = togglePlay;
+  $$('.fx-view button', root).forEach(b => b.onclick = () => { FX.view = b.dataset.view; stopRipple(); renderMap(); });
+  $('#fxSpot').onclick = () => { FX.spot = !FX.spot; $('#fxSpot').classList.toggle('on', FX.spot); paintMap(); };
+  $('#fxReplay').onclick = () => { if (FX.view !== 'map') { FX.view = 'map'; renderMap(); } playRipple(); };
+  const hold = on => { if (FX.before === on) return; FX.before = on; $('#fxBefore')?.classList.toggle('on', on); paintMap(); };
+  const hb = $('#fxBefore');
+  hb.addEventListener('pointerdown', e => { e.preventDefault(); hold(true); });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => hb.addEventListener(ev, () => hold(false)));
   const svg = $('#mapSvg');
   $$('.nd', svg).forEach(g => {
     g.addEventListener('mouseenter', () => { MAP.hover = g.dataset.id; paintMap(); showTip(g); });
@@ -13830,7 +13966,7 @@ function renderMap() {
   });
   svg.addEventListener('click', e => { if (e.target === svg && MAP.sel) deselect(); });
   wireStrip(root);
-  buildTrace(); paintMap(); renderDock();
+  buildTrace(); paintMap(); renderDock(); fxAfter(false);
 }
 function wireStrip(root) { $$('#strip [data-node]', root).forEach(b => b.onclick = () => selectNode(b.dataset.node)); }
 function nodeSVG(n, p) {
@@ -13838,11 +13974,12 @@ function nodeSVG(n, p) {
   if (n.kind === 'hazard') {
     const nm = n.h.name.replace(/ Risk$/, ''), reg = n.h.scope === 'regional', s = reg ? 12 : 15;
     return `<g class="nd hz-nd${reg ? ' regional' : ''}" data-id="${esc(n.id)}" ${t} tabindex="0" role="button" aria-label="${esc(n.h.name)}">
+ <circle class="pring" r="${s + 4}"/>
       <rect class="hz-body" x="-${s}" y="-${s}" width="${2 * s}" height="${2 * s}" transform="rotate(45)"/><rect class="hz-fill" x="-${s}" y="-${s}" width="${2 * s}" height="${2 * s}" transform="rotate(45)"/>
       <text class="nv" y="4" text-anchor="middle"></text><text class="nl" y="${s + 19}" text-anchor="middle">${esc(nm)}${reg ? ` · ${esc(n.h.region.replace(' Kaiishi', ''))}` : ''}</text><text class="nchip" y="-${s + 11}" text-anchor="middle"></text></g>`;
   }
   const g = n.g, nm = cap((g.short || g.name).replace(/^the /, ''));
-  const body = n.kind === 'lever' ? `<rect class="ghost" rx="3"/><rect class="body" rx="3"/>` : `<circle class="ghost"/><circle class="body"/>`;
+  const body = n.kind === 'lever' ? `<rect class="ghost" rx="3"/><rect class="body" rx="3"/>` : `<circle class="pring"/><circle class="ghost"/><circle class="body"/>`;
   return `<g class="nd ${n.kind}" data-id="${esc(n.id)}" ${t} tabindex="0" role="button" aria-label="${esc(g.name)}">
     ${body}<text class="nl" text-anchor="middle">${esc(nm)}</text><text class="nchip" text-anchor="middle"></text><text class="weak-m" text-anchor="middle">⚡</text></g>`;
 }
@@ -13864,12 +14001,14 @@ function setShape(el, kind, v) {
 }
 function paintMap() {
   const svg = $('#mapSvg'); if (!svg || !RAIL.with) return;
-  const { nodes, links } = MAP.layout, A = RAIL.with, B = RAIL.without;
+  const { nodes, links } = MAP.layout;
+  let A = RAIL.with, B = RAIL.without;
+  if (FX.before && B) [A, B] = [B, A]; // hold-to-compare: draw the world without the change
   const t = Math.min(MAP.t, A.H), tt = t || A.H;
   const lbl = $('#tLbl'); if (lbl) lbl.innerHTML = t === 0 ? `<b>Now</b><span class="help"> · tint shows where each group is heading by +${A.H}</span>` : `<b>+${t}</b> · ${esc(dateOf(E.sim.turn + t).label.split(' · ')[0])}`;
   const focus = MAP.hover || MAP.sel;
   const nb = new Set(); if (focus) { nb.add(focus); links.forEach(L => { if (L.a === focus) nb.add(L.b); if (L.b === focus) nb.add(L.a); }); }
-  const tr = MAP.trace, weak = new Set((MAP.weak?.list || []).slice(0, 3).map(w => splitRef(w.ref)[0]));
+  const tr = FX.preview ? previewTrace() : FX.before ? null : MAP.trace, weak = new Set((MAP.weak?.list || []).slice(0, 3).map(w => splitRef(w.ref)[0]));
   // Region lens: members, and outsiders with a direct link into the region
   const reg = MAP.region, inReg = new Set(), nearReg = new Set();
   if (reg) {
@@ -13889,6 +14028,7 @@ function paintMap() {
       const ref = refOf(n.id, primaryStat(n.g)), v = t ? medAt(A, ref, t) : E.values[ref], drift = medAt(A, ref, tt) - E.values[ref];
       const body = $('.body', el), ghost = $('.ghost', el);
       const r = setShape(body, n.kind, v);
+      const pr = $('.pring', el); if (pr) pr.setAttribute('r', (r + 5).toFixed(1));
       // Ghost: the same node before your change (or in the comparison world)
       const before = B ? (t ? medAt(B, ref, t) : B.vals[ref][0][0]) : v;
       if (Math.abs(before - v) >= 1) { setShape(ghost, n.kind, before); ghost.style.display = ''; } else ghost.style.display = 'none';
@@ -13900,7 +14040,7 @@ function paintMap() {
       el.querySelector('.weak-m').setAttribute('y', 4); el.querySelector('.weak-m').setAttribute('x', top + 8);
       if (tr && tr.deltas.has(id)) {
         const d = tr.deltas.get(id), val = B && t ? pairedDiff(A, B, d.ref, t) : d.v;
-        chip = pipText(val); chipCls = val > 0 ? 'up' : 'down'; hidden = d.hidden;
+        chip = signTxt(val); chipCls = (val > 0 ? 'up' : 'down') + (Math.abs(val) >= 6 ? ' lg' : Math.abs(val) >= 3 ? ' md' : ''); hidden = d.hidden;
       }
       el.classList.toggle('weak', weak.has(id));
     }
@@ -13909,6 +14049,9 @@ function paintMap() {
     el.classList.toggle('src', !!(tr && tr.src.has(id)));
     el.classList.toggle('hit', !!(tr && (tr.deltas.has(id) || tr.hz.has(id))));
     el.classList.toggle('hidden-link', hidden);
+    const ord = tr?.deltas.get(id)?.order || 0;
+    el.classList.toggle('o1', ord === 1); el.classList.toggle('o2', ord === 2); el.classList.toggle('o3', ord === 3);
+    el.classList.toggle('alarm', !!tr?.alarms?.has(id));
     const active = id === focus || (focus && nb.has(id)) || (tr && (tr.deltas.has(id) || tr.src.has(id) || tr.hz.has(id))) || (reg && inReg.has(id)) || weak.has(id);
     el.classList.toggle('lbl-on', !!active || (n.kind === 'hazard' && pFire(A, n.h.id, tt) >= 0.1));
     const dim = focus ? !nb.has(id) : reg ? !(inReg.has(id) || nearReg.has(id)) : false;
@@ -13924,8 +14067,15 @@ function paintMap() {
     else if (MAP.showAll) cls += +el.dataset.w >= 0.3 ? ' mid' : ' faint';
     else cls += ' off';
     if (!focus && tr && tr.links.has(k) && reg) cls += ' trace';
+    if (el.classList.contains('pulse')) cls += ' pulse';
     el.setAttribute('class', cls);
+    const fl = cls.includes('trace') && FX.fp?.links.get(k);
+    el.style.strokeWidth = fl ? (1.6 + 5.5 * fl / FX.fp.maxFlow).toFixed(2) : el.dataset.sw;
   }
+  svg.classList.toggle('spot', FX.spot && !!tr && !focus && !reg);
+  svg.classList.toggle('pv', !!FX.preview);
+  svg.classList.toggle('before', FX.before && !!B);
+  const fxl = $('#mFx', svg); if (fxl) fxl.innerHTML = (FX.spot && tr && !focus && !reg && !FX.before) ? ringsSVG() : '';
   const hint = $('#mapHint');
   if (hint) hint.innerHTML = focus ? `Links of <b>${esc(nodeName(focus))}</b>. Arrows point from cause to effect.`
     : reg ? `Region lens: <b>${esc(reg)}</b> and everything with a direct link into it.`
@@ -13988,7 +14138,7 @@ const townDeals = tid => W.deals.filter(d => d.town === tid);
 
 function setLeader(id, quiet = false) {
   id = id || null; if (E.sim.leader === id) return;
-  if (!quiet) { pushUndo(); RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) }; }
+  if (!quiet) { pushUndo(); RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) }; recordDecision({ kind: 'leader', from: E.sim.leader, to: id }); }
   E.sim.leader = id;
   if (!quiet) {
     const lbl = id ? `You lead ${TOWN(id).name}` : 'Nobody leads: every town acts on its own';
@@ -14001,6 +14151,7 @@ function toggleDeal(id, on) {
   const d = W.deals.find(x => x.id === id); if (!d || !!E.sim.deals[id] === on) return;
   pushUndo(); RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
   if (on) E.sim.deals[id] = { since: E.sim.turn }; else delete E.sim.deals[id];
+  recordDecision({ kind: 'deal', dealId: id, dealOn: on });
   const lbl = `${on ? 'Struck' : 'Called off'}: ${d.name}`;
   RAIL.change = { label: lbl, sources: sourcesBetween(RAIL.base.E, RAIL.base.whatif) };
   LOG.unshift({ id: Date.now(), kind: 'deal', title: lbl, turn: E.sim.turn, time: Date.now(), records: [] });
@@ -14101,11 +14252,16 @@ function wireLead(el) {
   $('#leadSel', el)?.addEventListener('change', e => setLeader(e.target.value));
   $$('[data-lead]', el).forEach(b => b.onclick = () => setLeader(b.dataset.lead));
   $$('details.lsec', el).forEach(d => d.addEventListener('toggle', () => { LEAD_OPEN[d.dataset.sec] = d.open; save(); }));
-  $$('[data-deal]', el).forEach(c => c.onchange = () => toggleDeal(c.dataset.deal, c.checked));
+  $$('[data-deal]', el).forEach(c => c.onchange = () => { clearPreview(); toggleDeal(c.dataset.deal, c.checked); });
+  $$('.deal', el).forEach(dv => {
+    const id = $('[data-deal]', dv).dataset.deal;
+    dv.addEventListener('mouseenter', () => { const on = !!E.sim.deals[id]; previewWith(S => { if (on) delete S.sim.deals[id]; else S.sim.deals[id] = { since: S.sim.turn }; }, null); });
+    dv.addEventListener('mouseleave', clearPreview);
+  });
   $$('.srow', el).forEach(row => {
     const ref = row.dataset.ref, sl = $('input', row), num = $('.num', row); let tm = null;
-    sl.addEventListener('input', () => { num.textContent = sl.value; clearTimeout(tm); tm = setTimeout(() => commitSlider(ref, +sl.value), 220); });
-    sl.addEventListener('change', () => { clearTimeout(tm); commitSlider(ref, +sl.value); });
+    sl.addEventListener('input', () => { num.textContent = sl.value; previewWith(S => setDirect(S, ref, +sl.value, { kind: 'user', ref, turn: S.sim.turn }, []), onMap(G(splitRef(ref)[0])) ? splitRef(ref)[0] : null); });
+    sl.addEventListener('change', () => { clearPreview(); commitSlider(ref, +sl.value); });
   });
 }
 function deselect() { MAP.sel = null; if (DOCK.tab === 'inspect') DOCK.tab = DOCK.back; paintMap(); renderDock(); save(); }
@@ -14156,8 +14312,8 @@ function renderInspect(el) {
   $$('.s-name', el).forEach(b => b.onclick = () => { MAP.stat = b.dataset.stat; renderDock(); });
   $$('.srow', el).forEach(row => {
     const ref = row.dataset.ref, sl = $('input', row), num = $('.num', row); let tm = null;
-    sl.addEventListener('input', () => { num.textContent = sl.value; clearTimeout(tm); tm = setTimeout(() => commitSlider(ref, +sl.value), 220); });
-    sl.addEventListener('change', () => { clearTimeout(tm); commitSlider(ref, +sl.value); });
+    sl.addEventListener('input', () => { num.textContent = sl.value; previewWith(S => setDirect(S, ref, +sl.value, { kind: 'user', ref, turn: S.sim.turn }, []), onMap(G(splitRef(ref)[0])) ? splitRef(ref)[0] : null); });
+    sl.addEventListener('change', () => { clearPreview(); commitSlider(ref, +sl.value); });
   });
 }
 function wireDock(el) {
@@ -14186,17 +14342,291 @@ function togglePlay() {
 
 // Which groups your change reaches, and the links it travels.
 function buildTrace() {
-  const imps = impacts();
-  if (!imps.length) { MAP.trace = null; return; }
-  const deltas = new Map(), links = new Set(), src = new Set(changeSources().map(s => splitRef(s.ref)[0]));
-  for (const x of imps.slice(0, 14)) {
-    const g = splitRef(x.ref)[0], v = Math.abs(x.later) >= Math.abs(x.now) ? x.later : x.now;
-    const cur = deltas.get(g); if (!cur || Math.abs(v) > Math.abs(cur.v)) deltas.set(g, { v, ref: x.ref, hidden: x.hidden });
-    const r = routeFor(x); if (r.path) r.path.forEach(e => { if (e.fromId !== e.toId) links.add(e.fromId + '>' + e.toId); });
+  const fp = FX.fp || (FX.fp = computeFootprint());
+  if (!fp || (!fp.list.length && !fp.hz.length)) { MAP.trace = null; return; }
+  const deltas = new Map(); fp.list.forEach(n => deltas.set(n.id, { v: n.d, ref: n.ref, hidden: n.hidden, order: n.order }));
+  const hz = new Map(); fp.hz.forEach(x => hz.set(x.id, x.d));
+  MAP.trace = { deltas, links: new Set(fp.links.keys()), src: fp.srcIds, hz, alarms: new Set(fp.hz.filter(x => x.alarm).map(x => x.id)) };
+}
+function previewTrace() {
+  const p = FX.preview, deltas = new Map();
+  p.m.forEach((v, id) => deltas.set(id, { v, ref: primaryRef(G(id)), hidden: false, order: 0 }));
+  return { deltas, links: new Set(), src: new Set(p.src ? [p.src] : []), hz: p.hz, alarms: new Set([...p.hz].filter(([, d]) => Math.abs(d) >= 0.1).map(([id]) => id)) };
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   Consequences: the footprint of a change, drawn as diagrams
+   ════════════════════════════════════════════════════════════════════ */
+const FX = { spot: true, view: 'map', before: false, preview: null, fp: null, played: null, timers: [], flowSel: null, share: null, cmp: null };
+let DECISIONS = [];
+const primaryRef = g => refOf(g.id, primaryStat(g));
+const signTxt = (d, digits = 0) => (d > 0 ? '+' : '−') + Math.abs(d).toFixed(digits);
+const shortName = id => id.startsWith('hz:') ? (W.hazards.find(h => 'hz:' + h.id === id)?.name || id).replace(/ Risk$/, '') : cap(shortOf(id).replace(/^the /, ''));
+// Which towns a crisis lands on: its own region, or the regions most of its effects hit.
+function hazardRegions(h) {
+  if (h.region) return [h.region];
+  const c = {}; h.event.effects.forEach(e => { const r = G(splitRef(e.ref)[0])?.region; if (r) c[r] = (c[r] || 0) + 1; });
+  return Object.entries(c).filter(([, n]) => n >= 2).map(([r]) => r);
+}
+
+// Everything a change did, measured once and shared by every view below.
+function computeFootprint() {
+  const A = RAIL.with, B = RAIL.without; if (!A || !B) return null;
+  const src = changeSources(), srcIds = new Set(src.map(s => splitRef(s.ref)[0]));
+  const nodes = new Map(), links = new Map();
+  for (const x of impacts().slice(0, 30)) {
+    const gid = splitRef(x.ref)[0], g = G(gid);
+    const d = Math.abs(x.later) >= Math.abs(x.now) ? x.later : x.now;
+    if (Math.abs(d) < 0.8 || !onMap(g)) continue;
+    const path = routeFor(x).path || [];
+    const hops = path.filter(e => onMap(G(e.toId))).length;
+    const order = Math.min(3, hops || 3), lag = path.reduce((s, e) => s + (e.lagTurns || 0), 0);
+    const cur = nodes.get(gid);
+    if (!cur || Math.abs(d) > Math.abs(cur.d)) nodes.set(gid, { id: gid, ref: x.ref, d, now: x.now, order, step: (hops || 3) + lag, path, hidden: x.hidden });
   }
-  const hz = new Map();
-  if (RAIL.without) hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.05).forEach(x => hz.set('hz:' + x.h.id, x.pa - x.pb));
-  MAP.trace = { deltas, links, src, hz };
+  for (const n of nodes.values()) for (const e of n.path) {
+    if (e.fromId === e.toId || !onMap(G(e.fromId)) || !onMap(G(e.toId))) continue;
+    const k = e.fromId + '>' + e.toId; links.set(k, (links.get(k) || 0) + Math.abs(n.d));
+  }
+  const hz = [];
+  for (const h of W.hazards) {
+    const pa = pFire(A, h.id), pb = pFire(B, h.id);
+    if (Math.abs(pa - pb) < 0.05) continue;
+    // The input that moved it most, and the route from the change to that input.
+    let best = null;
+    for (const i of h.inputs) { const c = i.w * pairedDiff(A, B, i.ref) * Math.sign(pa - pb); if (c > 0 && (!best || c > best.c)) best = { c, ref: i.ref, sign: Math.sign(pairedDiff(A, B, i.ref)) }; }
+    const path = best && src.length ? strongestPath(src, best.ref, best.sign || 1) : null;
+    hz.push({ h, id: 'hz:' + h.id, pa, pb, d: pa - pb, alarm: Math.abs(pa - pb) >= 0.1, via: best?.ref, path });
+  }
+  hz.sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+  const towns = W.towns.map(t => {
+    const local = W.hazards.filter(h => hazardRegions(h).includes(t.region));
+    const any = S => { let n = 0; for (let i = 0; i < S.N; i++) if (local.some(h => S.fired[h.id][i] != null)) n++; return n / S.N; };
+    return { t, legit: pairedDiff(A, B, t.legit), treas: pairedDiff(A, B, t.treasury), stab: (any(B) - any(A)) * 100 };
+  });
+  const list = [...nodes.values()].sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+  const heat = list.slice(0, 7).map(n => ({ id: n.id, ref: n.ref, cells: Array.from({ length: A.H }, (_, t) => pairedDiff(A, B, n.ref, t + 1)) }));
+  const key = JSON.stringify([RAIL.change?.label, RAIL.mode, src.map(s => s.ref + s.dir), list.slice(0, 5).map(n => n.id + r0(n.d))]);
+  return { src, srcIds, nodes, list, links, hz, towns, heat, key, maxFlow: Math.max(1, ...links.values()) };
+}
+
+/* ── 11 + 13: the consequence bar above the map (towns, crisis alarms) ── */
+function fxBarHTML() {
+  const fp = FX.fp; if (!fp || (!fp.list.length && !fp.hz.length)) return '';
+  const ar = (d, lim = 0.5) => Math.abs(d) < lim ? '<i class="z">·</i>' : `<i class="${d > 0 ? 'up' : 'down'}">${d > 0 ? '▲' : '▼'}${Math.abs(d) >= 5 ? (d > 0 ? '▲' : '▼') : ''}</i>`;
+  const towns = fp.towns.map(x => `<div class="tc${E.sim.leader === x.t.id ? ' me' : ''}" title="${esc(x.t.name)}: legitimacy ${fmt(x.legit)}, treasury ${fmt(x.treas)}, stability ${fmt(x.stab)}"><b>${esc(x.t.name.replace(' Kaiishi', ''))}</b><span>${ar(x.legit)}${ar(x.treas)}${ar(x.stab, 2)}</span></div>`).join('');
+  const alarms = fp.hz.filter(x => x.alarm).slice(0, 3).map(x => `<button class="alarm ${x.d > 0 ? 'worse' : 'better'}" data-node="${esc(x.id)}"><b>⚠ ${esc(shortName(x.id))}</b> ${pct(x.pb)}→${pct(x.pa)}%${x.path ? `<span class="mini-route">${x.path.slice(-2).map(e => esc(shortName(e.toId))).join(' → ')}</span>` : ''}</button>`).join('');
+  return `<div class="fxbar"><div class="towns-h"><span class="lbl">Towns</span><span class="lg">legit · treas · stab</span></div><div class="tcs">${towns}</div>${alarms ? `<div class="alarms">${alarms}</div>` : ''}</div>`;
+}
+
+/* ── 1 + 4: ripple animation and knock-on rings ── */
+function stopRipple() { FX.timers.forEach(clearTimeout); FX.timers = []; $('#mapSvg')?.classList.remove('rippling'); $$('#mapSvg .pinged').forEach(e => e.classList.remove('pinged')); }
+function playRipple() {
+  const svg = $('#mapSvg'), fp = FX.fp; if (!svg || !fp || !fp.list.length) return;
+  stopRipple();
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  svg.classList.add('rippling');
+  const steps = new Map(); for (const n of fp.list) { const s = Math.min(n.step, 6); (steps.get(s) || steps.set(s, []).get(s)).push(n.id); }
+  const last = Math.max(1, ...steps.keys()) + 1, T = 420;
+  const ping = id => { const el = svg.querySelector(`.nd[data-id="${CSS.escape(id)}"]`); if (!el) return; el.classList.remove('ping'); void el.getBBox(); el.classList.add('ping', 'pinged'); };
+  const flow = to => $$('.lk.trace', svg).forEach(l => { if (l.dataset.k.endsWith('>' + to)) { l.classList.remove('pulse'); void l.getBBox(); l.classList.add('pulse'); } });
+  FX.timers.push(setTimeout(() => fp.srcIds.forEach(ping), 0));
+  for (const [s, ids] of steps) FX.timers.push(setTimeout(() => ids.forEach(id => { flow(id); ping(id); }), s * T));
+  FX.timers.push(setTimeout(() => fp.hz.forEach(x => ping(x.id)), last * T));
+  FX.timers.push(setTimeout(() => svg.classList.remove('rippling'), last * T + 500));
+}
+function ringsSVG() {
+  const fp = FX.fp, L = MAP.layout; if (!fp || !fp.list.length || !L || FX.preview) return '';
+  const centerId = [...fp.srcIds].find(id => L.pos[id]) || fp.list[0].id, c = L.pos[centerId];
+  const out = [];
+  for (const k of [1, 2, 3]) {
+    const ds = fp.list.filter(n => n.order === k && L.pos[n.id]).map(n => Math.hypot(L.pos[n.id].x - c.x, L.pos[n.id].y - c.y));
+    if (!ds.length) continue;
+    const r = Math.max(...ds) + 26;
+    out.push(`<circle class="ring-o o${k}" cx="${c.x.toFixed(0)}" cy="${c.y.toFixed(0)}" r="${r.toFixed(0)}"/><text class="ring-l o${k}" x="${(c.x + r * 0.71).toFixed(0)}" y="${(c.y - r * 0.71).toFixed(0)}">${['', '1st', '2nd', '3rd+'][k]}</text>`);
+  }
+  return out.reverse().join('');
+}
+
+/* ── 9: preview while dragging, before you commit ── */
+const PV = { base: null, stamp: null, t: null };
+function previewWith(mutate, srcId) {
+  clearTimeout(PV.t);
+  PV.t = setTimeout(() => {
+    const st = stateStamp();
+    if (PV.stamp !== st) { PV.base = simulate(E, RAIL.whatif, { N: QUICK_N }); PV.stamp = st; }
+    const S = clone(E); mutate(S);
+    const P = simulate(S, RAIL.whatif, { N: QUICK_N }), B = PV.base, m = new Map(), hz = new Map();
+    for (const g of W.groups) if (onMap(g)) { const d = pairedDiff(P, B, primaryRef(g)); if (Math.abs(d) >= 0.8) m.set(g.id, d); }
+    for (const h of W.hazards) { const d = pFire(P, h.id) - pFire(B, h.id); if (Math.abs(d) >= 0.05) hz.set('hz:' + h.id, d); }
+    FX.preview = { m, hz, src: srcId }; paintMap();
+  }, 80);
+}
+function clearPreview() { clearTimeout(PV.t); if (FX.preview) { FX.preview = null; paintMap(); } }
+
+/* ── 7: the flow diagram (change → 1st → 2nd → 3rd → crises) ── */
+function flowSVG() {
+  const fp = FX.fp;
+  if (!fp || !fp.list.length) return `<div class="flow-empty">Make a change to see where it flows.</div>`;
+  const cols = [[], [], [], [], []], seen = new Set(), val = new Map(), Wd = 1000, colX = [90, 305, 515, 725, 915];
+  const add = (c, id, v) => { if (seen.has(id)) return; seen.add(id); cols[c].push(id); val.set(id, v); };
+  for (const s of fp.src) { const id = splitRef(s.ref)[0]; add(0, id, s.dir * 6); }
+  for (const n of fp.list.slice(0, 18)) add(n.order, n.id, n.d);
+  for (const x of fp.hz.slice(0, 5)) add(4, x.id, x.d * 40);
+  // Bands along each node's route, skipping groups that are not drawn
+  const bands = new Map();
+  const band = (a, b, w, edges) => { if (a === b || !seen.has(a) || !seen.has(b)) return; const k = a + '>' + b, cur = bands.get(k) || { a, b, w: 0, edges: new Set() }; cur.w += w; edges.forEach(e => cur.edges.add(e)); bands.set(k, cur); };
+  for (const n of fp.list.slice(0, 18)) {
+    let prev = n.path[0]?.fromId, acc = [];
+    for (const e of n.path) { acc.push(e.id); if (seen.has(e.toId) && e.toId !== prev) { band(prev, e.toId, Math.abs(n.d), acc); prev = e.toId; acc = []; } }
+    if (!n.path.length && fp.src[0]) band(splitRef(fp.src[0].ref)[0], n.id, Math.abs(n.d), []);
+  }
+  for (const x of fp.hz.slice(0, 5)) { const from = x.via && splitRef(x.via)[0]; band(seen.has(from) ? from : cols[0][0], x.id, Math.abs(x.d) * 40, []); }
+  const maxW = Math.max(1, ...[...bands.values()].map(b => b.w));
+  const pos = {}, H = Math.max(360, Math.max(...cols.map(c => c.length)) * 46 + 40);
+  cols.forEach((c, ci) => { c.sort((a, b) => Math.abs(val.get(b)) - Math.abs(val.get(a))); const gap = (H - 40) / Math.max(1, c.length); c.forEach((id, i) => pos[id] = { x: colX[ci], y: 30 + gap * (i + 0.5) }); });
+  const bw = 150;
+  const bandsSvg = [...bands.values()].map((b, i) => {
+    const p = pos[b.a], q = pos[b.b], x1 = p.x + bw / 2, x2 = q.x - bw / 2, xm = (x1 + x2) / 2, w = 2 + 16 * b.w / maxW;
+    const up = (val.get(b.b) || 0) > 0 !== b.b.startsWith('hz:');
+    return `<path class="fband ${up ? 'up' : 'down'}${FX.flowSel === i ? ' sel' : ''}" data-b="${i}" d="M${x1},${p.y} C${xm},${p.y} ${xm},${q.y} ${x2},${q.y}" style="stroke-width:${w.toFixed(1)}"/>`;
+  }).join('');
+  const nodesSvg = Object.entries(pos).map(([id, p]) => {
+    const v = val.get(id), hz = id.startsWith('hz:'), src = cols[0].includes(id);
+    const badge = hz ? `${v > 0 ? '▲' : '▼'}${Math.abs(Math.round(v / 40 * 100))}%` : src ? (v > 0 ? '▲' : '▼') : signTxt(v);
+    const bad = hz ? v > 0 : v < 0;
+    return `<g class="fnode${hz ? ' hz' : ''}${src ? ' src' : ''}" data-node="${esc(id)}" transform="translate(${p.x},${p.y})"><rect x="${-bw / 2}" y="-15" width="${bw}" height="30" rx="3"/><text class="fn" x="${-bw / 2 + 8}" y="4">${esc(shortName(id).slice(0, 18))}</text><text class="fb ${bad ? 'down' : 'up'}" x="${bw / 2 - 7}" y="5" text-anchor="end">${badge}</text></g>`;
+  }).join('');
+  const heads = ['Your change', '1st order', '2nd order', '3rd+', 'Crises'].map((h, i) => cols[i].length ? `<text class="fh" x="${colX[i]}" y="16" text-anchor="middle">${h}</text>` : '').join('');
+  FX.flowBands = [...bands.values()];
+  const sel = FX.flowSel != null && FX.flowBands[FX.flowSel];
+  const why = sel ? [...sel.edges].map(id => IDX.byId[id]).filter(Boolean) : [];
+  return `<svg id="flowSvg" viewBox="0 0 ${Wd} ${H}" role="img" aria-label="Where your change flows">${heads}<g>${bandsSvg}</g><g>${nodesSvg}</g></svg>
+    ${sel ? `<div class="flow-why"><b>${esc(shortName(sel.a))} → ${esc(shortName(sel.b))}</b><ul>${why.map(e => `<li><b>${esc(cap(e.short))}</b> <span class="muted">· ${esc(e.precedent || '')}</span></li>`).join('') || '<li class="muted">via several small links</li>'}</ul></div>` : ''}`;
+}
+function wireFlow(root) {
+  $$('.fband', root).forEach(b => b.onclick = () => { FX.flowSel = FX.flowSel === +b.dataset.b ? null : +b.dataset.b; renderFlowView(); });
+  $$('.fnode', root).forEach(n => n.onclick = () => { FX.view = 'map'; renderMap(); selectNode(n.dataset.node); });
+}
+function renderFlowView() { const w = $('#flowWrap'); if (!w) return; w.innerHTML = flowSVG(); wireFlow(w); }
+
+/* ── 6 + 8 + 12: the rail's picture of your change ── */
+function chainRowHTML(n, i) {
+  const path = n.path, stops = [];
+  if (path.length) { stops.push({ id: path[0].fromId, s: 0 }); path.forEach(e => { if (onMap(G(e.toId)) || e.toId === n.id) stops.push({ id: e.toId }); }); }
+  else stops.push({ id: n.id });
+  const pills = stops.slice(-4).map((s, k, arr) => `<span class="pill ${k === arr.length - 1 ? (n.d > 0 ? 'up' : 'down') : 'n'}">${esc(shortName(s.id))}${k === arr.length - 1 ? ` <b>${signTxt(n.d)}</b>` : ''}</span>`).join('<span class="arr">→</span>');
+  const open = RUI.chain === i;
+  return `<div class="chain${open ? ' open' : ''}" data-chain="${i}"><div class="route">${pills}${n.hidden ? '<span class="hid" title="Reached only indirectly">✦</span>' : ''}</div>
+    ${open ? `<ul class="why-l">${path.map(e => `<li><b>${esc(cap(e.short))}</b>${e.lagTurns ? ` <span class="lag">⏳${e.lagTurns}</span>` : ''}</li>`).join('') || '<li class="muted">many small links</li>'}</ul>` : ''}</div>`;
+}
+function heatSVG(heat, H) {
+  if (!heat.length) return '';
+  const cw = Math.min(26, 200 / H), lw = 104, rh = 17, w = lw + cw * H + 4, h = 16 + rh * heat.length;
+  const mx = Math.max(2, ...heat.flatMap(r => r.cells.map(Math.abs)));
+  const cells = heat.map((r, i) => `<text class="hl" x="${lw - 5}" y="${16 + rh * i + 12}" text-anchor="end">${esc(shortName(r.id).slice(0, 15))}</text>` + r.cells.map((v, t) => `<rect x="${lw + t * cw}" y="${16 + rh * i}" width="${cw - 2}" height="${rh - 2}" rx="2" class="hc ${v > 0 ? 'up' : 'down'}" style="opacity:${(0.08 + 0.92 * Math.min(1, Math.abs(v) / mx)).toFixed(2)}"><title>${esc(shortName(r.id))} +${t + 1}: ${fmt(v)}</title></rect>`).join('')).join('');
+  const axis = Array.from({ length: H }, (_, t) => (t === 0 || t === H - 1 || H <= 6) ? `<text class="ha" x="${lw + t * cw + (cw - 2) / 2}" y="11" text-anchor="middle">+${t + 1}</text>` : '').join('');
+  return `<svg class="heat" viewBox="0 0 ${w} ${h}" width="${w}" role="img" aria-label="When each effect lands">${axis}${cells}</svg>`;
+}
+function railChangeHTML() {
+  if (!RAIL.without) return `<section class="rs"><h3>Your change</h3><p class="empty">Change something.</p></section>`;
+  const fp = FX.fp || computeFootprint(); FX.fp = fp;
+  const label = RAIL.mode === 'canon' ? 'Everything since canon' : RAIL.mode === 'scenario' ? `Now vs “${scenarioOf()?.name || 'scenario'}”` : RAIL.change?.label || 'Your change';
+  const chip = n => `<button class="wl-c ${n.d > 0 ? 'up' : 'down'}" data-node="${esc(n.id)}">${esc(shortName(n.id))} <b>${signTxt(n.d)}</b></button>`;
+  const win = fp.list.filter(n => n.d > 0).slice(0, 5), lose = fp.list.filter(n => n.d < 0).slice(0, 5);
+  const imps = impacts(), rows = imps.slice(0, 14);
+  return `<section class="rs"><h3>Your change</h3>
+    <p class="chg">${esc(label)}</p>
+    ${fp.hz.length ? `<div class="shifts">${fp.hz.slice(0, 5).map(x => `<button class="shift ${x.d > 0 ? 'worse' : 'better'}${x.alarm ? ' alarm' : ''}" data-node="${esc(x.id)}">${x.alarm ? '⚠ ' : ''}${esc(shortName(x.id))} ${pct(x.pb)}→<b>${pct(x.pa)}%</b></button>`).join('')}</div>` : ''}
+    ${fp.list.length ? `<div class="wl"><div><div class="lbl up">▲ Gains</div>${win.map(chip).join('') || '<span class="muted small">—</span>'}</div><div><div class="lbl down">▼ Losses</div>${lose.map(chip).join('') || '<span class="muted small">—</span>'}</div></div>
+    <div class="lbl">How it travels</div><div class="chains">${fp.list.slice(0, 5).map(chainRowHTML).join('')}</div>
+    <div class="lbl">When it lands</div>${heatSVG(fp.heat, FC.H)}
+    <details class="alleff"><summary class="lbl">All ${rows.length} effects</summary><div class="bars" id="impBars">${barRows(rows.map(x => ({ label: rowLabel(x.ref), d: x.later, now: x.now, hidden: x.hidden, node: splitRef(x.ref)[0], title: `${nameRef(x.ref)}: ${fmt(x.now)} now, ${fmt(x.later)} by +${FC.H}` })))}</div></details>`
+    : '<p class="empty">No effect beyond what you changed.</p>'}
+  </section>`;
+}
+
+/* ── 14: the decision ledger ── */
+function recordDecision(dec) {
+  DECISIONS.unshift({ id: Date.now() + Math.random(), on: true, time: Date.now(), ...dec });
+  DECISIONS = DECISIONS.slice(0, 20); FX.share = null;
+}
+function decisionLabel(d) {
+  if (d.kind === 'set') return `${shortName(splitRef(d.ref)[0])} ${r0(d.from)}→${r0(d.to)}`;
+  if (d.kind === 'whatif') return `What if: ${injDef(d.item)?.name || d.item.id}`;
+  if (d.kind === 'deal') return `${d.dealOn ? 'Deal' : 'Ended'}: ${W.deals.find(x => x.id === d.dealId)?.name || d.dealId}`;
+  if (d.kind === 'leader') return d.to ? `Lead ${TOWN(d.to)?.name}` : 'Stop leading';
+  return '?';
+}
+// The world with one decision taken back, for measuring its share and for switching it off.
+function withoutDecision(d, S, wi) {
+  if (d.kind === 'set') setDirect(S, d.ref, d.from, { kind: 'user', ref: d.ref, turn: S.sim.turn }, []);
+  else if (d.kind === 'whatif') { const i = wi.findIndex(w => w.id === d.item.id && w.turn === d.item.turn && !!w.custom === !!d.item.custom); if (i >= 0) wi.splice(i, 1); }
+  else if (d.kind === 'deal') { if (d.dealOn) delete S.sim.deals[d.dealId]; else S.sim.deals[d.dealId] = { since: S.sim.turn }; }
+  else if (d.kind === 'leader') S.sim.leader = d.from || null;
+}
+function toggleDecision(id) {
+  const d = DECISIONS.find(x => x.id === id); if (!d) return;
+  pushUndo();
+  RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
+  if (d.on) withoutDecision(d, E, RAIL.whatif);
+  else if (d.kind === 'set') setDirect(E, d.ref, d.to, { kind: 'user', ref: d.ref, turn: E.sim.turn }, []);
+  else if (d.kind === 'whatif') RAIL.whatif.push(clone(d.item));
+  else if (d.kind === 'deal') { if (d.dealOn) E.sim.deals[d.dealId] = { since: E.sim.turn }; else delete E.sim.deals[d.dealId]; }
+  else if (d.kind === 'leader') E.sim.leader = d.to || null;
+  d.on = !d.on; FX.share = null;
+  RAIL.change = { label: `${d.on ? 'Back on' : 'Switched off'}: ${decisionLabel(d)}`, sources: sourcesBetween(RAIL.base.E, RAIL.base.whatif) };
+  RUI.open = null; renderClock(); scheduleForecast(0); renderDock(); save();
+}
+async function measureShares() {
+  const stamp = stateStamp(); if (FX.share?.stamp === stamp) return;
+  const act = DECISIONS.filter(d => d.on).slice(0, 8); if (!act.length) { FX.share = { stamp, m: {} }; return; }
+  FX.share = { stamp, m: {}, busy: true };
+  const base = simulate(E, RAIL.whatif, { N: QUICK_N });
+  for (const d of act) {
+    await yieldUI(); if (stateStamp() !== stamp) return;
+    const S = clone(E), wi = clone(RAIL.whatif); withoutDecision(d, S, wi);
+    const P = simulate(S, wi, { N: QUICK_N });
+    let size = 0; const tops = [];
+    for (const g of W.groups) if (onMap(g)) { const v = pairedDiff(base, P, primaryRef(g)); size += Math.abs(v); if (Math.abs(v) >= 1) tops.push({ id: g.id, d: v }); }
+    for (const h of W.hazards) { const v = pFire(base, h.id) - pFire(P, h.id); size += Math.abs(v) * 30; if (Math.abs(v) >= 0.1) tops.push({ id: 'hz:' + h.id, d: v * 100, hz: true }); }
+    tops.sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+    FX.share.m[d.id] = { size, tops: tops.slice(0, 3) };
+  }
+  FX.share.busy = false;
+  const el = $('#decList'); if (el) { el.outerHTML = decisionsInner(); wireDecisions($('#rail')); }
+}
+function decisionsInner() {
+  const m = FX.share?.m || {}, mx = Math.max(1, ...Object.values(m).map(x => x.size));
+  return `<div id="decList">${DECISIONS.slice(0, 10).map(d => { const s = m[d.id]; return `<div class="dec${d.on ? '' : ' off'}"><label><input type="checkbox" data-dec="${d.id}" ${d.on ? 'checked' : ''}> <span>${esc(decisionLabel(d))}</span></label>
+    ${d.on ? `<span class="dbar"><i style="width:${s ? (100 * s.size / mx).toFixed(0) : 0}%"></i></span><span class="dtops">${s ? s.tops.map(x => `<em class="${(x.hz ? x.d < 0 : x.d > 0) ? 'up' : 'down'}">${esc(shortName(x.id))} ${x.hz ? signTxt(x.d) + '%' : signTxt(x.d)}</em>`).join('') : ''}</span>` : ''}</div>`; }).join('')}</div>`;
+}
+function railDecisionsHTML() {
+  if (!DECISIONS.length) return '';
+  return `<section class="rs"><h3>Your decisions <button class="btn sm ghost" id="decClear" title="Forget the list (keeps the world as it is)">clear</button></h3>${decisionsInner()}</section>`;
+}
+function wireDecisions(el) {
+  $$('[data-dec]', el).forEach(c => c.onchange = () => toggleDecision(+c.dataset.dec));
+  $('#decClear', el)?.addEventListener('click', () => { DECISIONS = []; FX.share = null; renderRail(); save(); });
+}
+
+/* ── 10: option A vs option B ── */
+function compareOptions(aId, bId) {
+  const pick = id => id === 'now' ? { name: 'Now', E, whatif: RAIL.whatif } : SCN.find(s => s.id === id);
+  const a = pick(aId), b = pick(bId); if (!a || !b) return;
+  const SA = simulate(a.E, a.whatif, { N: 24 }), SB = simulate(b.E, b.whatif, { N: 24 });
+  const towns = W.towns.map(t => ({ t, legit: [medAt(SA, t.legit), medAt(SB, t.legit)], treas: [medAt(SA, t.treasury), medAt(SB, t.treasury)] }));
+  const hz = W.hazards.map(h => ({ h, a: pFire(SA, h.id), b: pFire(SB, h.id) })).filter(x => Math.max(x.a, x.b) >= 0.05 || Math.abs(x.a - x.b) >= 0.05);
+  const diff = W.groups.filter(onMap).map(g => ({ id: g.id, d: pairedDiff(SA, SB, primaryRef(g)) })).filter(x => Math.abs(x.d) >= 1).sort((x, y) => Math.abs(y.d) - Math.abs(x.d)).slice(0, 8);
+  FX.cmp = { a: a.name, b: b.name, towns, hz, diff };
+}
+function compareHTML() {
+  const c = FX.cmp; if (!c) return '';
+  const pair = (x, y) => { return `<span class="pb" title="A ${r0(x)}"><i class="a" style="width:${clamp(x, 0, 100).toFixed(0)}%"></i></span><span class="pb" title="B ${r0(y)}"><i class="b" style="width:${clamp(y, 0, 100).toFixed(0)}%"></i></span>`; };
+  return `<div class="cmp"><div class="cmp-k"><span class="ka">A · ${esc(c.a)}</span><span class="kb">B · ${esc(c.b)}</span></div>
+    <table class="cmpt"><thead><tr><th></th><th>Legit</th><th>Treasury</th></tr></thead><tbody>${c.towns.map(x => `<tr><th>${esc(x.t.name.replace(' Kaiishi', ''))}</th><td>${pair(...x.legit)}</td><td>${pair(...x.treas)}</td></tr>`).join('')}</tbody></table>
+    ${c.hz.length ? `<div class="lbl">Crisis odds</div>${c.hz.map(x => `<div class="cmp-hz"><span>${esc(shortName('hz:' + x.h.id))}</span><b class="ka">${pct(x.a)}%</b><b class="kb">${pct(x.b)}%</b></div>`).join('')}` : ''}
+    ${c.diff.length ? `<div class="lbl">A vs B</div><div class="wl-flat">${c.diff.map(x => `<span class="wl-c ${x.d > 0 ? 'up' : 'down'}">${esc(shortName(x.id))} <b>${signTxt(x.d)}</b></span>`).join('')}</div>` : ''}</div>`;
 }
 
 const nodeName = id => id.startsWith('hz:') ? (W.hazards.find(h => 'hz:' + h.id === id)?.name || id) : (G(id)?.name || id);
@@ -14363,6 +14793,10 @@ function toolsHTML() {
       ${SCN.length ? `<ul class="scn">${SCN.map(s => `<li${RAIL.mode === 'scenario' && RAIL.scenario === s.id ? ' class="cmp"' : ''}><span>${esc(s.name)}</span>
         <button class="btn sm ghost" data-load="${esc(s.id)}" title="Make this the present">Load</button><button class="btn sm ghost" data-cmp="${esc(s.id)}" title="Compare the present against it">Compare</button><button class="btn sm ghost" data-del="${esc(s.id)}" aria-label="Delete">✕</button></li>`).join('')}</ul>` : '<p class="help small muted">Save the present, try something else, then Compare to see the difference.</p>'}
     </div>
+    <div class="tool"><h4>Option A vs B</h4>
+      ${SCN.length ? `<div class="row2">${['A', 'B'].map((k, i) => `<select class="inp" id="opt${k}" aria-label="Option ${k}"><option value="now">Now</option>${SCN.map(x => `<option value="${esc(x.id)}" ${i === 0 && x.id === SCN[0].id ? 'selected' : ''}>${esc(x.name)}</option>`).join('')}</select>`).join('')}<button class="btn sm wax" id="optGo">Compare</button></div>${compareHTML()}`
+      : '<p class="small muted">Save an option under Scenarios first.</p>'}
+    </div>
     <p class="small muted" style="margin-top:8px">Click any node to open it here.</p>`;
 }
 function wireTools(el) {
@@ -14373,6 +14807,7 @@ function wireTools(el) {
   $('#tScnName', el).oninput = e => { TOOLS.scnName = e.target.value; };
   $('#tScnSave', el).onclick = () => { saveScenario(TOOLS.scnName); TOOLS.scnName = ''; };
   $$('[data-load]', el).forEach(b => b.onclick = () => loadScenario(b.dataset.load));
+  $('#optGo', el)?.addEventListener('click', () => { compareOptions($('#optA', el).value, $('#optB', el).value); renderDock(); });
   $$('[data-cmp]', el).forEach(b => b.onclick = () => compareScenario(b.dataset.cmp));
   $$('[data-del]', el).forEach(b => b.onclick = () => { SCN = SCN.filter(s => s.id !== b.dataset.del); if (RAIL.scenario === b.dataset.del && RAIL.mode === 'scenario') { RAIL.mode = 'last'; computeForecast(); afterForecast(); } save(); renderDock(); });
   $$('[data-try]', el).forEach(b => b.onclick = () => {
@@ -14444,15 +14879,17 @@ function renderRail() {
       <p class="help small muted">${FC.N} simulated futures. Every number compares the forecast with and without the change.</p>
     </div>
     ${railChangeHTML()}
+    ${railDecisionsHTML()}
     ${railCrisisHTML()}
     ${railWhatIfHTML()}
     ${railHeadingHTML()}`;
   $('#fcH', el).onchange = e => { FC.H = +e.target.value; MAP.t = Math.min(MAP.t, FC.H); computeForecast(); afterForecast(); if (UI.tab === 'map') renderMap(); save(); };
   $$('.seg button', el).forEach(b => b.onclick = () => { RAIL.mode = b.dataset.mode; computeForecast(); afterForecast(); if (UI.tab === 'map') renderDock(); save(); });
   $('#railClose', el).onclick = () => { UI.railOpen = false; renderAll(); save(); };
-  $$('#impBars .brow', el).forEach(b => b.onclick = () => { const i = +b.dataset.i; RUI.open = RUI.open === i ? null : i; renderRail(); });
+  $$('[data-chain]', el).forEach(b => b.onclick = () => { const i = +b.dataset.chain; RUI.chain = RUI.chain === i ? null : i; renderRail(); });
+  wireDecisions(el);
   $$('.dialbtn', el).forEach(b => b.onclick = () => { RUI.dial = RUI.dial === b.dataset.hz ? null : b.dataset.hz; renderRail(); });
-  $$('[data-node]', el).forEach(b => { if (!b.closest('#impBars')) b.onclick = () => selectNode(b.dataset.node); });
+  $$('[data-node]', el).forEach(b => b.onclick = () => selectNode(b.dataset.node));
   const add = $('#wiAdd', el);
   if (add) add.onclick = () => { const id = $('#wiSel', el).value, turn = +$('#wiTurn', el).value; if (id) addWhatIf({ id, turn }); };
   $$('[data-wi-del]', el).forEach(b => b.onclick = () => removeWhatIf(+b.dataset.wiDel));
@@ -14466,21 +14903,6 @@ function routeHTML(x) {
   for (const e of r.path) { sg *= (e.type === 'oppose' ? -1 : 1) * (e.type === 'latent' ? (e.sign ?? 1) : 1); parts.push(`<span class="arr">→</span>`, pill(toRef(e), sg)); }
   return `<div class="route">${parts.join('')}</div>
     ${whyBox(`<ol class="steps">${r.path.map(e => `<li><b>${esc(cap(e.short))}</b>${e.lagTurns ? ` ⏳${e.lagTurns}` : ''}. ${esc(e.explanation)} <span class="canon ${esc(e.canon)}">${esc(e.canon)}</span></li>`).join('')}</ol>${r.viaHz.length ? `<p class="small">Also via crisis odds: ${r.viaHz.map(v => `${esc(v.h.name)} ${pct(v.pb)}% → ${pct(v.pa)}%`).join(', ')}.</p>` : ''}`)}`;
-}
-function railChangeHTML() {
-  if (!RAIL.without) return `<section class="rs"><h3>Your change</h3><p class="empty">Change something on the map or add a What-if.</p></section>`;
-  const imps = impacts(), shifts = hazardShifts().filter(x => Math.abs(x.pa - x.pb) >= 0.05).sort((a, b) => Math.abs(b.pa - b.pb) - Math.abs(a.pa - a.pb));
-  const label = RAIL.mode === 'canon' ? 'Everything since canon' : RAIL.mode === 'scenario' ? `Now vs “${scenarioOf()?.name || 'scenario'}”` : RAIL.change?.label || 'Your change';
-  const rows = imps.slice(0, 12);
-  const open = RUI.open != null && rows[RUI.open] ? rows[RUI.open] : null;
-  return `<section class="rs"><h3>Your change</h3>
-    <p class="chg">${esc(label)}</p>
-    ${shifts.length ? `<div class="shifts">${shifts.slice(0, 4).map(x => `<button class="shift ${x.pa > x.pb ? 'worse' : 'better'}" data-node="hz:${esc(x.h.id)}">${esc(x.h.name.replace(/ Risk$/, ''))} ${pct(x.pb)}→<b>${pct(x.pa)}%</b></button>`).join('')}</div>` : ''}
-    ${rows.length ? `<div class="bars" id="impBars">${barRows(rows.map(x => ({ label: rowLabel(x.ref), d: x.later, now: x.now, hidden: x.hidden, title: `${nameRef(x.ref)}: ${fmt(x.now)} now, ${fmt(x.later)} by +${FC.H}${x.hidden ? ' · hidden link' : ''}` })))}</div>
-      <div class="help small muted">Bar: change by +${FC.H}. Dark inner bar: change today. ✦ = hidden link. Click a bar for its route.</div>
-      ${open ? `<div class="routebox"><div class="small"><b>${esc(nameRef(open.ref))}</b> ${pips(open.later)}</div>${routeHTML(open)}</div>` : ''}`
-      : '<p class="empty">No effect beyond what you changed.</p>'}
-  </section>`;
 }
 function railCrisisHTML() {
   const rows = hazardShifts().map(x => ({ ...x, v: hazardV(E, x.h) })).sort((a, b) => b.pa - a.pa || b.v / b.h.threshold - a.v / a.h.threshold);
@@ -14511,10 +14933,11 @@ function railHeadingHTML() {
 
 /* ── Changes: sliders, what-ifs, undo ── */
 function pushUndo() {
-  UNDO.push({ E: clone(E), logLen: LOG.length, rail: clone({ whatif: RAIL.whatif, base: RAIL.base, change: RAIL.change }) });
+  UNDO.push({ E: clone(E), logLen: LOG.length, rail: clone({ whatif: RAIL.whatif, base: RAIL.base, change: RAIL.change }), decisions: clone(DECISIONS) });
   if (UNDO.length > 30) UNDO.shift();
 }
 function commitSlider(ref, newVal) {
+  FX.preview = null;
   const v0 = E.values[ref];
   if (Math.abs(newVal - v0) < 0.05) return;
   const now = Date.now();
@@ -14529,6 +14952,8 @@ function commitSlider(ref, newVal) {
   const out = [];
   setDirect(E, ref, newVal, { kind: 'user', label: nameRef(ref), ref, turn: E.sim.turn }, out);
   disp.records.push(...out); disp.to = newVal; disp.time = now;
+  if (merge && DECISIONS[0]?.kind === 'set' && DECISIONS[0].ref === ref) { DECISIONS[0].to = newVal; FX.share = null; }
+  else if (!merge) recordDecision({ kind: 'set', ref, from: v0, to: newVal });
   RAIL.change = { label: `${nameRef(ref)} · ${splitRef(ref)[1]} ${r0(disp.from)} → ${r0(newVal)}`, sources: [{ ref, dir: Math.sign(newVal - disp.from) || 1 }] };
   RUI.open = null;
   paintMap(); renderClock(); scheduleForecast(); save();
@@ -14538,6 +14963,7 @@ function addWhatIf(item) {
   pushUndo();
   RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
   RAIL.whatif.push(item);
+  recordDecision({ kind: 'whatif', item: clone(item) });
   RAIL.change = { label: `What if: ${d.name} (+${item.turn})`, sources: whatifSources(item) };
   LOG.unshift({ id: Date.now(), kind: 'whatif', title: RAIL.change.label, turn: E.sim.turn, time: Date.now(), records: [] });
   RUI.open = null; scheduleForecast(0); save();
@@ -14547,6 +14973,7 @@ function removeWhatIf(i) {
   pushUndo();
   RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
   RAIL.whatif.splice(i, 1);
+  const dd = DECISIONS.find(x => x.kind === 'whatif' && x.on && x.item.id === item.id && x.item.turn === item.turn); if (dd) dd.on = false;
   RAIL.change = { label: `Removed: ${d?.name || item.id}`, sources: whatifSources(item, -1) };
   RUI.open = null; scheduleForecast(0); save();
 }
@@ -14554,6 +14981,7 @@ function undo() {
   const u = UNDO.pop(); if (!u) return;
   E = u.E; LOG = LOG.slice(LOG.length - u.logLen);
   if (u.rail) Object.assign(RAIL, u.rail);
+  if (u.decisions) { DECISIONS = u.decisions; FX.share = null; }
   if (RAIL.mode === 'scenario' && !scenarioOf()) RAIL.mode = 'last';
   MAP.trace = null; RUI.open = null;
   computeForecast(); renderAll(); save();
@@ -15015,7 +15443,7 @@ $('#backWeb').onclick = () => { UI.tab = 'map'; renderAll(); save(); };
 $('#btnReset').onclick = () => {
   pushUndo();
   RAIL.base = { E: clone(E), whatif: clone(RAIL.whatif) };
-  E = freshEngine(); RAIL.whatif = [];
+  E = freshEngine(); RAIL.whatif = []; DECISIONS = []; FX.share = null;
   RAIL.change = { label: 'Reset everything to canon', sources: [] };
   LOG.unshift({ id: Date.now(), kind: 'reset', title: 'Values reset to canon', turn: 0, time: Date.now(), records: [] });
   CHRON = []; MAP.trace = null; computeForecast(); renderAll(); save();

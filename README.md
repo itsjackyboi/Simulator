@@ -31,6 +31,17 @@ One screen: a **dock** on the left, **the Web** in the middle, and a **forecast 
   - **Find the lever**: pick an outcome (any group, crisis or relationship between towns); every slider and town lever (±15), every What-if and every backroom deal is tried and ranked.
   - **Scenarios**: save the present under a name, load it later, or compare the present against it.
 - **Forecast panel** (40 simulated futures over 3–12 seasons): *Your change* bar chart with click-through routes; *Crisis odds* as dials, split into **global** crises (far-reaching) and **regional** crises (one town; their direct effects stay inside it, and only the web's links carry them further); *What if…*; *Heading, left alone*.
+- **Seeing a change travel.** Every change leaves a footprint, drawn several ways:
+  - **Ripple.** When you let go of a slider, lever or deal, a pulse runs out along the links, one step at a time; delayed effects arrive later in the same animation. ▶ Replay plays it again.
+  - **Spotlight.** Everything the change didn't touch fades out. Links carry width by how much flowed along them, and faint rings mark 1st, 2nd and 3rd-order effects (solid, dashed and dotted outlines).
+  - **Badges.** Every affected node shows its change as a large number (+6, −4); crises show the change in odds.
+  - **Hold: before** (or hold B) shows the world without the change.
+  - **Preview.** While you drag a slider or hover a deal, the map already shows the likely effect in italics, before you commit.
+  - **Flow.** The Map / Flow switch draws the change → 1st → 2nd → 3rd → crises as a flow diagram; click a band for the links behind it.
+  - **Town bar.** Above the map: each town's legitimacy, treasury and stability arrows, and alarms for any crisis the change moved by 10 points or more, with the route that did it.
+  - **Your change** (forecast panel): gains and losses, the top five routes as chains, and a season-by-season heat map of when each effect lands.
+  - **Your decisions** (forecast panel): every decision you've made, each with a bar for its share of where the world is heading and its biggest effects. Untick one to switch it off.
+  - **Option A vs B** (Tools): two saved scenarios side by side for every town and crisis.
 - **Why?** markers hold every in-world explanation. Sizes are pips (▲▮▮); exact numbers are on hover.
 - **⋯ menu**: Projection, Chronicle (canon record, open threads, change log), World Data.
 
